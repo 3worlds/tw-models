@@ -97,11 +97,11 @@ public enum LibraryTable {
 	/**
 	 * TODO: Just an idea for java, jar and data(?) file dependencies:
 	 * 
-	 * If java file, parse the package name and create dir and place there? If there
-	 * is no package name, to linked project root could be added or whatever is
-	 * required for local builds if no linked project is present. Java files will
-	 * produce a compile error (within the tw-models library if they have
-	 * dependencies so the file must be renamed to say *.jav.
+	 * If java file, parse the package name to prepend code.<system id> and create
+	 * dir and place there?
+	 * 
+	 * Java files will produce a compile error (within the tw-models library if they
+	 * have dependencies so the file must be renamed: suggest *.jav.
 	 * 
 	 * If *.jar we know how to handle that (I think we just add it to the compile
 	 * tree.)
@@ -111,7 +111,7 @@ public enum LibraryTable {
 	 * Data seems only necessary for RunTime? Take care not to confound these two
 	 * things.
 	 * 
-	 * Could be a DB query entry??
+	 * Alternatively, these string elements could be a DB query?
 	 */
 
 	private final String[] depFiles;
