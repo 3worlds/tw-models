@@ -5,7 +5,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 // TREE
 3worlds Animal_1
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"null"))
-	built-by = java.lang.String(gignoux (14 avr. 2021))
+	built-by = java.lang.String(gignoux (16 avr. 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"null"))
 	precis = java.lang.String(Preliminary testing of landscape animal model with local mating and square cookiecutter disturbance)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"null"))
@@ -179,7 +179,6 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 				units = java.lang.String(count)
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.GConsts)
-		decoratorClass = java.lang.String(code.sys1.generated.GDecs)
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
@@ -217,20 +216,26 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
 								snippet snptBirth
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([22]"		// String methodName = new Object()","		// {}.getClass().getEnclosingMethod().getName();","		// System.out.println(methodName);","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * 6.28318530717959;","		double dx = distance * Math.cos(direction);","		double dy = distance * Math.sin(direction);","		otherDrv.x = x + dx;","		otherDrv.y = y + dy;","		// inc N for grid location","		int nx = N.size(0);","		int ny = N.size(1);","		int idxx = (int) (otherDrv.x / nx);","		int idxy = (int) (otherDrv.y / ny);","		// What can you do?! We need a space transformation (adaptor space to table)","		if (idxx >= 0 && idxx < nx && idxy >= 0 && idxy < ny) {","			int n = N.getByInt(idxx, idxy);","			N.setByInt(n + 1, idxx, idxy);","		}"))
+									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// String methodName = new Object()","		// {}.getClass().getEnclosingMethod().getName();","		// System.out.println(methodName);","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * 6.28318530717959;","		double dx = distance * Math.cos(direction);","		double dy = distance * Math.sin(direction);","		otherDrv.x = x + dx;","		otherDrv.y = y + dy;"))
 							snippet snptNBirths
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([20]"//		String methodName = new Object() {}.getClass().getEnclosingMethod().getName();","//		System.out.println(t+methodName);","		double result = 0.0;","		if (isFemale && isPregnant && age > 0) {","			result = birthRate;","			// Prevent births if above carrying capacity","			int nx = N.size(0);","			int ny = N.size(1);","			int idxx = (int) (x / nx);","			int idxy = (int) (y / ny);","			// We miss counting outside these bounds. We must have some way to know about","			// space borders","			if (idxx >= 0 && idxx < nx && idxy >= 0 && idxy < ny) {","				int k = K.getByInt(idxx, idxy);","				int n = N.getByInt(idxx, idxy);","				if (n >= k)","					result = 0.0;","			}","		}","		return result;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([20]"//		String methodName = new Object() {}.getClass().getEnclosingMethod().getName();","//		System.out.println(t+methodName);","		double result = 0.0;","		if (isFemale && isPregnant && age > 0) {","			result = birthRate;","			// Prevent births if above carrying capacity","/*			int nx = N.size(0);","			int ny = N.size(1);","			int idxx = (int) (x / nx);","			int idxy = (int) (y / ny);","			// We miss counting outside these bounds. We must have some way to know about","			// space borders","			if (idxx >= 0 && idxx < nx && idxy >= 0 && idxy < ny) {","				int k = K.getByInt(idxx, idxy);","				int n = N.getByInt(idxx, idxy);","				if (n >= k)","					result = 0.0;","			}*/","		}","		return result;"))
 						function Death
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Death)
 							snippet snptDeath
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		boolean die = false;","		if (age > 0) {","			die = decider.decide(deathRate);","			if (die) {","				// decrement counter","				int nx = N.size(0);","				int ny = N.size(1);","				int idxx = (int) (x / nx);","				int idxy = (int) (y / ny);","				// We need to know the space boundaries!","				if (idxx >= 0 && idxx < nx && idxy >= 0 && idxy < ny) {","					int n = N.getByInt(idxx, idxy);","					n = Math.max(0, n - 1);","					N.setByInt(n, idxx, idxy);","				}","			}","		}","		return die;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		boolean die = false;","		if (age > 0) {","			die = decider.decide(deathRate);","			if (die) {","/*				// decrement counter","				int nx = N.size(0);","				int ny = N.size(1);","				int idxx = (int) (x / nx);","				int idxy = (int) (y / ny);","				// We need to know the space boundaries!","				if (idxx >= 0 && idxx < nx && idxy >= 0 && idxy < ny) {","					int n = N.getByInt(idxx, idxy);","					n = Math.max(0, n - 1);","					N.setByInt(n, idxx, idxy);","				}*/","			}","		}","		return die;"))
 					process p1Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FindMate)
 							snippet snptFindMate
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// If we knew the age we could prevent/check for juvenile pairing!","		// NOTE: age is here now (added category *ephemeral* into mateRelation ends)","		boolean result = (age>0.5)&&(other_age>0.5)&&(!isFemale && other_isFemale);","		return result;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// If we knew the age we could prevent/check for juvenile pairing!","		// NOTE: age is here now (added category *ephemeral* into mateRelation ends)","		boolean result = (age>0.5)&&(other_age>0.5)&&(!isFemale)&&(other_isFemale);","		return result;"))
+					process relatePoptoAn
+						function RelatePopAn
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
+							userClassName = java.lang.String(code.sys1.generated.RelatePopAn)
+							snippet snpt4
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 					process p8Track
 						dataTracker globalTracker
 							sampleSize = java.lang.String()
@@ -240,7 +245,13 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.Conceive)
 							snippet snptConceive
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// We can't check the age here so we risk inappropriate behaviour!","		if (!isFemale) {","			otherDec.isPregnant = true;","		}"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// We can't check the age here so we risk inappropriate behaviour!","//		if (!isFemale) {","		if ((age>0.5)&&(other_age>0.5)&&(!isFemale)&&(other_isFemale)) {","			otherDec.isPregnant = true;","		}"))
+					process p1countAn
+						function CountAnimals
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
+							userClassName = java.lang.String(code.sys1.generated.CountAnimals)
+							snippet snpt3
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// NB this is inefficient: recounting all animals every time step...","		double xrange = limits.upperBounds().x()-limits.lowerBounds().x();","		double yrange = limits.upperBounds().y()-limits.lowerBounds().y();","		int nx = other_N.size(0);","		int ny = other_N.size(1);","		int ix = (int) floor(nx * (x-limits.lowerBounds().x())/xrange);","		if (ix>=nx)","			ix = nx-1;","		int iy = (int) floor(ny * (y-limits.lowerBounds().y())/yrange);","		if (iy>=ny)","			iy = ny-1;","		otherDec.N.setByInt(otherDec.N.getByInt(ix,iy)+1,ix,iy);"))
 		structure struc1
 			relationType mateRelation
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -265,10 +276,19 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 					constantClass = java.lang.String(DistCat_Cnt)
 					decoratorClass = java.lang.String(DistCat_Dec)
 					driverClass = java.lang.Object(null)
+				category structured population
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.String(StructuredPopulation_Dec)
+					driverClass = java.lang.Object(null)
 				category animalCat
 					constantClass = java.lang.String(AnimalCat_Cnt)
 					decoratorClass = java.lang.String(AnimalCat_Dec)
 					driverClass = java.lang.String(AnimalCat_Drv)
+			componentType population
+				decoratorClass = java.lang.String(code.sys1.generated.GDecs)
+				component AnimalPop
+			relationType PopAn
+				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 			componentType animalType
 				constantClass = java.lang.String(code.sys1.generated.AnimalConsts)
 				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
@@ -307,12 +327,18 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS
+[category:structured population] decorators decs2 [record:gDecs]
+[process:relatePoptoAn] appliesTo aplyTo7 [relationType:PopAn]
 [relationType:distEffAnimal] toCategory to4 [category:animalCat]
 [relationType:distEffAnimal] fromCategory from2 [category:distCat]
 [componentType:distType] belongsTo bt11 [category:*atomic*]
 [componentType:distType] belongsTo bt10 [category:*permanent*]
 [componentType:distType] belongsTo bt9 [category:*component*]
 [componentType:distType] belongsTo bt8 [category:distCat]
+[componentType:population] belongsTo bt15 [category:*atomic*]
+[componentType:population] belongsTo bt14 [category:structured population]
+[componentType:population] belongsTo bt13 [category:*permanent*]
+[componentType:population] belongsTo bt12 [category:*component*]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
@@ -343,7 +369,6 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 [componentType:animalType] belongsTo bt4 [category:*component*]
 [process:p5DistOcc] appliesTo aplyTo5 [category:distCat]
 [category:*arena*] constants cnsts1 [record:gConsts]
-[category:*arena*] decorators decs2 [record:gDecs]
 [process:p1Courting] appliesTo aplyTo1 [relationType:mateRelation]
 [process:p1Courting] inSpace in1 [space:space1]
 	searchRadius = java.lang.Double(50.0)
@@ -357,9 +382,16 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 17:05:16 CEST 2021
 [process:p3Rreproduce] appliesTo aplyTo6 [category:*ephemeral*]
 [process:p3Rreproduce] dependsOn after2 [process:p2Mate]
 [process:p3Rreproduce] appliesTo aplyTo4 [category:animalCat]
+[process:p3Rreproduce] dependsOn depsOn3 [process:p1countAn]
+[process:p1countAn] appliesTo aplyTo8 [relationType:PopAn]
+[process:p1countAn] dependsOn depsOn1 [process:relatePoptoAn]
+[process:p1countAn] inSpace in2 [space:space1]
+	searchRadius = java.lang.Double(0.0)
 [category:animalCat] constants cnsts2 [record:animalConsts]
 [category:animalCat] decorators decs1 [record:animalDecs]
 [category:animalCat] drivers drvs2 [record:animalDrivers]
+[relationType:PopAn] fromCategory from4 [category:animalCat]
+[relationType:PopAn] toCategory to6 [category:structured population]
 [process:p6DistEffect] appliesTo aplyTo9 [relationType:distEffAnimal]
 [process:p6DistEffect] inSpace in5 [space:space1]
 	searchRadius = java.lang.Double(20.0)
