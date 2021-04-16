@@ -28,6 +28,7 @@
  **************************************************************************/
 
 package fr.cnrs.iees.twmodels;
+
 import fr.cnrs.iees.twmodels.models.*;
 import fr.cnrs.iees.twmodels.templates.*;
 import fr.cnrs.iees.twmodels.tests.*;
@@ -36,7 +37,6 @@ import fr.cnrs.iees.graph.impl.ALEdge;
 import fr.cnrs.iees.graph.impl.TreeGraph;
 import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
 import fr.cnrs.iees.graph.io.GraphImporter;
-
 
 /**
  * A lookup enum for entries in ModelMaker "New" menu. Display order is the
@@ -67,34 +67,63 @@ public enum LibraryTable {
 	Tut9("9 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial, TutorialsDummy.class), //
 	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial, TutorialsDummy.class), //
 	//
-	Model1("1 Palms","Palms1","Palms.utg",LibraryType.Model,ModelsDummy.class),//
-	Model2("2 Resproutch","Resproutch1","Resproutch.utg",LibraryType.Model,ModelsDummy.class),//
+	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model, ModelsDummy.class), //
+	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model, ModelsDummy.class), //
 	//
-	Test1 ("1 TestRelations","TestRelations1","TestRelations.utg",LibraryType.Test,TestsDummy.class),//
-	Test2 ("2 TestLifeCycle","TestLifeCycle1","TestLifeCycle.utg",LibraryType.Test,TestsDummy.class),//
-	Test3 ("3 WrapTest","WrapTest1","WrapTest.utg",LibraryType.Test,TestsDummy.class),//
-	Test4 ("4 TestXYPlot","TestXYPlot1","TestXYPlot.utg",LibraryType.Test,TestsDummy.class),//
-	Test5 ("5 ParallelTest (Palms)","Palms1","ParallelTestPalms.utg",LibraryType.Test,TestsDummy.class),//
-	Test6 ("6 ParallelTest (Logistic)","Logistic1","ParallelTestLogistic.utg",LibraryType.Test,TestsDummy.class),//
-	Test7 ("7 ParallelTest (Boids)","Boids1","ParallelTestBoids.utg",LibraryType.Test,TestsDummy.class),//
-	Test8 ("8 ParallelTest (LittleForest)","LittleForest1","ParallelTestLittleForest.utg",LibraryType.Test,TestsDummy.class),//
-	Test9 ("9 Animal 1", "Animal1","Animal_1.utg",LibraryType.Test, TestsDummy.class), //
-	Test10 ("10 Animal(disturbance) 1", "Animal1","DemDis_1.utg",LibraryType.Test, TestsDummy.class), //
-	
+	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test, TestsDummy.class), //
+	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test, TestsDummy.class), //
+	Test3("3 WrapTest", "WrapTest1", "WrapTest.utg", LibraryType.Test, TestsDummy.class), //
+	Test4("4 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test, TestsDummy.class), //
+	Test5("5 ParallelTest (Palms)", "Palms1", "ParallelTestPalms.utg", LibraryType.Test, TestsDummy.class), //
+	Test6("6 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test, TestsDummy.class), //
+	Test7("7 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test, TestsDummy.class), //
+	Test8("8 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,
+			TestsDummy.class), //
+	Test9("9 Animal (Table)", "AnimalT1", "CDU_Demography_Table1.utg", LibraryType.Test, TestsDummy.class,
+			"SquarePatterns.jav"), //
+	Test10("10 Animal (CSpace)", "AnimalCS1", "CDU_Demography_CSpace1.utg", LibraryType.Test, TestsDummy.class,
+			"SquarePatterns.jav"), //
+	Test11("11 Animal (Dist.)", "AnimalDist1", "CDU_Demography_Disturbance1.utg", LibraryType.Test, TestsDummy.class,
+			"SquarePatterns.jav"), //
+
 	;
 
+// NB File dependencies e.g SquarePatterns.jav is not implemented yet.
 	private final String displayName;
 	private final String proposedName;
 	private final String fileName;
 	private final LibraryType libraryType;
 	private final Class<?> pkclass;
+	/**
+	 * TODO: Just an idea for java, jar and data(?) file dependencies:
+	 * 
+	 * If java file, parse the package name and create dir and place there? If there
+	 * is no package name, to linked project root could be added or whatever is
+	 * required for local builds if no linked project is present. Java files will
+	 * produce a compile error (within the tw-models library if they have
+	 * dependencies so the file must be renamed to say *.jav.
+	 * 
+	 * If *.jar we know how to handle that (I think we just add it to the compile
+	 * tree.)
+	 * 
+	 * Otherwise assume its data and put in some fixed location?? Should there ever
+	 * be data for ModelMaker? What would it be used for at Model configure time.
+	 * Data seems only necessary for RunTime? Take care not to confound these two
+	 * things.
+	 * 
+	 * Could be a DB query entry??
+	 */
 
-	private LibraryTable(String displayName, String proposedName, String fileName, LibraryType lt, Class<?> pkclass) {
+	private final String[] depFiles;
+
+	private LibraryTable(String displayName, String proposedName, String fileName, LibraryType lt, Class<?> pkclass,
+			String... depFiles) {
 		this.displayName = displayName;
 		this.proposedName = proposedName;
 		this.fileName = fileName;
 		this.libraryType = lt;
 		this.pkclass = pkclass;
+		this.depFiles = depFiles;
 	}
 
 	public String displayName() {
@@ -102,11 +131,15 @@ public enum LibraryTable {
 	}
 
 	public String proposedName() {
-		return proposedName;
+		return proposedName.replaceAll("_", "");
 	}
 
 	public LibraryType libraryType() {
 		return libraryType;
+	}
+
+	public String[] depFiles() {
+		return depFiles;
 	}
 
 	@SuppressWarnings("unchecked")
