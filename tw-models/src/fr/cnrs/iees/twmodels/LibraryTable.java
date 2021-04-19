@@ -79,12 +79,10 @@ public enum LibraryTable {
 	Test7("7 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test, TestsDummy.class), //
 	Test8("8 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,
 			TestsDummy.class), //
-	Test9("9 Animal (Table)", "AnimalT1", "CDU_Demography_Table1.utg", LibraryType.Test, TestsDummy.class,
-			"SquarePatterns.jav"), //
-	Test10("10 Animal (CSpace)", "AnimalCS1", "CDU_Demography_CSpace1.utg", LibraryType.Test, TestsDummy.class,
-			"SquarePatterns.jav"), //
-	Test11("11 Animal (Dist.)", "AnimalDist1", "CDU_Demography_Disturbance1.utg", LibraryType.Test, TestsDummy.class,
-			"SquarePatterns.jav"), //
+	Test9("9 Animal (Table)", "AnimalT1", "CDU_AnimalT1.utg", LibraryType.Test, TestsDummy.class), //
+	Test10("10 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test, TestsDummy.class), //
+//	Test11("11 Animal (Dist.)", "AnimalDist1", "CDU_Demography_Disturbance1.utg", LibraryType.Test, TestsDummy.class,
+//			"SquarePatterns.jav"), //
 
 	;
 
