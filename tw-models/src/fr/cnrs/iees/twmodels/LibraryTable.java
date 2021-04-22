@@ -81,6 +81,7 @@ public enum LibraryTable {
 			TestsDummy.class), //
 	Test9("9 Animal (Table)", "AnimalT1", "CDU_AnimalT1.utg", LibraryType.Test, TestsDummy.class), //
 	Test10("10 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test, TestsDummy.class), //
+	Test11("11 Timer test 1", "TimerTest1", "TimerTest.utg", LibraryType.Test, TestsDummy.class), //
 //	Test11("11 Animal (Dist.)", "AnimalDist1", "CDU_Demography_Disturbance1.utg", LibraryType.Test, TestsDummy.class,
 //			"SquarePatterns.jav"), //
 
