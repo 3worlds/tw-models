@@ -84,6 +84,8 @@ public enum LibraryTable {
 	Test11("11 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test, TestsDummy.class), //
 	Test12("12 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test,
 			TestsDummy.class), //
+	Test13("13 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,
+			TestsDummy.class), //
 
 	;
 

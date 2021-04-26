@@ -1,0 +1,162 @@
+treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds TimerTest2
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	built-by = java.lang.String(gignoux (22 avr. 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	precis = java.lang.String()
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	version = java.lang.String()
+	predefined *categories*
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record AVPopulation
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *component*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
+	dataDefinition dDef
+		record rec1
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(rec1)
+			field updateCounter
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+	experiment expt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+	system sys1
+		driverClass = java.lang.String(code.sys1.generated.Rec1)
+		initFunction Init1
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.Init1)
+			snippet snpt4
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		event.postTimeEvent(24.3);"))
+		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(10000)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(GREGORIAN)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(DAY)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(18739)
+				timer yearClock
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+					process p1
+						function Fyearly
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.Fyearly)
+							snippet snptYear
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+				timer event
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
+					process p3
+						function Event
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.Event)
+							snippet snpt3
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalDrv.updateCounter = updateCounter+1;","		event.postTimeEvent(t+random.nextInt(50)+1);","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+				timer monthClock
+					dt = java.lang.Long(2)
+					nTimeUnits = java.lang.Integer(2)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(MONTH)
+					process p2
+						function Fmonthly
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.Fmonthly)
+							snippet snptMonth
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+				timer yearLagClock
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					offset = java.lang.Double(0.002739726)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+					process p4
+						function FyearlyLagged
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FyearlyLagged)
+							snippet snpt2
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+				timer calendarClock
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(11)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(DAY)
+					process p5
+						function F11daily
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.F11daily)
+							snippet snpt1
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+	userInterface gui
+		top top
+			widget time
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+
+// CROSS-LINKS
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[system:sys1] belongsTo bt3 [category:*arena*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
+[system:sys1] belongsTo bt1 [category:*permanent*]
+[process:p1] dependsOn depsOn1 [process:p2]
+[process:p1] appliesTo aplyTo1 [category:*arena*]
+[process:p2] appliesTo aplyTo2 [category:*arena*]
+[process:p3] appliesTo aplyTo3 [category:*arena*]
+[process:p4] appliesTo aplyTo4 [category:*arena*]
+[process:p5] appliesTo aplyTo5 [category:*arena*]
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[timer:event] fedBy fedBy1 [initFunction:Init1]
+[timer:event] fedBy fedBy2 [function:Event]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[category:*arena*] drivers drvs1 [record:rec1]
+[widget:time] trackTime trks1 [dynamics:sim1]
