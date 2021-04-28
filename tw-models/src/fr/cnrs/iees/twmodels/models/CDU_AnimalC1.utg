@@ -88,9 +88,6 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 		record animalDecs
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(animalDecs)
-			field isBurnt
-				description = java.lang.String(true if burnt this year)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field isPregnant
 				description = java.lang.String(true if pregnant this year)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
@@ -99,30 +96,24 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 		record gConsts
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(gConsts)
-			field isTorus
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field landscapeWidth
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field cellWidth
+			field cellSize
+				description = java.lang.String(dimension of cell for purpose of limiting to K)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field cellHeight
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
+				units = java.lang.String(m)
 			field meanDispersalDistance
 				description = java.lang.String(Mean of exponential function)
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
-			field deathRate
+			field rateDeath
 				description = java.lang.String(annual probability of death for an individual)
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
 				precision = java.lang.Double(0.0)
@@ -133,13 +124,8 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field mateSearchDistance
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(1.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field birthRate
-				description = java.lang.String(number born to each female per year)
+			field rateBirth
+				description = java.lang.String(annual number born to each female)
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(1.0E-6)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -186,14 +172,14 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
 								snippet snptBirth
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 7) consequence of nBirths)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		double dx = distance * Math.cos(direction);","		double dy = distance * Math.sin(direction);","		otherDrv.x = x + dx;","		otherDrv.y = y + dy;"))
+									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		// 7) consequence of nBirths)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);;","		otherDrv.y = y + distance * Math.sin(direction);"))
 							snippet snptNBirths
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		// 6) late clock: number of births from pregnant (females). Order with Death","		// arbitrary and unimportant","		if (isPregnant) {","			return birthRate;","		}","		return 0.0;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		// 6) late clock: number of births from pregnant (females). Order with Death","		// arbitrary and unimportant","		if (isPregnant) {","			return rateBirth;","		}","		return 0.0;"))
 						function Death
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Death)
 							snippet snptDeath
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// 5) late clock: remove by death rate (birth/death order arbitrary and","		// unimportant","		return decider.decide(deathRate);"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// 5) late clock: remove by death rate (birth/death order arbitrary and","		// unimportant","		return decider.decide(rateDeath);"))
 					process p5Track
 						dataTracker globalTracker
 							sampleSize = java.lang.String()
@@ -210,17 +196,17 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 							snippet snptFindMate
 								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 3) early clock: pair females and males","		return (!isFemale && other_isFemale);"))
 					process p2Cull
-						function Cull
+						function LimitNtoK
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
-							userClassName = java.lang.String(code.sys1.generated.Cull)
+							userClassName = java.lang.String(code.sys1.generated.LimitNtoK)
 							snippet snptCull
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 2) early clock: remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellWidth);","		int iy = (int) (y / cellHeight);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 2) early clock: remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
 					process p1Count
-						function CountInGrid
+						function SumN
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.CountInGrid)
+							userClassName = java.lang.String(code.sys1.generated.SumN)
 							snippet snptCountGrid
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 1) Early clock: sum N[ix,iy]","		int ix = (int) (x / cellWidth);","		int iy = (int) (y / cellHeight);","		int n = N.getByInt(ix, iy);","		N.setByInt(n + 1, ix, iy);"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 1) Early clock: sum N[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = N.getByInt(ix, iy);","		N.setByInt(n + 1, ix, iy);"))
 		structure struc1
 			relationType mateRelation
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -228,6 +214,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				units = java.lang.String(m)
 				x-limits = fr.ens.biologie.generic.utils.Interval(]0.0,100.0[)
 				y-limits = fr.ens.biologie.generic.utils.Interval(]0.0,100.0[)
 			categorySet World
@@ -250,7 +237,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 			snippet snptInitSys
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		focalCnt.isTorus = true;","		focalCnt.deathRate = 1.0;","		focalCnt.birthRate = 3.0;","		focalCnt.meanDispersalDistance = 10.0;","		focalCnt.landscapeHeight = 100;","		focalCnt.landscapeWidth = 100;","		focalCnt.K.fillWith(3);","		focalCnt.cellWidth = focalCnt.landscapeWidth / K.size(0);","		focalCnt.cellHeight = focalCnt.landscapeHeight / K.size(1);","		// Therefore, max pop should K x 100 = 300 but it's not!","		System.out.println(new StringBuilder().append('K').append('=').append((K.size() * K.getByInt(0, 0))));"))
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		focalCnt.rateDeath = 1.0;","		focalCnt.rateBirth = 3.0;","		focalCnt.meanDispersalDistance = 10.0;","		focalCnt.landscapeHeight = 100;","		focalCnt.landscapeWidth = 100;","		focalCnt.K.fillWith(3);","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		System.out.println(new StringBuilder().append('K').append('=').append((K.size() * K.getByInt(0, 0))));"))
 	userInterface gui
 		top top
 			widget ctrl
