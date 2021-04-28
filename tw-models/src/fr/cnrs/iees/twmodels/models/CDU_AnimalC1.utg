@@ -5,7 +5,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 // TREE
 3worlds DemDis_1
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String(ian (26 Apr 2021))
+	built-by = java.lang.String(ian (27 Apr 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Preliminary testing of landscape animal model with local mating using continuous space search)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
@@ -171,7 +171,13 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 					offset = java.lang.Double(0.5)
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
-					process p3Rreproduce
+					process p3Mate
+						function Conceive
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
+							userClassName = java.lang.String(code.sys1.generated.Conceive)
+							snippet snptConceive
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 4) offset clock: flag decorator to true (pairing ensures this IS a female).","		otherDec.isPregnant = true;"))
+					process p4LiveDie
 						function NBirths
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
@@ -180,36 +186,41 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
 								snippet snptBirth
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([25]"		// 4) consequence of 3)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		double dx = distance * Math.cos(direction);","		double dy = distance * Math.sin(direction);","		double newx = x + dx;","		double newy = y + dy;","		if (isTorus) {","			newx = (newx % landscapeWidth);","			newy = (newy % landscapeHeight);","			if (newx < 0)","				newx += landscapeWidth;","			if (newy < 0)","				newy += landscapeHeight;","		}","		otherDrv.x = newx;","		otherDrv.y = newy;","		// Increment counters","		int idxx = (int) (newx / cellWidth);","		int idxy = (int) (newy / cellHeight);","		int n = N.getByInt(idxx, idxy);","		N.setByInt(n + 1, idxx, idxy);"))
+									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 7) consequence of nBirths)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		double dx = distance * Math.cos(direction);","		double dy = distance * Math.sin(direction);","		otherDrv.x = x + dx;","		otherDrv.y = y + dy;"))
 							snippet snptNBirths
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([20]"		// 3)","		if (isFemale && isPregnant && age > 0) {","			int nBirths = (int) birthRate;","			double dPart = birthRate - nBirths;","			if (decider.decide(dPart))","				nBirths++;","			int idxx = (int) (x / cellWidth);","			int idxy = (int) (y / cellHeight);","			int n = N.getByInt(idxx, idxy);","			int k = K.getByInt(idxx, idxy);","			// JG: it happens (by chance) that you can always write in a table passed as","			// argument. However, here you normally shouldnt be able","			// to do it (the table should be set readonly before entering here)","			// But as this is a flaw I will make the arena, group and lifecycle decorators","			// modifiable in component changeState methods","			// I didnt mean to do it in delete and createOther, though.","			nBirths = Math.max(0, Math.min(nBirths, k - n));","			return nBirths;","		}","		return 0.0;"))
-					process p4Mortality
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		// 6) late clock: number of births from pregnant (females). Order with Death","		// arbitrary and unimportant","		if (isPregnant) {","			return birthRate;","		}","		return 0.0;"))
 						function Death
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Death)
 							snippet snptDeath
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		// 4) last call","		boolean die = false;","		if (age > 0) {","			die = decider.decide(deathRate);","			if (die) {","				// Decrement counters","				int idxx = (int) (x / cellWidth);","				int idxy = (int) (y / cellHeight);","				// Must be within bounds","				int n = N.getByInt(idxx, idxy) - 1;","				N.setByInt(n, idxx, idxy);","			}","		}","		return die;"))
-					process p8Track
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// 5) late clock: remove by death rate (birth/death order arbitrary and","		// unimportant","		return decider.decide(deathRate);"))
+					process p5Track
 						dataTracker globalTracker
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-					process p2Mate
-						function Conceive
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
-							userClassName = java.lang.String(code.sys1.generated.Conceive)
-							snippet snptConceive
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// 2)","		// NB JG: How can get/check the 'age' here?","		// JG: cf. comment in findMate(...)","//		System.out.println(This:+isFemale+\tOther:+other_isFemale);","//		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName());","		if (!isFemale)","			otherDec.isPregnant = true;"))
 				timer clock1
 					dt = java.lang.Long(1)
 					nTimeUnits = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
-					process p1Courting
+					process p3Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FindMate)
 							snippet snptFindMate
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		// 1)","		boolean result = (!isFemale && other_isFemale);","//		if (result)","//			System.out.println(result + new Object() {}.getClass().getEnclosingMethod().getName());","//			System.out.println(This:+isFemale + \tage:+age +\tOther:+other_isFemale+\tage:+other_age + \tResult:+result);","		return result;"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 3) early clock: pair females and males","		return (!isFemale && other_isFemale);"))
+					process p2Cull
+						function Cull
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.Cull)
+							snippet snptCull
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 2) early clock: remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellWidth);","		int iy = (int) (y / cellHeight);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+					process p1Count
+						function CountInGrid
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.CountInGrid)
+							snippet snptCountGrid
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 1) Early clock: sum N[ix,iy]","		int ix = (int) (x / cellWidth);","		int iy = (int) (y / cellHeight);","		int n = N.getByInt(ix, iy);","		N.setByInt(n + 1, ix, iy);"))
 		structure struc1
 			relationType mateRelation
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -234,12 +245,12 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 					snippet InitAnimal
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// NB JG: Can i get whole system data here. I cannot count","		// initial animals without that it seems. But, if this were the case, whole","		// system data should be initialised first.","		// JG: I am surprised the arena and group data is not available, at least","		// read-only. This is a bug.","		// NB JG: Can I set the initial 'age' here somehow?","		// JG: I must implement this possibility. It's possible in the utg file at the","		// moment, but not in the initFunctions","		focalDrv.x = random.nextDouble() * 100;","		focalDrv.y = random.nextDouble() * 100;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// NB JG: Can I set the initial 'age' here somehow?","		// JG: I must implement this possibility. It's possible in the utg file at the","		// moment, but not in the initFunctions","		focalDrv.x = random.nextDouble() * 100;","		focalDrv.y = random.nextDouble() * 100;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 		initFunction GlobalInit
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 			snippet snptInitSys
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		// NB JG: This is called AFTER animalInit (maybe by chance?). It would be good","		// if whole system init","		// was called first and these data were available to other inits.","		// JG: Either we impose a hierarchical order (ie arena first, then life cycles,","		// then groups, then components) assuming","		// init must be done in this order, or we allow to have dependsOn edges between","		// initFunctions - which I prefer.","		focalCnt.isTorus = true;","		focalCnt.deathRate = 1.0;","		focalCnt.birthRate = 3.0;","		focalCnt.meanDispersalDistance = 100.0;","		focalCnt.landscapeHeight = 100;","		focalCnt.landscapeWidth = 100;","		focalCnt.K.fillWith(3);","		focalCnt.cellWidth = focalCnt.landscapeWidth / K.size(0);","		focalCnt.cellHeight = focalCnt.landscapeHeight / K.size(1);","		// Therefore, max pop should K x 100 = 300 but it's not!","		System.out.println((K.size() * K.getByInt(0, 0)));"))
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		focalCnt.isTorus = true;","		focalCnt.deathRate = 1.0;","		focalCnt.birthRate = 3.0;","		focalCnt.meanDispersalDistance = 10.0;","		focalCnt.landscapeHeight = 100;","		focalCnt.landscapeWidth = 100;","		focalCnt.K.fillWith(3);","		focalCnt.cellWidth = focalCnt.landscapeWidth / K.size(0);","		focalCnt.cellHeight = focalCnt.landscapeHeight / K.size(1);","		// Therefore, max pop should K x 100 = 300 but it's not!","		System.out.println(new StringBuilder().append('K').append('=').append((K.size() * K.getByInt(0, 0))));"))
 	userInterface gui
 		top top
 			widget ctrl
@@ -260,21 +271,23 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 
 // CROSS-LINKS
-[process:p3Rreproduce] appliesTo aplyTo6 [category:*ephemeral*]
-[process:p3Rreproduce] dependsOn after2 [process:p2Mate]
-[process:p3Rreproduce] appliesTo aplyTo4 [category:animalCat]
-[process:p3Rreproduce] inSpace in2 [space:space1]
-	searchRadius = java.lang.Double(1.0)
 [category:animalCat] constants cnsts2 [record:animalConsts]
 [category:animalCat] decorators decs1 [record:animalDecs]
 [category:animalCat] drivers drvs2 [record:animalDrivers]
+[process:p2Cull] appliesTo aplyTo9 [category:animalCat]
+[process:p2Cull] appliesTo aplyTo8 [category:*ephemeral*]
+[process:p2Cull] dependsOn depsOn1 [process:p1Count]
+[process:p2Cull] inSpace in1 [space:space1]
+	searchRadius = java.lang.Double(0.0)
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*arena*]
 [system:sys1] belongsTo bt1 [category:*assemblage*]
+[relationType:mateRelation] toCategory to4 [category:*ephemeral*]
 [relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] fromCategory from1 [category:animalCat]
+[relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
 [table:K] sizedBy szx1 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
 [table:K] sizedBy szy1 [dimensioner:ydim]
@@ -289,29 +302,31 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 [dataTracker:globalTracker] trackField trks4 [field:count]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [dataTracker:globalTracker] trackComponent trks3 [system:sys1]
-[process:p2Mate] inSpace in3 [space:space1]
-	searchRadius = java.lang.Double(1.0)
-[process:p2Mate] appliesTo aplyTo2 [relationType:mateRelation]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
-[process:p4Mortality] appliesTo aplyTo5 [category:animalCat]
-[process:p4Mortality] appliesTo aplyTo8 [category:*ephemeral*]
-[process:p4Mortality] dependsOn depsOn1 [process:p3Rreproduce]
-[process:p4Mortality] inSpace in1 [space:space1]
-	searchRadius = java.lang.Double(1.0)
 [componentType:animalType] belongsTo bt7 [category:animalCat]
 [componentType:animalType] belongsTo bt6 [category:*atomic*]
 [componentType:animalType] belongsTo bt5 [category:*ephemeral*]
 [componentType:animalType] belongsTo bt4 [category:*component*]
 [category:*arena*] constants cnsts1 [record:gConsts]
 [category:*arena*] decorators decs2 [record:gDecs]
+[process:p4LiveDie] appliesTo aplyTo6 [category:*ephemeral*]
+[process:p4LiveDie] dependsOn after2 [process:p3Mate]
+[process:p4LiveDie] appliesTo aplyTo4 [category:animalCat]
+[process:p4LiveDie] inSpace in2 [space:space1]
+	searchRadius = java.lang.Double(1.0)
+[process:p3Courting] inSpace in4 [space:space1]
+	searchRadius = java.lang.Double(10.0)
+[process:p3Courting] appliesTo aplyTo1 [relationType:mateRelation]
+[process:p3Courting] dependsOn depsOn2 [process:p2Cull]
+[process:p1Count] appliesTo aplyTo5 [category:*ephemeral*]
+[process:p1Count] appliesTo aplyTo7 [category:animalCat]
 [widget:srs] trackSeries trks2 [dataTracker:globalTracker]
-[process:p1Courting] inSpace in4 [space:space1]
-	searchRadius = java.lang.Double(50.0)
-[process:p1Courting] appliesTo aplyTo1 [relationType:mateRelation]
+[process:p3Mate] inSpace in3 [space:space1]
+	searchRadius = java.lang.Double(1.0)
+[process:p3Mate] appliesTo aplyTo2 [relationType:mateRelation]
+[process:p5Track] appliesTo aplyTo3 [category:*assemblage*]
 [widget:progress] trackTime trks5 [dynamics:sim1]
-[process:p8Track] dependsOn depsOn2 [process:p4Mortality]
-[process:p8Track] appliesTo aplyTo3 [category:*assemblage*]
 [space:space1] coordinate coordx [field:x]
 	rank = java.lang.Integer(0)
 [space:space1] coordinate coordy [field:y]
