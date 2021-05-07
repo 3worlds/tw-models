@@ -5,7 +5,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 20 10:38:38 AEST 2020
 // TREE
 3worlds Blank
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String()
+	built-by = java.lang.String(ian (7 May 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String()
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
@@ -53,6 +53,8 @@ treegraph // saved by OmugiGraphExporter on Wed May 20 10:38:38 AEST 2020
 			category *permanent*
 	dataDefinition dDef
 	experiment expt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
 	system sys1
 		dynamics sim1
 			timeline tmLn1
@@ -61,6 +63,10 @@ treegraph // saved by OmugiGraphExporter on Wed May 20 10:38:38 AEST 2020
 				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
 	userInterface gui
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 
 // CROSS-LINKS
 [category:*assemblage*] autoVar auto2 [record:AVPopulation]
