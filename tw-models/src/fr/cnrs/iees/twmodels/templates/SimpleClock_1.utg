@@ -5,7 +5,7 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 // TREE
 3worlds SimpleClock_1
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String(ian (13 May 2021))
+	built-by = java.lang.String(ian (14 May 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String()
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
@@ -55,7 +55,6 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 		record drvs
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String()
-		record decs
 		record cnsts
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String()
