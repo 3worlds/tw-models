@@ -1,0 +1,28 @@
+package code.sys1;
+
+/**
+ * A class to transform any angle value in degrees to a normalised value between 0 and 360°.
+ * Adapted from <a href="https://commons.apache.org/proper/commons-numbers/commons-numbers-angle/apidocs/src-html/org/apache/commons/numbers/angle/PlaneAngle.html#line.100">apache.commons.numbers</a>.
+ * 
+ * @author gignoux
+ *
+ */
+public class BoidUtils {
+	
+	public static double normalizeAngleBetweenOand360Degrees(double degrees) {
+		final double lowerBound = 0.0;
+		final double upperBound = 1.0;
+		double turns = degrees/360.0;
+		final double normalized = turns - Math.floor(turns-lowerBound);
+		return (normalized < upperBound ? normalized : normalized - 1.0)*360.0;		
+	}
+
+	public static double normalizeAngleBetweenMinus180and180Degrees(double degrees) {
+		final double lowerBound = -0.5;
+		final double upperBound = 0.5;
+		double turns = degrees/360.0;
+		final double normalized = turns - Math.floor(turns-lowerBound);
+		return (normalized < upperBound ? normalized : normalized - 1.0)*360.0;		
+	}
+
+}
