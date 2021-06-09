@@ -1,0 +1,331 @@
+treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds Test2DTracker
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
+	built-by = java.lang.String(ian (7 June 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	precis = java.lang.String(WIP: The role of animal dispersal in population persistence in fire-prone landscapes.)
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
+	version = java.lang.String(0.0.2)
+	dataDefinition dDef
+		rng gen1
+			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
+			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
+			tableIndex = java.lang.Integer(0)
+		record gDecs
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(gDecs)
+			table N
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(population totals in each grid cell)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String(count)
+		record animalDrivers
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(animalDrivers)
+			field y
+				description = java.lang.String(y loc of individual)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			field x
+				description = java.lang.String(x loc of individual)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+		dimensioner xdim
+			size = java.lang.Integer(10)
+		record gConsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(gConsts)
+			field cellSize
+				description = java.lang.String(dimension of cell for purpose of limiting to K)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			field meanDispersalDistance
+				description = java.lang.String(Mean of exponential function)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			table K
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(Carrying capacity in each grid cell)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				units = java.lang.String(count)
+			field landscapeWidth
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field landscapeHeight
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field rateDeath
+				description = java.lang.String(annual probability of death for an individual)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field rateBirth
+				description = java.lang.String(annual number born to each female)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(1.0E-6)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(count)
+		dimensioner ydim
+			size = java.lang.Integer(10)
+		record animalConsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(animalConsts)
+			field isFemale
+				description = java.lang.String(true if individual is female)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+		record animalDecs
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(animalDecs)
+			field isPregnant
+				description = java.lang.String(true if pregnant this year)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+	userInterface gui
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
+		tab tab1
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			widget grid
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+		bottom btm
+			widget progress
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
+	experiment expt
+		nReplicates = java.lang.Integer(1)
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+	predefined *categories*
+		categorySet *organisation*
+			category *atomic*
+			category *assemblage*
+		categorySet *systemElements*
+			category *arena*
+			category *component*
+			category *relation*
+			category *life cycle*
+			category *group*
+		record AVPopulation
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(AVPopulation)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *permanent*
+			category *ephemeral*
+	system sys1
+		constantClass = java.lang.String(code.sys1.generated.GConsts)
+		decoratorClass = java.lang.String(code.sys1.generated.GDecs)
+		structure struc1
+			componentType animalType
+				constantClass = java.lang.String(code.sys1.generated.AnimalConsts)
+				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
+				driverClass = java.lang.String(code.sys1.generated.AnimalDrivers)
+				initFunction AnimalInit
+					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
+					snippet InitAnimal
+						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// location","		focalDrv.x = random.nextDouble() * 1000;","		focalDrv.y = random.nextDouble() * 1000;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+				component animal
+					nInstances = java.lang.Integer(600)
+			relationType mateRelation
+				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
+			categorySet World
+				category animalCat
+					constantClass = java.lang.String(AnimalCat_Cnt)
+					decoratorClass = java.lang.String(AnimalCat_Dec)
+					driverClass = java.lang.String(AnimalCat_Drv)
+			space space1
+				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				precision = java.lang.Double(0.01)
+				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				units = java.lang.String(m)
+				x-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
+				y-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
+		dynamics sim1
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(LONG_TIMES)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer clock1
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
+					process p5Count
+						function SumN
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.SumN)
+							snippet snptCountGrid
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 5) sum gridded population N[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);"))
+					process p6Cull
+						function LimitNtoK
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.LimitNtoK)
+							snippet snptCull
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 6) remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+					process p7Track
+						dataTracker trkD2
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+					process p4Death
+						function Death
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.Death)
+							snippet snptDeath
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 4)","	if (age >= 1)","		return decider.decide(rateDeath);","	else","		return false;"))
+					process p1Courting
+						function FindMate
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
+							userClassName = java.lang.String(code.sys1.generated.FindMate)
+							snippet snptFindMate
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 1) pair mature females and males","	if (age >= 1.0 && other_age >= 1.0)","		return (isFemale && !other_isFemale);","	else","		return false;"))
+					process p3Birth
+						function NBirths
+							relateToProduct = java.lang.Boolean(false)
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
+							userClassName = java.lang.String(code.sys1.generated.NBirths)
+							function Birth
+								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
+								userClassName = java.lang.String(code.sys1.generated.Birth)
+								snippet snptBirth
+									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		// 3b) consequence of nBirths (3a)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);"))
+							snippet snptNBirths
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 3a): number of births from pregnant (females). ","		if (isPregnant) {","			return rateBirth;","		}","		return 0.0;"))
+					process p2Mate
+						function Conceive
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
+							userClassName = java.lang.String(code.sys1.generated.Conceive)
+							snippet snptConceive
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 2)  flag decorator to true (pairing ensures this IS a female).","		focalDec.isPregnant = true;"))
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+		initFunction GlobalInit
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
+			snippet snptInitSys
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([15]"		focalCnt.rateDeath = 1.0;","		focalCnt.rateBirth = 3.0;","		focalCnt.meanDispersalDistance = 200.0;","		focalCnt.landscapeHeight = 1000;","		focalCnt.landscapeWidth = 1000;","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		focalCnt.K.fillWith(5);","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				K.setByInt(1 + random.nextInt(10), i, j);","		int sum = 0;","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				sum += K.getByInt(i, j);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(sum));"))
+
+// CROSS-LINKS
+[category:animalCat] decorators decs1 [record:animalDecs]
+[category:animalCat] drivers drvs2 [record:animalDrivers]
+[category:animalCat] constants cnsts2 [record:animalConsts]
+[function:FindMate] useRNG uses1 [rng:gen1]
+[process:p3Birth] appliesTo aplyTo6 [category:*ephemeral*]
+[process:p3Birth] appliesTo aplyTo4 [category:animalCat]
+[process:p3Birth] inSpace in2 [space:space1]
+	searchRadius = java.lang.Double(1.0E-4)
+[process:p3Birth] dependsOn depsOn3 [process:p2Mate]
+[process:p7Track] dependsOn depsOn6 [process:p6Cull]
+[process:p7Track] appliesTo aplyTo3 [category:*assemblage*]
+[process:p7Track] appliesTo aplyTo12 [category:*arena*]
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[system:sys1] belongsTo bt1 [category:*assemblage*]
+[system:sys1] belongsTo bt2 [category:*arena*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[function:Death] useRNG uses5 [rng:gen1]
+[function:NBirths] useRNG uses3 [rng:gen1]
+[relationType:mateRelation] toCategory to3 [category:animalCat]
+[relationType:mateRelation] toCategory to4 [category:*ephemeral*]
+[relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
+[relationType:mateRelation] fromCategory from1 [category:animalCat]
+[dataTracker:trkD2] trackTable trks9 [table:N]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"|"))
+[dataTracker:trkD2] trackComponent trks10 [system:sys1]
+[process:p5Count] appliesTo aplyTo7 [category:animalCat]
+[process:p5Count] appliesTo aplyTo5 [category:*ephemeral*]
+[process:p5Count] dependsOn depsOn4 [process:p4Death]
+[widget:ctrl] trackTime trks6 [dynamics:sim1]
+[initFunction:AnimalInit] useRNG uses7 [rng:gen1]
+[table:K] sizedBy szy1 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
+[table:K] sizedBy szx1 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[function:Birth] useRNG uses4 [rng:gen1]
+[table:N] sizedBy szy2 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
+[table:N] sizedBy szx2 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[function:LimitNtoK] useRNG uses2 [rng:gen1]
+[process:p2Mate] appliesTo aplyTo2 [relationType:mateRelation]
+[process:p2Mate] inSpace in3 [space:space1]
+	searchRadius = java.lang.Double(1.0E-4)
+[process:p2Mate] dependsOn depsOn2 [process:p1Courting]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[componentType:animalType] belongsTo bt4 [category:*component*]
+[componentType:animalType] belongsTo bt5 [category:*ephemeral*]
+[componentType:animalType] belongsTo bt6 [category:*atomic*]
+[componentType:animalType] belongsTo bt7 [category:animalCat]
+[category:*arena*] decorators decs2 [record:gDecs]
+[category:*arena*] constants cnsts1 [record:gConsts]
+[initFunction:GlobalInit] useRNG uses6 [rng:gen1]
+[process:p6Cull] appliesTo aplyTo8 [category:*ephemeral*]
+[process:p6Cull] dependsOn depsOn5 [process:p5Count]
+[process:p6Cull] inSpace in4 [space:space1]
+	searchRadius = java.lang.Double(1.0E-4)
+[process:p6Cull] appliesTo aplyTo9 [category:animalCat]
+[process:p4Death] appliesTo aplyTo10 [category:animalCat]
+[process:p4Death] appliesTo aplyTo11 [category:*ephemeral*]
+[process:p4Death] dependsOn depsOn1 [process:p3Birth]
+[process:p4Death] inSpace in5 [space:space1]
+	searchRadius = java.lang.Double(0.0)
+[widget:grid] trackSeries trks11 [dataTracker:trkD2]
+[process:p1Courting] appliesTo aplyTo1 [relationType:mateRelation]
+[process:p1Courting] inSpace in1 [space:space1]
+	searchRadius = java.lang.Double(75.0)
+[widget:progress] trackTime trks5 [dynamics:sim1]
+[space:space1] coordinate coordy [field:y]
+	rank = java.lang.Integer(1)
+[space:space1] coordinate coordx [field:x]
+	rank = java.lang.Integer(0)

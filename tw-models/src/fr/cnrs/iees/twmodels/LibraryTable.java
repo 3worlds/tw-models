@@ -82,6 +82,7 @@ public enum LibraryTable {
 	Test9("9 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test), //
 	Test10("10 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test), //
 	Test11("11 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test), //
+	Test12("12 Test Map and 2dTracker", "MapTest1", "Test2DTracker.utg", LibraryType.Test), //
 	;
 
 // NB File dependencies e.g SquarePatterns.jav is not implemented yet.
