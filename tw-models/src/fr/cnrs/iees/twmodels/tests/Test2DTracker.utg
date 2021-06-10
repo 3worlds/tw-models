@@ -4,7 +4,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Test2DTracker
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (10 Jun. 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Testing maps and data tracker2d.)
