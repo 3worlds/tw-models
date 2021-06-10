@@ -9,6 +9,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Testing maps and data tracker2d.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	version = java.lang.String()
 
 	predefined *categories*
 		categorySet *organisation*
