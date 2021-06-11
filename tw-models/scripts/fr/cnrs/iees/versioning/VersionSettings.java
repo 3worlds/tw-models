@@ -82,7 +82,7 @@ public class VersionSettings {
 	 *
 	 */
 	protected static String[][] DEPS = {
-			{"au.edu.anu.rscs.aot", "omugi", "[0.4.3,)", null},
+			{"au.edu.anu.rscs.aot", "omugi", "[0.4.4,)", null},
 	};
 
 	/** The name of the main class to put in the jar manifest, if any. This enables users to
