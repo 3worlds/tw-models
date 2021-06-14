@@ -5,12 +5,11 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 // TREE
 3worlds Test2DTracker
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String(ian (10 Jun. 2021))
+	built-by = java.lang.String(ian (14 June 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Testing maps and data tracker2d.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
-
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -142,7 +141,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String(count)
 	experiment expt
-		nReplicates = java.lang.Integer(1)
+		nReplicates = java.lang.Integer(4)
 		design dsgn
 			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
 	system sys1
@@ -247,6 +246,8 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget grid
+				nSenders = java.lang.Integer(4)
+				nViews = java.lang.Integer(4)
 				order = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		bottom btm
