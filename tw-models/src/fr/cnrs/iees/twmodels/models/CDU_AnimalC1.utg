@@ -81,6 +81,10 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
+			table ages
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				units = java.lang.String()
 			field nFemales
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
@@ -148,6 +152,8 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				description = java.lang.String(Carrying capacity in each grid cell)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String(count)
+		dimensioner nAgeClasses
+			size = java.lang.Integer(5)
 	experiment expt
 		nReplicates = java.lang.Integer(1)
 		design dsgn
@@ -180,7 +186,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SumN)
 							snippet snptCountGrid
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		// 5) sum gridded population N[ix,iy]","		if (isFemale)","			arenaDec.nFemales++;","		else","			arenaDec.nMales++;","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		// 5) sum gridded population N[ix,iy]","		if (isFemale)","			arenaDec.nFemales++;","		else","			arenaDec.nMales++;","		int index = (int) age;","		index = Math.min(index, ages.size()-1);","		int an = arenaDec.ages.getByInt(index);","		arenaDec.ages.setByInt(an+1, index);","//		if (age<1.0)","//			arenaDec.nNewBorn++;","//		else","//			arenaDec.nAdults++;","","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);"))
 					process p1Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
@@ -212,12 +218,12 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 							snippet snptConceive
 								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 2)  flag decorator to true (pairing ensures this IS a female).","		focalDec.isPregnant = true;"))
 					process p7Track
-						dataTracker trackClock2
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkN
+						dataTracker D2
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker D0
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 		structure struc1
 			relationType mateRelation
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -248,30 +254,25 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 			snippet snptInitSys
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([15]"		focalCnt.rateDeath = 1.0;","		focalCnt.rateBirth = 3.0;","		focalCnt.meanDispersalDistance = 200.0;","		focalCnt.landscapeHeight = 1000;","		focalCnt.landscapeWidth = 1000;","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		focalCnt.K.fillWith(10);","		//for (int i = 0; i < K.size(0); i++)","		//	for (int j = 0; j < K.size(1); j++)","		//		K.setByInt(1 + random.nextInt(20), i, j);","		int sum = 0;","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				sum += K.getByInt(i, j);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(sum));"))
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([15]"		focalCnt.rateDeath = 0.5;","		focalCnt.rateBirth = 2.5;","		focalCnt.meanDispersalDistance = 200.0;","		focalCnt.landscapeHeight = 1000;","		focalCnt.landscapeWidth = 1000;","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		focalCnt.K.fillWith(10);","		//for (int i = 0; i < K.size(0); i++)","		//	for (int j = 0; j < K.size(1); j++)","		//		K.setByInt(1 + random.nextInt(20), i, j);","		int sum = 0;","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				sum += K.getByInt(i, j);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(sum));"))
 	userInterface gui
 		top top
 			widget ctrl
 				order = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
-		tab tab1
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-			container cont1
+		tab spatial
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			widget gridded population
 				order = java.lang.Integer(1)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-				widget gridN
-					nSenders = java.lang.Integer(1)
-					nViews = java.lang.Integer(1)
-					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-				widget map
-					nViews = java.lang.Integer(1)
-					order = java.lang.Integer(0)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
-			widget srs1
-				maxAxes = java.lang.Integer(1)
-				nSenders = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+			widget space
+				nViews = java.lang.Integer(1)
 				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
+		tab charts
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			widget age class population
+				order = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 		bottom btm
 			widget progress
@@ -279,13 +280,16 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 
 // CROSS-LINKS
-[dataTracker:trackClock2] trackField trks7 [field:nMales]
-[dataTracker:trackClock2] trackField trks4 [field:count]
-	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
-[dataTracker:trackClock2] trackField trks2 [field:nFemales]
-[dataTracker:trackClock2] trackComponent trks3 [system:sys1]
+[dataTracker:D0] trackField trks9 [field:count]
+[dataTracker:D0] trackField trks10 [field:nFemales]
+[dataTracker:D0] trackField trks11 [field:nMales]
+[dataTracker:D0] trackTable trks7 [table:ages]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:4]"))
+[dataTracker:D0] trackComponent trks2 [system:sys1]
+[dataTracker:D2] trackComponent trks8 [system:sys1]
+[dataTracker:D2] trackTable trks4 [table:N]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:9|0:9]"))
 [function:FindMate] useRNG uses1 [rng:gen1]
-[widget:gridN] trackSeries trks10 [dataTracker:trkN]
 [process:p3Birth] appliesTo aplyTo6 [category:*ephemeral*]
 [process:p3Birth] dependsOn depsOn3 [process:p2Mate]
 [process:p3Birth] appliesTo aplyTo4 [category:animalCat]
@@ -301,10 +305,10 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 [relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] fromCategory from1 [category:animalCat]
 [relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
-[widget:ctrl] trackTime trks6 [dynamics:sim1]
 [process:p5Count] appliesTo aplyTo5 [category:*ephemeral*]
 [process:p5Count] appliesTo aplyTo7 [category:animalCat]
 [process:p5Count] dependsOn depsOn4 [process:p4Death]
+[widget:ctrl] trackTime trks6 [dynamics:sim1]
 [initFunction:AnimalInit] useRNG uses7 [rng:gen1]
 [table:K] sizedBy szx1 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
@@ -317,13 +321,13 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 	rank = java.lang.Integer(1)
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [function:LimitNtoK] useRNG uses2 [rng:gen1]
-[widget:map] trackSpace trks1 [space:space1]
+[widget:space] trackSpace trks1 [space:space1]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
 [componentType:animalType] belongsTo bt7 [category:animalCat]
 [componentType:animalType] belongsTo bt6 [category:*atomic*]
 [componentType:animalType] belongsTo bt5 [category:*ephemeral*]
 [componentType:animalType] belongsTo bt4 [category:*component*]
-[relationType:*parentTo*] fromCategory frm1 [category:*component*]
-[relationType:*parentTo*] toCategory to1 [category:*component*]
 [category:*arena*] constants cnsts1 [record:gConsts]
 [category:*arena*] decorators decs2 [record:gDecs]
 [process:p6Cull] appliesTo aplyTo9 [category:animalCat]
@@ -336,18 +340,16 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 [process:p4Death] appliesTo aplyTo11 [category:*ephemeral*]
 [process:p4Death] appliesTo aplyTo10 [category:animalCat]
 [process:p4Death] dependsOn depsOn1 [process:p3Birth]
-[dataTracker:trkN] trackTable trks9 [table:N]
-	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:9|0:9]"))
-[dataTracker:trkN] trackComponent trks11 [system:sys1]
 [process:p1Courting] appliesTo aplyTo1 [relationType:mateRelation]
 [process:p1Courting] inSpace in1 [space:space1]
 	searchRadius = java.lang.Double(100.0)
+[table:ages] sizedBy szBy1 [dimensioner:nAgeClasses]
+	rank = java.lang.Integer(0)
 [widget:progress] trackTime trks5 [dynamics:sim1]
 [space:space1] coordinate coordx [field:x]
 	rank = java.lang.Integer(0)
 [space:space1] coordinate coordy [field:y]
 	rank = java.lang.Integer(1)
-[widget:srs1] trackSeries trks8 [dataTracker:trackClock2]
 [category:animalCat] constants cnsts2 [record:animalConsts]
 [category:animalCat] decorators decs1 [record:animalDecs]
 [category:animalCat] drivers drvs2 [record:animalDrivers]
@@ -355,6 +357,8 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 12 13:02:25 AEST 2021
 [process:p7Track] appliesTo aplyTo3 [category:*assemblage*]
 [process:p7Track] dependsOn depsOn6 [process:p6Cull]
 [function:Death] useRNG uses5 [rng:gen1]
+[widget:age class population] trackSeries trks12 [dataTracker:D0]
+[widget:gridded population] trackSeries trks3 [dataTracker:D2]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
 [process:p2Mate] inSpace in3 [space:space1]
 	searchRadius = java.lang.Double(1.0E-4)
