@@ -70,6 +70,7 @@ public enum LibraryTable {
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model), //
 	Model3("3 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Model), //
+	Model4("4 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Model), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test), //
