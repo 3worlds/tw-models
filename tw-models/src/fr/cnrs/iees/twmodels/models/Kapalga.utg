@@ -1,0 +1,235 @@
+treegraph // saved by OmugiGraphExporter on Mon Jun 21 06:51:46 AEST 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds Kapalga
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"Davies, H.F.","Visintin, C.","Gillespie, G.R.","Murphy, B.P"))
+	built-by = java.lang.String(ian (18 June 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	precis = java.lang.String(Prelimonary reimplementation of Kapalga study Davies, F.H et al)
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"Davies, H.F., Visintin, C., Gillespie, G.R. and Murphy, B.P., 2021. Investigating the effects of fire management on savanna biodiversity with grid‐based spatially explicit population simulations. Journal of Applied Ecology, 58(3), pp.677-686."))
+	version = java.lang.String(0.0.0)
+	predefined *categories*
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record AVPopulation
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *component*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
+	dataDefinition dDef
+		dimensioner lsRows
+			size = java.lang.Integer(100)
+		record globalDrvs
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(globalDrvs)
+			table EDSJuvEff
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			table LDTime
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..12)
+				units = java.lang.String(mo)
+			table LDType
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..2)
+				units = java.lang.String()
+			table juvSurvival
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				description = java.lang.String(Habitat index)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(1.0E-5)
+				units = java.lang.String()
+		rng gen1
+			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
+			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
+			tableIndex = java.lang.Integer(0)
+		dimensioner demRows
+			size = java.lang.Integer(4)
+		dimensioner demCols
+			size = java.lang.Integer(2)
+		record globalCnsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(globalCnsts)
+			field carryingCapacity
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(1.0E-5)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			table demography
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			table lateFireEffects
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			field fireWidth
+				range = au.edu.anu.rscs.aot.util.IntegerRange(1..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(m x 10^2)
+			field fireLength
+				range = au.edu.anu.rscs.aot.util.IntegerRange(1..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(m x 10^2)
+			table earlyFireEffects
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+		dimensioner lsCols
+			size = java.lang.Integer(100)
+	experiment expt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+	system sys1
+		constantClass = java.lang.String(code.sys1.generated.GlobalCnsts)
+		driverClass = java.lang.String(code.sys1.generated.GlobalDrvs)
+		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(252)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(MONTH)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(LONG_TIMES)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(MONTH)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer t1
+					dt = java.lang.Long(2)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(MONTH)
+					process p3
+						dataTracker trkJuvSur
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkLDType
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkLDTime
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						function Fire
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.Fire)
+							snippet snptFire
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([82]"		long month = (long) t;","		long moy = month % 12;","		int fireType = 0;","		// Timing checked ok","		double baselineJSRReduction = 0;","		double baselineJSRReductionSD = 0.1;","		if (moy == 6) {","			fireType = 1;","			baselineJSRReduction = earlyFireEffects.getByInt(0);","","		} else if (moy == 10) {","			fireType = 2;","			baselineJSRReduction = lateFireEffects.getByInt(0);","		}","","		double baselineJSR = demography.getByInt(0, 0);","","		int x1 = -1;","		int y1 = -1;","		int x2 = -1;","		int y2 = -1;","		if (fireType > 0) {","			int w = LDType.size(0);","			int h = LDType.size(1);","			int limitx = w - fireWidth;","			int limity = h - fireLength;","			x1 = random.nextInt(limitx);","			y1 = random.nextInt(limity);","			x2 = x1 + fireWidth;","			y2 = y1 + fireLength;","		}","		// update fire consequences to grids","		int count = 0;","		for (int c = 0; c < LDType.size(0); c++) {","			boolean inX = false;","			if (fireType > 0 && c >= x1 && c < x2)","				inX = true;","			for (int r = 0; r < LDType.size(1); r++) {","				// Is there a new burn at c,r.","				boolean newBurn = false;","				if (inX && r >= y1 && r < y2)","					newBurn = true;","				// Update time since (any) fire","				int crTsd = LDTime.getByInt(c, r);","				if (newBurn) {","					focalDrv.LDType.setByInt(fireType, c, r);","					crTsd = 0;","				} else","					crTsd++;			","				crTsd = Math.min(12, crTsd);","				focalDrv.LDTime.setByInt(crTsd, c, r);","				","				// update the demography drivers for this location","				int currentFireType = focalDrv.LDType.getByInt(c, r);","				double nextJSR = juvSurvival.getByInt(c, r);","				double jEffect = EDSJuvEff.getByInt(c, r);	","				","				switch (currentFireType) {","				case 1: {","					// early fire juvenile reduction factor","						","					if (newBurn) {","						jEffect = random.nextGaussian() * baselineJSRReductionSD + baselineJSRReduction;","						jEffect = Math.max(0.0, Math.min(1.0, jEffect));","					}","					double reduction = 1.0 - jEffect;","					double timeScaled = 1.0 - (crTsd / 12.0);","					double reductionScaled = reduction * timeScaled;","					double baselineSurvival = demography.getByInt(0,0);","					nextJSR = baselineSurvival - reductionScaled;","					break;","				}","				case 2: {","					break;","				}","				default: {","				}","				}","				focalDrv.juvSurvival.setByInt(nextJSR, c, r);","				focalDrv.EDSJuvEff.setByInt(jEffect, c,r);","			}","		}"))
+		initFunction GlobalInit
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
+			snippet snptGlobalInit
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([44]"		// brushtail possum: Trichosurus vulpecula","		carryingCapacity = 2.46;","		// set initial habitat to 1","		int p = 0;","		int sd = 1;","		int j = 0;","		int a = 1;","		int t = 2;","		int r = 3;","		// juvenile survival / per 2 months","		focalCnt.demography.setByInt(0.55, p, j);","		focalCnt.demography.setByInt(0.09, sd, j);// SD","		// adult survival / per 2 months","		focalCnt.demography.setByInt(0.79, p, a);","		focalCnt.demography.setByInt(0.08, sd, a);// SD","		// transition / per 2 months","		focalCnt.demography.setByInt(0.25, p, t);","		focalCnt.demography.setByInt(0.11, sd, t);// SD","		// recruit rate / per 2 months","		focalCnt.demography.setByInt(0.46, p, r);","		focalCnt.demography.setByInt(0.26, sd, r);// SD","		// reduction of juvenile survival","		focalCnt.earlyFireEffects.setByInt(0.83, j);","		// reduction of adult survival","		focalCnt.earlyFireEffects.setByInt(0.83, a);","		// reduction of transition","		focalCnt.earlyFireEffects.setByInt(0.83, t);","		// reduction in recruitment","		focalCnt.earlyFireEffects.setByInt(0.46, r);","		// reduction of juvenile survival","		focalCnt.lateFireEffects.setByInt(0.7, j);","		// reduction of adult survival","		focalCnt.lateFireEffects.setByInt(0.7, a);","		// reduction of transition","		focalCnt.lateFireEffects.setByInt(0.7, t);","		// reduction in recruitment","		focalCnt.lateFireEffects.setByInt(0.02, r);","		focalDrv.LDTime.fillWith(12);","		focalDrv.LDType.fillWith(0);","","		focalDrv.juvSurvival.fillWith(focalCnt.demography.getByInt(0, 0));","		focalDrv.EDSJuvEff.fillWith(0.0);","		focalCnt.fireLength = 10;","		focalCnt.fireWidth = 10;"))
+	userInterface gui
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+		tab tab1
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			widget Juvenile survival
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+			container cont1
+				order = java.lang.Integer(1)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				widget disturbance type
+					order = java.lang.Integer(0)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Time since disturbance
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+		bottom btm
+			widget time
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
+
+// CROSS-LINKS
+[table:demography] sizedBy szBy2 [dimensioner:demRows]
+	rank = java.lang.Integer(1)
+[table:demography] sizedBy szBy1 [dimensioner:demCols]
+	rank = java.lang.Integer(0)
+[table:lateFireEffects] sizedBy szBy4 [dimensioner:demRows]
+	rank = java.lang.Integer(0)
+[table:earlyFireEffects] sizedBy szBy3 [dimensioner:demRows]
+	rank = java.lang.Integer(0)
+[dataTracker:trkJuvSur] trackComponent trks2 [system:sys1]
+[dataTracker:trkJuvSur] trackTable trks3 [table:juvSurvival]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
+[dataTracker:trkLDType] trackComponent trks6 [system:sys1]
+[dataTracker:trkLDType] trackTable trks5 [table:LDType]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
+[table:juvSurvival] sizedBy r1 [dimensioner:lsRows]
+	rank = java.lang.Integer(1)
+[table:juvSurvival] sizedBy c1 [dimensioner:lsCols]
+	rank = java.lang.Integer(0)
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
+[system:sys1] belongsTo bt1 [category:*arena*]
+[process:p3] appliesTo aplyTo1 [category:*arena*]
+[table:LDType] sizedBy r2 [dimensioner:lsRows]
+	rank = java.lang.Integer(1)
+[table:LDType] sizedBy c2 [dimensioner:lsCols]
+	rank = java.lang.Integer(0)
+[dataTracker:trkLDTime] trackTable trks8 [table:LDTime]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
+[dataTracker:trkLDTime] trackComponent trks7 [system:sys1]
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[widget:Time since disturbance] trackSeries trks10 [dataTracker:trkLDTime]
+[table:EDSJuvEff] sizedBy r3 [dimensioner:lsRows]
+	rank = java.lang.Integer(1)
+[table:EDSJuvEff] sizedBy c3 [dimensioner:lsCols]
+	rank = java.lang.Integer(0)
+[widget:disturbance type] trackSeries trks9 [dataTracker:trkLDType]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[category:*arena*] constants cnsts1 [record:globalCnsts]
+[category:*arena*] drivers drvs1 [record:globalDrvs]
+[table:LDTime] sizedBy c [dimensioner:lsCols]
+	rank = java.lang.Integer(0)
+[table:LDTime] sizedBy r [dimensioner:lsRows]
+	rank = java.lang.Integer(1)
+[function:Fire] useRNG uses1 [rng:gen1]
+[widget:time] trackTime trks1 [dynamics:sim1]
+[widget:Juvenile survival] trackSeries trks4 [dataTracker:trkJuvSur]
