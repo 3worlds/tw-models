@@ -7,7 +7,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jun 21 06:51:46 AEST 2021
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"Davies, H.F.","Visintin, C.","Gillespie, G.R.","Murphy, B.P"))
 	built-by = java.lang.String(ian (18 June 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	precis = java.lang.String(Prelimonary reimplementation of Kapalga study Davies, F.H et al)
+	precis = java.lang.String(Preliminary 3Worlds re-implementation of Kapalga study Davies, F.H et al 2021)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"Davies, H.F., Visintin, C., Gillespie, G.R. and Murphy, B.P., 2021. Investigating the effects of fire management on savanna biodiversity with grid‐based spatially explicit population simulations. Journal of Applied Ecology, 58(3), pp.677-686."))
 	version = java.lang.String(0.0.0)
 	predefined *categories*
