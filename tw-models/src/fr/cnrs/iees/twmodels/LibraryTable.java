@@ -69,9 +69,8 @@ public enum LibraryTable {
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model), //
-	Model3("3 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Model), //
-	Model4("4 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Model), //
-	Model5("5 Kapalga", "Kapalga1", "Kapalga.utg", LibraryType.Model), //
+	Model3("3 GDDM (dev)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model), //
+	Model4("4 Kapalga (dev)", "Kapalga1", "Kapalga.utg", LibraryType.Model), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test), //
@@ -85,6 +84,8 @@ public enum LibraryTable {
 	Test10("10 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test), //
 	Test11("11 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test), //
 	Test12("12 Test Map and 2dTracker", "MapTest1", "Test2DTracker.utg", LibraryType.Test), //
+	Test13("13 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test), //
+	Test14("14 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test), //
 	;
 
 // NB File dependencies e.g SquarePatterns.jav is not implemented yet.
