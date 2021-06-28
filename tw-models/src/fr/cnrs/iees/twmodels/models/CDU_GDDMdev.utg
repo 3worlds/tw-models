@@ -7,9 +7,9 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
 	built-by = java.lang.String(ian (25 June 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	precis = java.lang.String(WIP: Animal dispersal in a continuous landscape)
+	precis = java.lang.String(Implementing GDDM for Tiwi islands)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
-	version = java.lang.String(0.0.3)
+	version = java.lang.String(0.0.4)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -200,12 +200,6 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							userClassName = java.lang.String(code.sys1.generated.SumN)
 							snippet snptCountGrid
 								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([21]"		// 5) sum gridded population N[ix,iy]","		if (isFemale)","			arenaDec.nFemales++;","		else","			arenaDec.nMales++;","		int index = (int) age;","		index = Math.min(index, ages.size()-1);","		int an = arenaDec.ages.getByInt(index);","		arenaDec.ages.setByInt(an+1, index);","//		if (age<1.0)","//			arenaDec.nNewBorn++;","//		else","//			arenaDec.nAdults++;","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);","		if (age>=1.0){","			n = arenaDec.adults.getByInt(ix,iy);","			arenaDec.adults.setByInt(n+1,ix,iy);","		}"))
-					process p1AEarlyFire
-						function EarlyFire
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.EarlyFire)
-							snippet snptEarlyFire
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([22]"	long month = (long) t;","	long moy = month % 12;","	int fireWidth = 20;","	int fireLength = 10;","	// just make one EDS fire for now","	if (moy == 6) {","		int w = habitat.size(0);","		int h = habitat.size(1);","		int x1 = random.nextInt(w);","		int y1 = random.nextInt(h);","		int x2 = x1 + fireWidth;","		int y2 = y1 + fireLength;","		for (int x = x1; x < x2; x++) {","			int xi = x % w;","			for (int y = y1; y < y2; y++) {","				int yi = y % h;","				if (habitat.getByInt(xi, yi) > 0.5)// ?","					focalDrv.habitat.setByInt(0.5, xi, yi);","			}","		}","	}",""))
 					process p1Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
@@ -241,7 +235,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.UpdateLayers)
 							snippet snptUpdateLayers
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		for (int x=0;x<habitat.size(0);x++)","			for (int y = 0;y<habitat.size(1);y++) {","				double h = Math.min(1.0, habitat.getByInt(x,y)+1.0/6.0);","				focalDrv.habitat.setByInt(h, x,y);","			}"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([42]"		long month = (long) t;","		long moy = month % 12;","		int fireWidth = 2;","		int fireLength = 2;","		double severity = 0.0;","		int fireType = 0;","		if (moy == 6) {","			fireType = 1;","			severity = 0.5;","		}else if (moy == 10) {","			fireType = 2;","			severity = 1.0;","		}","		boolean[][] pattern = null;","		int maxx = habitat.size(0);","		int maxy = habitat.size(1);","		if (fireType>0) {","			","			pattern = new boolean[maxx][maxy];","			for (int x=0;x<maxx;x++)","				for (int y = 0;y<maxy;y++)","					pattern[x][y]=false;","			// just one fire per season for now	","			int x1 = random.nextInt(maxx);","			int y1 = random.nextInt(maxy);","			int x2 = x1 + fireWidth;","			int y2 = y1 + fireLength;			","			for (int x = x1; x < x2; x++) {","				int xi = x % maxx;","				for (int y = y1; y < y2; y++) {","					int yi = y % maxy;","					pattern[xi][yi]=true;","				}","			}","		}","		for (int x=0;x<maxx;x++)","			for (int y = 0;y<maxy;y++) {","				double h = Math.min(1.0, habitat.getByInt(x,y)+(1.0/6.0));","				if (pattern!=null && pattern[x][y])","					h = 1.0-severity;","				focalDrv.habitat.setByInt(h, x,y);","			}"))
 					process p7Track
 						dataTracker D2N
 							sampleSize = java.lang.String()
@@ -334,15 +328,15 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*arena*]
 [system:sys1] belongsTo bt1 [category:*assemblage*]
+[function:NBirths] useRNG uses3 [rng:gen1]
 [relationType:mateRelation] toCategory to4 [category:*ephemeral*]
 [relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] fromCategory from1 [category:animalCat]
 [relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
-[function:NBirths] useRNG uses3 [rng:gen1]
-[widget:ctrl] trackTime trks6 [dynamics:sim1]
 [process:p5Count] appliesTo aplyTo5 [category:*ephemeral*]
 [process:p5Count] appliesTo aplyTo7 [category:animalCat]
 [process:p5Count] dependsOn depsOn4 [process:p4Death]
+[widget:ctrl] trackTime trks6 [dynamics:sim1]
 [initFunction:AnimalInit] useRNG uses7 [rng:gen1]
 [table:K] sizedBy y2 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
@@ -402,8 +396,8 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [process:p7Track] appliesTo aplyTo12 [category:*arena*]
 [process:p7Track] appliesTo aplyTo3 [category:*assemblage*]
 [process:p7Track] dependsOn depsOn6 [process:p6Cull]
-[widget:age class population] trackSeries trks12 [dataTracker:D0]
 [function:Death] useRNG uses5 [rng:gen1]
+[widget:age class population] trackSeries trks12 [dataTracker:D0]
 [process:p1AupdateLayers] appliesTo aplyTo13 [category:*arena*]
 [widget:gridded population] trackSeries trks3 [dataTracker:D2N]
 [table:adults] sizedBy szy3 [dimensioner:ydim]
@@ -419,4 +413,3 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:9|0:9]"))
 [dataTracker:D2Hab] trackComponent trks15 [system:sys1]
 [initFunction:GlobalInit] useRNG uses6 [rng:gen1]
-[process:p1AEarlyFire] appliesTo aplyTo14 [category:*arena*]
