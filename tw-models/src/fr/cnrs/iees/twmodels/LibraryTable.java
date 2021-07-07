@@ -33,6 +33,13 @@ import fr.cnrs.iees.twmodels.models.*;
 import fr.cnrs.iees.twmodels.templates.*;
 import fr.cnrs.iees.twmodels.tests.*;
 import fr.cnrs.iees.twmodels.tutorials.*;
+
+import java.io.File;
+import java.io.InputStream;
+
+import javax.xml.transform.Templates;
+
+import au.edu.anu.rscs.aot.util.Resources;
 import fr.cnrs.iees.graph.impl.ALEdge;
 import fr.cnrs.iees.graph.impl.TreeGraph;
 import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
@@ -52,40 +59,40 @@ import fr.cnrs.iees.graph.io.GraphImporter;
  * 
  */
 public enum LibraryTable {
-	/*-	Menu name,	|	ProposedName|	File name,	|	category, */
-	Template1("1 Blank", "Prj1", "Blank.utg", LibraryType.Template), //
-	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template), //
+	/*-	Menu name,	|	ProposedName|	File name,	|	category, | dependency archive (*.zip)*/
+	Template1("1 Blank", "Prj1", "Blank.utg", LibraryType.Template,null), //
+	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template,null), //
 	//
-	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial), //
-	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial), //
-	Tut3("3 I.D.H.(clock)", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial), //
-	Tut4("4 I.D.H.(event)", "IdhEvent1", "IdhEvent.utg", LibraryType.Tutorial), //
-	Tut5("5 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial), //
-	Tut6("6 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial), //
-	Tut7("7 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial), //
-	Tut8("8 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial), //
-	Tut9("9 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial), //
-	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial), //
+	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial,null), //
+	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial,null), //
+	Tut3("3 I.D.H.(clock)", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial,null), //
+	Tut4("4 I.D.H.(event)", "IdhEvent1", "IdhEvent.utg", LibraryType.Tutorial,null), //
+	Tut5("5 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
+	Tut6("6 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
+	Tut7("7 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
+	Tut8("8 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
+	Tut9("9 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
+	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
 	//
-	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model), //
-	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model), //
-	Model3("3 GDDM (dev)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model), //
-	Model4("4 Kapalga (dev)", "Kapalga1", "Kapalga.utg", LibraryType.Model), //
+	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
+	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,null), //
+	Model3("3 GDDM (dev)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
+	Model4("4 Kapalga (dev)", "Kapalga1", "Kapalga.utg", LibraryType.Model,null), //
 	//
-	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test), //
-	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test), //
-	Test3("3 WrapTest", "WrapTest1", "WrapTest.utg", LibraryType.Test), //
-	Test4("4 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test), //
-	Test5("5 ParallelTest (Palms)", "Palms1", "ParallelTestPalms.utg", LibraryType.Test), //
-	Test6("6 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test), //
-	Test7("7 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test), //
-	Test8("8 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test), //
-	Test9("9 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test), //
-	Test10("10 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test), //
-	Test11("11 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test), //
-	Test12("12 Test Map and 2dTracker", "MapTest1", "Test2DTracker.utg", LibraryType.Test), //
-	Test13("13 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test), //
-	Test14("14 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test), //
+	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
+	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
+	Test3("3 WrapTest", "WrapTest1", "WrapTest.utg", LibraryType.Test,null), //
+	Test4("4 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
+	Test5("5 ParallelTest (Palms)", "Palms1", "ParallelTestPalms.utg", LibraryType.Test,null), //
+	Test6("6 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
+	Test7("7 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
+	Test8("8 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,null), //
+	Test9("9 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
+	Test10("10 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test,null), //
+	Test11("11 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
+	Test12("12 Test Map and 2dTracker", "MapTest1", "Test2DTracker.utg", LibraryType.Test,null), //
+	Test13("13 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
+	Test14("14 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
 	;
 
 // NB File dependencies e.g SquarePatterns.jav is not implemented yet.
@@ -113,14 +120,15 @@ public enum LibraryTable {
 	 * Alternatively, these string elements could be a DB query?
 	 */
 
-	private final String[] depFiles;
+	private final String dependencyArchive;
 
-	private LibraryTable(String displayName, String proposedName, String fileName, LibraryType lt, String... depFiles) {
+	private LibraryTable(String displayName, String proposedName, String fileName, LibraryType lt,
+			String dependencyArchive) {
 		this.displayName = displayName;
 		this.proposedName = proposedName;
 		this.fileName = fileName;
 		this.libraryType = lt;
-		this.depFiles = depFiles;
+		this.dependencyArchive = dependencyArchive;
 	}
 
 	public String displayName() {
@@ -135,8 +143,30 @@ public enum LibraryTable {
 		return libraryType;
 	}
 
-	public String[] depFiles() {
-		return depFiles;
+	public InputStream dependencyArchive() {
+		if (dependencyArchive == null)
+			return null;
+		Class<?> associatedClass;
+		switch (libraryType) {
+		case Template: {
+			associatedClass = TemplatesDummy.class;
+			break;
+		}
+		case Tutorial: {
+			associatedClass = TutorialsDummy.class;
+			break;
+		}
+		case Model: {
+			associatedClass = ModelsDummy.class;
+			break;
+		}
+		default: {
+			associatedClass = TestsDummy.class;
+			break;
+		}
+
+		}
+		return  associatedClass.getResourceAsStream(dependencyArchive);
 	}
 
 	@SuppressWarnings("unchecked")
