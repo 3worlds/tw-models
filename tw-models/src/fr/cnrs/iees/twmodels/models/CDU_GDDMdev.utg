@@ -5,11 +5,11 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 // TREE
 3worlds GDDMdev
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
-	built-by = java.lang.String(ian (2 July 2021))
+	built-by = java.lang.String(ian (7 July 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Implementing GDDM for Tiwi islands)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
-	version = java.lang.String(0.0.7)
+	version = java.lang.String(0.0.8)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -313,7 +313,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CalculateGeneticStats)
 							snippet snptCalcGenStats
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"//		for (int x = 0;x<heterozygosity.size(0);x++)","//			for (int y = 0; y<heterozygosity.size(1);y++) {","//				double[] hAndN = GeneticStatistics.getHeterozygosity(x, y);","//				focalDec.heterozygosity.setByInt(hAndN[0], x,y);","//			}","//		GeneticStatistics.clear();"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		for (int x = 0;x<heterozygosity.size(0);x++)","			for (int y = 0; y<heterozygosity.size(1);y++) {","				double[] hAndN = GeneticStatistics.getHeterozygosity(x, y);","				focalDec.heterozygosity.setByInt(hAndN[0], x,y);","			}","		GeneticStatistics.clear();"))
 						dataTracker trkHeterozygosity
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
@@ -322,7 +322,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.RecordAlleles)
 							snippet snptRecAlleles
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"//	GeneticStatistics.lazyInit(heterozygosity.size(0), heterozygosity.size(1), alleles.size(0));","//","//	for (int locus = 0; locus < alleles.size(0); locus++)","//		for (int ploidy = 0; ploidy < alleles.size(1); ploidy++) {","//			int ix = (int) (x / cellSize);","//			int iy = (int) (y / cellSize);","//			GeneticStatistics.recordAllele(ix, iy, locus, alleles.getByInt(locus, ploidy));","//		}"))
+								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"	GeneticStatistics.lazyInit(heterozygosity.size(0), heterozygosity.size(1), alleles.size(0));","	for (int locus = 0; locus < alleles.size(0); locus++)","		for (int ploidy = 0; ploidy < alleles.size(1); ploidy++) {","			int ix = (int) (x / cellSize);","			int iy = (int) (y / cellSize);","			GeneticStatistics.recordAllele(ix, iy, locus, alleles.getByInt(locus, ploidy));","		}"))
 					process p1Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
@@ -414,7 +414,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 			snippet snptInitSys
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([42]"		// brushtail possum: Trichosurus vulpecula arnhmemensis","		focalCnt.rateDeath = 0.5;","		focalCnt.rateBirth = 3.0;","		focalCnt.meanDispersalDistance = 300.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","		// 4 km^2","		focalCnt.fireMaxEW = 500.0;","		focalCnt.fireMaxNS = 500.0;","		focalCnt.fireEarlyBirthSeverity = 0.2;","		focalCnt.fireLateBirthSeverity = 0.3;","		focalCnt.fireEarlyDeathSeverity = 0.1;","		focalCnt.fireLateDeathSeverity = 0.4;","		focalCnt.pFire = 0.55;","		focalCnt.pEarlyFire = 0.62;","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","","		focalCnt.nRefugia = 1;","		focalCnt.refugiaStrength = 0.5;","		focalCnt.refugiaMaxEW = 2000;","		focalCnt.refugiaMaxNS = 2000;","		// create one refuge in the center","		int rw = (int) (focalCnt.refugiaMaxEW / focalCnt.cellSize);","		int rh = (int) (focalCnt.refugiaMaxNS / focalCnt.cellSize);","		int w = focalCnt.refugia.size(0);","		int h = focalCnt.refugia.size(1);","		int x1 = (w - rw) / 2;","		int y1 = (h - rh) / 2;","		int x2 = x1 + rw;","		int y2 = y1 + rh;","		focalCnt.refugia.fillWith(false);","		for (int x = x1; x < x2; x++)","			for (int y = y1; y < y2; y++)","				focalCnt.refugia.setByInt(true,x,y);","		","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","		System.out.println(new StringBuilder().append('B').append('=').append(focalCnt.rateBirth));","		System.out.println(new StringBuilder().append('D').append('=').append(focalCnt.rateDeath));"))
+				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([42]"		// brushtail possum: Trichosurus vulpecula arnhmemensis","		focalCnt.rateDeath = 0.5;","		focalCnt.rateBirth = 3.0;","		focalCnt.meanDispersalDistance = 300.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","		// 4 km^2","		focalCnt.fireMaxEW = 500.0;","		focalCnt.fireMaxNS = 500.0;","		focalCnt.fireEarlyBirthSeverity = 0.2;","		focalCnt.fireLateBirthSeverity = 0.3;","		focalCnt.fireEarlyDeathSeverity = 0.1;","		focalCnt.fireLateDeathSeverity = 0.4;","		focalCnt.pFire = 0.55;","		focalCnt.pEarlyFire = 0.62;","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","","		focalCnt.nRefugia = 1;","		focalCnt.refugiaStrength = 0.5;","		focalCnt.refugiaMaxEW = 2000;","		focalCnt.refugiaMaxNS = 2000;","		// create one refuge in the center","		int rw = (int) (focalCnt.refugiaMaxEW / focalCnt.cellSize);","		int rh = (int) (focalCnt.refugiaMaxNS / focalCnt.cellSize);","		int w = focalCnt.refugia.size(0);","		int h = focalCnt.refugia.size(1);","		int x1 = (w - rw) / 2;","		int y1 = (h - rh) / 2;","		int x2 = x1 + rw;","		int y2 = y1 + rh;","		focalCnt.refugia.fillWith(false);","		for (int x = x1; x < x2; x++)","			for (int y = y1; y < y2; y++)","				focalCnt.refugia.setByInt(true,x,y);","","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","		System.out.println(new StringBuilder().append('B').append('=').append(focalCnt.rateBirth));","		System.out.println(new StringBuilder().append('D').append('=').append(focalCnt.rateDeath));"))
 	userInterface gui
 		top top
 			widget ctrl
@@ -456,11 +456,11 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 			container cont2
 				order = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-				widget Burnt area
-					order = java.lang.Integer(0)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				widget Sex ratio
 					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+				widget Burnt area
+					order = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget Age classes
 				order = java.lang.Integer(1)
@@ -579,6 +579,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [process:p7Track] appliesTo aplyTo12 [category:*arena*]
 [process:p7Track] appliesTo aplyTo3 [category:*assemblage*]
 [process:p7Track] dependsOn depsOn6 [process:p6Cull]
+[widget:Sex ratio] trackSeries trks12 [dataTracker:D0]
 [function:Cull] useRNG uses2 [rng:gen1]
 [dataTracker:trkFF] trackComponent trks13 [system:sys1]
 [dataTracker:trkFF] trackTable trks14 [table:fireFrequency]
@@ -588,7 +589,6 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [dataTracker:trkD2FireType] trackComponent trks18 [system:sys1]
 [dataTracker:trkD2FireType] trackTable trks19 [table:fireType]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[widget:Sex ratio] trackSeries trks12 [dataTracker:D0]
 [table:adults] sizedBy szy3 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:adults] sizedBy szx3 [dimensioner:xdim]
