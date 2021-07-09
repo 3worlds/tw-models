@@ -5,11 +5,11 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 // TREE
 3worlds GDDMdev
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
-	built-by = java.lang.String(ian (7 July 2021))
+	built-by = java.lang.String(ian (8 July 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Implementing GDDM for Tiwi islands)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
-	version = java.lang.String(0.0.8)
+	version = java.lang.String(0.0.9)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -404,12 +404,12 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
 				driverClass = java.lang.String(code.sys1.generated.AnimalDrvs)
 				component animal
-					nInstances = java.lang.Integer(20000)
+					nInstances = java.lang.Integer(800)
 				initFunction AnimalInit
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 					snippet InitAnimal
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		// location","		focalDrv.x = random.nextDouble() * 10000;","		focalDrv.y = random.nextDouble() * 10000;","		// TODO Stable age class distribution","		focalDrv.ageInYears = random.nextInt(3);","","		//TODO better to have unique numbers starting for 1","		for (int ploid = 0;ploid<alleles.size(1);ploid++)","			for (int locus = 0; locus<alleles.size(0);locus++)","				focalDrv.alleles.setByInt(random.nextLong(),locus,ploid);","","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();",""))
+						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		// location","		focalDrv.x = 4000 + random.nextDouble() * 2000;","		focalDrv.y = 4000 + random.nextDouble() * 2000;","		// TODO Stable age class distribution","		focalDrv.ageInYears = random.nextInt(3);","		//TODO better to have unique numbers starting for 1","		for (int ploid = 0;ploid<alleles.size(1);ploid++)","			for (int locus = 0; locus<alleles.size(0);locus++)","				focalDrv.alleles.setByInt(random.nextLong(),locus,ploid);","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 		initFunction GlobalInit
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
