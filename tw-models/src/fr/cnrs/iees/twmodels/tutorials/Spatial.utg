@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 	precis = java.lang.String(Tutorial: Simple illustration of the use of space.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record rec1
 			dynamic = java.lang.Boolean(true)

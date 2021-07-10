@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 15 14:09:25 AEST 2021
 	precis = java.lang.String(WIP: Animal dispersal in a gridded landscape)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
 	version = java.lang.String()
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		rng gen1
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)

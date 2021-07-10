@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Tue Mar 30 07:02:28 AEDT 2021
 	precis = java.lang.String(Tutorial: Testing flocking behaviour of mobile components)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Boids"))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

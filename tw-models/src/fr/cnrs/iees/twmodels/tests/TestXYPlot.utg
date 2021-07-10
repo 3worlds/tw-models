@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 26 17:11:24 AEDT 2021
 	precis = java.lang.String(Tutorial: Testing the intermediate disturbance hypothesis (IDH) with the Lotka-Volterra competition model. Illustrates the use of a SystemComponent.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https:/en.wikipedia.org/wiki/Competitive_Lotka%E2%80%93Volterra_equations"))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

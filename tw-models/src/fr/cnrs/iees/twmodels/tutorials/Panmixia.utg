@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 	precis = java.lang.String(Tutorial: An individual based model with Panmixia. Illustrates the creation and deletion of individuals.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record drv
 			dynamic = java.lang.Boolean(true)

@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 	precis = java.lang.String(Tutorial: Demonstrating the use of random number streams.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record drvs
 			dynamic = java.lang.Boolean(true)

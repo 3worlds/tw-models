@@ -41,6 +41,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 	precis = java.lang.String(A test model for relations)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Sat Dec 05 11:55:47 AEDT 2020
 	precis = java.lang.String(Tutorial: Discrete logistic model. 100,000 parallel unattended simulations without GUI.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"https://en.wikipedia.org/wiki/Logistic_map","https://en.wikipedia.org/wiki/Chaos_theory"))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	experiment expt
 		nReplicates = java.lang.Integer(100000)
 		design dsgn

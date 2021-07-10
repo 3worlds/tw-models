@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 09 15:02:55 AEST 2021
 	precis = java.lang.String(Testing maps and data tracker2d.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

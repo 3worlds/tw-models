@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 	precis = java.lang.String(A simplistic individual based forest model to test the use of groups)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

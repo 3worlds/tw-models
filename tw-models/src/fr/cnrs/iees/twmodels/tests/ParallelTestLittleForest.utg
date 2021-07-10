@@ -10,6 +10,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 31 08:46:34 AEDT 2021
 	precis = java.lang.String(A simplistic individual based forest model to test the use of groups)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
+	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record treedec
 			dynamic = java.lang.Boolean(false)
