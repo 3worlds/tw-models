@@ -193,8 +193,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 15 14:09:25 AEST 2021
 				initFunction AnimalInit
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
-					snippet InitAnimal
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// location","		focalDrv.x = random.nextDouble() * 1000;","		focalDrv.y = random.nextDouble() * 1000;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// location","		focalDrv.x = random.nextDouble() * 1000;","		focalDrv.y = random.nextDouble() * 1000;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 				component animal
 					nInstances = java.lang.Integer(1000)
 			relationType mateRelation

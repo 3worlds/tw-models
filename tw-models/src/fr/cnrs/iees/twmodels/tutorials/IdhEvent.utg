@@ -187,8 +187,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 15:36:26 CET 2021
 						function Effects
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.Effects)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		for (int i=0; i<other_x.size(); i++) {","			if (other_x.getByInt(i)>other_K.getByInt(i)*intensity/100000)","				otherDrv.x.setByInt(otherDrv.x.getByInt(i)*other_K.getByInt(i)*intensity/10000, i);","		}","		otherDrv.lastDistT = t;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		for (int i=0; i<other_x.size(); i++) {","			if (other_x.getByInt(i)>other_K.getByInt(i)*intensity/100000)","				otherDrv.x.setByInt(otherDrv.x.getByInt(i)*other_K.getByInt(i)*intensity/10000, i);","		}","		otherDrv.lastDistT = t;"))
 	userInterface gui
 		top top
 			widget ctrl

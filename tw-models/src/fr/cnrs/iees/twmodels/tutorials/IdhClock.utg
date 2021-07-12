@@ -165,8 +165,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 				initFunction InitDist
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitDist)
-					snippet snptInitDist
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"	focalCnt.freq = 5 + random.nextInt(50);","	focalCnt.inten = random.nextDouble() * 100;"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"	focalCnt.freq = 5 + random.nextInt(50);","	focalCnt.inten = random.nextDouble() * 100;"))
 				component dist
 			componentType commType
 				constantClass = java.lang.String(code.sys1.generated.CommCnsts)

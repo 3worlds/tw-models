@@ -375,8 +375,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 					initFunction InitTree
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitTree)
-						snippet snpt7
-							javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalCnt.x = random.nextDouble();","		focalCnt.y = random.nextDouble();","		focalDrv.bmL = 0.0;","		focalDrv.bmS = 0.0;","		focalDrv.bmR = 1.0;","		focalDrv.reserves = 0.5;"))
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalCnt.x = random.nextDouble();","		focalCnt.y = random.nextDouble();","		focalDrv.bmL = 0.0;","		focalDrv.bmS = 0.0;","		focalDrv.bmR = 1.0;","		focalDrv.reserves = 0.5;"))
 					component bri
 						nInstances = java.lang.Integer(1)
 				group Crossopteryx

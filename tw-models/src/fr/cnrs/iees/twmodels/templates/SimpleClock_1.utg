@@ -68,6 +68,7 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.Init1)
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
