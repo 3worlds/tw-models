@@ -226,14 +226,12 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 15 14:09:25 AEST 2021
 						function SumN
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SumN)
-							snippet snptCountGrid
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		// 5) sum gridded population N[ix,iy]","		if (isFemale)","			arenaDec.nFemales++;","		else","			arenaDec.nMales++;","		int index = (int) age;","		index = Math.min(index, ages.size()-1);","		int an = arenaDec.ages.getByInt(index);","		arenaDec.ages.setByInt(an+1, index);","//		if (age<1.0)","//			arenaDec.nNewBorn++;","//		else","//			arenaDec.nAdults++;","","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		// 5) sum gridded population N[ix,iy]","		if (isFemale)","			arenaDec.nFemales++;","		else","			arenaDec.nMales++;","		int index = (int) age;","		index = Math.min(index, ages.size()-1);","		int an = arenaDec.ages.getByInt(index);","		arenaDec.ages.setByInt(an+1, index);","//		if (age<1.0)","//			arenaDec.nNewBorn++;","//		else","//			arenaDec.nAdults++;","","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);"))
 					process p6Cull
 						function LimitNtoK
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.LimitNtoK)
-							snippet snptCull
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 6) remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		// 6) remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = N.getByInt(ix, iy);","		double k = K.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
 					process p7Track
 						dataTracker D2
 							sampleSize = java.lang.String()
@@ -245,14 +243,12 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 15 14:09:25 AEST 2021
 						function Death
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Death)
-							snippet snptDeath
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 4)","	if (age >= 1)","		return decider.decide(rateDeath);","	else","		return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 4)","	if (age >= 1)","		return decider.decide(rateDeath);","	else","		return false;"))
 					process p1Courting
 						function FindMate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FindMate)
-							snippet snptFindMate
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 1) pair mature females and males","	if (age >= 1.0 && other_age >= 1.0)","		return (isFemale && !other_isFemale);","	else","		return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"	// 1) pair mature females and males","	if (age >= 1.0 && other_age >= 1.0)","		return (isFemale && !other_isFemale);","	else","		return false;"))
 					process p3Birth
 						function NBirths
 							relateToProduct = java.lang.Boolean(false)
@@ -261,24 +257,20 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 15 14:09:25 AEST 2021
 							function Birth
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
-								snippet snptBirth
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		// 3b) consequence of nBirths (3a)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);"))
-							snippet snptNBirths
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 3a): number of births from pregnant (females). ","		if (isPregnant) {","			return rateBirth;","		}","		return 0.0;"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		// 3b) consequence of nBirths (3a)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 3a): number of births from pregnant (females). ","		if (isPregnant) {","			return rateBirth;","		}","		return 0.0;"))
 					process p2Mate
 						function Conceive
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.Conceive)
-							snippet snptConceive
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 2)  flag decorator to true (pairing ensures this IS a female).","		focalDec.isPregnant = true;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// 2)  flag decorator to true (pairing ensures this IS a female).","		focalDec.isPregnant = true;"))
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
 				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
 		initFunction GlobalInit
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
-			snippet snptInitSys
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([15]"		focalCnt.rateDeath = 0.5;","		focalCnt.rateBirth = 2.5;","		focalCnt.meanDispersalDistance = 200.0;","		focalCnt.landscapeHeight = 1000;","		focalCnt.landscapeWidth = 1000;","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		focalCnt.K.fillWith(10);","		//for (int i = 0; i < K.size(0); i++)","		//	for (int j = 0; j < K.size(1); j++)","		//		K.setByInt(1 + random.nextInt(20), i, j);","		int sum = 0;","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				sum += K.getByInt(i, j);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(sum));"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([15]"		focalCnt.rateDeath = 0.5;","		focalCnt.rateBirth = 2.5;","		focalCnt.meanDispersalDistance = 200.0;","		focalCnt.landscapeHeight = 1000;","		focalCnt.landscapeWidth = 1000;","		focalCnt.cellSize = focalCnt.landscapeWidth / K.size(0);","		focalCnt.K.fillWith(10);","		//for (int i = 0; i < K.size(0); i++)","		//	for (int j = 0; j < K.size(1); j++)","		//		K.setByInt(1 + random.nextInt(20), i, j);","		int sum = 0;","		for (int i = 0; i < K.size(0); i++)","			for (int j = 0; j < K.size(1); j++)","				sum += K.getByInt(i, j);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(sum));"))
 
 // CROSS-LINKS
 [function:FindMate] useRNG uses1 [rng:gen1]

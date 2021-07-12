@@ -126,8 +126,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 15:36:26 CET 2021
 				initFunction InitDist
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitDist)
-					snippet snpt4
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		focalCnt.freq = 30+random.nextInt(50);","		focalCnt.intensity = random.nextDouble()*100;","		// populate the time event queue with 10000 events","		double nextT = 0;","		for (int i=0; i<100; i++) {","			// reciprocal of exponential cumulative distribution function","			nextT += max(1.0,log(1-random.nextDouble())*(-focalCnt.freq));","			event.postTimeEvent(nextT);","		}"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		focalCnt.freq = 30+random.nextInt(50);","		focalCnt.intensity = random.nextDouble()*100;","		// populate the time event queue with 10000 events","		double nextT = 0;","		for (int i=0; i<100; i++) {","			// reciprocal of exponential cumulative distribution function","			nextT += max(1.0,log(1-random.nextDouble())*(-focalCnt.freq));","			event.postTimeEvent(nextT);","		}"))
 				component herbivore
 				component fire
 			relationType DistToComm
@@ -142,8 +141,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 15:36:26 CET 2021
 				initFunction InitComm
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitComm)
-					snippet snpt5
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		double initfreq = 1.0/x.size();","		focalDrv.x.fillWith(initfreq);","		for (int i=0; i<r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(),i);","			focalCnt.K.setByInt(5.0+initfreq+random.nextDouble(),i);","			for (int j=0; j<alpha.size(1); j++) {","				if (i==j)","					focalCnt.alpha.setByInt(1.0,i,j);","				else","					focalCnt.alpha.setByInt(max(0.0001,random.nextDouble()),i,j);","			}","		}","		focalDrv.lastDistT = 0.0;"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		double initfreq = 1.0/x.size();","		focalDrv.x.fillWith(initfreq);","		for (int i=0; i<r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(),i);","			focalCnt.K.setByInt(5.0+initfreq+random.nextDouble(),i);","			for (int j=0; j<alpha.size(1); j++) {","				if (i==j)","					focalCnt.alpha.setByInt(1.0,i,j);","				else","					focalCnt.alpha.setByInt(max(0.0001,random.nextDouble()),i,j);","			}","		}","		focalDrv.lastDistT = 0.0;"))
 			categorySet world
 				category distrb
 					constantClass = java.lang.String(Distrb_Cnt)
@@ -168,8 +166,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 15:36:26 CET 2021
 						function Growth
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Growth)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([20]"		// population growth","		double[] dxdt = new double[x.size(0)];","		for (int i=0; i<x.size(0); i++) {","		double sum = 0;","		for (int j=0; j<alpha.size(1); j++)","			sum += alpha.getByInt(i,j) * x.getByInt(j);","			dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1-sum/K.getByInt(i));","		}","		for (int i=0; i<dxdt.length; i++)","			focalDrv.x.setByInt(max(x.getByInt(i)+dxdt[i]*dt,0.0), i);","		// compute diversity","		double xtot = 0.0;","		for (int i=0; i<focalDrv.x.size(0);i++)","			xtot += focalDrv.x.getByInt(i);","		focalDec.div = 0.0;","		for  (int i=0; i<focalDrv.x.size(0);i++)","			if (focalDrv.x.getByInt(i)>0.0)","				focalDec.div -= (focalDrv.x.getByInt(i)/xtot) * log(focalDrv.x.getByInt(i)/xtot);","		// compute time since last disturbance","		focalDec.timeSinceLastDisturbance = t-lastDistT;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([20]"		// population growth","		double[] dxdt = new double[x.size(0)];","		for (int i=0; i<x.size(0); i++) {","		double sum = 0;","		for (int j=0; j<alpha.size(1); j++)","			sum += alpha.getByInt(i,j) * x.getByInt(j);","			dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1-sum/K.getByInt(i));","		}","		for (int i=0; i<dxdt.length; i++)","			focalDrv.x.setByInt(max(x.getByInt(i)+dxdt[i]*dt,0.0), i);","		// compute diversity","		double xtot = 0.0;","		for (int i=0; i<focalDrv.x.size(0);i++)","			xtot += focalDrv.x.getByInt(i);","		focalDec.div = 0.0;","		for  (int i=0; i<focalDrv.x.size(0);i++)","			if (focalDrv.x.getByInt(i)>0.0)","				focalDec.div -= (focalDrv.x.getByInt(i)/xtot) * log(focalDrv.x.getByInt(i)/xtot);","		// compute time since last disturbance","		focalDec.timeSinceLastDisturbance = t-lastDistT;"))
 						dataTracker trk2
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTrackerXY)
@@ -183,8 +180,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 15:36:26 CET 2021
 						function Setup
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.Setup)
-							snippet snpt3
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 				timer event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process procDist

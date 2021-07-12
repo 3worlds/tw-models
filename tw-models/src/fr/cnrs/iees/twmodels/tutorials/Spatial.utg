@@ -119,13 +119,11 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduce)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"return 1.0;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"return 1.0;"))
 							function Dispersal
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Dispersal)
-								snippet snpt1
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"otherDrv.x = random.nextDouble()*limits.sideLength(0) + limits.lowerBound(0);","otherDrv.y = random.nextDouble()*limits.sideLength(1) + limits.lowerBound(1);"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"otherDrv.x = random.nextDouble()*limits.sideLength(0) + limits.lowerBound(0);","otherDrv.y = random.nextDouble()*limits.sideLength(1) + limits.lowerBound(1);"))
 			stoppingCondition stCd1
 				range = fr.ens.biologie.generic.utils.Interval([0.0,1000.0])
 				stopVariable = java.lang.String(count)

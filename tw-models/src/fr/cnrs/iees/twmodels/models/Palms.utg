@@ -399,45 +399,37 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 							relateToProduct = java.lang.Boolean(true)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduction)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		if (sex) {","			if (dead==0)","				return group_slrec0*nELSeedlings;","			else","				return group_slrec1*nELSeedlings;","		}","		else","			return 0.0;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		if (sex) {","			if (dead==0)","				return group_slrec0*nELSeedlings;","			else","				return group_slrec1*nELSeedlings;","		}","		else","			return 0.0;"))
 							function Dispersal
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Dispersal)
-								snippet snpt2
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		double teta = random.nextDouble()*2*PI;","		double r = sqrt(log(1-random.nextDouble()*0.6535)/(-group_dis));","		otherCnt.x = x+r*cos(teta);","		otherCnt.y = y+r*sin(teta);","		otherDrv.neophyll = 1;","		otherCnt.sex = random.nextBoolean();"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		double teta = random.nextDouble()*2*PI;","		double r = sqrt(log(1-random.nextDouble()*0.6535)/(-group_dis));","		otherCnt.x = x+r*cos(teta);","		otherCnt.y = y+r*sin(teta);","		otherDrv.neophyll = 1;","		otherCnt.sex = random.nextBoolean();"))
 						function MortalityAdult
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.MortalityAdult)
-							snippet snpt14
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (dead>=group_remanence)","			return true;","		else","			return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (dead>=group_remanence)","			return true;","		else","			return false;"))
 						function GrowAdult
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.GrowAdult)
-							snippet snpt15
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([29]"		// mortality","		if (dead==0) {","			double logit = group_aPdead + group_deadNbLeaves  * nleaves ;","			double proba = 1/(exp(-logit)+1);","			if (random.nextDouble()<proba)","				focalDrv.dead=1; ","			else ","				focalDrv.dead=0;","		}","		else","			focalDrv.dead = dead+1;","		if (nleaves==0)","			focalDrv.dead = 1;","		// reproduction","		if (sex) { // females only","			if (dead==0)","				focalDrv.nELSeedlings = group_fec*nleaves;","			else","				focalDrv.nELSeedlings = nELSeedlings*group_decay;","		}","		// growth","		if (dead==0) {","			int dN = 0;","			if (random.nextDouble()<group_jPdNNeg)","				dN = -1;","			double dH = group_aGinc*(1-budHt/20);","			focalDrv.budHt = min(30.0,budHt+max(dH,0.0));","			focalDrv.nleaves = nleaves+dN;","		}"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([29]"		// mortality","		if (dead==0) {","			double logit = group_aPdead + group_deadNbLeaves  * nleaves ;","			double proba = 1/(exp(-logit)+1);","			if (random.nextDouble()<proba)","				focalDrv.dead=1; ","			else ","				focalDrv.dead=0;","		}","		else","			focalDrv.dead = dead+1;","		if (nleaves==0)","			focalDrv.dead = 1;","		// reproduction","		if (sex) { // females only","			if (dead==0)","				focalDrv.nELSeedlings = group_fec*nleaves;","			else","				focalDrv.nELSeedlings = nELSeedlings*group_decay;","		}","		// growth","		if (dead==0) {","			int dN = 0;","			if (random.nextDouble()<group_jPdNNeg)","				dN = -1;","			double dH = group_aGinc*(1-budHt/20);","			focalDrv.budHt = min(30.0,budHt+max(dH,0.0));","			focalDrv.nleaves = nleaves+dN;","		}"))
 					process procS
 						function MortalitySeedling
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.MortalitySeedling)
-							snippet snpt17
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		// TODO: dummy: ","		double RUTree=1;","		final double canopyRadius = 0.5;","		double RUAdult = neighbourhoodIndexAdults/(PI*sqr(canopyRadius));","		double logitTree = max(-10,min(group_sTreeInt + group_sTreeSlp*RUTree,10));","	    double logitAd = max(-10,min(group_sAdInt + group_sAdSlp*RUAdult,10));","	    // survival probability","	    double psur = max(group_sMinSur,min(group_sMaxSur,min(1/(exp(-logitTree)+1),1/(exp(-logitAd)+1))));","		return decider.decide(1-psur);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		// TODO: dummy: ","		double RUTree=1;","		final double canopyRadius = 0.5;","		double RUAdult = neighbourhoodIndexAdults/(PI*sqr(canopyRadius));","		double logitTree = max(-10,min(group_sTreeInt + group_sTreeSlp*RUTree,10));","	    double logitAd = max(-10,min(group_sAdInt + group_sAdSlp*RUAdult,10));","	    // survival probability","	    double psur = max(group_sMinSur,min(group_sMaxSur,min(1/(exp(-logitTree)+1),1/(exp(-logitAd)+1))));","		return decider.decide(1-psur);"))
 						function RecruitSeedling
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitSeedling)
-							snippet snpt4
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return recruit.transition(decider.decide(group_recruitRate));"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return recruit.transition(decider.decide(group_recruitRate));"))
 							function SeedlingToJuvenile
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.SeedlingToJuvenile)
-								snippet snpt5
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		otherCnt.sex = sex;","		otherCnt.x = x;","		otherCnt.y = y;","		otherDrv.budHt = 0.0;","		otherDrv.nleaves = neophyll;"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		otherCnt.sex = sex;","		otherCnt.x = x;","		otherCnt.y = y;","		otherDrv.budHt = 0.0;","		otherDrv.nleaves = neophyll;"))
 					process pAdComp
 						function CompetitionA
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.CompetitionA)
-							snippet snpt20
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexAdults += weight*other_nleaves;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexAdults += weight*other_nleaves;"))
 					process proc2
 						dataTracker trk1
 							sampleSize = java.lang.String()
@@ -449,53 +441,44 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						function AdultNeighbour
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.AdultNeighbour)
-							snippet snpt9
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 					process getJuveniles
 						function JuvenileNeighbour
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.JuvenileNeighbour)
-							snippet snpt11
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 					process getMounds
 						function MoundNeighbour
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.MoundNeighbour)
-							snippet snpt19
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 					process procJ
 						function MortalityJuvenile
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.MortalityJuvenile)
-							snippet snpt10
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"	    double pSur = 1- group_jDeathRate;","	    if (nleaves<=0.0) ","	    	pSur = 0;","	    else if (log(budHt+0.01)>=group_ja1+group_jb1*log(nleaves+group_jTol)) ","	    	pSur=0;","	    return decider.decide(1-pSur);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"	    double pSur = 1- group_jDeathRate;","	    if (nleaves<=0.0) ","	    	pSur = 0;","	    else if (log(budHt+0.01)>=group_ja1+group_jb1*log(nleaves+group_jTol)) ","	    	pSur=0;","	    return decider.decide(1-pSur);"))
 						function RecruitJuvenile
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitJuvenile)
 							function JuvenileToAdult
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.JuvenileToAdult)
-								snippet snpt6
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		otherCnt.sex = sex;","		otherCnt.x = x;","		otherCnt.y = y;","		otherDrv.budHt = budHt;","		otherDrv.nleaves = nleaves;"))
-							snippet snpt7
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		double logit = group_ajPR + group_j0BudHt*sqr(budHt);","		double pRec = 0.0;","		if (budHt>=8.0)","			pRec = 1-1/(exp(-logit)+1);","		return recruit.transition(decider.decide(pRec));"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		otherCnt.sex = sex;","		otherCnt.x = x;","		otherCnt.y = y;","		otherDrv.budHt = budHt;","		otherDrv.nleaves = nleaves;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		double logit = group_ajPR + group_j0BudHt*sqr(budHt);","		double pRec = 0.0;","		if (budHt>=8.0)","			pRec = 1-1/(exp(-logit)+1);","		return recruit.transition(decider.decide(pRec));"))
 						function GrowJuvenile
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.GrowJuvenile)
-							snippet snpt8
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([55]"		double crownSurface = PI*sqr(canopyRadius);","		double niMound = neighbourhoodIndexMounds/crownSurface; // TODO: replace by neighbourhood index","		double niTree=0; ","		double niAdult = neighbourhoodIndexAdults/crownSurface;","		double niJuv = neighbourhoodIndexJuveniles/crownSurface; ","		// increment in number of leaves","		double[] proba = new double[3];","		if (budHt>0.0) {","			double neighb = group_j0Mound*niMound + group_j0NLeaves*nleaves;","			double logit = neighb + group_aj0PdNneg;","			proba[0] = 1/(1+exp(-logit));","			logit = neighb + group_aj0PdN0;","			proba[1] = 1/(1+exp(-logit));","			logit = neighb + group_aj0PdN1;","			proba[2] = 1/(1+exp(-logit));","		}","		else {","			double neighb = group_j1Tree*niTree + group_j1Adult*niAdult + group_j1Juvenile*niJuv + group_j1BudHt*budHt;","			double logit = neighb + group_aj1PdNneg;","			proba[0] = 1/(1+exp(-logit));","			logit = neighb + group_aj1PdN0;","			proba[1] = 1/(1+exp(-logit));","			logit = neighb + group_aj1PdN1;","			proba[2] = 1/(1+exp(-logit));			","		}","		double real = random.nextDouble();","		int result = 3;","		for (int i=0; i<3; i++)","			if (real<proba[i]) {","				result = i;","				break;","		}","		int dN = result-1; // possible outcomes: -1,0,1,2","		// increment in bud height","		double neighb = group_jpdhMound*niMound+ group_jpdhAdult* niAdult+ group_jpdhSNLeaves*sqr(nleaves);","		double logit = neighb + group_jpdh0;","		proba[0] = 1/(1+exp(-logit));","		logit = neighb + group_jpdh1;","		proba[1] = 1/(1+exp(-logit));","		proba[2] = 1.0;","		real = random.nextDouble();","		result = 2;","		for (int i=0; i<2; i++)","			if (real<proba[i]) {","				result = i;","				break;","		}","		double dH=0.0;","		if (result==1)","			dH = 0.05;","		else if (result>=2)","			dH = 0.2;","		focalDrv.budHt = budHt+dH;","		focalDrv.nleaves = nleaves+dN;","		focalDec.canopyRadius = budHt+0.5+0.06*nleaves;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([55]"		double crownSurface = PI*sqr(canopyRadius);","		double niMound = neighbourhoodIndexMounds/crownSurface; // TODO: replace by neighbourhood index","		double niTree=0; ","		double niAdult = neighbourhoodIndexAdults/crownSurface;","		double niJuv = neighbourhoodIndexJuveniles/crownSurface; ","		// increment in number of leaves","		double[] proba = new double[3];","		if (budHt>0.0) {","			double neighb = group_j0Mound*niMound + group_j0NLeaves*nleaves;","			double logit = neighb + group_aj0PdNneg;","			proba[0] = 1/(1+exp(-logit));","			logit = neighb + group_aj0PdN0;","			proba[1] = 1/(1+exp(-logit));","			logit = neighb + group_aj0PdN1;","			proba[2] = 1/(1+exp(-logit));","		}","		else {","			double neighb = group_j1Tree*niTree + group_j1Adult*niAdult + group_j1Juvenile*niJuv + group_j1BudHt*budHt;","			double logit = neighb + group_aj1PdNneg;","			proba[0] = 1/(1+exp(-logit));","			logit = neighb + group_aj1PdN0;","			proba[1] = 1/(1+exp(-logit));","			logit = neighb + group_aj1PdN1;","			proba[2] = 1/(1+exp(-logit));			","		}","		double real = random.nextDouble();","		int result = 3;","		for (int i=0; i<3; i++)","			if (real<proba[i]) {","				result = i;","				break;","		}","		int dN = result-1; // possible outcomes: -1,0,1,2","		// increment in bud height","		double neighb = group_jpdhMound*niMound+ group_jpdhAdult* niAdult+ group_jpdhSNLeaves*sqr(nleaves);","		double logit = neighb + group_jpdh0;","		proba[0] = 1/(1+exp(-logit));","		logit = neighb + group_jpdh1;","		proba[1] = 1/(1+exp(-logit));","		proba[2] = 1.0;","		real = random.nextDouble();","		result = 2;","		for (int i=0; i<2; i++)","			if (real<proba[i]) {","				result = i;","				break;","		}","		double dH=0.0;","		if (result==1)","			dH = 0.05;","		else if (result>=2)","			dH = 0.2;","		focalDrv.budHt = budHt+dH;","		focalDrv.nleaves = nleaves+dN;","		focalDec.canopyRadius = budHt+0.5+0.06*nleaves;"))
 					process pJuvComp
 						function CompetitionJ
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.CompetitionJ)
-							snippet snpt12
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexJuveniles += weight*other_nleaves;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexJuveniles += weight*other_nleaves;"))
 					process pMoundComp
 						function MoundEffect
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.MoundEffect)
-							snippet snpt21
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexMounds += weight;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// relativedistance weight, ie = 1 if at focal location, =0 at searchRadius distance","		double weight = 1-euclidianDistance(x,y,other_x,other_y)/searchRadius; ","		focalDec.neighbourhoodIndexMounds += weight;"))
 		structure structure
 			fixedPoints = au.edu.anu.rscs.aot.collections.tables.DoubleTable(([1]0.0))
 			space plot
@@ -559,8 +542,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 					initFunction InitSeedlingParameters
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitSeedlingParameters)
-						snippet snpt16
-							javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalCnt.sMinSur = 0.9;","		focalCnt.sMaxSur = 0.97;","		focalCnt.sTreeInt = 9.0;","		focalCnt.sTreeSlp = -1200.0;","		focalCnt.sAdInt = 5.8;","		focalCnt.sAdSlp = -50.0;","		focalCnt.recruitRate = 0.01;"))
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalCnt.sMinSur = 0.9;","		focalCnt.sMaxSur = 0.97;","		focalCnt.sTreeInt = 9.0;","		focalCnt.sTreeSlp = -1200.0;","		focalCnt.sAdInt = 5.8;","		focalCnt.sAdSlp = -50.0;","		focalCnt.recruitRate = 0.01;"))
 					componentType palmSeedling
 						constantClass = java.lang.String(code.sys1.generated.LocationRec_palmcst_constants)
 						decoratorClass = java.lang.String(code.sys1.generated.PalmDec)
@@ -572,8 +554,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 					initFunction InitAdultParameters
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitAdultParameters)
-						snippet snpt13
-							javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		focalCnt.aPdead = 1.21;","		focalCnt.deadNbLeaves = -0.74;","		focalCnt.remanence = 10.0;","		if (focalCnt.remanence>0.0)","			focalCnt.decay = exp(log(0.01)/focalCnt.remanence);","		else","			focalCnt.decay = 0.0;","		focalCnt.fec = 4;","		focalCnt.dis = 0.011;","		focalCnt.jPdNNeg = 0.15;","		focalCnt.aGinc = 0.2;","		focalCnt.slrec0 = 0.01;","		focalCnt.slrec1 = 0.01;"))
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		focalCnt.aPdead = 1.21;","		focalCnt.deadNbLeaves = -0.74;","		focalCnt.remanence = 10.0;","		if (focalCnt.remanence>0.0)","			focalCnt.decay = exp(log(0.01)/focalCnt.remanence);","		else","			focalCnt.decay = 0.0;","		focalCnt.fec = 4;","		focalCnt.dis = 0.011;","		focalCnt.jPdNNeg = 0.15;","		focalCnt.aGinc = 0.2;","		focalCnt.slrec0 = 0.01;","		focalCnt.slrec1 = 0.01;"))
 					group adBOR
 						constantValues initCnts2
 							dist = java.lang.Double(5.2)
@@ -586,8 +567,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						initFunction InitAdult
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 							userClassName = java.lang.String(code.sys1.generated.InitAdult)
-							snippet snpt3
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		focalCnt.sex = random.nextBoolean();","		// TODO: missing space limits !!!","		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;","		focalDrv.nleaves = 15;","		focalDrv.budHt = 10.0;","		focalDrv.dead = 0;","		focalDrv.nELSeedlings = random.nextDouble()*20;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		focalCnt.sex = random.nextBoolean();","		// TODO: missing space limits !!!","		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;","		focalDrv.nleaves = 15;","		focalDrv.budHt = 10.0;","		focalDrv.dead = 0;","		focalDrv.nELSeedlings = random.nextDouble()*20;"))
 						component adBORinit
 							nInstances = java.lang.Integer(20)
 				groupType palmJuv
@@ -633,8 +613,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 					initFunction InitMound
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitMound)
-						snippet snpt18
-							javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;"))
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;"))
 			categorySet groupCats
 				category seedlingPar
 					constantClass = java.lang.String(SeedlingPar_Cnt)

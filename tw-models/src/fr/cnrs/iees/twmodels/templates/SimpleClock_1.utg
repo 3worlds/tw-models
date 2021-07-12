@@ -86,6 +86,8 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 						function F1
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.Growth)
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							
 	userInterface gui
 		top top
 			widget ctrl

@@ -81,18 +81,14 @@ public enum LibraryTable {
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
-	Test3("3 WrapTest", "WrapTest1", "WrapTest.utg", LibraryType.Test,null), //
 	Test4("4 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
-	Test5("5 ParallelTest (Palms)", "Palms1", "ParallelTestPalms.utg", LibraryType.Test,null), //
-	Test6("6 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
-	Test7("7 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
-	Test8("8 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,null), //
-	Test9("9 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
-	Test10("10 Timer test (year+offset)", "TimerTest1", "TimerTestOffsetYearClock1.utg", LibraryType.Test,null), //
-	Test11("11 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test12("12 Test Map and 2dTracker", "MapTest1", "Test2DTracker.utg", LibraryType.Test,null), //
-	Test13("13 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
-	Test14("14 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
+	Test6("5 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
+	Test7("6 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
+	Test8("7 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,null), //
+	Test9("8 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
+	Test11("10 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
+	Test13("11 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
+	Test14("12 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
 	;
 
 // NB File dependencies e.g SquarePatterns.jav is not implemented yet.

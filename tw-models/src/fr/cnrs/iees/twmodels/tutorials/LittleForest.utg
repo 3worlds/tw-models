@@ -120,8 +120,7 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.Init1)
-			snippet snpt7
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalCnt.neighRadius = 10.0;"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalCnt.neighRadius = 10.0;"))
 		dynamics sim1
 			timeline tmLn1
 				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
@@ -141,36 +140,30 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 						function FindNeighbours
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FindNeighbours)
-							snippet snpt6
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return squaredEuclidianDistance(x,y,other_x,other_y)<(neighRadius*neighRadius);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return squaredEuclidianDistance(x,y,other_x,other_y)<(neighRadius*neighRadius);"))
 					process p2
 						function ResourceDemand
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.ResourceDemand)
-							snippet snpt5
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		otherDec.neighBm += biomass;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		otherDec.neighBm += biomass;"))
 					process p1
 						function Growth
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Growth)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		double g = group_gmax*biomass*biomass/(biomass+neighBm);","		focalDrv.biomass = biomass+g;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		double g = group_gmax*biomass*biomass/(biomass+neighBm);","		focalDrv.biomass = biomass+g;"))
 						function Reproduction
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduction)
-							snippet snpt4
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// number of seedlings proportional to biomass/100","		return group_fec*biomass/100;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		// number of seedlings proportional to biomass/100","		return group_fec*biomass/100;"))
 							function Dispersal
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Dispersal)
-								snippet snpt3
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// drivers","		otherDrv.biomass = 1;","		// location","		double dist = neighRadius*random.nextGaussian()+neighRadius;","		double angle = random.nextDouble()*2*PI;","		otherCnt.x = x+dist*cos(angle);","		otherCnt.y = y+dist*sin(angle);"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// drivers","		otherDrv.biomass = 1;","		// location","		double dist = neighRadius*random.nextGaussian()+neighRadius;","		double angle = random.nextDouble()*2*PI;","		otherCnt.x = x+dist*cos(angle);","		otherCnt.y = y+dist*sin(angle);"))
 						function Mortality
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mortality)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// mortality is increased proportionally to low growth due to competition","		double coef = biomass/(biomass+neighBm);","		double proba = group_pmor*coef;","		return decider.decide(proba);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// mortality is increased proportionally to low growth due to competition","		double coef = biomass/(biomass+neighBm);","		double proba = group_pmor*coef;","		return decider.decide(proba);"))
 						dataTracker trk2
 							sampleSize = java.lang.String(10)
 							samplingMode = fr.cnrs.iees.twcore.constants.SamplingMode(RANDOM)
@@ -215,8 +208,7 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 					initFunction InitTree
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitTree)
-						snippet snpt8
-							javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
 					component cmp2
 						nInstances = java.lang.Integer(50)
 						variableValues initVars2

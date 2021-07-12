@@ -77,8 +77,7 @@ treegraph // saved by OmugiGraphExporter on Thu Mar 25 12:55:34 AEDT 2021
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.population.generated.Init1)
-			snippet snpt2
-				javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.r = 3.0+random.nextDouble() ;","		focalDrv.x = random.nextDouble();"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.r = 3.0+random.nextDouble() ;","		focalDrv.x = random.nextDouble();"))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
@@ -97,8 +96,7 @@ treegraph // saved by OmugiGraphExporter on Thu Mar 25 12:55:34 AEDT 2021
 						function Chaos
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.population.generated.Chaos)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.x = r * x * (1 - x);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.x = r * x * (1 - x);"))
 						dataTracker trk1
 							sampleSize = java.lang.String(1)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)

@@ -129,30 +129,25 @@ treegraph // saved by OmugiGraphExporter on Thu Jan 28 16:02:18 CET 2021
 						function Mortality
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mortality)
-							snippet snpt3
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return (age>7.5);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return (age>7.5);"))
 						function ProduceA
 							relateToProduct = java.lang.Boolean(true)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.ProduceA)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (age>2.5)","			return 1.0;","		else","			return 0.0d;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (age>2.5)","			return 1.0;","		else","			return 0.0d;"))
 							function InitProduct
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.InitProduct)
-								snippet snpt4
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		otherCnt.x = x+random.nextDouble();","		otherCnt.y = y+random.nextDouble();"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		otherCnt.x = x+random.nextDouble();","		otherCnt.y = y+random.nextDouble();"))
 					process p1
 						function RecruitAB
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitAB)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if ((age>1.5)&(age<2.5))","			return recruit.transition(true);","		else","			return recruit.transition(false);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if ((age>1.5)&(age<2.5))","			return recruit.transition(true);","		else","			return recruit.transition(false);"))
 							function InitRecruit
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.InitRecruit)
-								snippet snpt5
-									javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		otherCnt.x = x;","		otherCnt.y = y;"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		otherCnt.x = x;","		otherCnt.y = y;"))
 		structure struc1
 			categorySet set1
 				category XY

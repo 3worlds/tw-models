@@ -83,16 +83,14 @@ treegraph // saved by OmugiGraphExporter on Fri Apr 23 16:28:54 CEST 2021
 						function Fyearly
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Fyearly)
-							snippet snptYear
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process p3
 						function Fevent
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Fevent)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalDrv.updateCounter = updateCounter+1;","		event.postTimeEvent(t+random.nextInt(5)+1);","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalDrv.updateCounter = updateCounter+1;","		event.postTimeEvent(t+random.nextInt(5)+1);","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer monthClock
 					dt = java.lang.Long(2)
 					nTimeUnits = java.lang.Integer(2)
@@ -102,8 +100,7 @@ treegraph // saved by OmugiGraphExporter on Fri Apr 23 16:28:54 CEST 2021
 						function Fmonthly
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Fmonthly)
-							snippet snptMonth
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer yearLagClock
 					dt = java.lang.Long(1)
 					nTimeUnits = java.lang.Integer(1)
@@ -114,8 +111,7 @@ treegraph // saved by OmugiGraphExporter on Fri Apr 23 16:28:54 CEST 2021
 						function FyearlyLagged
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FyearlyLagged)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 	userInterface gui
 		top top
 			widget time

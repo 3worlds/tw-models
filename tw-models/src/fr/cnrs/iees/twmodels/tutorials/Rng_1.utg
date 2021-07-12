@@ -121,13 +121,11 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 						function F1
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.F1)
-							snippet snpt1
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.fld1 = random.nextDouble();"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.fld1 = random.nextDouble();"))
 						function F2
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.F2)
-							snippet snpt2
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"focalDrv.fld2 = random.nextDouble();"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"focalDrv.fld2 = random.nextDouble();"))
 
 // CROSS-LINKS
 [process:p1] appliesTo aplyTo1 [category:*arena*]

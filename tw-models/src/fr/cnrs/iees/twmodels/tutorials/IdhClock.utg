@@ -137,8 +137,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 						function DistEffectComm
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.DistEffectComm)
-							snippet snptDistEffectComm
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"	for (int i = 0; i < otherDrv.x.size(); i++)","		if (otherDrv.x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0) {","			otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","			// reset time since disturbance","			otherDrv.tsd = 0;","		}","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		xtot += other_x.getByInt(i);","	otherDec.di = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		if (otherDrv.x.getByInt(i) > 0.0)","			otherDec.di -= (otherDrv.x.getByInt(i) / xtot) * log(otherDrv.x.getByInt(i) / xtot);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"	for (int i = 0; i < otherDrv.x.size(); i++)","		if (otherDrv.x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0) {","			otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","			// reset time since disturbance","			otherDrv.tsd = 0;","		}","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		xtot += other_x.getByInt(i);","	otherDec.di = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		if (otherDrv.x.getByInt(i) > 0.0)","			otherDec.di -= (otherDrv.x.getByInt(i) / xtot) * log(otherDrv.x.getByInt(i) / xtot);"))
 					process p2CommGrowth
 						dataTracker trkdi
 							sampleSize = java.lang.String()
@@ -152,14 +151,12 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 						function CommGrowth
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CommGrowth)
-							snippet snptCommGrowth
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"	// increment 'time since disturbance'","	focalDrv.tsd = focalDrv.tsd + 1;","	double[] dxdt = new double[x.size(0)];","	for (int i = 0; i < x.size(0); i++) {","		double sum = 0;","		for (int j = 0; j < alpha.size(1); j++)","			sum += alpha.getByInt(i, j) * focalDrv.x.getByInt(j);","		dxdt[i] = r.getByInt(i) * focalDrv.x.getByInt(i) * (1 - sum / K.getByInt(i));","	}","	for (int i = 0; i < dxdt.length; i++)","		focalDrv.x.setByInt(Math.max(focalDrv.x.getByInt(i) + dxdt[i] * dt, 0.0), i);","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		xtot += focalDrv.x.getByInt(i);","	focalDec.di = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		if (focalDrv.x.getByInt(i) > 0.0)","			focalDec.di -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"	// increment 'time since disturbance'","	focalDrv.tsd = focalDrv.tsd + 1;","	double[] dxdt = new double[x.size(0)];","	for (int i = 0; i < x.size(0); i++) {","		double sum = 0;","		for (int j = 0; j < alpha.size(1); j++)","			sum += alpha.getByInt(i, j) * focalDrv.x.getByInt(j);","		dxdt[i] = r.getByInt(i) * focalDrv.x.getByInt(i) * (1 - sum / K.getByInt(i));","	}","	for (int i = 0; i < dxdt.length; i++)","		focalDrv.x.setByInt(Math.max(focalDrv.x.getByInt(i) + dxdt[i] * dt, 0.0), i);","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		xtot += focalDrv.x.getByInt(i);","	focalDec.di = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		if (focalDrv.x.getByInt(i) > 0.0)","			focalDec.di -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
 					process p1DistOcc
 						function DistOcc
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.DistOcc)
-							snippet snptDistOcc
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (random.nextDouble() < 1.0 / freq) ","			return true;","		else","			return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (random.nextDouble() < 1.0 / freq) ","			return true;","		else","			return false;"))
 		structure struc1
 			relationType distEffectComm
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -178,8 +175,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 				initFunction InitComm
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitComm)
-					snippet snptInitComm
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"	double initFreq = 1.0 / x.size();","	focalDrv.x.fillWith(initFreq);","	for (int i = 0; i < r.size(0); i++) {","		focalCnt.r.setByInt(random.nextDouble(), i);","		focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","		for (int j = 0; j < alpha.size(1); j++) {","			if (i == j)","				focalCnt.alpha.setByInt(1.0, i, j);","			else","				focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","		}","	}"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"	double initFreq = 1.0 / x.size();","	focalDrv.x.fillWith(initFreq);","	for (int i = 0; i < r.size(0); i++) {","		focalCnt.r.setByInt(random.nextDouble(), i);","		focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","		for (int j = 0; j < alpha.size(1); j++) {","			if (i == j)","				focalCnt.alpha.setByInt(1.0, i, j);","			else","				focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","		}","	}"))
 				component comm
 			categorySet world
 				category distCat

@@ -133,14 +133,12 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 26 17:11:24 AEDT 2021
 						function DistOccurrence
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.DistOccurrence)
-							snippet snpDistOcc
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"double proba = 1.0 / freq;","if (random.nextDouble() < proba)","return true;","else","return false;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"double proba = 1.0 / freq;","if (random.nextDouble() < proba)","return true;","else","return false;"))
 					process procDistEffects
 						function DistEffectsComm
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.DistEffectsComm)
-							snippet snpDistEffects
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"for (int i = 0; i < other_x.size(); i++)","	if (other_x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0){","		otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","		otherDrv.tsld = 0;","	}"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"for (int i = 0; i < other_x.size(); i++)","	if (other_x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0){","		otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","		otherDrv.tsld = 0;","	}"))
 					process procCommGrowth
 						dataTracker trkTSLD
 							sampleSize = java.lang.String()
@@ -148,8 +146,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 26 17:11:24 AEDT 2021
 						function CommGrowth
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CommGrowth)
-							snippet snpGrowth
-								javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"double[] dxdt = new double[x.size(0)];","focalDrv.tsld = tsld +1;","for (int i = 0; i < x.size(0); i++) {","	double sum = 0;","	for (int j = 0; j < alpha.size(1); j++)","	sum += alpha.getByInt(i, j) * x.getByInt(j);","	dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1 - sum / K.getByInt(i));","}","for (int i = 0; i < dxdt.length; i++)","	focalDrv.x.setByInt(Math.max(x.getByInt(i) + dxdt[i] * dt, 0.0), i);","// compute diversity","double xtot = 0.0;","for (int i = 0; i < focalDrv.x.size(0); i++)","	xtot += focalDrv.x.getByInt(i);","focalDec.div = 0.0;","for (int i = 0; i < focalDrv.x.size(0); i++)","	if (focalDrv.x.getByInt(i) > 0.0)","		focalDec.div -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"double[] dxdt = new double[x.size(0)];","focalDrv.tsld = tsld +1;","for (int i = 0; i < x.size(0); i++) {","	double sum = 0;","	for (int j = 0; j < alpha.size(1); j++)","	sum += alpha.getByInt(i, j) * x.getByInt(j);","	dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1 - sum / K.getByInt(i));","}","for (int i = 0; i < dxdt.length; i++)","	focalDrv.x.setByInt(Math.max(x.getByInt(i) + dxdt[i] * dt, 0.0), i);","// compute diversity","double xtot = 0.0;","for (int i = 0; i < focalDrv.x.size(0); i++)","	xtot += focalDrv.x.getByInt(i);","focalDec.div = 0.0;","for (int i = 0; i < focalDrv.x.size(0); i++)","	if (focalDrv.x.getByInt(i) > 0.0)","		focalDec.div -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
 		structure struc1
 			relationType distEffectComm
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -160,8 +157,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 26 17:11:24 AEDT 2021
 				initFunction InitDist
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitDist)
-					snippet snpInitDist
-						javaCode = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"focalCnt.freq = 5 + random.nextInt(50);","focalCnt.inten = random.nextDouble() * 100;"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"focalCnt.freq = 5 + random.nextInt(50);","focalCnt.inten = random.nextDouble() * 100;"))
 				component dist
 			categorySet world
 				category distCat
