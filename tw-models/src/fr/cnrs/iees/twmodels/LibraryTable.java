@@ -75,47 +75,25 @@ public enum LibraryTable {
 	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
-	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,null), //
+	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
 	Model3("3 GDDM (dev)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
 	Model4("4 Kapalga (dev)", "Kapalga1", "Kapalga.utg", LibraryType.Model,null), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
-	Test4("4 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
-	Test6("5 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
-	Test7("6 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
-	Test8("7 ParallelTest (LittleForest)", "LittleForest1", "ParallelTestLittleForest.utg", LibraryType.Test,null), //
-	Test9("8 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
-	Test11("10 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test13("11 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
-	Test14("12 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
+	Test3("3 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
+	Test4("4 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
+	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
+	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
+	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
+	Test8("8 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
+	Test9("9 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
 	;
 
-// NB File dependencies e.g SquarePatterns.jav is not implemented yet.
 	private final String displayName;
 	private final String proposedName;
 	private final String fileName;
 	private final LibraryType libraryType;
-	/**
-	 * TODO: Just an idea for java, jar and data(?) file dependencies:
-	 * 
-	 * If java file, parse the package name to prepend code.<system id> and create
-	 * dir and place there?
-	 * 
-	 * Java files will produce a compile error (within the tw-models library if they
-	 * have dependencies so the file must be renamed: suggest *.jav.
-	 * 
-	 * If *.jar we know how to handle that (I think we just add it to the compile
-	 * tree.)
-	 * 
-	 * Otherwise assume its data and put in some fixed location?? Should there ever
-	 * be data for ModelMaker? What would it be used for at Model configure time.
-	 * Data seems only necessary for RunTime? Take care not to confound these two
-	 * things.
-	 * 
-	 * Alternatively, these string elements could be a DB query?
-	 */
-
 	private final String dependencyArchive;
 
 	private LibraryTable(String displayName, String proposedName, String fileName, LibraryType lt,
