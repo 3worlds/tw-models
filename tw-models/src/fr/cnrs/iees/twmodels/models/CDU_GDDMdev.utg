@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds GDDMdev
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies","Sam Banks","Geoff Cary"))
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Ian Davies (CDU, ANU)","Sam Banks (CDU)","Geoff Cary (ANU)"))
 	built-by = java.lang.String(ian (13 July 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"code.utilities.GDDMUtil"))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"code.utilities.GDDMUtil","code.utilities.StableAgePDF"))
 	precis = java.lang.String(Implementing GDDM for Tiwi islands)
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954.","references","1) https://animaldiversity.org/accounts/Trichosurus_vulpecula/"))
 	version = java.lang.String(0.0.11)
 	predefined *categories*
 		categorySet *organisation*
@@ -100,18 +100,17 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+			field meanDispersalDistanceMale
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
 			field fireLateDeathSeverity
 				description = java.lang.String(increase in death rate from late season fire)
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field meanDispersalDistance
-				description = java.lang.String(Mean of exponential function)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(m)
 			field rateMutation
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
@@ -122,6 +121,12 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+			field meanDispersalDistanceFemale
+				description = java.lang.String(Mean of exponential function)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
 			field cellSize
 				description = java.lang.String(dimension of cell for purpose of limiting to K)
 				interval = fr.ens.biologie.generic.utils.Interval(]1.0,100.0[)
@@ -323,7 +328,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				description = java.lang.String(true if pregnant this year)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 		dimensioner nAgeClasses
-			size = java.lang.Integer(10)
+			size = java.lang.Integer(15)
 	experiment expt
 		nReplicates = java.lang.Integer(1)
 		design dsgn
@@ -385,7 +390,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.NBirths)
 							function Birth
-								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([22]"		// 3b) consequence of nBirths (3a)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance = -meanDispersalDistance * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);","		otherDrv.ageInYears = 0;","","		for (int ploid = 0; ploid < alleles.size(1); ploid++)","			for (int locus = 0; locus < alleles.size(0); locus++) {","				int allele;","				if (random.nextBoolean())","					allele = alleles.getByInt(locus, ploid);","				else","					allele = maleAlleles.getByInt(locus, ploid);","				if (random.nextDouble() < rateMutation)","					allele = GDDMUtil.getRandomAllele(random, locus);","				otherDrv.alleles.setByInt(allele, locus, ploid);","			}",""))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([27]"		// 3b) consequence of nBirths (3a)","		// sex ratio 1:1","		otherCnt.isFemale = random.nextBoolean();","		// -ve exponential dispersal","		double distance;","		if (otherCnt.isFemale)","			distance = -meanDispersalDistanceFemale * Math.log(1 - random.nextDouble());","		else","			distance = -meanDispersalDistanceMale * Math.log(1 - random.nextDouble());","			","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);","		otherDrv.ageInYears = 0;","","		for (int ploid = 0; ploid < alleles.size(1); ploid++)","			for (int locus = 0; locus < alleles.size(0); locus++) {","				int allele;","				if (random.nextBoolean())","					allele = alleles.getByInt(locus, ploid);","				else","					allele = maleAlleles.getByInt(locus, ploid);","				if (random.nextDouble() < rateMutation)","					allele = GDDMUtil.getRandomAllele(random, locus);","				otherDrv.alleles.setByInt(allele, locus, ploid);","			}",""))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
 					process p6Cull
@@ -447,13 +452,13 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
 				driverClass = java.lang.String(code.sys1.generated.AnimalDrvs)
 				component animal
-					nInstances = java.lang.Integer(10000)
+					nInstances = java.lang.Integer(20000)
 				initFunction AnimalInit
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([23]"		// location","		GDDMUtil.lazyAlleleInit(alleles.size(0));","//		focalDrv.x = 4000 + random.nextDouble() * 2000;","//		focalDrv.y = 4000 + random.nextDouble() * 2000;","","//		focalDrv.x = random.nextDouble() * 9900;","//		focalDrv.y = random.nextDouble() * 9900;","","		double distance = 2000 + random.nextDouble() * 2000;","		double direction = random.nextDouble() * (2 * Math.PI);","		focalDrv.x = 9900.0 / 2.0 + distance * Math.cos(direction);","		focalDrv.y = 9900.0 / 2.0 + distance * Math.sin(direction);","","		// TODO Stable age class distribution","		focalDrv.ageInYears = random.nextInt(3);","		// TODO better to have unique numbers starting for 1","		for (int ploid = 0; ploid < alleles.size(1); ploid++)","			for (int locus = 0; locus < alleles.size(0); locus++) {","				int allele = GDDMUtil.getRandomAllele(random, locus);","				focalDrv.alleles.setByInt(allele, locus, ploid);","			}","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([21]"		// location","		GDDMUtil.lazyAlleleInit(alleles.size(0));","","		focalDrv.x = random.nextDouble() * 9900;","		focalDrv.y = random.nextDouble() * 9900;","","//		double distance = 2000 + random.nextDouble() * 2000;","//		double direction = random.nextDouble() * (2 * Math.PI);","//		focalDrv.x = 9900.0 / 2.0 + distance * Math.cos(direction);","//		focalDrv.y = 9900.0 / 2.0 + distance * Math.sin(direction);","","		// TODO Stable age class distribution","		focalDrv.ageInYears = StableAgePDF.getAge(random);","		// TODO better to have unique numbers starting for 1","		for (int ploid = 0; ploid < alleles.size(1); ploid++)","			for (int locus = 0; locus < alleles.size(0); locus++) {","				int allele = GDDMUtil.getRandomAllele(random, locus);","				focalDrv.alleles.setByInt(allele, locus, ploid);","			}","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 		initFunction GlobalInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([44]"		// brushtail possum: Trichosurus vulpecula arnhmemensis","		","		","		focalCnt.rateDeath = 0.385;","		focalCnt.rateBirth = 1.7;","		focalCnt.meanDispersalDistance = 100.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","		// 4 km^2","		focalCnt.fireMaxEW = 1000.0;","		focalCnt.fireMaxNS = 1000.0;","		focalCnt.fireEarlyBirthSeverity = 0.0;","		focalCnt.fireLateBirthSeverity = 0.0;","		focalCnt.fireEarlyDeathSeverity = 0.0;","		focalCnt.fireLateDeathSeverity = 0.0;","		focalCnt.rateMutation = 0.0001;","		focalCnt.pFire = 0.55;","		focalCnt.pEarlyFire = 0.62;","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","		focalCnt.nRefugia = 1;","		focalCnt.refugiaStrength = 0.5;","		focalCnt.refugiaMaxEW = 2000;","		focalCnt.refugiaMaxNS = 2000;","		// create one refuge in the center","		int rw = (int) (focalCnt.refugiaMaxEW / focalCnt.cellSize);","		int rh = (int) (focalCnt.refugiaMaxNS / focalCnt.cellSize);","		int w = focalCnt.refugia.size(0);","		int h = focalCnt.refugia.size(1);","		int x1 = (w - rw) / 2;","		int y1 = (h - rh) / 2;","		int x2 = x1 + rw;","		int y2 = y1 + rh;","		focalCnt.refugia.fillWith(false);","		for (int x = x1; x < x2; x++)","			for (int y = y1; y < y2; y++)","				focalCnt.refugia.setByInt(true, x, y);","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","		System.out.println(new StringBuilder().append('B').append('=').append(focalCnt.rateBirth));","		System.out.println(new StringBuilder().append('D').append('=').append(focalCnt.rateDeath));"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([48]"		// brushtail possum: Trichosurus vulpecula arnhmemensis","		// 20% adult death rate ( cf 1)","		focalCnt.rateDeath = 0.2;","		// 75% death rate in first year with 1.7 litters pa (1.7 * (1-0.75) (cf 1)","		focalCnt.rateBirth = 1.0;","		","		StableAgePDF.initialise(0, 14, 0.75,focalCnt.rateDeath);","		// Davies H","		focalCnt.meanDispersalDistanceFemale = 300.0;","		focalCnt.meanDispersalDistanceMale = 300.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","		// 4 km^2","		focalCnt.fireMaxEW = 1000.0;","		focalCnt.fireMaxNS = 1000.0;","		focalCnt.fireEarlyBirthSeverity = 0.0;","		focalCnt.fireLateBirthSeverity = 0.0;","		focalCnt.fireEarlyDeathSeverity = 0.0;","		focalCnt.fireLateDeathSeverity = 0.0;","		focalCnt.rateMutation = 0.0001;","		focalCnt.pFire = 0.55;","		focalCnt.pEarlyFire = 0.62;","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","		focalCnt.nRefugia = 1;","		focalCnt.refugiaStrength = 0.5;","		focalCnt.refugiaMaxEW = 2000;","		focalCnt.refugiaMaxNS = 2000;","		// create one refuge in the center","		int rw = (int) (focalCnt.refugiaMaxEW / focalCnt.cellSize);","		int rh = (int) (focalCnt.refugiaMaxNS / focalCnt.cellSize);","		int w = focalCnt.refugia.size(0);","		int h = focalCnt.refugia.size(1);","		int x1 = (w - rw) / 2;","		int y1 = (h - rh) / 2;","		int x2 = x1 + rw;","		int y2 = y1 + rh;","		focalCnt.refugia.fillWith(false);","		for (int x = x1; x < x2; x++)","			for (int y = y1; y < y2; y++)","				focalCnt.refugia.setByInt(true, x, y);","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","		System.out.println(new StringBuilder().append('B').append('=').append(focalCnt.rateBirth));","		System.out.println(new StringBuilder().append('D').append('=').append(focalCnt.rateDeath));"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 	userInterface gui
@@ -465,39 +470,38 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				order = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 		tab Genetics
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-			container cont3
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			container cont6
 				order = java.lang.Integer(1)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-				container cont6
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				widget Most frequent allele
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				container cont1
 					order = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Subpopulation size layer
 						order = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-					widget Most frequent allele
-						order = java.lang.Integer(1)
+					widget Heterozygosity layer
+						order = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-				widget Heterozygosity layer
-					order = java.lang.Integer(2)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 			widget Population heterozygosity
 				order = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 		tab spatial
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-			container cont4
+			widget space
 				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
+		tab Fire
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			container cont3
+				order = java.lang.Integer(2)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-				widget space
+				container cont4
 					order = java.lang.Integer(0)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
-			container cont1
-				order = java.lang.Integer(1)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-				container cont7
-					order = java.lang.Integer(0)
-					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Fire type layer
 						order = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
@@ -508,6 +512,9 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 					nViews = java.lang.Integer(1)
 					order = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+			widget Burnt area
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 		tab Population
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 			container cont2
@@ -515,9 +522,6 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget Mature demographics
 					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-				widget Burnt area
-					order = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget Age structure
 				order = java.lang.Integer(1)

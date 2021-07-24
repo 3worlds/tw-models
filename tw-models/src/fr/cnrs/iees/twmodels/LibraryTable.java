@@ -77,7 +77,7 @@ public enum LibraryTable {
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
 	Model3("3 GDDM (genetics)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
-	Model4("4 DDM (no genetics)", "DDM1", "CDU_DDMdev.utg", LibraryType.Model,null), //
+	Model4("4 DDM (no genetics)", "DDM1", "CDU_DDMdev.utg", LibraryType.Model,"CDU_DDM.zip"), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
