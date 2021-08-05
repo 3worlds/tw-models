@@ -109,7 +109,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 		rng gen1
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
 			tableIndex = java.lang.Integer(0)
 		record globalCnsts
 			dynamic = java.lang.Boolean(false)
@@ -297,7 +297,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 		driverClass = java.lang.String(code.sys1.generated.GlobalDrvs)
 		dynamics sim1
 			stoppingCondition stCd1
-				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(500)
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
 				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
 			timeline tmLn1
 				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
@@ -390,11 +390,11 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 				component animal
 					nInstances = java.lang.Integer(15000)
 				initFunction AnimalInit
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"","		// location","		focalDrv.x = random.nextDouble() * 9900;","		focalDrv.y = random.nextDouble() * 9900;","		// Random age class distribution because global demographic settings are not","		// available here","		focalDrv.ageInYears = random.nextInt(13);","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"","		// location","		focalDrv.x = 4000 + random.nextDouble() * 2000;","		focalDrv.y = random.nextDouble() * 9900;","		// Random age class distribution because global demographic settings are not","		// available here","		focalDrv.ageInYears = random.nextInt(13);","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 		initFunction GlobalInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([47]"		// DEMOGRAPHY: brushtail possum: Trichosurus vulpecula arnhmemensis","		// 20% adult death rate ( cf 1)","		focalCnt.rateDeath = 0.2;// 0.2","		// first year death rate (75%)is incorporated in birth rate (nominally 1.7) =","		// 1.275","		focalCnt.rateBirth = 1.0; // 0.75;","		focalCnt.lifespan = 14;","		// 0 = random walk; 1= inverse sqr; 2 = -ve exponential","		focalCnt.dispersalMethodFemales = 2;","		focalCnt.dispersalMethodMales = 2;","		focalCnt.meanDispersalDistanceFemales = 300.0;","		focalCnt.meanDispersalDistanceMales = 500.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","","		// FIRE","		// fire footprint","		// true = 3000 x 3000 (30x30) else 500 x 500 (5 x 5)","		focalCnt.fireLarge = false;","		// Guess from Griffiths & Brook (2015)","		// These seem to be a small effect. Maybe larger if habitat continued depressed","		// in following years","		focalCnt.fireEarlyBirthSeverity = 0.2; // 0.19;//frac reduction in birth rate","		focalCnt.fireLateBirthSeverity = 0.5;// 0.23;","		focalCnt.fireEarlyDeathSeverity = 0.1;","		focalCnt.fireLateDeathSeverity = 0.2;","		focalCnt.pFire = 0.55;// increase this to account for refugia","		focalCnt.pEarlyFire = 0.62;// 62% of fires are early season fires","","		// REFUGIA","		// flag for lazy init later","		focalDrv.refugiaInitialised = false;","		// 0.0; 0.1; 0.25; 0.5","		focalCnt.refugiaStrength = 0.5;","		// 0=none,1 = 5%;2 = 20% of landscape area","		focalCnt.refugiaCoverageOption = 2;","		// focalCnt.refugia.fillWith(false);","		focalCnt.refugiaClumped = true;","		// RefugiaMask.initialise(focalCnt.refugia);","","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([48]"		// DEMOGRAPHY: brushtail possum: Trichosurus vulpecula arnhmemensis","		// 20% adult death rate ( cf 1)","		focalCnt.rateDeath = 0.2;// 0.2 if mean life expectancy is 6 years the 0.22 is best fit but fire is","									// confounded with this.","		// first year death rate (75%)is incorporated in birth rate (nominally 1.7) =","		// 0.25 * 1.7 = 0.425 : too low","		focalCnt.rateBirth = 1.0; // 0.75;","		focalCnt.lifespan = 14;","		// 0 = random walk; 1= inverse sqr; 2 = -ve exponential","		focalCnt.dispersalMethodFemales = 2;","		focalCnt.dispersalMethodMales = 2;","		focalCnt.meanDispersalDistanceFemales = 300.0;","		focalCnt.meanDispersalDistanceMales = 500.0;","		focalCnt.k = 2.46;","		focalCnt.matureAgeFemale = 1;","		focalCnt.matureAgeMale = 2;","","		// FIRE","		// fire footprint","		// true = 3000 x 3000 (30x30) else 500 x 500 (5 x 5)","		focalCnt.fireLarge = false;","		// Guess from Griffiths & Brook (2015)","		// These seem to be a small effect. Maybe larger if habitat continued depressed","		// in following years","		focalCnt.fireEarlyBirthSeverity = 0.2; // 0.19;//frac reduction in birth rate","		focalCnt.fireLateBirthSeverity = 0.5;// 0.23;","		focalCnt.fireEarlyDeathSeverity = 0.1;","		focalCnt.fireLateDeathSeverity = 0.2;","		focalCnt.pFire = 0.55;// increase this to account for refugia","		focalCnt.pEarlyFire = 0.62;// 62% of fires are early season fires","","		// REFUGIA","		// flag for lazy init later","		focalDrv.refugiaInitialised = false;","		// 0.0; 0.1; 0.25; 0.5","		focalCnt.refugiaStrength = 0.5;","		// 0=none,1 = 5%;2 = 20% of landscape area","		focalCnt.refugiaCoverageOption = 2;","		// focalCnt.refugia.fillWith(false);","		focalCnt.refugiaClumped = true;","		// RefugiaMask.initialise(focalCnt.refugia);","","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","		focalCnt.cellSize = 100.0;// 1 ha.","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 	userInterface gui
@@ -436,7 +436,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Mature demographics
 					bufferSize = java.lang.Integer(1200)
-					nSenders = java.lang.Integer(4)
+					nSenders = java.lang.Integer(1)
 					order = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				widget Age structure
@@ -551,27 +551,9 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 [dataTracker:trkFF] trackTable trks14 [table:fireFrequency]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:98|0:98]"))
 [widget:Age structure] trackSeries trks3 [dataTracker:trkAgeClasses]
-[treatment:trt] treats fireSize [field:fireLarge]
-	rank = java.lang.Integer(5)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[treatment:trt] treats ddFemale [field:meanDispersalDistanceFemales]
-	rank = java.lang.Integer(1)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"100","200","300"))
-[treatment:trt] treats dmMales [field:dispersalMethodMales]
-	rank = java.lang.Integer(4)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"0","1","2"))
 [treatment:trt] treats clump [field:refugiaClumped]
 	rank = java.lang.Integer(0)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[treatment:trt] treats ddMales [field:meanDispersalDistanceMales]
-	rank = java.lang.Integer(2)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"100","200","300"))
-[treatment:trt] treats dmFemales [field:dispersalMethodFemales]
-	rank = java.lang.Integer(3)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"0","1","2"))
-[treatment:trt] treats rStrength [field:refugiaStrength]
-	rank = java.lang.Integer(6)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"0.0","0.1","0.25","0.5"))
 [function:Death] useRNG uses5 [rng:gen1]
 [process:p1AupdateLayers] appliesTo aplyTo13 [category:*arena*]
 [dataTracker:trkD2FireType] trackComponent trks18 [system:sys1]
