@@ -11,9 +11,50 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 	precis = java.lang.String(Implementing GDDM without genetics for Tiwi islands)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954."))
 	version = java.lang.String(0.1.6)
+	predefined *categories*
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record AVPopulation
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(AVPopulation)
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *component*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
 	dataDefinition dDef
-		dimensioner nAgeClasses
-			size = java.lang.Integer(13)
 		record animalDrvs
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(animalDrvs)
@@ -33,30 +74,180 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
-		rng rngAnimal
-			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
-			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
-			tableIndex = java.lang.Integer(0)
+		record animalCnsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(animalCnsts)
+			field isFemale
+				description = java.lang.String(true if individual is female)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+		record globalCnsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(globalCnsts)
+			field fireLateBirthSeverity
+				description = java.lang.String(reduction in birth rate from late season fire)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field speciesId
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field fireLateDeathSeverity
+				description = java.lang.String(increase in death rate from late season fire)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field dispersalMethodFemales
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..3)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field refugiaClumped
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			table rateDeathMale
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			field refugiaStrength
+				description = java.lang.String(0.0; 0.1; 0.25; 0.5)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field fireLarge
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field cellSize
+				description = java.lang.String(dimension of cell for purpose of limiting to K)
+				interval = fr.ens.biologie.generic.utils.Interval(]1.0,100.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			field k
+				description = java.lang.String(carrying capacity)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field pFire
+				description = java.lang.String(average landscape fire propability)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			table rateDeathFemale
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			field meanDispersalDistanceFemales
+				description = java.lang.String(Mean of exponential function)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			field lifespan
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field meanDispersalDistanceMales
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field refugiaCoverageOption
+				description = java.lang.String(0=none,1 = 5%;2 = 20% of landscape area)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field pEarlyFire
+				description = java.lang.String(probability of a fire being in the early dry season)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field fireEarlyBirthSeverity
+				description = java.lang.String(decrease in birth rate from early seasons fire)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field matureAgeMale
+				description = java.lang.String(male age at maturity)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(y)
+			field dispersalMethodMales
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..3)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			table rateBirth
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			field fireEarlyDeathSeverity
+				description = java.lang.String(increase in death rate from early season fire)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field matureAgeFemale
+				description = java.lang.String(age at female maturity)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(y)
 		rng rngFire
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
 			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
 			tableIndex = java.lang.Integer(0)
-		record animalDecs
-			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(animalDecs)
-			field isPregnant
-				description = java.lang.String(true if pregnant this year)
+		dimensioner ydim
+			size = java.lang.Integer(99)
+		rng rngAnimalInit
+			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
+			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			tableIndex = java.lang.Integer(0)
+		dimensioner nFireHistoryYears
+			size = java.lang.Integer(10)
+		dimensioner xdim
+			size = java.lang.Integer(99)
+		record globalDrvs
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(globalDrvs)
+			table timeUnburnt
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(Time since this location was burnt)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String(y)
+			table fireCount
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
+			field refugiaInitialised
+				description = java.lang.String(True if refugia map has been initialised (lazy init))
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			table fireHistory
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..2)
+				units = java.lang.String()
+			table fireType
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				units = java.lang.String()
+			table refugia
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..1)
+			table habitat
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
 		record globalDecs
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(globalDecs)
-			field earlyFract
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
 			table tally
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
@@ -65,23 +256,27 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
+			table N
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(population totals in each grid cell)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String(count)
 			table ages
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
+			table adults
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			field burntFract
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field lateFract
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			table adults
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+			field nMatureMales
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table fireFrequency
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -96,316 +291,42 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
-			table N
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(population totals in each grid cell)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String(count)
-			field nMatureMales
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-		record globalDrvs
-			dynamic = java.lang.Boolean(true)
-			generatedClassName = java.lang.String(globalDrvs)
-			field refugiaInitialised
-				description = java.lang.String(True if refugia map has been initialised (lazy init))
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-			table timeUnburnt
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(Time since this location was burnt)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String(y)
-			table refugia
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..1)
-			table habitat
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+			field earlyFract
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			table fireCount
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+			field lateFract
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			table fireHistory
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..2)
-				units = java.lang.String()
-			table fireType
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				units = java.lang.String()
-		record globalCnsts
+		record animalDecs
 			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(globalCnsts)
-			field speciesId
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			field lifespan
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			table rateDeathFemale
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				units = java.lang.String()
-			field matureAgeMale
-				description = java.lang.String(male age at maturity)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(y)
-			field fireLateDeathSeverity
-				description = java.lang.String(increase in death rate from late season fire)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field meanDispersalDistanceFemales
-				description = java.lang.String(Mean of exponential function)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(m)
-			field refugiaStrength
-				description = java.lang.String(0.0; 0.1; 0.25; 0.5)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field fireLateBirthSeverity
-				description = java.lang.String(reduction in birth rate from late season fire)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field k
-				description = java.lang.String(carrying capacity)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field meanDispersalDistanceMales
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			table rateBirth
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				units = java.lang.String()
-			field fireLarge
+			generatedClassName = java.lang.String(animalDecs)
+			field isPregnant
+				description = java.lang.String(true if pregnant this year)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-			field pFire
-				description = java.lang.String(average landscape fire propability)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field cellSize
-				description = java.lang.String(dimension of cell for purpose of limiting to K)
-				interval = fr.ens.biologie.generic.utils.Interval(]1.0,100.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(m)
-			field refugiaCoverageOption
-				description = java.lang.String(0=none,1 = 5%;2 = 20% of landscape area)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			field matureAgeFemale
-				description = java.lang.String(age at female maturity)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(y)
-			field pEarlyFire
-				description = java.lang.String(probability of a fire being in the early dry season)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field dispersalMethodMales
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..3)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			field fireEarlyDeathSeverity
-				description = java.lang.String(increase in death rate from early season fire)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field dispersalMethodFemales
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..3)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			table rateDeathMale
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				units = java.lang.String()
-			field refugiaClumped
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-			field fireEarlyBirthSeverity
-				description = java.lang.String(decrease in birth rate from early seasons fire)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-		dimensioner nFireHistoryYears
-			size = java.lang.Integer(10)
-		dimensioner xdim
-			size = java.lang.Integer(99)
-		record animalCnsts
-			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(animalCnsts)
-			field isFemale
-				description = java.lang.String(true if individual is female)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-		rng rngAnimalInit
+		dimensioner nAgeClasses
+			size = java.lang.Integer(13)
+		rng rngAnimal
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
 			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
 			tableIndex = java.lang.Integer(0)
-		dimensioner ydim
-			size = java.lang.Integer(99)
-	userInterface gui
-		top top
-			widget progress
-				order = java.lang.Integer(1)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
-			widget ctrl
-				order = java.lang.Integer(0)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
-		headless hl
-			widget writerPopulation
-				nSenders = java.lang.Integer(4)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesWidget1)
-		tab Fire
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-			container cont4
-				order = java.lang.Integer(1)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-				widget Populaton layer
-					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-				widget Burnt area
-					order = java.lang.Integer(2)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-			container cont3
-				order = java.lang.Integer(0)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-				widget Fire frequency
-					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-				container cont2
-					order = java.lang.Integer(0)
-					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-					widget Habitat layer
-						order = java.lang.Integer(0)
-						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-					widget Fire type layer
-						order = java.lang.Integer(2)
-						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-		tab Population
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-			widget Age structure
-				bufferSize = java.lang.Integer(1200)
-				nSenders = java.lang.Integer(1)
-				order = java.lang.Integer(2)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-			container cont1
-				order = java.lang.Integer(1)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-				widget Mature demographics
-					bufferSize = java.lang.Integer(1200)
-					nSenders = java.lang.Integer(1)
-					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-				widget space
-					nViews = java.lang.Integer(1)
-					order = java.lang.Integer(2)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 	experiment expt
 		nReplicates = java.lang.Integer(1)
 		treatment trt
 		design dsgn
 			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
-	predefined *categories*
-		categorySet *organisation*
-			category *atomic*
-			category *assemblage*
-		categorySet *systemElements*
-			category *arena*
-			category *component*
-			category *relation*
-			category *life cycle*
-			category *group*
-		record AVPopulation
-			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(AVPopulation)
-			field nRemoved
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-			field count
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-			field nAdded
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-		relationType *parentTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		record AVEphemeral
-			field birthDate
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field age
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-		relationType *returnsTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		categorySet *lifespan*
-			category *permanent*
-			category *ephemeral*
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.GlobalCnsts)
 		decoratorClass = java.lang.String(code.sys1.generated.GlobalDecs)
 		driverClass = java.lang.String(code.sys1.generated.GlobalDrvs)
-		structure struc1
-			componentType animalType
-				constantClass = java.lang.String(code.sys1.generated.AnimalCnsts)
-				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
-				driverClass = java.lang.String(code.sys1.generated.AnimalDrvs)
-				initFunction AnimalInit
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([41]"","		// location","//		focalDrv.x = 4000 + random.nextDouble() * 2000;","//		focalDrv.y = random.nextDouble() * 9900;","		focalDrv.x = random.nextDouble() * 9900;","		focalDrv.y = random.nextDouble() * 9900;","		// Random age class distribution because global demographic settings are not","		// available here","		double p = random.nextDouble();","		int a = 0;","		if (p < 0.00183060231281)","			a = 13;","		else if (p < 0.002098495334197)","			a = 12;","		else if (p < 0.004196990668393)","			a = 11;","		else if (p < 0.006875920882261)","			a = 10;","		else if (p < 0.008751172031969)","			a = 9;","		else if (p < 0.012412376657588)","			a = 8;","		else if (p < 0.017100504531857)","			a = 7;","		else if (p < 0.028084118408716)","			a = 6;","		else if (p < 0.042371746216011)","			a = 5;","		else if (p < 0.062240478635532)","			a = 4;","		else if (p < 0.093182122605706)","			a = 3;","		else if (p < 0.144126445506095)","			a = 2;","		else if (p < 0.219047193820601)","			a = 1;","","		focalDrv.ageInYears = a;","		//focalDrv.ageInYears = 1;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
-					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
-					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
-				component animal
-					nInstances = java.lang.Integer(15000)
-			relationType mateRelation
-				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
-			categorySet World
-				category animalCat
-					constantClass = java.lang.String(AnimalCat_Cnt)
-					decoratorClass = java.lang.String(AnimalCat_Dec)
-					driverClass = java.lang.String(AnimalCat_Drv)
-			space space1
-				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
-				precision = java.lang.Double(10.0)
-				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
-				units = java.lang.String(m)
-				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,9900.0[)
-				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,9900.0[)
 		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
 			timeline tmLn1
 				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
 				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(LONG_TIMES)
@@ -416,33 +337,11 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 					nTimeUnits = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(YEAR)
-					process p1UpdateLayers
-						function UpdateLayers
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([122]"		// 1)","		// Lazy init of secondary arena par i.e refugia","		if (!focalDrv.refugiaInitialised) {","			focalDrv.refugiaInitialised = true;","			focalDrv.refugia.fillWith(false);","			RefugiaMask.buildMask(focalDrv.refugia, refugiaCoverageOption, refugiaClumped, random);","		}","","		int z = (int) (t % focalDrv.fireHistory.size(2));","		int w = fireType.size(0);","		int h = fireType.size(1);","		// convert footprint from meters to number of cells","		int xFootPrint = 5;","		int yFootPrint = 5;","		if (fireLarge) {","			xFootPrint = 30;","			yFootPrint = 30;","		}","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.copy(fireCount);","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","				focalDrv.timeUnburnt.setByInt(timeUnburnt.getByInt(x, y) + 1, x, y);","				focalDrv.fireHistory.setByInt(0, x, y, z);","			}","		// not required","		focalDec.burntFract = 0.0;","		focalDec.earlyFract = 0.0;","		focalDec.lateFract = 0.0;","		double lw = w;","		double lh = h;","","		double fireArea = xFootPrint * yFootPrint;","		double tmp;","		tmp = ((Math.sqrt(pFire) * lw) / (double) xFootPrint);","		int xSlots = (int) tmp;","		if (Math.floor(tmp) < tmp)","			xSlots++;","		if (xSlots * xFootPrint >= lw)","			xSlots--;","		tmp = ((Math.sqrt(pFire) * lh) / (double) yFootPrint);","		int ySlots = (int) tmp;","		if (Math.floor(tmp) < tmp)","			ySlots++;","		if (ySlots * xFootPrint >= lw)","			ySlots--;","		double slotw = lw / xSlots;","		double sloth = lh / ySlots;","		double slotArea = slotw * sloth;","		// Transform probability of fire in slot i to account for area lost to fire","		// margins","		double returnInterval = slotArea / fireArea * pFire;","		double xJiggle = slotw - xFootPrint - 1;","		double yJiggle = sloth - yFootPrint - 1;","		// Much of the above could be done in a secondary init method","		double xDisplacement = random.nextDouble() * lw;","		double yDisplacement = random.nextDouble() * lh;","		for (int xSlot = 0; xSlot < xSlots; xSlot++)","			for (int ySlot = 0; ySlot < ySlots; ySlot++) {","				if (random.nextDouble() < returnInterval) {","					boolean enterRef = random.nextDouble() > refugiaStrength;","					int xFireStart = (int) ((xSlot * slotw + random.nextDouble() * xJiggle) + xDisplacement);","					int yFireStart = (int) ((ySlot * sloth + random.nextDouble() * yJiggle) + yDisplacement);","					int ft;","					if (random.nextDouble() < pEarlyFire)","						ft = 1;// early season fire","					else","						ft = 2;// late season fire","","					for (int i = 0; i < xFootPrint; i++)","						for (int j = 0; j < yFootPrint; j++) {","							// torus","							int ix = (xFireStart + i) % w;","							int iy = (yFireStart + j) % h;","							boolean burn = false;","							if (!refugia.getByInt(ix, iy))","								burn = true;","							else if (enterRef)","								burn = true;","							if (burn) {","								focalDec.burntFract++;","								if (ft == 1)","									focalDec.earlyFract++;","								else","									focalDec.lateFract++;","								focalDrv.fireType.setByInt(ft, ix, iy);","								int c = fireCount.getByInt(ix, iy);","								focalDrv.fireCount.setByInt(c + 1, ix, iy);","								focalDrv.timeUnburnt.setByInt(0, ix, iy);","								focalDrv.fireHistory.setByInt(ft, ix, iy, z);","							}","						}","				}","			}","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","				double c = focalDrv.fireCount.getByInt(x, y);","				focalDec.fireFrequency.setByInt(c / t, x, y);","				int[] history = new int[fireHistory.size(2)];","				int now = (int) (t % history.length);","				for (int i = now; i < history.length; i++) {","					int f = fireHistory.getByInt(x, y, i);","					history[i - now] = f;","				}","				for (int i = 0; i < now; i++) {","					int f = fireHistory.getByInt(x, y, i);","					history[i + history.length - now] = f;","				}","				double e = 1.0;","				double l = 1.0;","				for (int year = history.length - 1; year >= 0; year--) {","					if (history[year] == 2)","						l = 1.0 - (fireLateBirthSeverity / (year + 1.0));","					if (history[year] == 1)","						e = 1.0 - (fireEarlyBirthSeverity / (year + 1.0));","				}","				focalDrv.habitat.setByInt(Math.min(e, l), x, y);","","			}","		focalDec.burntFract = focalDec.burntFract / (w * h);","		focalDec.earlyFract = focalDec.earlyFract / (w * h);","		focalDec.lateFract = focalDec.lateFract / (w * h);"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.UpdateLayers)
-						dataTracker trkFireType
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
-						dataTracker trkFire
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkHabitat
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
-						dataTracker trkFireFreq
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
-					process p7Cull
-						function Cull
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		// 7) remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = tally.getByInt(ix, iy);","		double h = habitat.getByInt(ix, iy);","		double kxy = k * h;","		if (n > kxy) {","			double p = (n - kxy) / n;","			return decider.decide(p);","		} else","			return false;"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
-							userClassName = java.lang.String(code.sys1.generated.Cull)
-					process p6Count
-						function CountN
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 6) sum gridded population tally[ix,iy]","	int ix = (int) (x / cellSize);","	int iy = (int) (y / cellSize);","	int n = arenaDec.tally.getByInt(ix, iy);","	arenaDec.tally.setByInt(n + 1, ix, iy);"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.CountN)
+					process p3Mate
+						function Conceive
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// 3) flag decorator to true (pairing ensures this IS a female).","		if (!focalDec.isPregnant) {","			focalDec.isPregnant = true;","			// requires jvm arg -enableassertions aka -ea","			assert (isFemale);","			assert (!other_isFemale);","		}"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
+							userClassName = java.lang.String(code.sys1.generated.Conceive)
 					process p2Courting
 						function FindMate
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		// 2) pair mature females and males","		if (isFemale && (ageInYears < matureAgeFemale))","			return false;","		if (!other_isFemale && (other_ageInYears < matureAgeMale))","			return false;","		if (isFemale && !other_isFemale) {","			return true;","		} else","			return false;"))
@@ -459,200 +358,301 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 19 15:20:31 AEST 2021
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Birth)
 					process p9Track
+						dataTracker trkN
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
 						dataTracker trkAgeClasses
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 						dataTracker trkPop
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkN
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+					process p6Count
+						function CountN
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// 6) sum gridded population tally[ix,iy]","	int ix = (int) (x / cellSize);","	int iy = (int) (y / cellSize);","	int n = arenaDec.tally.getByInt(ix, iy);","	arenaDec.tally.setByInt(n + 1, ix, iy);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.CountN)
 					process p5Death
 						function Death
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([32]"		// 5)","		// first year anmial death rate is implied in the birth rate","		if (ageInYears >= 1) {","			if (speciesId ==2 && !isFemale)","				return true; ","			// defacto senile age class rate = 1.0","			if (ageInYears >= lifespan)","				return true;","			int ix = (int) (x / cellSize);","			int iy = (int) (y / cellSize);","			int ft = fireType.getByInt(ix, iy);","			double e;","			switch (ft) {","			case 1: {","				e = fireEarlyDeathSeverity;","				break;","			}","			case 2: {","				e = fireLateDeathSeverity;","				break;","			}","			default: {","				e = 0.0;","			}","			}","			double dr = rateDeathFemale.getByInt(ageInYears-1);","			if (!isFemale)","				dr = rateDeathMale.getByInt(ageInYears-1);","			double d = e * (1 - dr) + dr;","			return decider.decide(d);","		} else","			return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Death)
-					process p3Mate
-						function Conceive
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// 3) flag decorator to true (pairing ensures this IS a female).","		if (!focalDec.isPregnant) {","			focalDec.isPregnant = true;","			// requires jvm arg -enableassertions aka -ea","			assert (isFemale);","			assert (!other_isFemale);","		}"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
-							userClassName = java.lang.String(code.sys1.generated.Conceive)
+					process p1UpdateLayers
+						dataTracker trkHabitat
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkFireFreq
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkFire
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+						dataTracker trkFireType
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						function UpdateLayers
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([122]"		// 1)","		// Lazy init of secondary arena par i.e refugia","		if (!focalDrv.refugiaInitialised) {","			focalDrv.refugiaInitialised = true;","			focalDrv.refugia.fillWith(false);","			RefugiaMask.buildMask(focalDrv.refugia, refugiaCoverageOption, refugiaClumped, random);","		}","","		int z = (int) (t % focalDrv.fireHistory.size(2));","		int w = fireType.size(0);","		int h = fireType.size(1);","		// convert footprint from meters to number of cells","		int xFootPrint = 5;","		int yFootPrint = 5;","		if (fireLarge) {","			xFootPrint = 30;","			yFootPrint = 30;","		}","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.copy(fireCount);","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","				focalDrv.timeUnburnt.setByInt(timeUnburnt.getByInt(x, y) + 1, x, y);","				focalDrv.fireHistory.setByInt(0, x, y, z);","			}","		// not required","		focalDec.burntFract = 0.0;","		focalDec.earlyFract = 0.0;","		focalDec.lateFract = 0.0;","		double lw = w;","		double lh = h;","","		double fireArea = xFootPrint * yFootPrint;","		double tmp;","		tmp = ((Math.sqrt(pFire) * lw) / (double) xFootPrint);","		int xSlots = (int) tmp;","		if (Math.floor(tmp) < tmp)","			xSlots++;","		if (xSlots * xFootPrint >= lw)","			xSlots--;","		tmp = ((Math.sqrt(pFire) * lh) / (double) yFootPrint);","		int ySlots = (int) tmp;","		if (Math.floor(tmp) < tmp)","			ySlots++;","		if (ySlots * xFootPrint >= lw)","			ySlots--;","		double slotw = lw / xSlots;","		double sloth = lh / ySlots;","		double slotArea = slotw * sloth;","		// Transform probability of fire in slot i to account for area lost to fire","		// margins","		double returnInterval = slotArea / fireArea * pFire;","		double xJiggle = slotw - xFootPrint - 1;","		double yJiggle = sloth - yFootPrint - 1;","		// Much of the above could be done in a secondary init method","		double xDisplacement = random.nextDouble() * lw;","		double yDisplacement = random.nextDouble() * lh;","		for (int xSlot = 0; xSlot < xSlots; xSlot++)","			for (int ySlot = 0; ySlot < ySlots; ySlot++) {","				if (random.nextDouble() < returnInterval) {","					boolean enterRef = random.nextDouble() > refugiaStrength;","					int xFireStart = (int) ((xSlot * slotw + random.nextDouble() * xJiggle) + xDisplacement);","					int yFireStart = (int) ((ySlot * sloth + random.nextDouble() * yJiggle) + yDisplacement);","					int ft;","					if (random.nextDouble() < pEarlyFire)","						ft = 1;// early season fire","					else","						ft = 2;// late season fire","","					for (int i = 0; i < xFootPrint; i++)","						for (int j = 0; j < yFootPrint; j++) {","							// torus","							int ix = (xFireStart + i) % w;","							int iy = (yFireStart + j) % h;","							boolean burn = false;","							if (!refugia.getByInt(ix, iy))","								burn = true;","							else if (enterRef)","								burn = true;","							if (burn) {","								focalDec.burntFract++;","								if (ft == 1)","									focalDec.earlyFract++;","								else","									focalDec.lateFract++;","								focalDrv.fireType.setByInt(ft, ix, iy);","								int c = fireCount.getByInt(ix, iy);","								focalDrv.fireCount.setByInt(c + 1, ix, iy);","								focalDrv.timeUnburnt.setByInt(0, ix, iy);","								focalDrv.fireHistory.setByInt(ft, ix, iy, z);","							}","						}","				}","			}","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","				double c = focalDrv.fireCount.getByInt(x, y);","				focalDec.fireFrequency.setByInt(c / t, x, y);","				int[] history = new int[fireHistory.size(2)];","				int now = (int) (t % history.length);","				for (int i = now; i < history.length; i++) {","					int f = fireHistory.getByInt(x, y, i);","					history[i - now] = f;","				}","				for (int i = 0; i < now; i++) {","					int f = fireHistory.getByInt(x, y, i);","					history[i + history.length - now] = f;","				}","				double e = 1.0;","				double l = 1.0;","				for (int year = history.length - 1; year >= 0; year--) {","					if (history[year] == 2)","						l = 1.0 - (fireLateBirthSeverity / (year + 1.0));","					if (history[year] == 1)","						e = 1.0 - (fireEarlyBirthSeverity / (year + 1.0));","				}","				focalDrv.habitat.setByInt(Math.min(e, l), x, y);","","			}","		focalDec.burntFract = focalDec.burntFract / (w * h);","		focalDec.earlyFract = focalDec.earlyFract / (w * h);","		focalDec.lateFract = focalDec.lateFract / (w * h);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.UpdateLayers)
+					process p7Cull
+						function Cull
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		// 7) remove by proportion of N[ix,iy] above K[ix,iy]","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		double n = tally.getByInt(ix, iy);","		double h = habitat.getByInt(ix, iy);","		double kxy = k * h;","		if (n > kxy) {","			double p = (n - kxy) / n;","			return decider.decide(p);","		} else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.Cull)
 					process p8Census
 						function Census
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([23]"		//8) Sum outputs after culling","		arenaDec.nAnimals++;","		if (isFemale && ageInYears >= matureAgeFemale) {","			arenaDec.nMatureFemales++;","			arenaDec.nMature++;","		} else if (!isFemale && ageInYears >= matureAgeMale) {","			arenaDec.nMatureMales++;","			arenaDec.nMature++;","		}","		int index = ageInYears;","		index = Math.min(index, ages.size() - 1);","		int an = arenaDec.ages.getByInt(index);","		arenaDec.ages.setByInt(an + 1, index);","		int ix = (int) (x / cellSize);","		int iy = (int) (y / cellSize);","		int n = arenaDec.N.getByInt(ix, iy);","		arenaDec.N.setByInt(n + 1, ix, iy);","		if (ageInYears == 1) {","			n = arenaDec.adults.getByInt(ix, iy);","			arenaDec.adults.setByInt(n + 1, ix, iy);","		}","		focalDrv.ageInYears = ageInYears + 1;",""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Census)
-			stoppingCondition stCd1
-				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
-				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+		structure struc1
+			relationType mateRelation
+				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
+			space space1
+				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				precision = java.lang.Double(10.0)
+				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				units = java.lang.String(m)
+				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,9900.0[)
+				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,9900.0[)
+			categorySet World
+				category animalCat
+					constantClass = java.lang.String(AnimalCat_Cnt)
+					decoratorClass = java.lang.String(AnimalCat_Dec)
+					driverClass = java.lang.String(AnimalCat_Drv)
+			componentType animalType
+				constantClass = java.lang.String(code.sys1.generated.AnimalCnsts)
+				decoratorClass = java.lang.String(code.sys1.generated.AnimalDecs)
+				driverClass = java.lang.String(code.sys1.generated.AnimalDrvs)
+				component animal
+					nInstances = java.lang.Integer(15000)
+				initFunction AnimalInit
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([41]"","		// location","//		focalDrv.x = 4000 + random.nextDouble() * 2000;","//		focalDrv.y = random.nextDouble() * 9900;","		focalDrv.x = random.nextDouble() * 9900;","		focalDrv.y = random.nextDouble() * 9900;","		// Random age class distribution because global demographic settings are not","		// available here","		double p = random.nextDouble();","		int a = 0;","		if (p < 0.00183060231281)","			a = 13;","		else if (p < 0.002098495334197)","			a = 12;","		else if (p < 0.004196990668393)","			a = 11;","		else if (p < 0.006875920882261)","			a = 10;","		else if (p < 0.008751172031969)","			a = 9;","		else if (p < 0.012412376657588)","			a = 8;","		else if (p < 0.017100504531857)","			a = 7;","		else if (p < 0.028084118408716)","			a = 6;","		else if (p < 0.042371746216011)","			a = 5;","		else if (p < 0.062240478635532)","			a = 4;","		else if (p < 0.093182122605706)","			a = 3;","		else if (p < 0.144126445506095)","			a = 2;","		else if (p < 0.219047193820601)","			a = 1;","","		focalDrv.ageInYears = a;","		//focalDrv.ageInYears = 1;","		// 1:1 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
+					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 		initFunction GlobalInit
 			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([94]"		focalCnt.cellSize = 100.0;// 1 ha.","		focalCnt.speciesId = 0;","		if (focalCnt.speciesId == 0) {","			// brushtail possum: Trichosurus vulpecula arnhemensis","			// Kerle, J.A 1998","			// mean life expectancy = 6 years","			focalCnt.rateDeathFemale.fillWith(0.22);","			focalCnt.rateDeathMale.fillWith(0.22);","			focalCnt.rateBirth.fillWith(1.7);// including new born mortality","			focalCnt.lifespan = 13;","			focalCnt.dispersalMethodFemales = 2;","			focalCnt.dispersalMethodMales = 2;","			focalCnt.meanDispersalDistanceFemales = 300.0;","			focalCnt.meanDispersalDistanceMales = 500.0;","			focalCnt.k = 2.46;","			focalCnt.matureAgeFemale = 1;","			focalCnt.matureAgeMale = 2;","			focalCnt.fireEarlyBirthSeverity = 0.3; // 0.19;//frac reduction in birth rate","			focalCnt.fireLateBirthSeverity = 0.6;// 0.23;","			focalCnt.fireEarlyDeathSeverity = 0.0;","			focalCnt.fireLateDeathSeverity = 0.0;","		} else if (focalCnt.speciesId == 1) {","			// Northern brown Bandicoot","			focalCnt.rateDeathFemale.fillWith(1.0);","			focalCnt.rateDeathFemale.setByInt(0.16,0);","			focalCnt.rateDeathFemale.setByInt(0.33, 1);","			focalCnt.rateDeathMale.fillWith(1.0);","			focalCnt.rateDeathMale.setByInt(0.16,0);","			focalCnt.rateDeathMale.setByInt(0.33, 1);","			focalCnt.rateBirth.fillWith(0.0);","			focalCnt.rateBirth.setByInt(5, 0);","			focalCnt.rateBirth.setByInt(3, 1);","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.meanDispersalDistanceFemales = 5000.0;","			focalCnt.meanDispersalDistanceMales = 5000.0;","			focalCnt.k = 2.00;","			focalCnt.matureAgeFemale = 1;","			focalCnt.matureAgeMale = 1;","			focalCnt.fireEarlyBirthSeverity = 0.5;","			focalCnt.fireLateBirthSeverity = 0.7;","			focalCnt.fireEarlyDeathSeverity = 0.0;","			focalCnt.fireLateDeathSeverity = 0.0;","		} else if (focalCnt.speciesId == 2) {","			// Fawn quolls","			// males die at year 1","			focalCnt.rateDeathMale.fillWith(1.0);","			focalCnt.rateDeathFemale.fillWith(1.0);","			focalCnt.rateDeathFemale.setByInt(0.13, 0); ","			focalCnt.rateDeathFemale.setByInt(0.5, 1); ","","			focalCnt.rateBirth.fillWith(0);","			focalCnt.rateBirth.setByInt(5, 0);","			focalCnt.rateBirth.setByInt(2, 1);","","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.meanDispersalDistanceFemales = 1000.0;","			focalCnt.meanDispersalDistanceMales = 1000.0;","			focalCnt.k = 1.00;","			focalCnt.matureAgeFemale = 1;","			focalCnt.matureAgeMale = 1;","			focalCnt.fireEarlyBirthSeverity = 0.5;","			focalCnt.fireLateBirthSeverity = 0.7;","			focalCnt.fireEarlyDeathSeverity = 0.0;","			focalCnt.fireLateDeathSeverity = 0.0;","		}","","		// FIRE","		// fire footprint","		// true = 3000 x 3000 (30x30) else 500 x 500 (5 x 5)","		focalCnt.fireLarge = false;","		focalCnt.pFire = 0.55;// increase this to account for refugia","		focalCnt.pEarlyFire = 0.62;// 62% of fires are early season fires","","		// REFUGIA","		// flag for lazy init later","		focalDrv.refugiaInitialised = false;","		// 0.0; 0.1; 0.25; 0.5","		focalCnt.refugiaStrength = 0.5;","		// 0=none,1 = 5%;2 = 20% of landscape area","		focalCnt.refugiaCoverageOption = 2;","		// focalCnt.refugia.fillWith(false);","		focalCnt.refugiaClumped = true;","		// RefugiaMask.initialise(focalCnt.refugia);","","		focalDrv.fireType.fillWith(0);","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","		focalDrv.habitat.fillWith(1.0);","		double sum = focalCnt.k * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
+	userInterface gui
+		headless hl
+			widget writerPopulation
+				nSenders = java.lang.Integer(4)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesWidget1)
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+			widget progress
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
+		tab Fire
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			container cont4
+				order = java.lang.Integer(1)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				widget Populaton layer
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Burnt area
+					order = java.lang.Integer(2)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+			container cont3
+				order = java.lang.Integer(0)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				container cont2
+					order = java.lang.Integer(0)
+					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+					widget Habitat layer
+						order = java.lang.Integer(0)
+						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+					widget Fire type layer
+						order = java.lang.Integer(2)
+						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Fire frequency
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+		tab Population
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			container cont1
+				order = java.lang.Integer(1)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+				widget Mature demographics
+					bufferSize = java.lang.Integer(1200)
+					nSenders = java.lang.Integer(1)
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+				widget space
+					nViews = java.lang.Integer(1)
+					order = java.lang.Integer(2)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
+			widget Age structure
+				bufferSize = java.lang.Integer(1200)
+				nSenders = java.lang.Integer(1)
+				order = java.lang.Integer(2)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 
 // CROSS-LINKS
-[table:habitat] sizedBy y7 [dimensioner:ydim]
-	rank = java.lang.Integer(1)
 [table:habitat] sizedBy x7 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
-[dataTracker:trkPop] trackField trks17 [field:nMatureMales]
+[table:habitat] sizedBy y7 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
 [dataTracker:trkPop] trackField trks30 [field:nMature]
+[dataTracker:trkPop] trackField trks20 [field:nMatureFemales]
 [dataTracker:trkPop] trackField trks21 [field:nAnimals]
 [dataTracker:trkPop] trackComponent trks2 [system:sys1]
-[dataTracker:trkPop] trackField trks20 [field:nMatureFemales]
+[dataTracker:trkPop] trackField trks17 [field:nMatureMales]
 [process:p4Birth] appliesTo aplyTo6 [category:*ephemeral*]
 [process:p4Birth] appliesTo aplyTo4 [category:animalCat]
+[process:p4Birth] dependsOn depsOn3 [process:p3Mate]
 [process:p4Birth] inSpace in2 [space:space1]
 	searchRadius = java.lang.Double(0.0)
-[process:p4Birth] dependsOn depsOn3 [process:p3Mate]
-[table:fireCount] sizedBy y1 [dimensioner:ydim]
-	rank = java.lang.Integer(1)
 [table:fireCount] sizedBy x1 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
+[table:fireCount] sizedBy y1 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
 [widget:Burnt area] trackSeries trks9 [dataTracker:trkFire]
 [function:FindMate] useRNG uses1 [rng:rngAnimal]
-[process:p6Count] appliesTo aplyTo7 [category:animalCat]
 [process:p6Count] appliesTo aplyTo5 [category:*ephemeral*]
+[process:p6Count] appliesTo aplyTo7 [category:animalCat]
 [process:p6Count] dependsOn depsOn4 [process:p5Death]
 [process:p1UpdateLayers] appliesTo aplyTo13 [category:*arena*]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
-[system:sys1] belongsTo bt1 [category:*assemblage*]
-[system:sys1] belongsTo bt2 [category:*arena*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
+[system:sys1] belongsTo bt2 [category:*arena*]
+[system:sys1] belongsTo bt1 [category:*assemblage*]
 [widget:Mature demographics] trackSeries trks12 [dataTracker:trkPop]
-[process:p2Courting] dependsOn depsOn7 [process:p1UpdateLayers]
 [process:p2Courting] appliesTo aplyTo1 [relationType:mateRelation]
 [process:p2Courting] inSpace in1 [space:space1]
 	searchRadius = java.lang.Double(100.0)
+[process:p2Courting] dependsOn depsOn7 [process:p1UpdateLayers]
 [table:rateDeathFemale] sizedBy szBy2 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
 [function:NBirths] useRNG uses3 [rng:rngAnimal]
-[relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] toCategory to4 [category:*ephemeral*]
-[relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
+[relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] fromCategory from1 [category:animalCat]
+[relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
 [initFunction:AnimalInit] useRNG uses6 [rng:rngAnimalInit]
 [function:Birth] useRNG uses4 [rng:rngAnimal]
-[table:N] sizedBy y3 [dimensioner:ydim]
-	rank = java.lang.Integer(1)
 [table:N] sizedBy x3 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
+[table:N] sizedBy y3 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
 [function:UpdateLayers] useRNG uses7 [rng:rngFire]
 [widget:Habitat layer] trackSeries trks29 [dataTracker:trkHabitat]
 [widget:Populaton layer] trackSeries trks10 [dataTracker:trkN]
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [widget:Fire type layer] trackSeries trks15 [dataTracker:trkFireType]
-[dataTracker:trkFire] trackField trks26 [field:burntFract]
 [dataTracker:trkFire] trackField trks23 [field:lateFract]
-[dataTracker:trkFire] trackField trks25 [field:earlyFract]
 [dataTracker:trkFire] trackComponent trks24 [system:sys1]
+[dataTracker:trkFire] trackField trks25 [field:earlyFract]
+[dataTracker:trkFire] trackField trks26 [field:burntFract]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
-[componentType:animalType] belongsTo bt4 [category:*component*]
-[componentType:animalType] belongsTo bt5 [category:*ephemeral*]
-[componentType:animalType] belongsTo bt6 [category:*atomic*]
 [componentType:animalType] belongsTo bt7 [category:animalCat]
-[category:*arena*] decorators decs2 [record:globalDecs]
+[componentType:animalType] belongsTo bt6 [category:*atomic*]
+[componentType:animalType] belongsTo bt5 [category:*ephemeral*]
+[componentType:animalType] belongsTo bt4 [category:*component*]
 [category:*arena*] constants cnsts1 [record:globalCnsts]
 [category:*arena*] drivers drvs [record:globalDrvs]
+[category:*arena*] decorators decs2 [record:globalDecs]
 [dataTracker:trkFireType] trackComponent trks18 [system:sys1]
 [dataTracker:trkFireType] trackTable trks19 [table:fireType]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:98|0:98]"))
 [dataTracker:trkN] trackComponent trks8 [system:sys1]
 [dataTracker:trkN] trackTable trks4 [table:N]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:98|0:98]"))
-[table:fireHistory] sizedBy x10 [dimensioner:xdim]
-	rank = java.lang.Integer(0)
 [table:fireHistory] sizedBy y10 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
+[table:fireHistory] sizedBy x10 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
 [table:fireHistory] sizedBy z [dimensioner:nFireHistoryYears]
 	rank = java.lang.Integer(2)
 [table:ages] sizedBy szBy1 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
-[process:p3Mate] appliesTo aplyTo2 [relationType:mateRelation]
 [process:p3Mate] inSpace in3 [space:space1]
 	searchRadius = java.lang.Double(0.0)
+[process:p3Mate] appliesTo aplyTo2 [relationType:mateRelation]
 [process:p3Mate] dependsOn depsOn2 [process:p2Courting]
 [widget:progress] trackTime trks5 [dynamics:sim1]
+[space:space1] coordinate coordx [field:x]
+	rank = java.lang.Integer(0)
 [space:space1] coordinate coordy [field:y]
 	rank = java.lang.Integer(1)
 [space:space1] useRNG uses8 [rng:rngAnimal]
-[space:space1] coordinate coordx [field:x]
-	rank = java.lang.Integer(0)
 [dataTracker:trkHabitat] trackTable trks27 [table:habitat]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:98|0:98]"))
 [dataTracker:trkHabitat] trackComponent trks28 [system:sys1]
-[table:timeUnburnt] sizedBy x6 [dimensioner:xdim]
-	rank = java.lang.Integer(0)
 [table:timeUnburnt] sizedBy y6 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
-[dataTracker:trkAgeClasses] trackComponent trks16 [system:sys1]
+[table:timeUnburnt] sizedBy x6 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
 [dataTracker:trkAgeClasses] trackTable trks7 [table:ages]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
+[dataTracker:trkAgeClasses] trackComponent trks16 [system:sys1]
 [table:refugia] sizedBy y2 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:refugia] sizedBy x2 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
 [widget:space] trackSpace trks1 [space:space1]
 [process:p8Census] dependsOn depsOn6 [process:p7Cull]
-[process:p8Census] appliesTo aplyTo14 [category:animalCat]
 [process:p8Census] appliesTo aplyTo15 [category:*ephemeral*]
+[process:p8Census] appliesTo aplyTo14 [category:animalCat]
+[category:animalCat] constants cnsts2 [record:animalCnsts]
 [category:animalCat] decorators decs1 [record:animalDecs]
 [category:animalCat] drivers drvs2 [record:animalDrvs]
-[category:animalCat] constants cnsts2 [record:animalCnsts]
-[process:p7Cull] appliesTo aplyTo8 [category:*ephemeral*]
-[process:p7Cull] dependsOn depsOn5 [process:p6Count]
+[process:p7Cull] appliesTo aplyTo9 [category:animalCat]
 [process:p7Cull] inSpace in4 [space:space1]
 	searchRadius = java.lang.Double(0.0)
-[process:p7Cull] appliesTo aplyTo9 [category:animalCat]
+[process:p7Cull] appliesTo aplyTo8 [category:*ephemeral*]
+[process:p7Cull] dependsOn depsOn5 [process:p6Count]
 [widget:Fire frequency] trackSeries trks11 [dataTracker:trkFireFreq]
-[function:Cull] useRNG uses2 [rng:rngAnimal]
+[dataTracker:trkFireFreq] trackComponent trks13 [system:sys1]
 [dataTracker:trkFireFreq] trackTable trks14 [table:fireFrequency]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:98|0:98]"))
-[dataTracker:trkFireFreq] trackComponent trks13 [system:sys1]
+[function:Cull] useRNG uses2 [rng:rngAnimal]
 [widget:Age structure] trackSeries trks3 [dataTracker:trkAgeClasses]
-[treatment:trt] treats trts2 [field:refugiaStrength]
-	rank = java.lang.Integer(3)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"0.0","0.1","0.25","0.5"))
-[treatment:trt] treats trts1 [field:refugiaCoverageOption]
+[treatment:trt] treats coverage [field:refugiaCoverageOption]
 	rank = java.lang.Integer(2)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"0","1","2"))
 [treatment:trt] treats clump [field:refugiaClumped]
 	rank = java.lang.Integer(0)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[treatment:trt] treats trts [field:fireLarge]
+[treatment:trt] treats strength [field:refugiaStrength]
+	rank = java.lang.Integer(3)
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"0","0.5","0.75","0.9"))
+[treatment:trt] treats fire [field:fireLarge]
 	rank = java.lang.Integer(1)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[process:p5Death] appliesTo aplyTo10 [category:animalCat]
-[process:p5Death] appliesTo aplyTo11 [category:*ephemeral*]
-[process:p5Death] dependsOn depsOn1 [process:p4Birth]
 [process:p5Death] inSpace in5 [space:space1]
 	searchRadius = java.lang.Double(0.0)
+[process:p5Death] appliesTo aplyTo11 [category:*ephemeral*]
+[process:p5Death] appliesTo aplyTo10 [category:animalCat]
+[process:p5Death] dependsOn depsOn1 [process:p4Birth]
 [function:Death] useRNG uses5 [rng:rngAnimal]
 [table:adults] sizedBy szy3 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:adults] sizedBy szx3 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
-[process:p9Track] dependsOn depsOn8 [process:p8Census]
-[process:p9Track] appliesTo aplyTo3 [category:*assemblage*]
 [process:p9Track] appliesTo aplyTo12 [category:*arena*]
+[process:p9Track] appliesTo aplyTo3 [category:*assemblage*]
+[process:p9Track] dependsOn depsOn8 [process:p8Census]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
 [widget:writerPopulation] trackSeries trks22 [dataTracker:trkPop]
-[table:fireFrequency] sizedBy y5 [dimensioner:ydim]
-	rank = java.lang.Integer(1)
 [table:fireFrequency] sizedBy x5 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
+[table:fireFrequency] sizedBy y5 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
 [table:rateBirth] sizedBy szBy3 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
 [table:rateDeathMale] sizedBy szBy4 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
-[table:fireType] sizedBy y4 [dimensioner:ydim]
-	rank = java.lang.Integer(1)
 [table:fireType] sizedBy x4 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
-[table:tally] sizedBy y8 [dimensioner:ydim]
+[table:fireType] sizedBy y4 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:tally] sizedBy x8 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
+[table:tally] sizedBy y8 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
