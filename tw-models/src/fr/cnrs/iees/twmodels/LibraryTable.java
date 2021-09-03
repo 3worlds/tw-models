@@ -34,12 +34,8 @@ import fr.cnrs.iees.twmodels.templates.*;
 import fr.cnrs.iees.twmodels.tests.*;
 import fr.cnrs.iees.twmodels.tutorials.*;
 
-import java.io.File;
 import java.io.InputStream;
 
-import javax.xml.transform.Templates;
-
-import au.edu.anu.rscs.aot.util.Resources;
 import fr.cnrs.iees.graph.impl.ALEdge;
 import fr.cnrs.iees.graph.impl.TreeGraph;
 import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
