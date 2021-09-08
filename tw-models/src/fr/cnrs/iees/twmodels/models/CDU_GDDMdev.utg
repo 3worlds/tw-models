@@ -10,7 +10,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"java.util.List","fr.ens.biologie.generic.utils.Tuple","java.util.Comparator","code.utilities.FireUtil","code.utilities.RefugiaMask","java.util.ArrayList"))
 	precis = java.lang.String(Implementing GDDM for Tiwi islands)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196.","Banks, S.C., Cary, G.J., Smith, A.L., Davies, I.D., Driscoll, D.A., Gill, A.M., Lindenmayer, D.B. and Peakall, R., 2013. How does ecological disturbance influence genetic diversity?. Trends in ecology & evolution, 28(11), pp.670-679.","Banks, S.C., Davies, I.D. and Cary, G.J., 2017. When can refuges mediate the genetic effects of fire regimes? A simulation study of the effects of topography and weather on neutral and adaptive genetic diversity in fire‐prone landscapes. Molecular ecology, 26(19), pp.4935-4954.","references","1) https://animaldiversity.org/accounts/Trichosurus_vulpecula/"))
-	version = java.lang.String(0.1.13)
+	version = java.lang.String(0.1.14)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -274,27 +274,10 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
-			table N
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(population totals in each grid cell)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String(count)
-			table subPopLayer
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String()
-			table mDNAMostFrequent
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..100)
-				units = java.lang.String()
 			field fireLateFract
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field nMatureMales
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table fireFrequency
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -327,32 +310,10 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
-			field HsBar
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field nAnimals
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
 			field fireEarlyFract
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field fireBurntFract
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field nMature
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String()
-			field nMatureFemales
-				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table mfa
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
@@ -371,6 +332,45 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 			table nByAgeClass
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
+			table N
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(population totals in each grid cell)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String(count)
+			table subPopLayer
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
+			table mDNAMostFrequent
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..100)
+				units = java.lang.String()
+			field nMatureMales
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field HsBar
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field nAnimals
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field fireBurntFract
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field nMature
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field nMatureFemales
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table metaPopAlleleSums
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
@@ -456,7 +456,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							userClassName = java.lang.String(code.sys1.generated.CountN)
 					process p11RecordAlleles
 						function RecordAlleles
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([23]"		// 9)","		int cs = (int) (refugia.size(0) / heterozygosity.size(0) * cellSize);","		int mxLoci = alleles.size(0);","		int mxPloidy = alleles.size(1);","		int ix = (int) (x / cs);","		int iy = (int) (y / cs);","		","		int ss = arenaDec.subPopLayer.getByInt(ix, iy) + 1;","		arenaDec.subPopLayer.setByInt(ss, ix, iy);","","		int sumMDNA = arenaDec.mDNASums.getByInt(ix, iy, mDNA) + 1;","		arenaDec.mDNASums.setByInt(sumMDNA, ix, iy, mDNA);","","		for (int locus = 0; locus < mxLoci; locus++)","			for (int ploid = 0; ploid < mxPloidy; ploid++) {","				int allele = alleles.getByInt(locus, ploid);","				","				int metaSum = arenaDec.metaPopAlleleSums.getByInt(locus, allele) + 1;","				arenaDec.metaPopAlleleSums.setByInt(metaSum, locus, allele);","				","				int sum = arenaDec.alleleSumTable.getByInt(ix, iy, locus, allele) + 1;","				arenaDec.alleleSumTable.setByInt(sum, ix, iy, locus, allele);","			}"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([23]"		// 9)","		int cs = (int) (refugia.size(0) / heterozygosity.size(0) * cellSize);","		int mxLoci = alleles.size(0);","		int mxPloidy = alleles.size(1);","		int ix = (int) (x / cs);","		int iy = (int) (y / cs);","","		int ss = arenaDec.subPopLayer.getByInt(ix, iy) + 1;","		arenaDec.subPopLayer.setByInt(ss, ix, iy);","","		int sumMDNA = arenaDec.mDNASums.getByInt(ix, iy, mDNA) + 1;","		arenaDec.mDNASums.setByInt(sumMDNA, ix, iy, mDNA);","","		for (int locus = 0; locus < mxLoci; locus++)","			for (int ploid = 0; ploid < mxPloidy; ploid++) {","				int allele = alleles.getByInt(locus, ploid);","","				int metaSum = arenaDec.metaPopAlleleSums.getByInt(locus, allele) + 1;","				arenaDec.metaPopAlleleSums.setByInt(metaSum, locus, allele);","","				int sum = arenaDec.alleleSumTable.getByInt(ix, iy, locus, allele) + 1;","				arenaDec.alleleSumTable.setByInt(sum, ix, iy, locus, allele);","			}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.RecordAlleles)
 					process p09Cull
@@ -484,7 +484,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
 						function CalculateGeneticStats
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([95]"		// 10)","		// meta-population H","		int maxLoci = focalDec.metaPopAlleleSums.size(0);","		int maxAlleleId = focalDec.metaPopAlleleSums.size(1);","		{","			double sumH = 0;","			for (int l = 0; l < maxLoci; l++) {","				int total = 0;","				for (int a = 0; a < maxAlleleId; a++) {","					int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","					total += sum;","				}","				double sumSqrs = 0;","				if (total > 0)","					for (int a = 0; a < maxAlleleId; a++) {","						int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","						double f = (double) sum / (double) total;","						sumSqrs += (f * f);","					}","				sumH += (1.0 - sumSqrs);","			}","			focalDec.Ht = sumH / maxLoci;","		}","","		// sub-population H and the most frequent allele for the first locus","		boolean error = false;","		int w = heterozygosity.size(0);","		int h = heterozygosity.size(1);","		double sumHs = 0;","		double sumN = 0;","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","				int subPopSize = focalDec.subPopLayer.getByInt(x, y);","				if (subPopSize > 0) {","					// mitochondrial DNA - only one locus","					{","						int total = 0;","						int largestFirstLocus = 0;","						int mfaLocus0 = -1;","","						for (int a = 0; a < focalDec.mDNASums.size(2); a++) {","							int sum = focalDec.mDNASums.getByInt(x, y, a);","							total += sum;","							if (sum > largestFirstLocus) {","								largestFirstLocus = sum;","								mfaLocus0 = a;","							}","						}","						focalDec.mDNAMostFrequent.setByInt(mfaLocus0, x, y);","					}","","//					IntTable sums = focalDec.alleleSumLayer.getByInt(x, y).alleleSums();","					int largestFirstLocus = 0;","					int mfaLocus0 = -1;","					double sumH = 0;","					for (int l = 0; l < maxLoci; l++) {","						int total = 0;","						for (int a = 0; a < maxAlleleId; a++) {","//							int sum = sums.getByInt(l, a);","							int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","							total += sum;","							if (l == 0) {","								if (sum > largestFirstLocus) {","									largestFirstLocus = sum;","									mfaLocus0 = a;","								}","							}","						}","","						double sumSqrs = 0;","						if (total == 0)","							error = true;","						if (total > 0)","							for (int a = 0; a < maxAlleleId; a++) {","//								int sum = sums.getByInt(l, a);","								int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","								double f = (double) sum / (double) total;","								sumSqrs += (f * f);","							}","						sumH += (1.0 - sumSqrs);","					}","","					double meanH = sumH / maxLoci;","					focalDec.heterozygosity.setByInt(meanH, x, y);","					focalDec.mfa.setByInt(mfaLocus0, x, y);","","					sumHs += meanH * subPopSize;","					sumN += subPopSize;","				}","			}","		","		if (sumN > 0) {","			focalDec.HsBar = sumHs / sumN;","			focalDec.Fst = (focalDec.Ht - focalDec.HsBar) / focalDec.Ht;","		}"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([93]"		// 10)","		// meta-population H","		int maxLoci = focalDec.metaPopAlleleSums.size(0);","		int maxAlleleId = focalDec.metaPopAlleleSums.size(1);","		{","			double sumH = 0;","			for (int l = 0; l < maxLoci; l++) {","				int total = 0;","				for (int a = 0; a < maxAlleleId; a++) {","					int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","					total += sum;","				}","				double sumSqrs = 0;","				if (total > 0)","					for (int a = 0; a < maxAlleleId; a++) {","						int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","						double f = (double) sum / (double) total;","						sumSqrs += (f * f);","					}","				sumH += (1.0 - sumSqrs);","			}","			focalDec.Ht = sumH / maxLoci;","		}","","		// sub-population H and the most frequent allele for the first locus","		boolean error = false;","		int w = heterozygosity.size(0);","		int h = heterozygosity.size(1);","		double sumHs = 0;","		double sumN = 0;","		int counter = 0;","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","","				int subPopSize = focalDec.subPopLayer.getByInt(x, y);","				if (subPopSize > 0) {","					// mitochondrial DNA - only one locus","					{","						int total = 0;","						int largestFirstLocus = 0;","						int mfaLocus0 = -1;","","						for (int a = 0; a < focalDec.mDNASums.size(2); a++) {","							int sum = focalDec.mDNASums.getByInt(x, y, a);","							total += sum;","							if (sum > largestFirstLocus) {","								largestFirstLocus = sum;","								mfaLocus0 = a;","							}","						}","						focalDec.mDNAMostFrequent.setByInt(mfaLocus0, x, y);","					}","","					int largestFirstLocus = 0;","					int mfaLocus0 = -1;","					double sumH = 0;","					for (int l = 0; l < maxLoci; l++) {","						int total = 0;","						for (int a = 0; a < maxAlleleId; a++) {","","							int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","							total += sum;","							if (l == 0) {","								if (sum > largestFirstLocus) {","									largestFirstLocus = sum;","									mfaLocus0 = a;","								}","							}","						}","","						if (total > 0) {","							double sumSqrs = 0;","							for (int a = 0; a < maxAlleleId; a++) {","								int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","								double f = (double) sum / (double) total;","								sumSqrs += (f * f);","							}","							sumH += (1.0 - sumSqrs);","						}","					}","					double meanH = sumH / maxLoci;","					focalDec.heterozygosity.setByInt(meanH, x, y);","					focalDec.mfa.setByInt(mfaLocus0, x, y);","","					sumHs += meanH * subPopSize;","					sumN += subPopSize;","				}","			}","","		if (sumN > 0) {","			focalDec.HsBar = sumHs / sumN;","			focalDec.Fst = (focalDec.Ht - focalDec.HsBar) / focalDec.Ht;","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CalculateGeneticStats)
 						dataTracker trkMFA
@@ -546,7 +546,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AnimalInit)
 		initFunction GlobalInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([170]"		focalCnt.cellSize = 100.0;// 1 ha.","		focalCnt.speciesId = 0;","		// The number of search attempts if using dispersal option 3","		focalCnt.dispersalNTrialsFemales = 3;","		focalCnt.dispersalNTrialsMales = 3;","		if (focalCnt.speciesId == 0) {","			// brushtail possum: Trichosurus vulpecula arnhemensis","			// Kerle, J.A 1998","			// mean life expectancy = 6 years","			focalCnt.demogRateDeathFemale.fillWith(0.22);","			focalCnt.demogRateDeathMale.fillWith(0.22);","			focalCnt.demogRateBirth.fillWith(1.7);// including new born mortality","			focalCnt.lifespan = 12;","			focalCnt.dispersalMethodFemales = 3;","			focalCnt.dispersalMethodMales = 3;","			focalCnt.dispersalMeanDistanceFemales = 300.0;","			focalCnt.dispersalMeanDistanceMales = 500.0;","			focalCnt.demogK = 2.46;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.96, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 9);","		} else if (focalCnt.speciesId == 1) {","			// Northern brown Bandicoot","			focalCnt.demogRateDeathFemale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.setByInt(0.16, 0);","			focalCnt.demogRateDeathFemale.setByInt(0.33, 1);","			focalCnt.demogRateDeathMale.fillWith(1.0);","			focalCnt.demogRateDeathMale.setByInt(0.16, 0);","			focalCnt.demogRateDeathMale.setByInt(0.33, 1);","			focalCnt.demogRateBirth.fillWith(0.0);","			focalCnt.demogRateBirth.setByInt(5, 0);","			focalCnt.demogRateBirth.setByInt(3, 1);","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.dispersalMeanDistanceFemales = 5000.0;","			focalCnt.dispersalMeanDistanceMales = 5000.0;","			focalCnt.demogK = 2.00;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7989, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.8652, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9096, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9394, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9594, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9728, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9818, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9878, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9918, 9);","		} else if (focalCnt.speciesId == 2) {","			// Fawn quolls","			// males die at year 1","			focalCnt.demogRateDeathMale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.setByInt(0.13, 0);","			focalCnt.demogRateDeathFemale.setByInt(0.5, 1);","","			focalCnt.demogRateBirth.fillWith(0);","			focalCnt.demogRateBirth.setByInt(5, 0);","			focalCnt.demogRateBirth.setByInt(2, 1);","","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.dispersalMeanDistanceFemales = 1000.0;","			focalCnt.dispersalMeanDistanceMales = 1000.0;","			focalCnt.demogK = 1.00;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7989, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.8652, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9096, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9394, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9594, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9728, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9818, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9878, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9918, 9);","		}","","		// FIRE","		// fire footprint","		// true = 3000 x 3000 (30x30) else 500 x 500 (5 x 5)","		focalCnt.fireLarge = false;","		focalCnt.fireProb = 0.55;// increase this to account for refugia","		focalCnt.fireEarlyProb = 0.62;// 0.62 of fires are early season fires","","		// REFUGIA","		// flag for lazy init later","		focalDrv.refugiaInitialised = false;","		// 0.0; 0.45; 0.9","		focalCnt.refugiaStrength = 0.45;","		// 0=none,1 = 5%;2 = 20% of landscape area","		focalCnt.refugiaCoverageOption = 2;","		// focalCnt.refugia.fillWith(false);","		focalCnt.refugiaClumped = true;","","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","","		double sum = focalCnt.demogK * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","","		// Genetics","		if (focalCnt.speciesId == 0) {","			// possums","			focalCnt.genMaxMates = 1;","		} else if (focalCnt.speciesId == 1) {","			// bandicoots","			focalCnt.genMaxMates = 3;","		} else if (focalCnt.speciesId == 2) {","			// Fawn quolls","			focalCnt.genMaxMates = 6;","		}"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([170]"		focalCnt.cellSize = 100.0;// 1 ha.","		focalCnt.speciesId = 0;","		// The number of search attempts if using dispersal option 3","		focalCnt.dispersalNTrialsFemales = 3;","		focalCnt.dispersalNTrialsMales = 3;","		if (focalCnt.speciesId == 0) {","			// brushtail possum: Trichosurus vulpecula arnhemensis","			// Kerle, J.A 1998","			// mean life expectancy = 6 years","			focalCnt.demogRateDeathFemale.fillWith(0.22);","			focalCnt.demogRateDeathMale.fillWith(0.22);","			focalCnt.demogRateBirth.fillWith(1.7);// including new born mortality","			focalCnt.lifespan = 12;","			focalCnt.dispersalMethodFemales = 3;","			focalCnt.dispersalMethodMales = 3;","			focalCnt.dispersalMeanDistanceFemales = 300.0;","			focalCnt.dispersalMeanDistanceMales = 500.0;","			focalCnt.demogK = 2.46;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.96, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(1.0, 9);","		} else if (focalCnt.speciesId == 1) {","			// Northern brown Bandicoot","			focalCnt.demogRateDeathFemale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.setByInt(0.16, 0);","			focalCnt.demogRateDeathFemale.setByInt(0.33, 1);","			focalCnt.demogRateDeathMale.fillWith(1.0);","			focalCnt.demogRateDeathMale.setByInt(0.16, 0);","			focalCnt.demogRateDeathMale.setByInt(0.33, 1);","			focalCnt.demogRateBirth.fillWith(0.0);","			focalCnt.demogRateBirth.setByInt(5, 0);","			focalCnt.demogRateBirth.setByInt(3, 1);","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.dispersalMeanDistanceFemales = 5000.0;","			focalCnt.dispersalMeanDistanceMales = 5000.0;","			focalCnt.demogK = 2.00;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7989, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.8652, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9096, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9394, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9594, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9728, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9818, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9878, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9918, 9);","		} else if (focalCnt.speciesId == 2) {","			// Fawn quolls","			// males die at year 1","			focalCnt.demogRateDeathMale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.fillWith(1.0);","			focalCnt.demogRateDeathFemale.setByInt(0.13, 0);","			focalCnt.demogRateDeathFemale.setByInt(0.5, 1);","","			focalCnt.demogRateBirth.fillWith(0);","			focalCnt.demogRateBirth.setByInt(5, 0);","			focalCnt.demogRateBirth.setByInt(2, 1);","","			focalCnt.lifespan = 3;","			focalCnt.dispersalMethodFemales = 1;","			focalCnt.dispersalMethodMales = 1;","			focalCnt.dispersalMeanDistanceFemales = 1000.0;","			focalCnt.dispersalMeanDistanceMales = 1000.0;","			focalCnt.demogK = 1.00;","			focalCnt.demogMatureAgeFemale = 1;","			focalCnt.demogMatureAgeMale = 1;","			// Late","			// roughly 1-e^(-5t/10) squeezed between 0.4 and 1.0","			focalCnt.fireLateHabitatFunc.setByInt(0.4, 0);","			focalCnt.fireLateHabitatFunc.setByInt(0.5978, 1);","			focalCnt.fireLateHabitatFunc.setByInt(0.7304, 2);","			focalCnt.fireLateHabitatFunc.setByInt(0.8193, 3);","			focalCnt.fireLateHabitatFunc.setByInt(0.8789, 4);","			focalCnt.fireLateHabitatFunc.setByInt(0.9188, 5);","			focalCnt.fireLateHabitatFunc.setByInt(0.9456, 6);","			focalCnt.fireLateHabitatFunc.setByInt(0.9635, 7);","			focalCnt.fireLateHabitatFunc.setByInt(0.9755, 8);","			focalCnt.fireLateHabitatFunc.setByInt(0.9836, 9);","","			// Early","			// roughly 1-e^(-5t/10) squeezed between 0.7 and 1.0","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7, 0);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.7989, 1);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.8652, 2);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9096, 3);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9394, 4);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9594, 5);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9728, 6);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9818, 7);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9878, 8);","			focalCnt.fireEarlyHabitatFunc.setByInt(0.9918, 9);","		}","","		// FIRE","		// fire footprint","		// true = 3000 x 3000 (30x30) else 500 x 500 (5 x 5)","		focalCnt.fireLarge = true;","		focalCnt.fireProb = 0.55;// increase this to account for refugia","		focalCnt.fireEarlyProb = 0.62;// 0.62 of fires are early season fires","","		// REFUGIA","		// flag for lazy init later","		focalDrv.refugiaInitialised = false;","		// 0.0; 0.45; 0.9","		focalCnt.refugiaStrength = 0.45;","		// 0=none,1 = 5%;2 = 20% of landscape area","		focalCnt.refugiaCoverageOption = 2;","		// focalCnt.refugia.fillWith(false);","		focalCnt.refugiaClumped = true;","","		focalDrv.fireCount.fillWith(0);","		focalDrv.fireHistory.fillWith(0);","","		double sum = focalCnt.demogK * focalDrv.fireCount.size(0) * focalDrv.fireCount.size(1);","		System.out.println(new StringBuilder().append('Σ').append('K').append('=').append(Math.round(sum)));","","		// Genetics","		if (focalCnt.speciesId == 0) {","			// possums","			focalCnt.genMaxMates = 1;","		} else if (focalCnt.speciesId == 1) {","			// bandicoots","			focalCnt.genMaxMates = 3;","		} else if (focalCnt.speciesId == 2) {","			// Fawn quolls","			focalCnt.genMaxMates = 6;","		}"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.GlobalInit)
 	userInterface gui
@@ -558,7 +558,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 		top top
 			widget ctrl
 				order = java.lang.Integer(0)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 			widget progress
 				order = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
@@ -671,6 +671,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [relationType:mateRelation] toCategory to3 [category:animalCat]
 [relationType:mateRelation] fromCategory from1 [category:animalCat]
 [relationType:mateRelation] fromCategory from2 [category:*ephemeral*]
+[widget:ctrl] trackTime trks35 [dynamics:sim1]
 [initFunction:AnimalInit] useRNG uses6 [rng:rngAnimalInit]
 [table:N] sizedBy x3 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
@@ -858,22 +859,22 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 [process:p12GeneticStats] appliesTo aplyTo19 [category:*assemblage*]
 [process:p12GeneticStats] appliesTo aplyTo16 [category:*arena*]
 [treatment:trt] treats coverage [field:refugiaCoverageOption]
-	rank = java.lang.Integer(1)
+	rank = java.lang.Integer(2)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"0","1","2"))
 [treatment:trt] treats dmMales [field:dispersalMethodMales]
-	rank = java.lang.Integer(3)
+	rank = java.lang.Integer(35)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"2","3"))
 [treatment:trt] treats dmFemales [field:dispersalMethodFemales]
-	rank = java.lang.Integer(2)
+	rank = java.lang.Integer(4)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"2","3"))
 [treatment:trt] treats clumped [field:refugiaClumped]
-	rank = java.lang.Integer(0)
+	rank = java.lang.Integer(1)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats strength [field:refugiaStrength]
-	rank = java.lang.Integer(5)
+	rank = java.lang.Integer(3)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"0.0","0.45","0.9"))
 [treatment:trt] treats fire [field:fireLarge]
-	rank = java.lang.Integer(4)
+	rank = java.lang.Integer(6)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [function:Death] useRNG uses5 [rng:rngAnimal]
 [table:nMatureLayer] sizedBy szy3 [dimensioner:ydim]
