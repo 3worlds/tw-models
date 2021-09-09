@@ -484,7 +484,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 			space plot
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				guardAreaWidth = java.lang.Double(0.0)
-				observationWindow = fr.cnrs.iees.uit.space.BoxImpl([[0.0,0.0],[0.0,0.0]])
+				observationWindow = fr.cnrs.iees.uit.space.Box([[0.0,0.0],[0.0,0.0]])
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
