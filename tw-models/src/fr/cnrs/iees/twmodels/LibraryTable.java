@@ -82,9 +82,7 @@ public enum LibraryTable {
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
 	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test8("8 Animal (Continuous Space)", "AnimalC1", "CDU_AnimalC1.utg", LibraryType.Test,null), //
-	Test9("9 Animal (Gridded Space)", "AnimalG1", "CDU_AnimalG1.utg", LibraryType.Test,null), //
-	Test10("10 Headless experiment (GDDM)", "Exp1", "GDDMExpDemoHL.utg", LibraryType.Test, "CDU_GDDM.zip"), //
+	Test8("8 Headless experiment (GDDM)", "Exp1", "GDDMExpDemoHL.utg", LibraryType.Test, "CDU_GDDM.zip"), //
 ;
 
 	private final String displayName;
