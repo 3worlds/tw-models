@@ -69,6 +69,7 @@ public enum LibraryTable {
 	Tut8("8 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
 	Tut9("9 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
 	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
+	Tut11("11 Random walk","RndWalk1","RandomWalk.utg",LibraryType.Tutorial,null),//
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //

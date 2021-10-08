@@ -1,0 +1,165 @@
+treegraph // saved by OmugiGraphExporter on Fri Oct 08 13:46:47 AEDT 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds Tut5
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	built-by = java.lang.String(ian (8 Oct 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	precis = java.lang.String("Event-driven test of spatio-temporal scale")
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	version = java.lang.String()
+	dataDefinition dDef
+		record glbCnsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(glbCnsts)
+			table food
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				units = java.lang.String()
+		dimensioner ydim
+			size = java.lang.Integer(10)
+		dimensioner xdim
+			size = java.lang.Integer(10)
+		record glbDrvs
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(glbDrvs)
+			field temperature
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+		record dotDrvs
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(dotDrvs)
+			field x1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field y1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+	experiment expt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+	userInterface gui
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+	system sys1
+		constantClass = java.lang.String(code.sys1.generated.GlbCnsts)
+		driverClass = java.lang.String(code.sys1.generated.GlbDrvs)
+		dynamics sim1
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(SECOND)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(SHORT_TIMES)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(SECOND)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer tempClock
+					dt = java.lang.Long(3600)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(SECOND)
+					process p1
+						function UpdateTemperature
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalDrv.temperature = random.nextInt(10);","		// issue an event here"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.UpdateTemperature)
+				timer eventTimer
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
+					process updateMovement
+						function Move
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+		structure struc1
+			space space1
+				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				precision = java.lang.Double(0.01)
+				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				x-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
+				y-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
+			categorySet dotType
+				category dot
+					constantClass = java.lang.String(Dot_Cnt)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+		initFunction Init1
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		for (int x = 0;x<food.size(0);x++)","			for (int y = 0; y<food.size(1);y++)","				focalCnt.food.setByInt(random.nextInt(10), x,y);"))
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.Init1)
+	predefined *categories*
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *component*
+			category *relation*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		record AVPopulation
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+
+// CROSS-LINKS
+[table:food] sizedBy y [dimensioner:ydim]
+	rank = java.lang.Integer(1)
+[table:food] sizedBy x [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[system:sys1] belongsTo bt1 [category:*arena*]
+[process:updateMovement] appliesTo aplyTo2 [category:dot]
+[process:updateMovement] inSpace in1 [space:space1]
+	searchRadius = java.lang.Double(0.0)
+[process:p1] appliesTo aplyTo1 [category:*arena*]
+[timer:eventTimer] fedBy fedBy1 [function:UpdateTemperature]
+[category:dot] constants cnsts2 [record:dotDrvs]
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[category:*arena*] drivers drvs1 [record:glbDrvs]
+[category:*arena*] constants cnsts1 [record:glbCnsts]
+[space:space1] coordinate x2 [field:x1]
+	rank = java.lang.Integer(0)
+[space:space1] coordinate y2 [field:y1]
+	rank = java.lang.Integer(1)
