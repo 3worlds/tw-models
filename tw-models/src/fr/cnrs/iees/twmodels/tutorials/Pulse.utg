@@ -206,3 +206,4 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 [space:space1] coordinate x1 [field:x]
 	rank = java.lang.Integer(0)
 [space:space1] coordinate y1 [field:y]
+	rank = java.lang.Integer(1)
