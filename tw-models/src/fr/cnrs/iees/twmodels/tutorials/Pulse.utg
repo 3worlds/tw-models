@@ -7,7 +7,7 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (11 Oct 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	precis = java.lang.String()
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
@@ -56,12 +56,17 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 		record glbCnsts
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbCnsts)
-			field deleteProb
+			field ceiling
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field nAdd
+			field deleteRate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field pulseRate
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -85,6 +90,9 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.GlbCnsts)
 		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
 			timeline tmLn1
 				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(ARBITRARY)
@@ -92,21 +100,21 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
 				timer t1Pulse
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
-					process p3
+					process p1
 						function Pulse
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		t2Event.postTimeEvent(t);","		t1Pulse.postTimeEvent(t+random.nextInt(9)+1);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// post a 'dot' creation event for this time","		t2Event.postTimeEvent(t);","		// schedule a call to this method at some future time","		t1Pulse.postTimeEvent(t + random.nextInt((int)(1.0/pulseRate)) + 1);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Pulse)
 				timer t2Event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
-					process p2Creation
+					process p2
 						function NDots
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		double rate = 1.0 - (count/10000.0)*nAdd;","		return rate;"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// limit the recuitment rate of dots to the ceiling","		double rate = (ceiling-count)/(double)count;","		return rate;","///\		return nAdd;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.NDots)
 							function MakeDot
-								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		double meanDistance = 100;","		double distance = -(meanDistance) * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);"))
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// place dot randomly near 'parent' dot.","		double distance = -50.0 * Math.log(1 - random.nextDouble());","		double direction = random.nextDouble() * (2 * Math.PI);","		otherDrv.x = x + distance * Math.cos(direction);","		otherDrv.y = y + distance * Math.sin(direction);"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.MakeDot)
 				timer t3Clock
@@ -114,13 +122,17 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 					nTimeUnits = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
-					process p3Deletion
+					process p4
+						dataTracker trk1
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+					process p3
 						function Delete
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return decider.decide(deleteProb);"))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return decider.decide(deleteRate);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Delete)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		focalCnt.nAdd = 5;","		focalCnt.deleteProb = 0.1;","		t1Pulse.postTimeEvent(1);"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		focalCnt.deleteRate = 0.01;","		focalCnt.pulseRate = 0.002;","		focalCnt.ceiling = 5000.0;","		// post event to the pulse time to kick start it. After this it posts events to itself.","		t1Pulse.postTimeEvent(1);"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1
@@ -128,14 +140,15 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				precision = java.lang.Double(0.001)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				units = java.lang.String(m)
 				x-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
 				y-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
 			componentType dotType
 				driverClass = java.lang.String(code.sys1.generated.DotDrvs)
 				component dot
-					nInstances = java.lang.Integer(1)
+					nInstances = java.lang.Integer(100)
 				initFunction DotInit
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalDrv.x = 500;","		focalDrv.y = 500;"))
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		// place dots in random locations (assuming these are the dimensions of the map)","		focalDrv.x = random.nextDouble() * 1000;","		focalDrv.y = random.nextDouble() * 1000;"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.DotInit)
 			categorySet dotSet
@@ -150,14 +163,17 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			widget Number of dots
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget map
 				order = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS
-[process:p2Creation] appliesTo aplyTo3 [category:dotCat]
-[process:p2Creation] inSpace in2 [space:space1]
-	searchRadius = java.lang.Double(0.0)
+[dataTracker:trk1] trackComponent trks2 [system:sys1]
+[dataTracker:trk1] trackField trks3 [field:count]
+[widget:Number of dots] trackSeries trks4 [dataTracker:trk1]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
@@ -168,11 +184,16 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 [componentType:dotType] belongsTo bt6 [category:*component*]
 [componentType:dotType] belongsTo bt5 [category:*ephemeral*]
 [componentType:dotType] belongsTo bt4 [category:*atomic*]
-[process:p3] appliesTo aplyTo4 [category:*arena*]
-[process:p3Deletion] dependsOn depsOn1 [process:p2Creation]
-[process:p3Deletion] appliesTo aplyTo2 [category:dotCat]
-[process:p3Deletion] inSpace in1 [space:space1]
+[process:p1] appliesTo aplyTo4 [category:*arena*]
+[process:p2] appliesTo aplyTo3 [category:dotCat]
+[process:p2] inSpace in2 [space:space1]
 	searchRadius = java.lang.Double(0.0)
+[process:p3] dependsOn depsOn1 [process:p2]
+[process:p3] appliesTo aplyTo2 [category:dotCat]
+[process:p3] inSpace in1 [space:space1]
+	searchRadius = java.lang.Double(0.0)
+[process:p4] appliesTo aplyTo5 [category:*assemblage*]
+[process:p4] dependsOn depsOn2 [process:p3]
 [timer:t1Pulse] fedBy fedBy1 [initFunction:SysInit]
 [timer:t1Pulse] fedBy fedBy2 [function:Pulse]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
@@ -185,4 +206,3 @@ treegraph // saved by OmugiGraphExporter on Mon Oct 11 13:35:09 AEDT 2021
 [space:space1] coordinate x1 [field:x]
 	rank = java.lang.Integer(0)
 [space:space1] coordinate y1 [field:y]
-	rank = java.lang.Integer(1)
