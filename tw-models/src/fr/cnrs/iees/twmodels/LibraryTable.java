@@ -62,7 +62,7 @@ public enum LibraryTable {
 	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial,null), //
 	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial,null), //
 	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial,null), //
-	Tut4("4 Event timer","Pulse1","Pulse.utg",LibraryType.Tutorial,null), //
+	Tut4("4 Event timer","Pulse1","Pulse1.utg",LibraryType.Tutorial,null), //
 	Tut5("5 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
 	Tut6("6 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
 	Tut7("7 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
