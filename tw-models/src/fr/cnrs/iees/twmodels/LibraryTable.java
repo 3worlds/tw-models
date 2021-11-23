@@ -72,8 +72,7 @@ public enum LibraryTable {
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
-	Model3("3 GDDM (genetics)", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
-	Model4("4 DDM (no genetics)", "DDM1", "CDU_DDMdev.utg", LibraryType.Model,"CDU_DDM.zip"), //
+	Model3("3 GDDM", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
@@ -82,7 +81,6 @@ public enum LibraryTable {
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
 	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test8("8 Headless experiment (GDDM)", "Exp1", "GDDMExpDemoHL.utg", LibraryType.Test, "CDU_GDDM.zip"), //
 ;
 
 	private final String displayName;
