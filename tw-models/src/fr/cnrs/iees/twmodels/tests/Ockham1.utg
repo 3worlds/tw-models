@@ -1,0 +1,319 @@
+treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds Ockham1
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	built-by = java.lang.String(ian (26 Oct 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"java.util.List","fr.ens.biologie.generic.utils.Tuple","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
+	precis = java.lang.String("Single sex, non-overlapping generations")
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	version = java.lang.String()
+	predefined *categories*
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record AVPopulation
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *component*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
+	dataDefinition dDef
+		record glbDec
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(glbDec)
+			table gridPop
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				units = java.lang.String()
+			field metapop
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+		record animalDrv
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(animalDrv)
+			field x1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field y1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field isMature
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+		dimensioner ydim
+			size = java.lang.Integer(100)
+		record glbCnt
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(glbCnt)
+			field disp
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field k2
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field k1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field r2
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field info
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field frag
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field r1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field pred
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+		record glbDrv
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(glbDrv)
+			field habitatInitialised
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			table habitat
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+		dimensioner xdim
+			size = java.lang.Integer(100)
+	experiment expt
+		nReplicates = java.lang.Integer(1)
+		treatment trt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+	system sys1
+		constantClass = java.lang.String(code.sys1.generated.GlbCnt)
+		decoratorClass = java.lang.String(code.sys1.generated.GlbDec)
+		driverClass = java.lang.String(code.sys1.generated.GlbDrv)
+		initFunction InitSystem
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// worst case","		focalCnt.frag = false;","		focalCnt.info = true;","		focalCnt.disp = 500.0; // short = 60; long = 500","		focalCnt.pred = false;","		focalDrv.habitatInitialised = false;","		focalCnt.k1 = 2.46;","		focalCnt.k2 = 1.72;","		focalCnt.r1 = 1.25;","		focalCnt.r2 = 1.25;","","		focalDrv.habitat.fillWith(true);"))
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.InitSystem)
+		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(ARBITRARY)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer c2
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+					process p5
+						function CountPop
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		int ix = (int) (x1 / 100.0);","		int iy = (int) (y1 / 100.0);","		int n = arenaDec.gridPop.getByInt(ix, iy);","		arenaDec.gridPop.setByInt(n + 1, ix, iy);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.CountPop)
+					process p4
+						function Death
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (isMature)","			return true;","		else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.Death)
+					process p3
+						function NBirth
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		if (isMature) {","			int ix = (int) (x1 / 100.0);","			int iy = (int) (y1 / 100.0);","			double r = r2;","			if (habitat.getByInt(ix, iy))","				r = r1;","			return r;","		} else","			return 0;"))
+							relateToProduct = java.lang.Boolean(false)
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
+							userClassName = java.lang.String(code.sys1.generated.NBirth)
+							function InitNewBorn
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([42]"		otherDrv.isMature = false;","		int nTrials = 1;","		if (info)","			nTrials = 3;","		List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","		int w = habitat.size(0);","		int h = habitat.size(1);","		for (int i = 0; i < nTrials; i++) {","			double distance = -(disp) * Math.log(1 - random.nextDouble());","			double direction = random.nextDouble() * (2 * Math.PI);","			double tx = x1 + distance * Math.cos(direction);","			double ty = y1 + distance * Math.sin(direction);","			int ix = (int) (tx / 100.0);","			ix = ix % w;","			if (ix < 0)","				ix += w;","			int iy = (int) (ty / 100.0);","			iy = iy % h;","			if (iy < 0)","				iy += h;","			double k = k2;","			int n = gridPop.getByInt(ix, iy);","			double weight = random.nextDouble();","			if (habitat.getByInt(ix, iy)) {","				weight += 1.0;","				k = k1;","			}","			if (n > k)","				weight -= 1.0;","			sites.add(new Tuple<Double, Double, Double>(tx, ty, weight));","		}","","		sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","","			@Override","			public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","				return o1.getThird().compareTo(o2.getThird());","			}","		});","		Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","		otherDrv.x1 = location.getFirst();","		otherDrv.y1 = location.getSecond();"))
+								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
+								userClassName = java.lang.String(code.sys1.generated.InitNewBorn)
+					process p8
+						dataTracker trkHabitat
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkMetaPop
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+					process p7
+						function FinalCount
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalDrv.isMature = true;","		arenaDec.metapop++;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FinalCount)
+					process p6
+						function Cull
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		int ix = (int) (x1 / 100.0);","		int iy = (int) (y1 / 100.0);","		double k = k2;","		if (habitat.getByInt(ix, iy))","			k = k1;","		double n = gridPop.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.Cull)
+					process p1
+						function InitStep
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalDrv.habitatInitialised = habitatInitialised;","		focalDrv.habitat.copy(habitat);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.InitStep)
+				timer c1
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+					process p2
+						function UpdateHabitat
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([38]"		boolean createPattern = true;","		if (pred && habitatInitialised)","			createPattern = false;","		if (createPattern) {","			if (pred)","				focalDrv.habitatInitialised = true;","			// make a checker board pattern, offset by some random amount","//			focalDrv.habitat.fillWith(false);","			// assume a square landscape","			int w = habitat.size(0);","			int npl = 100;// wrap around offsets does not work with odd numbers","			if (!frag)","				npl = 4;","			int size = w / npl;","			int dx = random.nextInt(w);","			int dy = random.nextInt(w);","//			dx = 0;","//			dy = 0;","			boolean isGood = true;","			for (int sx = 0; sx < npl; sx++) {","				if (npl % 2 == 0)","					isGood = !isGood;","				for (int sy = 0; sy < npl; sy++) {","					isGood = !isGood;","					for (int xx = 0; xx < size; xx++)","						for (int yy = 0; yy < size; yy++) {","							int x = sx * size + xx + dx;","							int y = sy * size + yy + dy;","							x = x % w;","							y = y % w;","							focalDrv.habitat.setByInt(isGood, x, y);","						}","				}","			}","			// this ensures current appears in dataTracker at the first time step","			// Unless we set it in initSystem","			habitat.copy(focalDrv.habitat);","		}"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.UpdateHabitat)
+		structure struc1
+			space landscape
+				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				precision = java.lang.Double(0.1)
+				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
+				units = java.lang.String(m)
+				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
+				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
+			componentType animalType
+				driverClass = java.lang.String(code.sys1.generated.AnimalDrv)
+				component animal
+					nInstances = java.lang.Integer(10000)
+				initFunction InitAnimal
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"//		focalDrv.x1 = 4000+random.nextDouble()*1000;","//		focalDrv.y1 =4000+random.nextDouble()*1000;","		focalDrv.x1 = random.nextDouble() * 10000;","		focalDrv.y1 = random.nextDouble() * 10000;","		focalDrv.isMature = false;"))
+					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+					userClassName = java.lang.String(code.sys1.generated.InitAnimal)
+			categorySet animalSet
+				category animalCat
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.String(AnimalCat_Drv)
+	userInterface gui
+		headless hl
+			widget progress
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
+			widget popWriter
+				nLines = java.lang.Integer(10)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+		tab tab1
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			container cont1
+				order = java.lang.Integer(0)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+				widget Habitat pattern
+					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Metapopulation
+					nSenders = java.lang.Integer(35)
+					order = java.lang.Integer(0)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+			widget space
+				nViews = java.lang.Integer(2)
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
+
+// CROSS-LINKS
+[dataTracker:trkHabitat] trackTable trks2 [table:habitat]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
+[dataTracker:trkHabitat] trackComponent trks1 [system:sys1]
+[table:habitat] sizedBy y [dimensioner:ydim]
+	rank = java.lang.Integer(1)
+[table:habitat] sizedBy x [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[table:gridPop] sizedBy x3 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[table:gridPop] sizedBy y3 [dimensioner:ydim]
+	rank = java.lang.Integer(1)
+[widget:space] trackSpace trks4 [space:landscape]
+[dataTracker:trkMetaPop] trackField trks6 [field:metapop]
+[dataTracker:trkMetaPop] trackComponent trks5 [system:sys1]
+[category:animalCat] drivers drvs1 [record:animalDrv]
+[widget:popWriter] trackSeries trks9 [dataTracker:trkMetaPop]
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
+[system:sys1] belongsTo bt1 [category:*arena*]
+[treatment:trt] treats info1 [field:info]
+	rank = java.lang.Integer(3)
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
+[process:p1] appliesTo aplyTo5 [category:*arena*]
+[widget:Metapopulation] trackSeries trks7 [dataTracker:trkMetaPop]
+[process:p2] appliesTo aplyTo1 [category:*arena*]
+[process:p2] dependsOn depsOn6 [process:p1]
+[process:p3] appliesTo aplyTo2 [category:animalCat]
+[process:p3] dependsOn depsOn3 [process:p2]
+[process:p3] inSpace in1 [space:landscape]
+	searchRadius = java.lang.Double(0.0)
+[process:p4] dependsOn depsOn2 [process:p3]
+[process:p4] appliesTo aplyTo3 [category:animalCat]
+[process:p4] inSpace in2 [space:landscape]
+	searchRadius = java.lang.Double(0.0)
+[process:p5] appliesTo aplyTo6 [category:animalCat]
+[process:p5] dependsOn depsOn1 [process:p4]
+[process:p6] appliesTo aplyTo7 [category:*ephemeral*]
+[process:p6] appliesTo aplyTo4 [category:animalCat]
+[process:p6] dependsOn depsOn4 [process:p5]
+[process:p7] appliesTo aplyTo9 [category:animalCat]
+[process:p7] dependsOn depsOn5 [process:p6]
+[process:p8] appliesTo aplyTo8 [category:*arena*]
+[process:p8] dependsOn depsOn7 [process:p7]
+[widget:Habitat pattern] trackSeries trks3 [dataTracker:trkHabitat]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[componentType:animalType] belongsTo bt7 [category:animalCat]
+[componentType:animalType] belongsTo bt6 [category:*atomic*]
+[componentType:animalType] belongsTo bt5 [category:*component*]
+[componentType:animalType] belongsTo bt4 [category:*ephemeral*]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[category:*arena*] constants cnsts1 [record:glbCnt]
+[category:*arena*] decorators decs1 [record:glbDec]
+[category:*arena*] drivers drvs2 [record:glbDrv]
+[widget:progress] trackTime trks8 [dynamics:sim1]
+[space:landscape] coordinate y2 [field:y1]
+	rank = java.lang.Integer(1)
+[space:landscape] coordinate x2 [field:x1]
+	rank = java.lang.Integer(0)

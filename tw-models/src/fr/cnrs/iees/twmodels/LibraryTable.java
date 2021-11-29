@@ -81,6 +81,10 @@ public enum LibraryTable {
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
 	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
+	Test8("8 Landscape A", "LSA", "Ockham1.utg", LibraryType.Test,null), //
+	Test9("9 Landscape B", "LSB", "Ockham2.utg", LibraryType.Test,null), //
+	Test10("10 Landscape C", "LSC", "Ockham3.utg", LibraryType.Test,null), //
+	Test11("11 Landscape D", "LSD", "Ockham4.utg", LibraryType.Test,null), //
 ;
 
 	private final String displayName;
