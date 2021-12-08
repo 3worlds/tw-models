@@ -4,90 +4,108 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Ockham1
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	built-by = java.lang.String(ian (26 Oct 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"java.util.List","static code.utilities.Utilities1.*","fr.ens.biologie.generic.utils.Tuple","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Single sex, non-overlapping generations.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	version = java.lang.String(0.0.3)
-	predefined *categories*
-		categorySet *organisation*
-			category *assemblage*
-			category *atomic*
-		record AVEphemeral
-			field birthDate
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field age
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-		record AVPopulation
-			field count
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-			field nRemoved
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-			field nAdded
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(#)
-		relationType *returnsTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		categorySet *systemElements*
-			category *life cycle*
-			category *group*
-			category *relation*
-			category *component*
-			category *arena*
-		relationType *parentTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		categorySet *lifespan*
-			category *ephemeral*
-			category *permanent*
+	version = java.lang.String(0.0.4)
+	experiment expt
+		nReplicates = java.lang.Integer(1)
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+		treatment trt
 	dataDefinition dDef
+		dimensioner xdim
+			size = java.lang.Integer(100)
+		dimensioner ydim
+			size = java.lang.Integer(100)
+		record glbDrv
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(glbDrv)
+			table habitat
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+				description = java.lang.String(Map of habitat regions)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..1)
 		rng rngAnimals
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
 			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
 			tableIndex = java.lang.Integer(0)
-		record glbDec
+		record glbCnt
 			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(glbDec)
-			table populationDensity
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(Total population in cells)
+			generatedClassName = java.lang.String(glbCnt)
+			field ratePatternUpdate
+				description = java.lang.String(rate of change in habitat updates)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String()
-			table cullingDensity
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(number of individuals removed by culling)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String()
-			table preCullDensity
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				description = java.lang.String(Grid (ha) of total population before culling)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String(ha-1)
-			field fractionCulled
-				description = java.lang.String(fraction of population that has been removed from over-populated cells)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(y)
+			field k1
+				description = java.lang.String(carrying capacity if habitat is true)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(ha -1)
+			field info
+				description = java.lang.String(true if using informed dispersal)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field frag
+				description = java.lang.String(true if habitat is fragmented)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field disp
+				description = java.lang.String(mean dispersal distance)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(m)
+			field k2
+				description = java.lang.String(carrying capacity if habitat is false)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(ha -1)
+			field r2
+				description = java.lang.String(reproductive rate if habitat is false)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+			field r1
+				description = java.lang.String(reproductive rate if habitat is true)
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record glbDec
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(glbDec)
+			table preCullDensity
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(Total population in each cell before culling)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String(ha-1)
 			field metapop
 				description = java.lang.String(Total population)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
-		rng rngHabitat
-			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
-			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
-			tableIndex = java.lang.Integer(0)
+			table populationDensity
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(Total population in cells)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
+			field fractionCulled
+				description = java.lang.String(fraction of total population that has been removed from over-populated cells)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			table cullingDensity
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(number of individuals removed by culling from each cell)
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				units = java.lang.String()
 		record animalDrv
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(animalDrv)
@@ -104,70 +122,109 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 			field isMature
 				description = java.lang.String(true when not new born)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-		dimensioner ydim
-			size = java.lang.Integer(100)
-		record glbCnt
-			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(glbCnt)
-			field ratePatternUpdate
-				description = java.lang.String(rate of change in habitat updates)
+		rng rngHabitat
+			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
+			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			tableIndex = java.lang.Integer(0)
+	predefined *categories*
+		categorySet *lifespan*
+			category *permanent*
+			category *ephemeral*
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		record AVPopulation
+			field count
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
-				units = java.lang.String(y)
-			field k2
-				description = java.lang.String(carrying capacity if habitat is false)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(ha -1)
-			field info
-				description = java.lang.String(true if using informed dispersal)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-			field k1
-				description = java.lang.String(carrying capacity if habitat is true)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(ha -1)
-			field disp
-				description = java.lang.String(mean dispersal distance)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(m)
-			field frag
-				description = java.lang.String(true if habitat is fragmented)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-			field r2
-				description = java.lang.String(reproductive rate if habitat is false)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		record AVEphemeral
+			field age
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-			field r1
-				description = java.lang.String(reproductive rate if habitat is true)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
-		record glbDrv
-			dynamic = java.lang.Boolean(true)
-			generatedClassName = java.lang.String(glbDrv)
-			table habitat
-				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
-				description = java.lang.String(Map of habitat regions)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..1)
-		dimensioner xdim
-			size = java.lang.Integer(100)
-	experiment expt
-		nReplicates = java.lang.Integer(1)
-		treatment trt
-		design dsgn
-			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *arena*
+			category *component*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+	userInterface gui
+		tab dashboard
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			container cont3
+				order = java.lang.Integer(0)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+				widget Total population
+					order = java.lang.Integer(0)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+				widget space
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
+			container cont6
+				order = java.lang.Integer(1)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+				widget Habitat pattern
+					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+					order = java.lang.Integer(2)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Population density
+					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+					order = java.lang.Integer(0)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+		headless hl
+			widget popWriter
+				nLines = java.lang.Integer(10)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+			widget progress
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+		tab debug
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			container cont2
+				order = java.lang.Integer(2)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				widget Pre culling density
+					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+				widget Culling density
+					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+					order = java.lang.Integer(2)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
+			widget Fraction culled
+				order = java.lang.Integer(1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.GlbCnt)
 		decoratorClass = java.lang.String(code.sys1.generated.GlbDec)
 		driverClass = java.lang.String(code.sys1.generated.GlbDrv)
+		initFunction SysInit
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([10]"		focalCnt.frag = false;// clumped checker board habitat pattern (625 ha)","		focalCnt.info = true;// informed - best of 3 trials","		focalCnt.disp = 60.0; // short = 60; long = 500","		focalCnt.ratePatternUpdate = 10;// every year","		// Habitat effects carrying capacity. No effect if equal","		focalCnt.k1 = 2.0/2.0;","		focalCnt.k2 = 1.0/2.0;// aka Severity MED 1.72; LSF 0.984","		// Habitat effects reproduction rate. No effect if equal","		focalCnt.r1 = 2.0;","		focalCnt.r2 = 2.0;"))
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
@@ -182,21 +239,6 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 					nTimeUnits = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
-					process p5
-						function AniCull
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// remove (probabilistically) individuals from populations above carrying capacity.","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		double k = k2;","		if (habitat.getByInt(ix, iy))","			k = k1;","		double n = preCullDensity.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
-							userClassName = java.lang.String(code.sys1.generated.AniCull)
-					process p4
-						function AniSetPreCullingDensity
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// set values of population density for new born individuals","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.preCullDensity.setByInt(arenaDec.preCullDensity.getByInt(ix, iy) + 1, ix, iy);"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.AniSetPreCullingDensity)
-					process p3
-						function AniDeath
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// Non over lapping generations therefore matures always die.","		if (isMature)","			return true;","		else","			return false;"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
-							userClassName = java.lang.String(code.sys1.generated.AniDeath)
 					process p2
 						function AniNBirths
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		if (isMature) {","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			double r = r2;","			if (habitat.getByInt(ix, iy))","				r = r1;","			return r;","		} else","			return 0;"))
@@ -207,44 +249,68 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([37]"		otherDrv.isMature = false;","		// year time step therefore, disperse immediately","		int nTrials = 1;","		if (info)","			nTrials = 3;","		List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","		int w = habitat.size(0);","		int h = habitat.size(1);","		for (int i = 0; i < nTrials; i++) {","			double distance = -(disp) * Math.log(1 - random.nextDouble());","			double direction = random.nextDouble() * (2 * Math.PI);","			double tx = xLocation + distance * Math.cos(direction);","			double ty = yLocation + distance * Math.sin(direction);","			int ix = gridLocation(tx, w, habitatCellSize);","			int iy = gridLocation(ty, h, habitatCellSize);","","			// use scaled random number to shuffle results and avoid bias.","			double attraction = random.nextDouble() * (k1 - k2);","			if (habitat.getByInt(ix, iy))","				attraction += k1;","			else","				attraction += k2;","","			// Non-overlapping generations, therefore no pre-existing population to consider.","			sites.add(new Tuple<Double, Double, Double>(tx, ty, attraction));","		}","","		sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","","			@Override","			public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","				return o1.getThird().compareTo(o2.getThird());","			}","		});","		Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","		otherDrv.xLocation = location.getFirst();","		otherDrv.yLocation = location.getSecond();"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.AniInitNewBorn)
+					process p1
+						function SysUpdateHabitat
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([28]"		int time = (int) (t - 1);","		if (time % ratePatternUpdate == 0) {","			// make a checker board pattern, offset by some random amount","			// assume a square landscape","			int w = habitat.size(0);","			int npl = 100;// wrap around offsets does not work with odd numbers","			if (!frag)","				npl = 4;","			int size = w / npl;","			int dx = random.nextInt(w);","			int dy = random.nextInt(w);","			boolean isGood = true;","			for (int sx = 0; sx < npl; sx++) {","				if (npl % 2 == 0)","					isGood = !isGood;","				for (int sy = 0; sy < npl; sy++) {","					isGood = !isGood;","					for (int xx = 0; xx < size; xx++)","						for (int yy = 0; yy < size; yy++) {","							int x = sx * size + xx + dx;","							int y = sy * size + yy + dy;","							x = x % w;","							y = y % w;","							focalDrv.habitat.setByInt(isGood, x, y);","						}","				}","			}","		}"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.SysUpdateHabitat)
+					process p4
+						function AniSetPreCullingDensity
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// set values of population density for new born individuals","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.preCullDensity.setByInt(arenaDec.preCullDensity.getByInt(ix, iy) + 1, ix, iy);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.AniSetPreCullingDensity)
+					process p3
+						function AniDeath
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// Non over lapping generations therefore matures always die.","		if (isMature)","			return true;","		else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.AniDeath)
+					process p6
+						function AniAge
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// record final population","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.populationDensity.setByInt(arenaDec.populationDensity.getByInt(ix, iy) + 1, ix, iy);","		arenaDec.metapop++;","		// age individuals - could be done at start of loop","		focalDrv.isMature = true;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.AniAge)
+					process p5
+						function AniCull
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		// remove (probabilistically) individuals from populations above carrying capacity.","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		double k = k2;","		if (habitat.getByInt(ix, iy))","			k = k1;","		double n = preCullDensity.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
+							userClassName = java.lang.String(code.sys1.generated.AniCull)
 					process p7
+						function SysRecordCullingDensity
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		// For debugging, record difference between pre and post culling maps","		int totalKilled = 0;","		int totalPreCull = 0;","		for (int x = 0; x < populationDensity.size(0); x++)","			for (int y = 0; y < populationDensity.size(1); y++) {","				int p1 = preCullDensity.getByInt(x, y);","				totalPreCull += p1;","				int p2 = populationDensity.getByInt(x, y);","				int killed = p1 - p2;","				totalKilled += killed;","				focalDec.cullingDensity.setByInt(killed, x, y);","			}","		focalDec.fractionCulled = (double) totalKilled / (double) totalPreCull;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.SysRecordCullingDensity)
+						dataTracker trkMetaPop
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+						dataTracker trkCullingDensity
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
 						dataTracker trkHabitat
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
+						dataTracker trkMetaPopCulled
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 						dataTracker trkPopDensity
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
 						dataTracker trkPreCullDensity
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
-						dataTracker trkMetaPopCulled
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkMetaPop
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						function SysRecordCullingDensity
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		// For debugging, record difference between pre and post culling maps","		int totalKilled = 0;","		int totalPreCull = 0;","		for (int x = 0; x < populationDensity.size(0); x++)","			for (int y = 0; y < populationDensity.size(1); y++) {","				int p1 = preCullDensity.getByInt(x, y);","				totalPreCull += p1;","				int p2 = populationDensity.getByInt(x, y);","				int killed = p1 - p2;","				totalKilled += killed;","				focalDec.cullingDensity.setByInt(killed, x, y);","			}","		focalDec.fractionCulled = (double) totalKilled / (double) totalPreCull;"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.SysRecordCullingDensity)
-						dataTracker trkCullingDensity
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
-					process p6
-						function AniAge
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		// record final population","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.populationDensity.setByInt(arenaDec.populationDensity.getByInt(ix, iy) + 1, ix, iy);","		arenaDec.metapop++;","		// age individuals - could be done at start of loop","		focalDrv.isMature = true;"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.AniAge)
-					process p1
-						function SysUpdateHabitat
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([28]"		int time = (int) (t - 1);","		if (time % ratePatternUpdate == 0) {","			// make a checker board pattern, offset by some random amount","			// assume a square landscape","			int w = habitat.size(0);","			int npl = 100;// wrap around offsets does not work with odd numbers","			if (!frag)","				npl = 4;","			int size = w / npl;","			int dx = random.nextInt(w);","			int dy = random.nextInt(w);","			boolean isGood = true;","			for (int sx = 0; sx < npl; sx++) {","				if (npl % 2 == 0)","					isGood = !isGood;","				for (int sy = 0; sy < npl; sy++) {","					isGood = !isGood;","					for (int xx = 0; xx < size; xx++)","						for (int yy = 0; yy < size; yy++) {","							int x = sx * size + xx + dx;","							int y = sy * size + yy + dy;","							x = x % w;","							y = y % w;","							focalDrv.habitat.setByInt(isGood, x, y);","						}","				}","			}","		}"))
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.SysUpdateHabitat)
-		initFunction SysInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		focalCnt.frag = false;// clumped checker board habitat pattern (625 ha)","		focalCnt.info = true;// informed - best of 3 trials","		focalCnt.disp = 500.0; // short = 60; long = 500","		focalCnt.ratePatternUpdate = 1;// every year","		// Habitat effects carrying capacity","		focalCnt.k1 = 2.46;","		focalCnt.k2 = 0.984;// aka Severity MED 1.72; LSF 0.984","		// Habitat effects reproduction rate","		// set to no effect","		focalCnt.r1 = 1.25;","		focalCnt.r2 = 1.25;"))
-			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
-			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1
+			componentType animalType
+				driverClass = java.lang.String(code.sys1.generated.AnimalDrv)
+				initFunction AniInit
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// random locations","		focalDrv.xLocation = random.nextDouble() * landscapeWidth;","		focalDrv.yLocation = random.nextDouble() * landscapeHeight;","		// Initial population is all new born ","		focalDrv.isMature = false;"))
+					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+					userClassName = java.lang.String(code.sys1.generated.AniInit)
+				component animal
+					nInstances = java.lang.Integer(8000)
+			categorySet animalSet
+				category animalCat
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.String(AnimalCat_Drv)
 			space landscape
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				precision = java.lang.Double(0.1)
@@ -252,72 +318,6 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 				units = java.lang.String(m)
 				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
 				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
-			componentType animalType
-				driverClass = java.lang.String(code.sys1.generated.AnimalDrv)
-				component animal
-					nInstances = java.lang.Integer(10000)
-				initFunction AniInit
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		// random locations","		focalDrv.xLocation = random.nextDouble() * landscapeWidth;","		focalDrv.yLocation = random.nextDouble() * landscapeHeight;","		// population is all new born ","		focalDrv.isMature = false;"))
-					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
-					userClassName = java.lang.String(code.sys1.generated.AniInit)
-			categorySet animalSet
-				category animalCat
-					constantClass = java.lang.Object(null)
-					decoratorClass = java.lang.Object(null)
-					driverClass = java.lang.String(AnimalCat_Drv)
-	userInterface gui
-		headless hl
-			widget progress
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
-			widget popWriter
-				nLines = java.lang.Integer(10)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
-		top top
-			widget ctrl
-				order = java.lang.Integer(0)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
-		tab tab1
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-			container cont1
-				order = java.lang.Integer(0)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-				container cont5
-					order = java.lang.Integer(0)
-					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-					widget Fraction culled
-						order = java.lang.Integer(1)
-						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-					widget Total population
-						order = java.lang.Integer(0)
-						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-				container cont3
-					order = java.lang.Integer(1)
-					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-					container cont4
-						order = java.lang.Integer(2)
-						orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-						widget Culling density
-							defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-							order = java.lang.Integer(1)
-							subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-						widget Population density
-							defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,3.0[)
-							order = java.lang.Integer(0)
-							subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-					container cont2
-						order = java.lang.Integer(0)
-						orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-						widget Pre culling density
-							defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-							order = java.lang.Integer(2)
-							subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-						widget Habitat pattern
-							defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-							order = java.lang.Integer(1)
-							subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
-			widget space
-				order = java.lang.Integer(1)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS
 [table:habitat] sizedBy y [dimensioner:ydim]
@@ -333,8 +333,8 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
-[system:sys1] belongsTo bt2 [category:*atomic*]
 [system:sys1] belongsTo bt1 [category:*arena*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
 [dataTracker:trkMetaPopCulled] trackField trks20 [field:fractionCulled]
 [dataTracker:trkMetaPopCulled] trackComponent trks19 [system:sys1]
 [widget:Culling density] trackSeries trks18 [dataTracker:trkCullingDensity]
@@ -348,15 +348,15 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 	rank = java.lang.Integer(0)
 [table:cullingDensity] sizedBy y4 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
-[componentType:animalType] belongsTo bt7 [category:animalCat]
-[componentType:animalType] belongsTo bt6 [category:*atomic*]
-[componentType:animalType] belongsTo bt5 [category:*component*]
-[componentType:animalType] belongsTo bt4 [category:*ephemeral*]
-[relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[componentType:animalType] belongsTo bt4 [category:*ephemeral*]
+[componentType:animalType] belongsTo bt7 [category:animalCat]
+[componentType:animalType] belongsTo bt5 [category:*component*]
+[componentType:animalType] belongsTo bt6 [category:*atomic*]
 [category:*arena*] constants cnsts1 [record:glbCnt]
-[category:*arena*] decorators decs1 [record:glbDec]
 [category:*arena*] drivers drvs2 [record:glbDrv]
+[category:*arena*] decorators decs1 [record:glbDec]
 [function:AniNBirths] useRNG uses2 [rng:rngAnimals]
 [widget:progress] trackTime trks8 [dynamics:sim1]
 [dataTracker:trkHabitat] trackTable trks2 [table:habitat]
@@ -366,41 +366,41 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 [dataTracker:trkMetaPop] trackField trks6 [field:metapop]
 [dataTracker:trkMetaPop] trackComponent trks5 [system:sys1]
 [category:animalCat] drivers drvs1 [record:animalDrv]
-[table:populationDensity] sizedBy x5 [dimensioner:xdim]
-	rank = java.lang.Integer(0)
 [table:populationDensity] sizedBy y5 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
+[table:populationDensity] sizedBy x5 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
+[treatment:trt] treats info1 [field:info]
+	rank = java.lang.Integer(3)
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
+[treatment:trt] treats pred [field:ratePatternUpdate]
+	rank = java.lang.Integer(4)
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"1","10"))
 [treatment:trt] treats disp1 [field:disp]
 	rank = java.lang.Integer(1)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"60","500"))
 [treatment:trt] treats frag1 [field:frag]
 	rank = java.lang.Integer(2)
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[treatment:trt] treats pred [field:ratePatternUpdate]
-	rank = java.lang.Integer(4)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"1","10"))
-[treatment:trt] treats info1 [field:info]
-	rank = java.lang.Integer(3)
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [process:p1] appliesTo aplyTo1 [category:*arena*]
 [process:p2] appliesTo aplyTo2 [category:animalCat]
 [process:p2] dependsOn depsOn3 [process:p1]
 [process:p2] inSpace in1 [space:landscape]
 	searchRadius = java.lang.Double(0.0)
-[process:p3] dependsOn depsOn2 [process:p2]
 [process:p3] appliesTo aplyTo3 [category:animalCat]
+[process:p3] dependsOn depsOn2 [process:p2]
 [process:p3] inSpace in2 [space:landscape]
 	searchRadius = java.lang.Double(0.0)
-[process:p4] appliesTo aplyTo6 [category:animalCat]
 [process:p4] dependsOn depsOn1 [process:p3]
+[process:p4] appliesTo aplyTo6 [category:animalCat]
+[process:p5] appliesTo aplyTo4 [category:animalCat]
+[process:p5] appliesTo aplyTo7 [category:*ephemeral*]
+[process:p5] dependsOn depsOn4 [process:p4]
 [process:p5] inSpace in3 [space:landscape]
 	searchRadius = java.lang.Double(0.0)
-[process:p5] appliesTo aplyTo7 [category:*ephemeral*]
-[process:p5] appliesTo aplyTo4 [category:animalCat]
-[process:p5] dependsOn depsOn4 [process:p4]
 [widget:Total population] trackSeries trks7 [dataTracker:trkMetaPop]
-[process:p6] appliesTo aplyTo9 [category:animalCat]
 [process:p6] dependsOn depsOn5 [process:p5]
+[process:p6] appliesTo aplyTo9 [category:animalCat]
 [process:p7] appliesTo aplyTo8 [category:*arena*]
 [process:p7] dependsOn depsOn6 [process:p6]
 [widget:Habitat pattern] trackSeries trks3 [dataTracker:trkHabitat]
@@ -409,13 +409,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 [dataTracker:trkPreCullDensity] trackComponent trks10 [system:sys1]
 [dataTracker:trkPreCullDensity] trackTable trks11 [table:preCullDensity]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[table:preCullDensity] sizedBy x3 [dimensioner:xdim]
-	rank = java.lang.Integer(0)
 [table:preCullDensity] sizedBy y3 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
+[table:preCullDensity] sizedBy x3 [dimensioner:xdim]
+	rank = java.lang.Integer(0)
 [function:AniInitNewBorn] useRNG uses3 [rng:rngAnimals]
 [widget:Population density] trackSeries trks17 [dataTracker:trkPopDensity]
-[space:landscape] coordinate y2 [field:yLocation]
-	rank = java.lang.Integer(1)
 [space:landscape] coordinate x2 [field:xLocation]
 	rank = java.lang.Integer(0)
+[space:landscape] coordinate y2 [field:yLocation]
+	rank = java.lang.Integer(1)
