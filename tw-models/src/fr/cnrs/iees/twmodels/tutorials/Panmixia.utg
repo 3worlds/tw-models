@@ -143,7 +143,7 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 				relocateFunctionName = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 				component fishes
 					nInstances = java.lang.Integer(50)
-					variableValues initVars1
+					initialValues initVars1
 						age = java.lang.Long(4)
 						birthDate = java.lang.Long(-4)
 				initFunction InitFish

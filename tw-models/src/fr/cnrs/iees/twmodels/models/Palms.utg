@@ -556,7 +556,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitAdultParameters)
 					group adBOR
-						constantValues initCnts2
+						initialValues initCnts2
 							dist = java.lang.Double(5.2)
 							fec = java.lang.Double(0.8)
 					componentType palmTree
@@ -578,7 +578,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						driverClass = java.lang.String(code.sys1.generated.Adjuvdrv)
 						mobile = java.lang.Boolean(false)
 					group juvBOR
-						constantValues initCnts1
+						initialValues initCnts1
 							aj0PdN0 = java.lang.Double(-4.0)
 							aj0PdN1 = java.lang.Double(-1.0)
 							aj0PdNneg = java.lang.Double(-8.0)
