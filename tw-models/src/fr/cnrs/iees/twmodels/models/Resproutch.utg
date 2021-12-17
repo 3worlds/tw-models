@@ -335,7 +335,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 			groupType treeG
 				constantClass = java.lang.String(code.sys1.generated.TreePar)
 				group Piliostigma
-					constantValues initCnts1
+					initialValues initCnts1
 						a = java.lang.Double(2.0)
 						b = java.lang.Double(0.1)
 						e = java.lang.Double(3.73)
@@ -351,7 +351,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 						reservesMax = java.lang.Double(0.65)
 						s = java.lang.Double(0.5)
 				group Bridelia
-					constantValues initCnts2
+					initialValues initCnts2
 						a = java.lang.Double(2.0)
 						b = java.lang.Double(0.1)
 						e = java.lang.Double(3.35)
@@ -379,7 +379,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 					component bri
 						nInstances = java.lang.Integer(1)
 				group Crossopteryx
-					constantValues initCnts3
+					initialValues initCnts3
 						a = java.lang.Double(2.0)
 						b = java.lang.Double(0.1)
 						e = java.lang.Double(3.3)

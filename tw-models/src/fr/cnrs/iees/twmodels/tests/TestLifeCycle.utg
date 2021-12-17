@@ -178,7 +178,7 @@ treegraph // saved by OmugiGraphExporter on Thu Jan 28 16:02:18 CET 2021
 					componentType compTypA
 						constantClass = java.lang.String(code.sys1.generated.Loc)
 						component cmp1
-							constantValues initCnts1
+							initialValues initCnts1
 								x = java.lang.Double(1.0)
 								y = java.lang.Double(1.0)
 				groupType grpTypB

@@ -189,12 +189,12 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 			groupType species
 				constantClass = java.lang.String(code.sys1.generated.Par)
 				group Carpinus
-					constantValues initCnts1
+					initialValues initCnts1
 						fec = java.lang.Double(0.4)
 						gmax = java.lang.Double(0.15)
 						pmor = java.lang.Double(0.1)
 				group Quercus
-					constantValues initCnts2
+					initialValues initCnts2
 						fec = java.lang.Double(0.1)
 						gmax = java.lang.Double(0.2)
 						pmor = java.lang.Double(0.05)
@@ -211,11 +211,11 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
 					component cmp2
 						nInstances = java.lang.Integer(50)
-						variableValues initVars2
+						initialValues initVars2
 							biomass = java.lang.Double(3.0)
 					component cmp1
 						nInstances = java.lang.Integer(50)
-						variableValues initVars1
+						initialValues initVars1
 							biomass = java.lang.Double(4.0)
 			relationType neighbour
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)

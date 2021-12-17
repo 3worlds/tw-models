@@ -189,12 +189,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 				mobile = java.lang.Boolean(false)
 				component B2
 					nInstances = java.lang.Integer(0)
-					constantValues initB2
+					initialValues initB2
 						x = java.lang.Double(2.0)
 						y = java.lang.Double(2.0)
 				component B1
 					nInstances = java.lang.Integer(0)
-					constantValues initB1
+					initialValues initB1
 						x = java.lang.Double(2.0)
 						y = java.lang.Double(1.0)
 			componentType cpA
@@ -203,12 +203,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 				mobile = java.lang.Boolean(false)
 				component A2
 					nInstances = java.lang.Integer(0)
-					constantValues initA2
+					initialValues initA2
 						x = java.lang.Double(1.0)
 						y = java.lang.Double(2.0)
 				component A1
 					nInstances = java.lang.Integer(0)
-					constantValues initA1
+					initialValues initA1
 						x = java.lang.Double(1.0)
 						y = java.lang.Double(1.0)
 			categorySet setLoc
