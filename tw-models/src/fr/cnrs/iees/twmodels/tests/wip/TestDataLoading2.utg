@@ -1,0 +1,376 @@
+treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
+
+	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
+// TREE
+3worlds TestDataLoading2
+	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	built-by = java.lang.String(gignoux (22 déc. 2021))
+	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	precis = java.lang.String()
+	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	version = java.lang.String()
+	predefined *categories*
+		categorySet *organisation*
+			category *assemblage*
+			category *atomic*
+		record AVEphemeral
+			field birthDate
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field age
+				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record AVPopulation
+			field count
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nRemoved
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+			field nAdded
+				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String(#)
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *life cycle*
+			category *group*
+			category *relation*
+			category *component*
+			category *arena*
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
+	dataDefinition dDef
+		dimensioner latitudeRange
+			size = java.lang.Integer(12)
+		record drvs
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(drvs)
+			field y
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Float)
+				units = java.lang.String()
+			field x
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
+			field z
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Short)
+				units = java.lang.String()
+		dimensioner nStrata
+			size = java.lang.Integer(3)
+		record clim
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(clim)
+			table otherVar
+				generatedClassName = java.lang.String(OtherVar)
+				record rec1
+					generatedClassName = java.lang.String(rec1)
+					field rainfall
+						range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+						type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+						units = java.lang.String()
+					field windspeed
+						interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+						precision = java.lang.Double(0.0)
+						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+						units = java.lang.String()
+					field windDir
+						type = fr.cnrs.iees.twcore.constants.DataElementType(String)
+			table temperature
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval([-273.0,+∞[)
+				precision = java.lang.Double(0.1)
+				units = java.lang.String(°C)
+		record cnsts
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(cnsts)
+			field k2
+				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				units = java.lang.String()
+			field k1
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		record rec2
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(rec2)
+			field xx
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field yy
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+		dimensioner longitudeRange
+			size = java.lang.Integer(8)
+		record rec3
+			dynamic = java.lang.Boolean(true)
+			generatedClassName = java.lang.String(rec3)
+			table turbidity
+				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				units = java.lang.String()
+			field level
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field depth
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+	experiment expt
+		dataSource climateData
+			dim = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"lat","long"))
+			file = fr.cnrs.iees.twcore.constants.FileType(/climat.ods)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
+		dataSource termiteData
+			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
+			idComponent = java.lang.String(moundId)
+			idGroup = java.lang.String(species)
+			sheet = java.lang.String(termites)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
+		dataSource animalData
+			file = fr.cnrs.iees.twcore.constants.FileType(/species.csv)
+			idComponent = java.lang.String(id)
+			idGroup = java.lang.String(stage)
+			idLifeCycle = java.lang.String(species)
+			separator = java.lang.String(;)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.CsvFileLoader)
+		dataSource pondData1
+			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
+			idComponent = java.lang.String(id)
+			idGroup = java.lang.String(type)
+			sheet = java.lang.String(ponds1)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
+		dataSource arenaData
+			file = fr.cnrs.iees.twcore.constants.FileType(/arena.csv)
+			separator = java.lang.String(;)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.CsvFileLoader)
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
+		dataSource dataFeatures
+			file = fr.cnrs.iees.twcore.constants.FileType(/features.csv)
+			idComponent = java.lang.String(rockId)
+			idGroup = java.lang.String(rockGroup)
+			separator = java.lang.String(\t)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.CsvFileLoader)
+		dataSource pondsData2
+			dim = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"d"))
+			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
+			idComponent = java.lang.String(pid)
+			idGroup = java.lang.String(type)
+			sheet = java.lang.String(ponds2)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
+	system sys1
+		constantClass = java.lang.String(code.sys1.generated.Cnsts)
+		driverClass = java.lang.String(code.sys1.generated.Drvs)
+		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(10)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(ARBITRARY)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer clock1
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+					process p5
+						function Reproduction
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return 0.0d;"))
+							relateToProduct = java.lang.Boolean(false)
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
+							userClassName = java.lang.String(code.sys1.generated.Reproduction)
+					process p4
+						function FuncPond
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FuncPond)
+					process p3
+						function FuncLocated
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FuncLocated)
+					process p2
+						function FuncClimate
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FuncClimate)
+					process p7
+						function RecruitFromYoung
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return null;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
+							userClassName = java.lang.String(code.sys1.generated.RecruitFromYoung)
+					process p6
+						function RecruitFromOffspring
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return null;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
+							userClassName = java.lang.String(code.sys1.generated.RecruitFromOffspring)
+					process p1
+						function FuncArena
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.FuncArena)
+		initFunction InitArena
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+			userClassName = java.lang.String(code.sys1.generated.InitArena)
+		structure struc1
+			categorySet set3
+				category young
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+				category offspring
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+				category adult
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+			categorySet set2
+				category waterBody
+					constantClass = java.lang.Object(null)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.String(WaterBody_Drv)
+			categorySet set1
+				category climate
+					constantClass = java.lang.String(Climate_Cnt)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+				category located
+					constantClass = java.lang.String(Located_Cnt)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+			componentType compTyp1
+				constantClass = java.lang.String(code.sys1.generated.Clim)
+				component clim1
+			groupType mineral
+				componentType compTyp2
+					constantClass = java.lang.String(code.sys1.generated.Rec2)
+					component termiteMound
+					component rock
+				componentType compTyp3
+					constantClass = java.lang.String(code.sys1.generated.Rec2)
+					driverClass = java.lang.String(code.sys1.generated.Rec3)
+					component ponds
+			lifeCycleType lfcyTyp1
+				groupType grpTyp1
+					componentType compTyp4
+						component animal
+				recruit recruit1
+				recruit recruit2
+				produce rep
+		initialValues initVals1
+			x = java.lang.Boolean(true)
+			y = java.lang.Float(3.7)
+	userInterface gui
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
+
+// CROSS-LINKS
+[recruit:recruit1] effectedBy effdBy2 [function:RecruitFromOffspring]
+[recruit:recruit1] toCategory to4 [category:young]
+[recruit:recruit1] fromCategory from2 [category:offspring]
+[component:clim1] loadFrom ldFrom2 [dataSource:climateData]
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[relationType:*returnsTo*] toCategory to2 [category:*component*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[system:sys1] belongsTo bt2 [category:*atomic*]
+[system:sys1] belongsTo bt1 [category:*arena*]
+[system:sys1] loadFrom ldFrom1 [dataSource:arenaData]
+[component:animal] loadFrom ldFrom7 [dataSource:animalData]
+[recruit:recruit2] effectedBy effdBy3 [function:RecruitFromYoung]
+[recruit:recruit2] fromCategory from3 [category:young]
+[recruit:recruit2] toCategory to5 [category:adult]
+[component:ponds] loadFrom ldFrom5 [dataSource:pondData1]
+[component:ponds] loadFrom ldFrom6 [dataSource:pondsData2]
+[table:turbidity] sizedBy szBy5 [dimensioner:nStrata]
+	rank = java.lang.Integer(0)
+[component:rock] loadFrom ldFrom3 [dataSource:dataFeatures]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[table:temperature] sizedBy szBy2 [dimensioner:longitudeRange]
+	rank = java.lang.Integer(1)
+[table:temperature] sizedBy szBy1 [dimensioner:latitudeRange]
+	rank = java.lang.Integer(0)
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[relationType:*parentTo*] toCategory to1 [category:*component*]
+[category:climate] constants cnsts2 [record:clim]
+[category:*arena*] constants cnsts1 [record:cnsts]
+[category:*arena*] drivers drvs1 [record:drvs]
+[category:waterBody] drivers drvs2 [record:rec3]
+[category:located] constants cnsts3 [record:rec2]
+[componentType:compTyp4] belongsTo bt29 [category:adult]
+[componentType:compTyp4] belongsTo bt28 [category:*ephemeral*]
+[componentType:compTyp4] belongsTo bt27 [category:*atomic*]
+[componentType:compTyp4] belongsTo bt26 [category:*component*]
+[componentType:compTyp2] belongsTo bt14 [category:located]
+[componentType:compTyp2] belongsTo bt13 [category:*atomic*]
+[componentType:compTyp2] belongsTo bt12 [category:*permanent*]
+[componentType:compTyp2] belongsTo bt11 [category:*component*]
+[componentType:compTyp3] belongsTo bt18 [category:located]
+[componentType:compTyp3] belongsTo bt17 [category:*atomic*]
+[componentType:compTyp3] belongsTo bt16 [category:*permanent*]
+[componentType:compTyp3] belongsTo bt15 [category:*component*]
+[componentType:compTyp3] belongsTo bt19 [category:waterBody]
+[componentType:compTyp1] belongsTo bt7 [category:climate]
+[componentType:compTyp1] belongsTo bt6 [category:*permanent*]
+[componentType:compTyp1] belongsTo bt5 [category:*atomic*]
+[componentType:compTyp1] belongsTo bt4 [category:*component*]
+[groupType:mineral] belongsTo bt10 [category:*permanent*]
+[groupType:mineral] belongsTo bt9 [category:*group*]
+[groupType:mineral] belongsTo bt8 [category:*assemblage*]
+[produce:rep] effectedBy effdBy1 [function:Reproduction]
+[produce:rep] fromCategory from1 [category:adult]
+[produce:rep] toCategory to3 [category:offspring]
+[process:p1] appliesTo aplyTo1 [category:*arena*]
+[process:p2] appliesTo aplyTo2 [category:climate]
+[process:p2] dependsOn depsOn1 [process:p1]
+[process:p3] dependsOn depsOn2 [process:p1]
+[process:p3] appliesTo aplyTo3 [category:located]
+[process:p4] appliesTo aplyTo5 [category:located]
+[process:p4] dependsOn depsOn3 [process:p1]
+[process:p4] appliesTo aplyTo4 [category:waterBody]
+[process:p5] appliesTo aplyTo7 [category:adult]
+[table:otherVar] sizedBy szBy4 [dimensioner:longitudeRange]
+	rank = java.lang.Integer(12)
+[table:otherVar] sizedBy szBy3 [dimensioner:latitudeRange]
+	rank = java.lang.Integer(0)
+[process:p6] appliesTo aplyTo8 [category:offspring]
+[process:p7] appliesTo aplyTo9 [category:young]
+[category:*assemblage*] autoVar auto [record:AVPopulation]
+[lifeCycleType:lfcyTyp1] appliesTo aplyTo6 [categorySet:set3]
+[lifeCycleType:lfcyTyp1] belongsTo bt22 [category:*permanent*]
+[lifeCycleType:lfcyTyp1] belongsTo bt21 [category:*assemblage*]
+[lifeCycleType:lfcyTyp1] belongsTo bt20 [category:*life cycle*]
+[component:termiteMound] loadFrom ldFrom4 [dataSource:termiteData]
+[groupType:grpTyp1] belongsTo bt25 [category:*assemblage*]
+[groupType:grpTyp1] belongsTo bt24 [category:*permanent*]
+[groupType:grpTyp1] belongsTo bt23 [category:*group*]
