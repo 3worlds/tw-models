@@ -62,13 +62,14 @@ public enum LibraryTable {
 	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial,null), //
 	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial,null), //
 	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial,null), //
-	Tut4("4 Event timer","Pulse1","Pulse1.utg",LibraryType.Tutorial,null), //
-	Tut5("5 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
-	Tut6("6 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
-	Tut7("7 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
-	Tut8("8 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
-	Tut9("9 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
-	Tut10("10 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
+	Tut4("4 Event timer 1","PulseNS1","EventDrivenIBMNonSpatial.utg",LibraryType.Tutorial,null), //
+	Tut5("5 Event timer 2","PulseS1","EventDrivenIBMSpatial.utg",LibraryType.Tutorial,null), //
+	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
+	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
+	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
+	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
+	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
+	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
