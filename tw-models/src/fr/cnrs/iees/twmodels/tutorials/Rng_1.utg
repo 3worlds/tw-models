@@ -30,12 +30,12 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 		rng gen2
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(TABLE)
 			tableIndex = java.lang.Integer(0)
 		rng gen1
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(JAVA)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(RANDOM)
 			tableIndex = java.lang.Integer(0)
 	userInterface gui
 		top top

@@ -15,7 +15,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 		rng rngAnimals
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(TABLE)
 			tableIndex = java.lang.Integer(5)
 		dimensioner ydim
 			size = java.lang.Integer(100)
@@ -68,7 +68,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 		rng rngHabitat
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(ONRUNSTART)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(NATURAL)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(TABLE)
 			tableIndex = java.lang.Integer(0)
 		record glbDec
 			dynamic = java.lang.Boolean(false)

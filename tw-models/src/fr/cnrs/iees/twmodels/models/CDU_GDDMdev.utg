@@ -255,7 +255,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 		rng rngFire
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(RANDOM)
 			tableIndex = java.lang.Integer(0)
 		dimensioner ydim
 			size = java.lang.Integer(100)
@@ -264,7 +264,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 		rng rngAnimalInit
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(RANDOM)
 			tableIndex = java.lang.Integer(0)
 		dimensioner hx
 			size = java.lang.Integer(33)
@@ -423,7 +423,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jun 27 14:18:55 AEST 2021
 		rng rngAnimal
 			algorithm = fr.cnrs.iees.twcore.constants.RngAlgType(PCG32)
 			resetTime = fr.cnrs.iees.twcore.constants.RngResetType(NEVER)
-			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(PSEUDO)
+			seedSource = fr.cnrs.iees.twcore.constants.RngSeedSourceType(RANDOM)
 			tableIndex = java.lang.Integer(0)
 	experiment expt
 		nReplicates = java.lang.Integer(1)
