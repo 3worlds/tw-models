@@ -166,7 +166,8 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitDist)
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"	focalCnt.freq = 5 + random.nextInt(50);","	focalCnt.inten = random.nextDouble() * 100;"))
-				component dist
+//				component dist
+				initValues dist
 			componentType commType
 				constantClass = java.lang.String(code.sys1.generated.CommCnsts)
 				decoratorClass = java.lang.String(code.sys1.generated.CommDecs)
@@ -175,7 +176,8 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitComm)
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"	double initFreq = 1.0 / x.size();","	focalDrv.x.fillWith(initFreq);","	for (int i = 0; i < r.size(0); i++) {","		focalCnt.r.setByInt(random.nextDouble(), i);","		focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","		for (int j = 0; j < alpha.size(1); j++) {","			if (i == j)","				focalCnt.alpha.setByInt(1.0, i, j);","			else","				focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","		}","	}"))
-				component comm
+//				component comm
+//				initValues comm
 			categorySet world
 				category distCat
 					constantClass = java.lang.String(DistCat_Cnt)
@@ -222,7 +224,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*assemblage*]
 [system:sys1] belongsTo bt1 [category:*arena*]
-[dataTracker:trkditsd] trackComponent trks8 [component:comm]
+//[dataTracker:trkditsd] trackComponent trks8 [component:comm]
 [dataTracker:trkditsd] trackField trks6 [field:tsd]
 [dataTracker:trkditsd] trackField trks7 [field:di]
 [widget:diversity time since dist] trackSeries trks10 [dataTracker:trkditsd]
@@ -235,7 +237,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 	rank = java.lang.Integer(1)
 [table:alpha] sizedBy szBy2 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
-[dataTracker:trkx] trackComponent trks2 [component:comm]
+//[dataTracker:trkx] trackComponent trks2 [component:comm]
 [dataTracker:trkx] trackTable trks1 [table:x]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [relationType:distEffectComm] toCategory to3 [category:commCat]
@@ -244,7 +246,7 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
 [dataTracker:trkdi] trackField trks9 [field:di]
-[dataTracker:trkdi] trackComponent trks5 [component:comm]
+//[dataTracker:trkdi] trackComponent trks5 [component:comm]
 [table:r] sizedBy szBy4 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
 [componentType:commType] belongsTo bt6 [category:*component*]
