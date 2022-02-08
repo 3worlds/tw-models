@@ -25,17 +25,19 @@
 
 package code.sys1;
 
-import java.util.Random;
-
+import au.edu.anu.twcore.ecosystem.runtime.biology.RecruitFunction;
+import au.edu.anu.twcore.ecosystem.runtime.biology.DecisionFunction;
 import au.edu.anu.rscs.aot.collections.tables.DoubleTable;
+import java.util.Random;
+import au.edu.anu.twcore.ecosystem.runtime.biology.SelectionFunction;
 import code.sys1.generated.*;
 // ---- Import insert Begin-->
 import static java.lang.Math.*;
 // ---- Import insert End----<
 
 /**
- * <h2>Model-specific code for model <em>TestDataLoading1</em></h2>
- * <p>version  - Wed Dec 22 13:06:38 CET 2021</p>
+ * <h2>Model-specific code for model <em>TestDataLoading2</em></h2>
+ * <p>version  - Mon Feb 07 15:51:28 CET 2022</p>
  * 
  * <dl><dt>Author: </dt><dd>
  * <br/>
@@ -63,7 +65,7 @@ import static java.lang.Math.*;
  * <li>For <em>ChangeCategoryDecision</em> functions, a <em>selector</em> argument is provided to select among different possible outcomes. <strong>selector.select(double...)</strong> returns an integer between 0 and <em>n</em> (the number of arguments) using the arguments as weights for probabilities (ie the argument do not need to sum to 1).</li>
  * <li>For <em>ChangeCategoryDecision</em> functions, a <em>recruit</em> argument is provided that must be used to return the proper category name as a String. <strong>recruit.transition(boolean)</strong> will return the category to recruit to if the argument is true, triggering the change in category of the focal SystemComponent. <strong>recruit.transition(int)</strong> will return the category name matching the index using alphabetical order, 0 index meaning no change in category. For example, if the decision may result in category "young" or "juvenile", 0 will map to no change, 1 to change to juvenile and 2 to change to young.</li> </ol>
 */
-public interface TestDataLoading1 {
+public interface TestDataLoading2 {
 
 	/**
 	 * <p><strong>InitArena</strong> method of type <em>SetInitialState</em>: sets the initial state of a newly created SystemComponent</p>
@@ -100,10 +102,152 @@ public interface TestDataLoading1 {
 	}
 
 	/**
+	 * <p><strong>Reproduction</strong> method of type <em>CreateOtherDecision</em>: create another system component, of the same categories if no life cycle is present, otherwise as specified by the life cycle</p>
+	 * <p>- applies to categories {<em> adult </em>}</p>
+	 * 
+	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * @param t current time
+	 * @param dt current time step
+	 * @param x whole system drivers x
+	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
+	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
+	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
+	 * @param lifeCycle_count focal life cycle autoVar count (#) ϵ[0..*]
+	 * @param lifeCycle_nAdded focal life cycle autoVar nAdded (#) ϵ[0..*]
+	 * @param lifeCycle_nRemoved focal life cycle autoVar nRemoved (#) ϵ[0..*]
+	 * @param group_count focal group autoVar count (#) ϵ[0..*]
+	 * @param group_nAdded focal group autoVar nAdded (#) ϵ[0..*]
+	 * @param group_nRemoved focal group autoVar nRemoved (#) ϵ[0..*]
+	 * @param random random number generator
+	 * @param decider decision function
+	 * @return the number of new system components to create. The integral part is used as a number of new components, the decimal part as a probability to create an extra component.
+	*/
+	public static double reproduction(
+		double t,                             // current time
+		double dt,                            // current time step
+		boolean x,                            // whole system drivers x
+		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
+		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
+		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
+		int lifeCycle_count,                  // focal life cycle autoVar count (#) ϵ[0..*]
+		int lifeCycle_nAdded,                 // focal life cycle autoVar nAdded (#) ϵ[0..*]
+		int lifeCycle_nRemoved,               // focal life cycle autoVar nRemoved (#) ϵ[0..*]
+		int group_count,                      // focal group autoVar count (#) ϵ[0..*]
+		int group_nAdded,                     // focal group autoVar nAdded (#) ϵ[0..*]
+		int group_nRemoved,                   // focal group autoVar nRemoved (#) ϵ[0..*]
+		Random random,                        // random number generator
+		DecisionFunction decider) {           // decision function
+	// reproduction ---- Code insert Begin-->
+	return 0.0d;
+	// reproduction ---- Code insert End----<
+	}
+
+	/**
+	 * <p><strong>RecruitFromYoung</strong> method of type <em>ChangeCategoryDecision</em>: change category of a system component according to life cycle (has no effect if no life cycle is specified)</p>
+	 * <p>- applies to categories {<em> young </em>}</p>
+	 * 
+	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * @param t current time
+	 * @param dt current time step
+	 * @param x whole system drivers x
+	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
+	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
+	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
+	 * @param lifeCycle_count focal life cycle autoVar count (#) ϵ[0..*]
+	 * @param lifeCycle_nAdded focal life cycle autoVar nAdded (#) ϵ[0..*]
+	 * @param lifeCycle_nRemoved focal life cycle autoVar nRemoved (#) ϵ[0..*]
+	 * @param group_count focal group autoVar count (#) ϵ[0..*]
+	 * @param group_nAdded focal group autoVar nAdded (#) ϵ[0..*]
+	 * @param group_nRemoved focal group autoVar nRemoved (#) ϵ[0..*]
+	 * @param random random number generator
+	 * @param decider decision function
+	 * @param selector selection function
+	 * @param recruit recruitment function
+	 * @return the new category of the recruited <em>focal</em> system component
+	*/
+	public static String recruitFromYoung(
+		double t,                             // current time
+		double dt,                            // current time step
+		boolean x,                            // whole system drivers x
+		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
+		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
+		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
+		int lifeCycle_count,                  // focal life cycle autoVar count (#) ϵ[0..*]
+		int lifeCycle_nAdded,                 // focal life cycle autoVar nAdded (#) ϵ[0..*]
+		int lifeCycle_nRemoved,               // focal life cycle autoVar nRemoved (#) ϵ[0..*]
+		int group_count,                      // focal group autoVar count (#) ϵ[0..*]
+		int group_nAdded,                     // focal group autoVar nAdded (#) ϵ[0..*]
+		int group_nRemoved,                   // focal group autoVar nRemoved (#) ϵ[0..*]
+		Random random,                        // random number generator
+		DecisionFunction decider,             // decision function
+		SelectionFunction selector,           // selection function
+		RecruitFunction recruit) {            // recruitment function
+	// recruitFromYoung ---- Code insert Begin-->
+	return null;
+	// recruitFromYoung ---- Code insert End----<
+	}
+
+	/**
+	 * <p><strong>RecruitFromOffspring</strong> method of type <em>ChangeCategoryDecision</em>: change category of a system component according to life cycle (has no effect if no life cycle is specified)</p>
+	 * <p>- applies to categories {<em> offspring </em>}</p>
+	 * 
+	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * @param t current time
+	 * @param dt current time step
+	 * @param x whole system drivers x
+	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
+	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
+	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
+	 * @param lifeCycle_count focal life cycle autoVar count (#) ϵ[0..*]
+	 * @param lifeCycle_nAdded focal life cycle autoVar nAdded (#) ϵ[0..*]
+	 * @param lifeCycle_nRemoved focal life cycle autoVar nRemoved (#) ϵ[0..*]
+	 * @param group_count focal group autoVar count (#) ϵ[0..*]
+	 * @param group_nAdded focal group autoVar nAdded (#) ϵ[0..*]
+	 * @param group_nRemoved focal group autoVar nRemoved (#) ϵ[0..*]
+	 * @param random random number generator
+	 * @param decider decision function
+	 * @param selector selection function
+	 * @param recruit recruitment function
+	 * @return the new category of the recruited <em>focal</em> system component
+	*/
+	public static String recruitFromOffspring(
+		double t,                             // current time
+		double dt,                            // current time step
+		boolean x,                            // whole system drivers x
+		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
+		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
+		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
+		int lifeCycle_count,                  // focal life cycle autoVar count (#) ϵ[0..*]
+		int lifeCycle_nAdded,                 // focal life cycle autoVar nAdded (#) ϵ[0..*]
+		int lifeCycle_nRemoved,               // focal life cycle autoVar nRemoved (#) ϵ[0..*]
+		int group_count,                      // focal group autoVar count (#) ϵ[0..*]
+		int group_nAdded,                     // focal group autoVar nAdded (#) ϵ[0..*]
+		int group_nRemoved,                   // focal group autoVar nRemoved (#) ϵ[0..*]
+		Random random,                        // random number generator
+		DecisionFunction decider,             // decision function
+		SelectionFunction selector,           // selection function
+		RecruitFunction recruit) {            // recruitment function
+	// recruitFromOffspring ---- Code insert Begin-->
+	return null;
+	// recruitFromOffspring ---- Code insert End----<
+	}
+
+	/**
 	 * <p><strong>FuncArena</strong> method of type <em>ChangeState</em>: change the state, i.e. the values of the descriptors of a system component</p>
 	 * <p>- applies to categories {<em> *arena* </em>}</p>
 	 * 
 	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * <p>- called before functions <em>funcClimate(...), funcPond(...), funcLocated(...)</em>.</p>
 	 * 
 	 * @param t current time
 	 * @param dt current time step
@@ -136,97 +280,6 @@ public interface TestDataLoading1 {
 		System.out.println("Arena constant k1 = "+k1);
 		System.out.println("Arena constant k2 = "+k2);		
 	// funcArena ---- Code insert End----<
-	}
-
-	/**
-	 * <p><strong>FuncClimate</strong> method of type <em>ChangeState</em>: change the state, i.e. the values of the descriptors of a system component</p>
-	 * <p>- applies to categories {<em> climate </em>}</p>
-	 * 
-	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
-	 * 
-	 * <p>- called after function <em>funcArena(...)</em>.</p>
-	 * 
-	 * @param t current time
-	 * @param dt current time step
-	 * @param x whole system drivers x
-	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
-	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
-	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
-	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
-	 * @param otherVar focal component constants otherVar dim = [12,8]
-	 * @param temperature focal component constants temperature dim = [12,8] (°C) ± 0.1 ϵ[-273.0,+∞[
-	 * @param random random number generator
-	*/
-	public static void funcClimate(
-		double t,                             // current time
-		double dt,                            // current time step
-		boolean x,                            // whole system drivers x
-		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
-		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
-		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
-		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
-		OtherVar otherVar,                    // focal component constants otherVar dim = [12,8]
-		DoubleTable temperature,              // focal component constants temperature dim = [12,8] (°C) ± 0.1 ϵ[-273.0,+∞[
-		Random random) {                      // random number generator
-	// funcClimate ---- Code insert Begin-->
-		System.out.println("temperature");
-		for (int i=0; i<temperature.size(0); i++) {
-			for (int j=0; j<temperature.size(1); j++) {
-				System.out.print(temperature.getByInt(i,j)+" ");
-			}
-			System.out.println();
-		}
-		System.out.println("wind speed / wind direction");
-		for (int i=0; i<otherVar.size(0); i++) {
-			for (int j=0; j<otherVar.size(1); j++) {
-				Rec1 rec = otherVar.getByInt(i,j);
-				System.out.print(rec.windspeed()+"/"+rec.windDir()+" ");
-			}
-			System.out.println();
-		}
-	// funcClimate ---- Code insert End----<
-	}
-
-	/**
-	 * <p><strong>FuncLocated</strong> method of type <em>ChangeState</em>: change the state, i.e. the values of the descriptors of a system component</p>
-	 * <p>- applies to categories {<em> located </em>}</p>
-	 * 
-	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
-	 * 
-	 * <p>- called after function <em>funcArena(...)</em>.</p>
-	 * 
-	 * @param t current time
-	 * @param dt current time step
-	 * @param x whole system drivers x
-	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
-	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
-	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
-	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
-	 * @param group_count focal group autoVar count (#) ϵ[0..*]
-	 * @param group_nAdded focal group autoVar nAdded (#) ϵ[0..*]
-	 * @param group_nRemoved focal group autoVar nRemoved (#) ϵ[0..*]
-	 * @param xx focal component constants xx ± 0.0 ϵ]-∞,+∞[
-	 * @param yy focal component constants yy ± 0.0 ϵ]-∞,+∞[
-	 * @param random random number generator
-	*/
-	public static void funcLocated(
-		double t,                             // current time
-		double dt,                            // current time step
-		boolean x,                            // whole system drivers x
-		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
-		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
-		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
-		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
-		int group_count,                      // focal group autoVar count (#) ϵ[0..*]
-		int group_nAdded,                     // focal group autoVar nAdded (#) ϵ[0..*]
-		int group_nRemoved,                   // focal group autoVar nRemoved (#) ϵ[0..*]
-		double xx,                            // focal component constants xx ± 0.0 ϵ]-∞,+∞[
-		double yy,                            // focal component constants yy ± 0.0 ϵ]-∞,+∞[
-		Random random) {                      // random number generator
-	// funcLocated ---- Code insert Begin-->
-		System.out.println("group n = "+group_count);
-		System.out.println("location xx = "+xx+" yy = "+yy);
-	// funcLocated ---- Code insert End----<
 	}
 
 	/**
@@ -281,6 +334,95 @@ public interface TestDataLoading1 {
 	// funcPond ---- Code insert End----<
 	}
 
-	
-}
+	/**
+	 * <p><strong>FuncLocated</strong> method of type <em>ChangeState</em>: change the state, i.e. the values of the descriptors of a system component</p>
+	 * <p>- applies to categories {<em> located </em>}</p>
+	 * 
+	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * <p>- called after function <em>funcArena(...)</em>.</p>
+	 * 
+	 * @param t current time
+	 * @param dt current time step
+	 * @param x whole system drivers x
+	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
+	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
+	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
+	 * @param group_count focal group autoVar count (#) ϵ[0..*]
+	 * @param group_nAdded focal group autoVar nAdded (#) ϵ[0..*]
+	 * @param group_nRemoved focal group autoVar nRemoved (#) ϵ[0..*]
+	 * @param xx focal component constants xx ± 0.0 ϵ]-∞,+∞[
+	 * @param yy focal component constants yy ± 0.0 ϵ]-∞,+∞[
+	 * @param random random number generator
+	*/
+	public static void funcLocated(
+		double t,                             // current time
+		double dt,                            // current time step
+		boolean x,                            // whole system drivers x
+		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
+		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
+		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
+		int group_count,                      // focal group autoVar count (#) ϵ[0..*]
+		int group_nAdded,                     // focal group autoVar nAdded (#) ϵ[0..*]
+		int group_nRemoved,                   // focal group autoVar nRemoved (#) ϵ[0..*]
+		double xx,                            // focal component constants xx ± 0.0 ϵ]-∞,+∞[
+		double yy,                            // focal component constants yy ± 0.0 ϵ]-∞,+∞[
+		Random random) {                      // random number generator
+	// funcLocated ---- Code insert Begin-->
+		System.out.println("group n = "+group_count);
+		System.out.println("location xx = "+xx+" yy = "+yy);
+	// funcLocated ---- Code insert End----<
+	}
 
+	/**
+	 * <p><strong>FuncClimate</strong> method of type <em>ChangeState</em>: change the state, i.e. the values of the descriptors of a system component</p>
+	 * <p>- applies to categories {<em> climate </em>}</p>
+	 * 
+	 * <p>- follows timer <em>clock1</em> of type {@link ClockTimer}, with time unit = 1 t.u</p>
+	 * 
+	 * <p>- called after function <em>funcArena(...)</em>.</p>
+	 * 
+	 * @param t current time
+	 * @param dt current time step
+	 * @param x whole system drivers x
+	 * @param y whole system drivers y ± 0.0 ϵ]-∞,+∞[
+	 * @param z whole system drivers z ϵ[MIN_INTEGER..*]
+	 * @param k1 whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+	 * @param k2 whole system constants k2 ϵ[MIN_INTEGER..*]
+	 * @param otherVar focal component constants otherVar dim = [12,8]
+	 * @param temperature focal component constants temperature dim = [12,8] (°C) ± 0.1 ϵ[-273.0,+∞[
+	 * @param random random number generator
+	*/
+	public static void funcClimate(
+		double t,                             // current time
+		double dt,                            // current time step
+		boolean x,                            // whole system drivers x
+		float y,                              // whole system drivers y ± 0.0 ϵ]-∞,+∞[
+		short z,                              // whole system drivers z ϵ[MIN_INTEGER..*]
+		double k1,                            // whole system constants k1 ± 0.0 ϵ]-∞,+∞[
+		int k2,                               // whole system constants k2 ϵ[MIN_INTEGER..*]
+		OtherVar otherVar,                    // focal component constants otherVar dim = [12,8]
+		DoubleTable temperature,              // focal component constants temperature dim = [12,8] (°C) ± 0.1 ϵ[-273.0,+∞[
+		Random random) {                      // random number generator
+	// funcClimate ---- Code insert Begin-->
+		System.out.println("temperature");
+		for (int i=0; i<temperature.size(0); i++) {
+			for (int j=0; j<temperature.size(1); j++) {
+				System.out.print(temperature.getByInt(i,j)+" ");
+			}
+			System.out.println();
+		}
+		System.out.println("wind speed / wind direction");
+		for (int i=0; i<otherVar.size(0); i++) {
+			for (int j=0; j<otherVar.size(1); j++) {
+				Rec1 rec = otherVar.getByInt(i,j);
+				System.out.print(rec.windspeed()+"/"+rec.windDir()+" ");
+			}
+			System.out.println();
+		}
+	// funcClimate ---- Code insert End----<
+	}
+
+}

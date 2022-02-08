@@ -1,4 +1,4 @@
-treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
+treegraph // saved by OmugiGraphExporter on Mon Feb 07 16:01:58 CET 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
@@ -144,12 +144,6 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 			dim = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"lat","long"))
 			file = fr.cnrs.iees.twcore.constants.FileType(/climat.ods)
 			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
-		dataSource termiteData
-			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
-			idComponent = java.lang.String(moundId)
-			idGroup = java.lang.String(species)
-			sheet = java.lang.String(termites)
-			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
 		dataSource animalData
 			file = fr.cnrs.iees.twcore.constants.FileType(/species.csv)
 			idComponent = java.lang.String(id)
@@ -157,6 +151,12 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 			idLifeCycle = java.lang.String(species)
 			separator = java.lang.String(;)
 			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.CsvFileLoader)
+		dataSource termiteData
+			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
+			idComponent = java.lang.String(moundId)
+			idGroup = java.lang.String(species)
+			sheet = java.lang.String(termites)
+			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
 		dataSource pondData1
 			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
 			idComponent = java.lang.String(id)
@@ -269,22 +269,29 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 					driverClass = java.lang.Object(null)
 			componentType compTyp1
 				constantClass = java.lang.String(code.sys1.generated.Clim)
-				component clim1
 			groupType mineral
 				componentType compTyp2
 					constantClass = java.lang.String(code.sys1.generated.Rec2)
-					component termiteMound
-					component rock
 				componentType compTyp3
 					constantClass = java.lang.String(code.sys1.generated.Rec2)
 					driverClass = java.lang.String(code.sys1.generated.Rec3)
-					component ponds
 			lifeCycleType lfcyTyp1
 				groupType grpTyp1
 					componentType compTyp4
-						component animal
-				recruit recruit1
+				groupType grpTyp2
+					initialValues eoffspring
+						idLifeCycle = java.lang.String(elephant)
+					initialValues roffspring
+						idLifeCycle = java.lang.String(rat)
+					componentType compTyp5
+				groupType grpTyp3
+					componentType compTyp6
+					initialValues eyoung
+						idLifeCycle = java.lang.String(elephant)
+					initialValues ryoung
+						idLifeCycle = java.lang.String(rat)
 				recruit recruit2
+				recruit recruit1
 				produce rep
 		initialValues initVals1
 			x = java.lang.Boolean(true)
@@ -296,25 +303,20 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 
 // CROSS-LINKS
-[recruit:recruit1] effectedBy effdBy2 [function:RecruitFromOffspring]
-[recruit:recruit1] toCategory to4 [category:young]
-[recruit:recruit1] fromCategory from2 [category:offspring]
-[component:clim1] loadFrom ldFrom2 [dataSource:climateData]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*atomic*]
 [system:sys1] belongsTo bt1 [category:*arena*]
 [system:sys1] loadFrom ldFrom1 [dataSource:arenaData]
-[component:animal] loadFrom ldFrom7 [dataSource:animalData]
+[recruit:recruit1] effectedBy effdBy2 [function:RecruitFromOffspring]
+[recruit:recruit1] toCategory to4 [category:young]
+[recruit:recruit1] fromCategory from2 [category:offspring]
 [recruit:recruit2] effectedBy effdBy3 [function:RecruitFromYoung]
 [recruit:recruit2] fromCategory from3 [category:young]
 [recruit:recruit2] toCategory to5 [category:adult]
-[component:ponds] loadFrom ldFrom5 [dataSource:pondData1]
-[component:ponds] loadFrom ldFrom6 [dataSource:pondsData2]
 [table:turbidity] sizedBy szBy5 [dimensioner:nStrata]
 	rank = java.lang.Integer(0)
-[component:rock] loadFrom ldFrom3 [dataSource:dataFeatures]
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [table:temperature] sizedBy szBy2 [dimensioner:longitudeRange]
 	rank = java.lang.Integer(1)
@@ -327,19 +329,33 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 [category:*arena*] drivers drvs1 [record:drvs]
 [category:waterBody] drivers drvs2 [record:rec3]
 [category:located] constants cnsts3 [record:rec2]
+[componentType:compTyp6] belongsTo bt43 [category:young]
+[componentType:compTyp6] belongsTo bt42 [category:*ephemeral*]
+[componentType:compTyp6] belongsTo bt41 [category:*component*]
+[componentType:compTyp6] belongsTo bt40 [category:*atomic*]
 [componentType:compTyp4] belongsTo bt29 [category:adult]
 [componentType:compTyp4] belongsTo bt28 [category:*ephemeral*]
 [componentType:compTyp4] belongsTo bt27 [category:*atomic*]
 [componentType:compTyp4] belongsTo bt26 [category:*component*]
+[componentType:compTyp4] loadFrom ldFrom8 [dataSource:animalData]
+[componentType:compTyp5] belongsTo bt33 [category:*ephemeral*]
+[componentType:compTyp5] belongsTo bt32 [category:*atomic*]
+[componentType:compTyp5] belongsTo bt31 [category:*component*]
+[componentType:compTyp5] belongsTo bt30 [category:offspring]
+[componentType:compTyp2] loadFrom ldFrom7 [dataSource:dataFeatures]
 [componentType:compTyp2] belongsTo bt14 [category:located]
 [componentType:compTyp2] belongsTo bt13 [category:*atomic*]
 [componentType:compTyp2] belongsTo bt12 [category:*permanent*]
+[componentType:compTyp2] loadFrom ldFrom3 [dataSource:termiteData]
 [componentType:compTyp2] belongsTo bt11 [category:*component*]
 [componentType:compTyp3] belongsTo bt18 [category:located]
 [componentType:compTyp3] belongsTo bt17 [category:*atomic*]
+[componentType:compTyp3] loadFrom ldFrom4 [dataSource:pondsData2]
 [componentType:compTyp3] belongsTo bt16 [category:*permanent*]
 [componentType:compTyp3] belongsTo bt15 [category:*component*]
+[componentType:compTyp3] loadFrom ldFrom9 [dataSource:pondData1]
 [componentType:compTyp3] belongsTo bt19 [category:waterBody]
+[componentType:compTyp1] loadFrom ldFrom5 [dataSource:climateData]
 [componentType:compTyp1] belongsTo bt7 [category:climate]
 [componentType:compTyp1] belongsTo bt6 [category:*permanent*]
 [componentType:compTyp1] belongsTo bt5 [category:*atomic*]
@@ -348,8 +364,8 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 [groupType:mineral] belongsTo bt9 [category:*group*]
 [groupType:mineral] belongsTo bt8 [category:*assemblage*]
 [produce:rep] effectedBy effdBy1 [function:Reproduction]
-[produce:rep] fromCategory from1 [category:adult]
 [produce:rep] toCategory to3 [category:offspring]
+[produce:rep] fromCategory from1 [category:adult]
 [process:p1] appliesTo aplyTo1 [category:*arena*]
 [process:p2] appliesTo aplyTo2 [category:climate]
 [process:p2] dependsOn depsOn1 [process:p1]
@@ -370,7 +386,12 @@ treegraph // saved by OmugiGraphExporter on Fri Dec 24 16:26:18 CET 2021
 [lifeCycleType:lfcyTyp1] belongsTo bt22 [category:*permanent*]
 [lifeCycleType:lfcyTyp1] belongsTo bt21 [category:*assemblage*]
 [lifeCycleType:lfcyTyp1] belongsTo bt20 [category:*life cycle*]
-[component:termiteMound] loadFrom ldFrom4 [dataSource:termiteData]
+[groupType:grpTyp2] belongsTo bt36 [category:*permanent*]
+[groupType:grpTyp2] belongsTo bt35 [category:*assemblage*]
+[groupType:grpTyp2] belongsTo bt34 [category:*group*]
+[groupType:grpTyp3] belongsTo bt39 [category:*permanent*]
+[groupType:grpTyp3] belongsTo bt38 [category:*assemblage*]
+[groupType:grpTyp3] belongsTo bt37 [category:*group*]
 [groupType:grpTyp1] belongsTo bt25 [category:*assemblage*]
 [groupType:grpTyp1] belongsTo bt24 [category:*permanent*]
 [groupType:grpTyp1] belongsTo bt23 [category:*group*]
