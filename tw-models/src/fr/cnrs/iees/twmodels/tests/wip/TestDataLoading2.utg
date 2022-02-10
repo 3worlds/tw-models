@@ -1,4 +1,4 @@
-treegraph // saved by OmugiGraphExporter on Mon Feb 07 16:01:58 CET 2022
+treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
@@ -286,6 +286,11 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 07 16:01:58 CET 2022
 					componentType compTyp5
 				groupType grpTyp3
 					componentType compTyp6
+						initialValues initVals3
+							idGroup = java.lang.String(ryoung)
+					componentType compTyp7
+						initialValues initVals2
+							idGroup = java.lang.String(eyoung)
 					initialValues eyoung
 						idLifeCycle = java.lang.String(elephant)
 					initialValues ryoung
@@ -333,6 +338,10 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 07 16:01:58 CET 2022
 [componentType:compTyp6] belongsTo bt42 [category:*ephemeral*]
 [componentType:compTyp6] belongsTo bt41 [category:*component*]
 [componentType:compTyp6] belongsTo bt40 [category:*atomic*]
+[componentType:compTyp7] belongsTo bt47 [category:young]
+[componentType:compTyp7] belongsTo bt46 [category:*atomic*]
+[componentType:compTyp7] belongsTo bt45 [category:*ephemeral*]
+[componentType:compTyp7] belongsTo bt44 [category:*component*]
 [componentType:compTyp4] belongsTo bt29 [category:adult]
 [componentType:compTyp4] belongsTo bt28 [category:*ephemeral*]
 [componentType:compTyp4] belongsTo bt27 [category:*atomic*]

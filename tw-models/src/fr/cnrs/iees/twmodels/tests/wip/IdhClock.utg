@@ -1,4 +1,4 @@
-treegraph // saved by OmugiGraphExporter on Tue Feb 08 15:57:42 CET 2022
+treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:38:55 CET 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
@@ -82,6 +82,11 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 08 15:57:42 CET 2022
 			widget ctrl
 				order = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
+		tab tab1
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+			widget population
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 	system sys1
 		dynamics sim1
 			timeline tmLn1
@@ -104,6 +109,10 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 08 15:57:42 CET 2022
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"	// increment 'time since disturbance'","		focalDrv.tsd = focalDrv.tsd + 1;","		double[] dxdt = new double[x.size(0)];","		for (int i = 0; i < x.size(0); i++) {","			double sum = 0;","			for (int j = 0; j < alpha.size(1); j++)","				sum += alpha.getByInt(i, j) * focalDrv.x.getByInt(j);","			dxdt[i] = r.getByInt(i) * focalDrv.x.getByInt(i) * (1 - sum / K.getByInt(i));","		}","		for (int i = 0; i < dxdt.length; i++)","			focalDrv.x.setByInt(Math.max(focalDrv.x.getByInt(i) + dxdt[i] * dt, 0.0), i);","		// compute diversity","		double xtot = 0.0;","		for (int i = 0; i < focalDrv.x.size(0); i++)","			xtot += focalDrv.x.getByInt(i);","		focalDec.di = 0.0;","		for (int i = 0; i < focalDrv.x.size(0); i++)","			if (focalDrv.x.getByInt(i) > 0.0)","				focalDec.di -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CommGrowth)
+						dataTracker trk1
+							sampleSize = java.lang.String(1)
+							samplingMode = fr.cnrs.iees.twcore.constants.SamplingMode(FIRST)
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 					process p3DistEffectComm
 						function DistEffectComm
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		for (int i = 0; i < otherDrv.x.size(); i++)","			if (otherDrv.x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0) {","				otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","				// reset time since disturbance","				otherDrv.tsd = 0;","		}","		// compute diversity","		double xtot = 0.0;","		for (int i = 0; i < other_x.size(0); i++)","			xtot += other_x.getByInt(i);","		otherDec.di = 0.0;","		for (int i = 0; i < other_x.size(0); i++)","			if (otherDrv.x.getByInt(i) > 0.0)","				otherDec.di -= (otherDrv.x.getByInt(i) / xtot) * log(otherDrv.x.getByInt(i) / xtot);"))
@@ -194,10 +203,14 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 08 15:57:42 CET 2022
 [category:commCat] decorators decs1 [record:commDecs]
 [category:commCat] drivers drvs2 [record:commDrvs]
 [category:commCat] constants cnsts2 [record:commCnsts]
+[dataTracker:trk1] trackComponent trks2 [componentType:commType]
+[dataTracker:trk1] trackTable trks3 [table:x]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:39]"))
 [componentType:distType] belongsTo bt6 [category:*component*]
 [componentType:distType] belongsTo bt7 [category:*permanent*]
 [componentType:distType] belongsTo bt4 [category:*atomic*]
 [componentType:distType] belongsTo bt5 [category:distCat]
+[widget:population] trackSeries trks4 [dataTracker:trk1]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [system:sys1] belongsTo bt2 [category:*assemblage*]
