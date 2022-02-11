@@ -141,11 +141,10 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 				driverClass = java.lang.String(code.sys1.generated.Drv)
 				mobile = java.lang.Boolean(false)
 				relocateFunctionName = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-				component fishes
+				initialValues fishes
 					nInstances = java.lang.Integer(50)
-					initialValues initVars1
-						age = java.lang.Long(4)
-						birthDate = java.lang.Long(-4)
+					age = java.lang.Long(4)
+					birthDate = java.lang.Long(-4)
 				initFunction InitFish
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitFish)

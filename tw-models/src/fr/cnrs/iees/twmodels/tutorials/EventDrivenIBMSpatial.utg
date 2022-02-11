@@ -1,14 +1,14 @@
-treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
+treegraph // saved by OmugiGraphExporter on Fri Feb 11 16:43:21 CET 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
-3worlds Tut6
+3worlds EventDrivenIBMSpatial
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String(ian (1 Jan 2022))
+	built-by = java.lang.String(gignoux (11 févr. 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
-	precis = java.lang.String(Event-driven IBM)
+	precis = java.lang.String()
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	predefined *categories*
@@ -26,6 +26,8 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 		record AVPopulation
 			field count
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
@@ -39,8 +41,6 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
-		relationType *returnsTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 		categorySet *systemElements*
 			category *life cycle*
 			category *group*
@@ -57,17 +57,17 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbCnsts)
 			field ceiling
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field deleteRate
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field pulseRate
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -98,11 +98,11 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 				timer t2Event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process p2
-						function Nitems
+						function NItems
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"        // limit the recuitment rate of items to the ceiling","        double rate = (ceiling-count)/(double)count;","        return rate;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
-							userClassName = java.lang.String(code.sys1.generated.Nitems)
+							userClassName = java.lang.String(code.sys1.generated.NItems)
 							function MakeItem
 								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"       // place dot randomly near 'parent' dot.","       double distance = -50.0 * Math.log(1 - random.nextDouble());","       double direction = random.nextDouble() * (2 * Math.PI);","       otherDrv.x = x + distance * Math.cos(direction);","       otherDrv.y = y + distance * Math.sin(direction);"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
@@ -121,7 +121,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process p4
 						dataTracker trk1
-							sampleSize = java.lang.String()
+							sampleSize = java.lang.String(1)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 					process p3
 						function DeleteItem
@@ -129,7 +129,7 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.DeleteItem)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"        // Set values of global constants","        focalCnt.deleteRate = 0.01;","        focalCnt.pulseRate = 0.002;","        focalCnt.ceiling = 5000.0;","        // post event to the pulse time to kick start it. After this it posts events to itself.","        t1Event.postTimeEvent(1);"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"	// Set values of global constants","        focalCnt.deleteRate = 0.01;","        focalCnt.pulseRate = 0.002;","        focalCnt.ceiling = 5000.0;","        // post event to the pulse time to kick start it. After this it posts events to itself.","        t1Event.postTimeEvent(1);"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1
@@ -140,18 +140,18 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 					driverClass = java.lang.String(ItemCat_Drv)
 			space space1
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
-				precision = java.lang.Double(0.01)
+				precision = java.lang.Double(0.001)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
-				x-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
-				y-limits = fr.ens.biologie.generic.utils.Interval(]0.0,1000.0[)
+				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,1000.0])
+				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,1000.0])
 			componentType itemType
 				driverClass = java.lang.String(code.sys1.generated.ItemDrvs)
 				initFunction ItemInit
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"        // place dots in random locations (assuming these are the dimensions of the map)","        focalDrv.x = random.nextDouble() * 1000;","        focalDrv.y = random.nextDouble() * 1000;"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.ItemInit)
-				component item
+				initialValues initVals1
 					nInstances = java.lang.Integer(100)
 	userInterface gui
 		top top
@@ -163,14 +163,14 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 			widget Item landscape
 				order = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
-			widget Number of items
+			widget Number of items1
 				order = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 
 // CROSS-LINKS
 [widget:Item landscape] trackSpace trks4 [space:space1]
-[dataTracker:trk1] trackField trks2 [field:count]
-[dataTracker:trk1] trackComponent trks1 [system:sys1]
+[dataTracker:trk1] trackComponent trks2 [system:sys1]
+[dataTracker:trk1] trackField trks1 [field:count]
 [timer:t1Event] fedBy fedBy1 [initFunction:SysInit]
 [timer:t1Event] fedBy fedBy2 [function:Pulse]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
@@ -178,24 +178,24 @@ treegraph // saved by OmugiGraphExporter on Sun Jan 02 12:19:53 AEDT 2022
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*assemblage*]
 [system:sys1] belongsTo bt1 [category:*arena*]
-[process:p1] appliesTo aplyTo3 [category:*arena*]
-[process:p2] appliesTo aplyTo2 [category:itemCat]
+[widget:Number of items1] trackSeries trks3 [dataTracker:trk1]
+[process:p1] appliesTo aplyTo2 [category:*arena*]
+[process:p2] appliesTo aplyTo4 [category:itemCat]
 [componentType:itemType] belongsTo bt7 [category:itemCat]
-[componentType:itemType] belongsTo bt6 [category:*component*]
-[componentType:itemType] belongsTo bt5 [category:*ephemeral*]
+[componentType:itemType] belongsTo bt6 [category:*ephemeral*]
+[componentType:itemType] belongsTo bt5 [category:*component*]
 [componentType:itemType] belongsTo bt4 [category:*atomic*]
 [process:p3] dependsOn depsOn2 [process:p2]
 [process:p3] appliesTo aplyTo1 [category:itemCat]
 [process:p4] dependsOn depsOn1 [process:p3]
-[process:p4] appliesTo aplyTo4 [category:*assemblage*]
-[timer:t2Event] fedBy fedBy3 [function:Pulse]
-[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[process:p4] appliesTo aplyTo3 [category:*assemblage*]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
+[timer:t2Event] fedBy fedBy3 [function:Pulse]
 [category:itemCat] drivers drvs1 [record:itemDrvs]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
 [category:*arena*] constants cnsts1 [record:glbCnsts]
-[widget:Number of items] trackSeries trks3 [dataTracker:trk1]
 [space:space1] coordinate x1 [field:x]
 	rank = java.lang.Integer(0)
 [space:space1] coordinate y1 [field:y]

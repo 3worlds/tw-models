@@ -106,8 +106,6 @@ treegraph // saved by OmugiGraphExporter on Sat Dec 05 11:55:47 AEDT 2020
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 	userInterface gui
 		headless hl
-			widget ctrl
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLSimpleControlWidget)
 
 // CROSS-LINKS
 [process:p1] appliesTo aplyTo1 [category:*arena*]

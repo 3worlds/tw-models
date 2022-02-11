@@ -1,16 +1,19 @@
-treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
+treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds IDHClock
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
-	built-by = java.lang.String(gignoux (7 janv. 2021))
+	built-by = java.lang.String(gignoux (4 févr. 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String(Tutorial: Testing the intermediate disturbance hypothesis (IDH) with the Lotka-Volterra competition model. Illustrates the use of a SystemComponent.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https:/en.wikipedia.org/wiki/Competitive_Lotka%E2%80%93Volterra_equations"))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	experiment expt
+		design dsgn
+			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -26,6 +29,19 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+		relationType *returnsTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		relationType *parentTo*
+			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
+		categorySet *systemElements*
+			category *arena*
+			category *group*
+			category *life cycle*
+			category *relation*
+			category *component*
+		categorySet *lifespan*
+			category *ephemeral*
+			category *permanent*
 		record AVPopulation
 			field count
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
@@ -39,26 +55,108 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
-		relationType *returnsTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		categorySet *systemElements*
-			category *life cycle*
-			category *group*
-			category *relation*
-			category *component*
-			category *arena*
-		relationType *parentTo*
-			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
-		categorySet *lifespan*
-			category *ephemeral*
-			category *permanent*
+	userInterface gui
+		tab tab1
+			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
+			container cont1
+				order = java.lang.Integer(1)
+				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
+				widget IDH
+					order = java.lang.Integer(0)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.ScatterPlotWidget1)
+				widget diversity
+					order = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+			widget population
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+		top top
+			widget ctrl
+				order = java.lang.Integer(0)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
+	system sys1
+		dynamics sim1
+			stoppingCondition stCd1
+				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
+				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
+			timeline tmLn1
+				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(ARBITRARY)
+				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
+				timer clock1
+					dt = java.lang.Long(1)
+					nTimeUnits = java.lang.Integer(1)
+					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
+					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
+					process p1DistOcc
+						function DistOcc
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (random.nextDouble() < 1.0 / freq) ","			return true;","		else","			return false;"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
+							userClassName = java.lang.String(code.sys1.generated.DistOcc)
+					process p3DistEffectComm
+						function DistEffectComm
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		for (int i = 0; i < otherDrv.x.size(); i++)","			if (otherDrv.x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0) {","				otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","				// reset time since disturbance","				otherDrv.tsd = 0;","		}","		// compute diversity","		double xtot = 0.0;","		for (int i = 0; i < other_x.size(0); i++)","			xtot += other_x.getByInt(i);","		otherDec.di = 0.0;","		for (int i = 0; i < other_x.size(0); i++)","			if (otherDrv.x.getByInt(i) > 0.0)","				otherDec.di -= (otherDrv.x.getByInt(i) / xtot) * log(otherDrv.x.getByInt(i) / xtot);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
+							userClassName = java.lang.String(code.sys1.generated.DistEffectComm)
+					process p2CommGrowth
+						function CommGrowth
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"	// increment 'time since disturbance'","		focalDrv.tsd = focalDrv.tsd + 1;","		double[] dxdt = new double[x.size(0)];","		for (int i = 0; i < x.size(0); i++) {","			double sum = 0;","			for (int j = 0; j < alpha.size(1); j++)","				sum += alpha.getByInt(i, j) * focalDrv.x.getByInt(j);","			dxdt[i] = r.getByInt(i) * focalDrv.x.getByInt(i) * (1 - sum / K.getByInt(i));","		}","		for (int i = 0; i < dxdt.length; i++)","			focalDrv.x.setByInt(Math.max(focalDrv.x.getByInt(i) + dxdt[i] * dt, 0.0), i);","		// compute diversity","		double xtot = 0.0;","		for (int i = 0; i < focalDrv.x.size(0); i++)","			xtot += focalDrv.x.getByInt(i);","		focalDec.di = 0.0;","		for (int i = 0; i < focalDrv.x.size(0); i++)","			if (focalDrv.x.getByInt(i) > 0.0)","				focalDec.di -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.CommGrowth)
+						dataTracker trkditsd
+							sampleSize = java.lang.String(1)
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTrackerXY)
+						dataTracker trkx
+							sampleSize = java.lang.String(1)
+							samplingMode = fr.cnrs.iees.twcore.constants.SamplingMode(FIRST)
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+						dataTracker trkdi
+							sampleSize = java.lang.String()
+							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
+		structure struc1
+			groupType disturbances
+				componentType distType
+					constantClass = java.lang.String(code.sys1.generated.DistCnsts)
+					initFunction InitDist
+						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.freq = 5 + random.nextInt(50);","		focalCnt.inten = random.nextDouble() * 100;"))
+						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+						userClassName = java.lang.String(code.sys1.generated.InitDist)
+					initialValues initVals1
+						idGroup = java.lang.String(fire)
+			relationType distEffectComm
+				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
+			categorySet world
+				category distCat
+					constantClass = java.lang.String(DistCat_Cnt)
+					decoratorClass = java.lang.Object(null)
+					driverClass = java.lang.Object(null)
+				category commCat
+					constantClass = java.lang.String(CommCat_Cnt)
+					decoratorClass = java.lang.String(CommCat_Dec)
+					driverClass = java.lang.String(CommCat_Drv)
+			componentType commType
+				constantClass = java.lang.String(code.sys1.generated.CommCnsts)
+				decoratorClass = java.lang.String(code.sys1.generated.CommDecs)
+				driverClass = java.lang.String(code.sys1.generated.CommDrvs)
+				initialValues initVals2
+				initFunction InitComm
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		double initFreq = 1.0 / x.size();","		focalDrv.x.fillWith(initFreq);","		for (int i = 0; i < r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(), i);","			focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","			for (int j = 0; j < alpha.size(1); j++) {","				if (i == j)","					focalCnt.alpha.setByInt(1.0, i, j);","				else","					focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","			}","		}"))
+					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
+					userClassName = java.lang.String(code.sys1.generated.InitComm)
 	dataDefinition dDef
-		record commDecs
+		record distCnsts
 			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(commDecs)
-			field di
-				description = java.lang.String(Shannon's diveristy index)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+			generatedClassName = java.lang.String(distCnsts)
+			field freq
+				description = java.lang.String(disturbance return interval)
+				interval = fr.ens.biologie.generic.utils.Interval(]5.0,49.0[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
+			field inten
+				description = java.lang.String(disturbance intensity)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,100.0[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -83,176 +181,83 @@ treegraph // saved by OmugiGraphExporter on Wed Feb 17 15:55:55 CET 2021
 				interval = fr.ens.biologie.generic.utils.Interval(]5.0,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
-		record distCnsts
-			dynamic = java.lang.Boolean(false)
-			generatedClassName = java.lang.String(distCnsts)
-			field inten
-				description = java.lang.String(disturbance intensity)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,100.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
-			field freq
-				description = java.lang.String(disturbance return interval)
-				interval = fr.ens.biologie.generic.utils.Interval(]5.0,49.0[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String()
 		record commDrvs
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(commDrvs)
-			field tsd
-				description = java.lang.String(time since disturbance)
-				interval = fr.ens.biologie.generic.utils.Interval(]1.0,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				units = java.lang.String(y)
 			table x
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(population size)
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
+			field tsd
+				description = java.lang.String(time since disturbance)
+				interval = fr.ens.biologie.generic.utils.Interval(]1.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String(y)
 		dimensioner nspp
 			size = java.lang.Integer(40)
-	experiment expt
-		design dsgn
-			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(singleRun)
-	system sys1
-		dynamics sim1
-			stoppingCondition stCd1
-				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(1000)
-				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
-			timeline tmLn1
-				longestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
-				scale = fr.cnrs.iees.twcore.constants.TimeScaleType(ARBITRARY)
-				shortestTimeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
-				timeOrigin = fr.cnrs.iees.twcore.constants.DateTimeType(0)
-				timer clock1
-					dt = java.lang.Long(1)
-					nTimeUnits = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.ClockTimer)
-					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
-					process p3DistEffectComm
-						function DistEffectComm
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
-							userClassName = java.lang.String(code.sys1.generated.DistEffectComm)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"	for (int i = 0; i < otherDrv.x.size(); i++)","		if (otherDrv.x.getByInt(i) > other_K.getByInt(i) * inten / 100000.0) {","			otherDrv.x.setByInt(otherDrv.x.getByInt(i) * other_K.getByInt(i) * inten / 100000.0, i);","			// reset time since disturbance","			otherDrv.tsd = 0;","		}","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		xtot += other_x.getByInt(i);","	otherDec.di = 0.0;","	for (int i = 0; i < other_x.size(0); i++)","		if (otherDrv.x.getByInt(i) > 0.0)","			otherDec.di -= (otherDrv.x.getByInt(i) / xtot) * log(otherDrv.x.getByInt(i) / xtot);"))
-					process p2CommGrowth
-						dataTracker trkdi
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkx
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
-						dataTracker trkditsd
-							sampleSize = java.lang.String()
-							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTrackerXY)
-						function CommGrowth
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
-							userClassName = java.lang.String(code.sys1.generated.CommGrowth)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"	// increment 'time since disturbance'","	focalDrv.tsd = focalDrv.tsd + 1;","	double[] dxdt = new double[x.size(0)];","	for (int i = 0; i < x.size(0); i++) {","		double sum = 0;","		for (int j = 0; j < alpha.size(1); j++)","			sum += alpha.getByInt(i, j) * focalDrv.x.getByInt(j);","		dxdt[i] = r.getByInt(i) * focalDrv.x.getByInt(i) * (1 - sum / K.getByInt(i));","	}","	for (int i = 0; i < dxdt.length; i++)","		focalDrv.x.setByInt(Math.max(focalDrv.x.getByInt(i) + dxdt[i] * dt, 0.0), i);","	// compute diversity","	double xtot = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		xtot += focalDrv.x.getByInt(i);","	focalDec.di = 0.0;","	for (int i = 0; i < focalDrv.x.size(0); i++)","		if (focalDrv.x.getByInt(i) > 0.0)","			focalDec.di -= (focalDrv.x.getByInt(i) / xtot) * log(focalDrv.x.getByInt(i) / xtot);"))
-					process p1DistOcc
-						function DistOcc
-							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
-							userClassName = java.lang.String(code.sys1.generated.DistOcc)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (random.nextDouble() < 1.0 / freq) ","			return true;","		else","			return false;"))
-		structure struc1
-			relationType distEffectComm
-				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
-			componentType distType
-				constantClass = java.lang.String(code.sys1.generated.DistCnsts)
-				initFunction InitDist
-					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
-					userClassName = java.lang.String(code.sys1.generated.InitDist)
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"	focalCnt.freq = 5 + random.nextInt(50);","	focalCnt.inten = random.nextDouble() * 100;"))
-//				component dist
-				initValues dist
-			componentType commType
-				constantClass = java.lang.String(code.sys1.generated.CommCnsts)
-				decoratorClass = java.lang.String(code.sys1.generated.CommDecs)
-				driverClass = java.lang.String(code.sys1.generated.CommDrvs)
-				initFunction InitComm
-					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
-					userClassName = java.lang.String(code.sys1.generated.InitComm)
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"	double initFreq = 1.0 / x.size();","	focalDrv.x.fillWith(initFreq);","	for (int i = 0; i < r.size(0); i++) {","		focalCnt.r.setByInt(random.nextDouble(), i);","		focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","		for (int j = 0; j < alpha.size(1); j++) {","			if (i == j)","				focalCnt.alpha.setByInt(1.0, i, j);","			else","				focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","		}","	}"))
-//				component comm
-//				initValues comm
-			categorySet world
-				category distCat
-					constantClass = java.lang.String(DistCat_Cnt)
-					decoratorClass = java.lang.Object(null)
-					driverClass = java.lang.Object(null)
-				category commCat
-					constantClass = java.lang.String(CommCat_Cnt)
-					decoratorClass = java.lang.String(CommCat_Dec)
-					driverClass = java.lang.String(CommCat_Drv)
-	userInterface gui
-		top top
-			widget ctrl
-				order = java.lang.Integer(0)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
-		tab tab1
-			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
-			container cont1
-				order = java.lang.Integer(0)
-				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
-				widget diversity
-					order = java.lang.Integer(0)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
-				widget diversity time since dist
-					order = java.lang.Integer(1)
-					subclass = java.lang.String(au.edu.anu.twuifx.widgets.ScatterPlotWidget1)
-			widget population size
-				order = java.lang.Integer(1)
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
+		record commDecs
+			dynamic = java.lang.Boolean(false)
+			generatedClassName = java.lang.String(commDecs)
+			field di
+				description = java.lang.String(Shannon's diveristy index)
+				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
 
 // CROSS-LINKS
+[groupType:disturbances] belongsTo bt12 [category:*assemblage*]
+[groupType:disturbances] belongsTo bt13 [category:*group*]
+[groupType:disturbances] belongsTo bt14 [category:*permanent*]
 [process:p2CommGrowth] appliesTo aplyTo1 [category:commCat]
 [process:p3DistEffectComm] dependsOn depsOn1 [process:p2CommGrowth]
-[process:p3DistEffectComm] appliesTo aplyTo3 [relationType:distEffectComm]
-[category:commCat] constants cnsts1 [record:commCnsts]
+[process:p3DistEffectComm] appliesTo aplyTo2 [relationType:distEffectComm]
+[widget:IDH] trackSeries trks11 [dataTracker:trkditsd]
 [category:commCat] decorators decs1 [record:commDecs]
-[category:commCat] drivers drvs1 [record:commDrvs]
-[componentType:distType] belongsTo bt7 [category:*atomic*]
-[componentType:distType] belongsTo bt11 [category:distCat]
-[componentType:distType] belongsTo bt9 [category:*component*]
-[componentType:distType] belongsTo bt8 [category:*permanent*]
-[widget:population size] trackSeries trks3 [dataTracker:trkx]
-[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
+[category:commCat] drivers drvs2 [record:commDrvs]
+[category:commCat] constants cnsts2 [record:commCnsts]
+[componentType:distType] belongsTo bt4 [category:*atomic*]
+[componentType:distType] belongsTo bt5 [category:distCat]
+[componentType:distType] belongsTo bt6 [category:*component*]
+[componentType:distType] belongsTo bt7 [category:*permanent*]
+[widget:population] trackSeries trks4 [dataTracker:trkx]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
-[system:sys1] belongsTo bt3 [category:*permanent*]
-[system:sys1] belongsTo bt2 [category:*assemblage*]
+[relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [system:sys1] belongsTo bt1 [category:*arena*]
-//[dataTracker:trkditsd] trackComponent trks8 [component:comm]
-[dataTracker:trkditsd] trackField trks6 [field:tsd]
-[dataTracker:trkditsd] trackField trks7 [field:di]
-[widget:diversity time since dist] trackSeries trks10 [dataTracker:trkditsd]
-[table:K] sizedBy szBy1 [dimensioner:nspp]
+[system:sys1] belongsTo bt2 [category:*assemblage*]
+[system:sys1] belongsTo bt3 [category:*permanent*]
+[dataTracker:trkditsd] trackField trks10 [field:di]
+[dataTracker:trkditsd] trackField trks9 [field:tsd]
+[dataTracker:trkditsd] trackComponent trks8 [componentType:commType]
+[widget:ctrl] trackTime trks1 [dynamics:sim1]
+[table:K] sizedBy szBy3 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
-[widget:diversity] trackSeries trks4 [dataTracker:trkdi]
+[widget:diversity] trackSeries trks7 [dataTracker:trkdi]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
-[table:alpha] sizedBy szBy3 [dimensioner:nspp]
-	rank = java.lang.Integer(1)
+[table:alpha] sizedBy szBy4 [dimensioner:nspp]
+	rank = java.lang.Integer(2)
 [table:alpha] sizedBy szBy2 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
-//[dataTracker:trkx] trackComponent trks2 [component:comm]
-[dataTracker:trkx] trackTable trks1 [table:x]
-	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [relationType:distEffectComm] toCategory to3 [category:commCat]
 [relationType:distEffectComm] fromCategory from1 [category:distCat]
-[process:p1DistOcc] appliesTo aplyTo2 [relationType:distEffectComm]
-[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[dataTracker:trkx] trackTable trks3 [table:x]
+	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:39]"))
+[dataTracker:trkx] trackComponent trks2 [componentType:commType]
+[process:p1DistOcc] appliesTo aplyTo3 [relationType:distEffectComm]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
-[dataTracker:trkdi] trackField trks9 [field:di]
-//[dataTracker:trkdi] trackComponent trks5 [component:comm]
-[table:r] sizedBy szBy4 [dimensioner:nspp]
+[relationType:*parentTo*] fromCategory frm1 [category:*component*]
+[dataTracker:trkdi] trackField trks5 [field:di]
+[dataTracker:trkdi] trackComponent trks6 [componentType:commType]
+[table:r] sizedBy szBy1 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
-[componentType:commType] belongsTo bt6 [category:*component*]
-[componentType:commType] belongsTo bt5 [category:*atomic*]
-[componentType:commType] belongsTo bt4 [category:*permanent*]
-[componentType:commType] belongsTo bt10 [category:commCat]
-[category:distCat] constants cnsts2 [record:distCnsts]
+[category:distCat] constants cnsts3 [record:distCnsts]
+[componentType:commType] belongsTo bt8 [category:*component*]
+[componentType:commType] belongsTo bt9 [category:*atomic*]
+[componentType:commType] belongsTo bt11 [category:commCat]
+[componentType:commType] belongsTo bt10 [category:*permanent*]
 [table:x] sizedBy szBy5 [dimensioner:nspp]
 	rank = java.lang.Integer(0)

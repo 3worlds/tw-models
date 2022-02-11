@@ -209,14 +209,12 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitTree)
 						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
-					component cmp2
+					initialValues cmp2
 						nInstances = java.lang.Integer(50)
-						initialValues initVars2
-							biomass = java.lang.Double(3.0)
-					component cmp1
+						biomass = java.lang.Double(3.0)
+					initialValues cmp1
 						nInstances = java.lang.Integer(50)
-						initialValues initVars1
-							biomass = java.lang.Double(4.0)
+						biomass = java.lang.Double(4.0)
 			relationType neighbour
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 	userInterface gui
@@ -259,12 +257,12 @@ treegraph // saved by OmugiGraphExporter on Tue Feb 23 11:51:40 CET 2021
 
 // CROSS-LINKS
 [widget:neigh biomass] trackSeries trks6 [dataTracker:trk2]
-[component:cmp2] instanceOf instOf2 [group:Carpinus]
-[component:cmp1] instanceOf instOf1 [group:Quercus]
+//[component:cmp2] instanceOf instOf2 [group:Carpinus]
+//[component:cmp1] instanceOf instOf1 [group:Quercus]
 [dataTracker:trk1] trackField trks4 [field:count]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"null"))
 [dataTracker:trk1] trackComponent trks3 [groupType:species]
-[dataTracker:trk2] trackComponent trks8 [group:Quercus]
+//[dataTracker:trk2] trackComponent trks8 [group:Quercus]
 [dataTracker:trk2] trackField trks7 [field:neighBm]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"null"))
 [category:tree] constants cnsts2 [record:treeCst]
