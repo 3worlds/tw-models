@@ -124,7 +124,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:04:06 AEST 2020
 
 // CROSS-LINKS
 [process:p1] appliesTo aplyTo1 [category:*arena*]
-[dataTracker:trk1] trackComponent trks2 [system:sys1]
+[dataTracker:trk1] sampleArena trks2 [system:sys1]
 [dataTracker:trk1] trackField trks1 [field:x]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [widget:srsX] trackSeries trks3 [dataTracker:trk1]

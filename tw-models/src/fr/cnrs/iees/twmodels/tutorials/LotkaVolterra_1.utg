@@ -159,7 +159,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 
 // CROSS-LINKS
-[dataTracker:trk1] trackComponent trks2 [system:community]
+[dataTracker:trk1] sampleArena trks2 [system:community]
 [dataTracker:trk1] trackTable trks1 [table:x]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:3]"))
 [system:community] belongsTo bt3 [category:*permanent*]

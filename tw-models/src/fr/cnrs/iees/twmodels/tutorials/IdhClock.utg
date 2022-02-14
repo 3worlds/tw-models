@@ -112,7 +112,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 							samplingMode = fr.cnrs.iees.twcore.constants.SamplingMode(FIRST)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 						dataTracker trkdi
-							sampleSize = java.lang.String()
+							sampleSize = java.lang.String(1)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 		structure struc1
 			groupType disturbances
@@ -231,7 +231,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [dataTracker:trkditsd] trackField trks10 [field:di]
 [dataTracker:trkditsd] trackField trks9 [field:tsd]
-[dataTracker:trkditsd] trackComponent trks8 [componentType:commType]
+[dataTracker:trkditsd] sampleComponent trks8 [componentType:commType]
 [widget:ctrl] trackTime trks1 [dynamics:sim1]
 [table:K] sizedBy szBy3 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
@@ -246,12 +246,12 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 [relationType:distEffectComm] fromCategory from1 [category:distCat]
 [dataTracker:trkx] trackTable trks3 [table:x]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:39]"))
-[dataTracker:trkx] trackComponent trks2 [componentType:commType]
+[dataTracker:trkx] sampleComponent trks2 [componentType:commType]
 [process:p1DistOcc] appliesTo aplyTo3 [relationType:distEffectComm]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [dataTracker:trkdi] trackField trks5 [field:di]
-[dataTracker:trkdi] trackComponent trks6 [componentType:commType]
+[dataTracker:trkdi] sampleComponent trks6 [componentType:commType]
 [table:r] sizedBy szBy1 [dimensioner:nspp]
 	rank = java.lang.Integer(0)
 [category:distCat] constants cnsts3 [record:distCnsts]
