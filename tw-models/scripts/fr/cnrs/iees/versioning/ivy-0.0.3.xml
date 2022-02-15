@@ -1,5 +1,5 @@
 <!--===================================================================================
- ant and ivy scripts for project <tw-models> version 0.0.4 (Tue Feb 15 15:27:46 CET 2022)
+ ant and ivy scripts for project <tw-models> version 0.0.3 (Thu Apr 15 10:48:32 AEST 2021)
  author: Jacques Gignoux <jacques.gignoux@upmc.fr>
 
  CAUTION: this file is generated - DO NOT EDIT!
@@ -13,7 +13,7 @@
 
 	<info	organisation="fr.cnrs.iees.tw-models"
 			module="tw-models"
-			revision="0.0.4"
+			revision="0.0.3"
 			status="integration">
 		<license name="gpl3" url="https://www.gnu.org/licenses/gpl-3.0.txt"/>
 		<description>This module is specifically for generating the dependency file for 3Worlds: tw-dep.jar.</description>
