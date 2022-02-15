@@ -123,6 +123,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitDist)
 					initialValues initVals1
+						nInstances = Integer(1)
 						idGroup = java.lang.String(fire)
 			relationType distEffectComm
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
@@ -140,6 +141,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 				decoratorClass = java.lang.String(code.sys1.generated.CommDecs)
 				driverClass = java.lang.String(code.sys1.generated.CommDrvs)
 				initialValues initVals2
+					nInstances = Integer(1)
 				initFunction InitComm
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		double initFreq = 1.0 / x.size();","		focalDrv.x.fillWith(initFreq);","		for (int i = 0; i < r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(), i);","			focalCnt.K.setByInt(5.0 + initFreq + random.nextDouble(), i);","			for (int j = 0; j < alpha.size(1); j++) {","				if (i == j)","					focalCnt.alpha.setByInt(1.0, i, j);","				else","					focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","			}","		}"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)

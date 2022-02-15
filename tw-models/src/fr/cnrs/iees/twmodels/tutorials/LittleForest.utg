@@ -188,10 +188,12 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			groupType species
 				constantClass = java.lang.String(code.sys1.generated.Par)
 				initialValues Carpinus
+					nInstances = Integer(1)
 					fec = java.lang.Double(0.4)
 					gmax = java.lang.Double(0.15)
 					pmor = java.lang.Double(0.1)
 				initialValues Quercus
+					nInstances = Integer(1)
 					fec = java.lang.Double(0.1)
 					gmax = java.lang.Double(0.2)
 					pmor = java.lang.Double(0.05)
