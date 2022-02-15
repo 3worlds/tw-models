@@ -137,7 +137,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 
 // CROSS-LINKS
 [dataTracker:trk1] trackField trks1 [field:count]
-[dataTracker:trk1] trackComponent trks2 [system:sys1]
+[dataTracker:trk1] sampleArena trks2 [system:sys1]
 [timer:t1Event] fedBy fedBy2 [function:Pulse]
 [timer:t1Event] fedBy fedBy1 [initFunction:SysInit]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]

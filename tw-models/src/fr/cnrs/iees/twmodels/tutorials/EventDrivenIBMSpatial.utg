@@ -169,7 +169,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 16:43:21 CET 2022
 
 // CROSS-LINKS
 [widget:Item landscape] trackSpace trks4 [space:space1]
-[dataTracker:trk1] trackComponent trks2 [system:sys1]
+[dataTracker:trk1] sampleArena trks2 [system:sys1]
 [dataTracker:trk1] trackField trks1 [field:count]
 [timer:t1Event] fedBy fedBy1 [initFunction:SysInit]
 [timer:t1Event] fedBy fedBy2 [function:Pulse]

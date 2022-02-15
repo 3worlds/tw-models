@@ -109,7 +109,7 @@ treegraph // saved by OmugiGraphExporter on Sat Dec 05 11:55:47 AEDT 2020
 
 // CROSS-LINKS
 [process:p1] appliesTo aplyTo1 [category:*arena*]
-[dataTracker:trk1] trackComponent trks2 [system:population]
+[dataTracker:trk1] sampleArena trks2 [system:population]
 [dataTracker:trk1] trackField trks1 [field:x]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"null"))
 [category:*assemblage*] autoVar auto2 [record:AVPopulation]

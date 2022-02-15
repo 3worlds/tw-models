@@ -38,10 +38,10 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(gignoux (10 nov. 2020))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String(A test model for relations)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -62,11 +62,11 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
-			field nAdded
+			field nRemoved
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
-			field nRemoved
+			field nAdded
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -127,48 +127,48 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process procA
 						function FuncA
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.xA = sqrt(t);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FuncA)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.xA = sqrt(t);"))
 					process procBA2
 						function KeepBA
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (round(t)==8)","			return false;","		return true;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(MaintainRelationDecision)
 							userClassName = java.lang.String(code.sys1.generated.KeepBA)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (round(t)==8)","			return false;","		return true;"))
 					process procB
 						function RepB
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (round(t)==5)","			return 1.0;","		return 0.0;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.RepB)
 							function InitB
+								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (round(t)==5) {","			otherCnt.x = 2.6;","			otherCnt.y = 0.5;","		}"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.InitB)
-								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (round(t)==5) {","			otherCnt.x = 2.6;","			otherCnt.y = 0.5;","		}"))
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (round(t)==5)","			return 1.0;","		return 0.0;"))
 						function MorB
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if ((round(t)==4)&&(y<1.5))","			return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.MorB)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if ((round(t)==4)&&(y<1.5))","			return true;","		return false;"))
 					process procAA
 						function RelAA
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.RelAA)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
 					process procBB
 						function RelBB
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (y<1.5)","			return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.RelBB)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (y<1.5)","			return true;","		return false;"))
 					process procAB
 						function RelAB
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		if (round(t)==2)","			return true;","		if (round(t)==6)","			if (y<1.5)","				return true;","		if (round(t)==9)","			if (y>1.5)","				return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.RelAB)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		if (round(t)==2)","			return true;","		if (round(t)==6)","			if (y<1.5)","				return true;","		if (round(t)==9)","			if (y>1.5)","				return true;","		return false;"))
 					process procBA
 						function RelBA
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (round(t)==4)","			if (y>1.5)","				return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.RelBA)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		if (round(t)==4)","			if (y>1.5)","				return true;","		return false;"))
 			stoppingCondition stop
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(10)
 				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
@@ -177,38 +177,39 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 			space space1
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				guardAreaWidth = java.lang.Double(0.0)
-				observationWindow = fr.cnrs.iees.uit.space.Box([[0.0,0.0],[0.0,0.0]])
+				observationWindow = fr.cnrs.iees.uit.space.Box([[0.0,0.0],[3.0,3.0]])
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(lightyears)
 				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,3.0])
 				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,3.0])
-			componentType cpB
-				constantClass = java.lang.String(code.sys1.generated.Loc)
-				driverClass = java.lang.String(code.sys1.generated.RecB)
-				mobile = java.lang.Boolean(false)
-				component B2
-					nInstances = java.lang.Integer(0)
-					initialValues initB2
+			groupType species
+				componentType cpB
+					constantClass = java.lang.String(code.sys1.generated.Loc)
+					driverClass = java.lang.String(code.sys1.generated.RecB)
+					mobile = java.lang.Boolean(false)
+					initialValues B2
+						idGroup = java.lang.String(B)
+						nInstances = java.lang.Integer(1)
 						x = java.lang.Double(2.0)
 						y = java.lang.Double(2.0)
-				component B1
-					nInstances = java.lang.Integer(0)
-					initialValues initB1
+					initialValues B1
+						idGroup = java.lang.String(B)
+						nInstances = java.lang.Integer(1)
 						x = java.lang.Double(2.0)
 						y = java.lang.Double(1.0)
-			componentType cpA
-				constantClass = java.lang.String(code.sys1.generated.Loc)
-				driverClass = java.lang.String(code.sys1.generated.RecA)
-				mobile = java.lang.Boolean(false)
-				component A2
-					nInstances = java.lang.Integer(0)
-					initialValues initA2
+				componentType cpA
+					constantClass = java.lang.String(code.sys1.generated.Loc)
+					driverClass = java.lang.String(code.sys1.generated.RecA)
+					mobile = java.lang.Boolean(false)
+					initialValues A2
+						idGroup = java.lang.String(A)
+						nInstances = java.lang.Integer(1)
 						x = java.lang.Double(1.0)
 						y = java.lang.Double(2.0)
-				component A1
-					nInstances = java.lang.Integer(0)
-					initialValues initA1
+					initialValues A1
+						idGroup = java.lang.String(A)
+						nInstances = java.lang.Integer(1)
 						x = java.lang.Double(1.0)
 						y = java.lang.Double(1.0)
 			categorySet setLoc
@@ -261,8 +262,8 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 [relationType:AA] toCategory to7 [category:cloc]
 [relationType:AA] fromCategory from7 [category:cloc]
 [relationType:AB] fromCategory from8 [category:cloc]
-[relationType:AB] toCategory to2 [category:B]
 [relationType:AB] fromCategory from2 [category:A]
+[relationType:AB] toCategory to2 [category:B]
 [relationType:AB] toCategory to8 [category:cloc]
 [process:procBA2] inSpace in5 [space:space1]
 	searchRadius = java.lang.Double(10.0)
@@ -283,8 +284,8 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 [category:A] drivers drvs1 [record:recA]
 [category:B] drivers drvs2 [record:recB]
 [category:cloc] constants cnsts3 [record:loc]
-[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
+[category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [widget:map] trackSpace trks1 [space:space1]
 [process:procAB] appliesTo aplyTo5 [relationType:AB]
 [process:procAB] inSpace in1 [space:space1]
@@ -303,10 +304,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 [componentType:cpB] belongsTo bt8 [category:*ephemeral*]
 [process:procA] appliesTo aplyTo9 [category:cloc]
 [process:procA] appliesTo aplyTo1 [category:A]
+[groupType:species] belongsTo bt16 [category:*permanent*]
+[groupType:species] belongsTo bt15 [category:*group*]
+[groupType:species] belongsTo bt14 [category:*assemblage*]
 [componentType:cpA] belongsTo bt2 [category:*component*]
 [componentType:cpA] belongsTo bt1 [category:A]
-[componentType:cpA] belongsTo bt5 [category:*atomic*]
 [componentType:cpA] belongsTo bt12 [category:cloc]
+[componentType:cpA] belongsTo bt5 [category:*atomic*]
 [componentType:cpA] belongsTo bt4 [category:*permanent*]
 [space:space1] coordinate crdmp2 [field:y]
 	rank = java.lang.Integer(1)

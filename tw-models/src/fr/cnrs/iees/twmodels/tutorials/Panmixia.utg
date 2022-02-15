@@ -204,7 +204,7 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 [relationType:mating] toCategory to2 [category:*ephemeral*]
 [relationType:mating] fromCategory from2 [category:*ephemeral*]
 [relationType:mating] fromCategory from1 [category:fishy]
-[dataTracker:trk1] trackComponent trks6 [system:sys1]
+[dataTracker:trk1] sampleArena trks6 [system:sys1]
 [dataTracker:trk1] trackField trks3 [field:count]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"null"))
 [dataTracker:trk1] trackField trks4 [field:nAdded]

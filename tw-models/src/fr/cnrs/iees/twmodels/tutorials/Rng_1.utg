@@ -121,7 +121,7 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 // CROSS-LINKS
 [process:p1] appliesTo aplyTo1 [category:*arena*]
 [dataTracker:trk1] trackField trks2 [field:fld2]
-[dataTracker:trk1] trackComponent trks3 [system:sys1]
+[dataTracker:trk1] sampleArena trks3 [system:sys1]
 [dataTracker:trk1] trackField trks1 [field:fld1]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]

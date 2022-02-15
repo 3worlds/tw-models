@@ -331,7 +331,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		// random locations","		focalDrv.xLocation = random.nextDouble() * landscapeWidth;","		focalDrv.yLocation = random.nextDouble() * landscapeHeight;","		// Initial population is all new born","		focalDrv.isMature = false;","		focalDrv.isNewBorn = true;","		focalDrv.ageInYears = 0.0;","		// 50:50 sex ratio","		focalCnt.isFemale = random.nextBoolean();"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AniInit)
-				component animal
+				initialValues animal
 					nInstances = java.lang.Integer(8000)
 			space landscape
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
@@ -473,21 +473,21 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 // CROSS-LINKS
 [widget:Population layer] trackSeries trks25 [dataTracker:trkPopulationLayer]
 [dataTracker:trkFractionCulled] trackField trks16 [field:fractionCulled]
-[dataTracker:trkFractionCulled] trackComponent trks15 [system:sys1]
+[dataTracker:trkFractionCulled] sampleArena trks15 [system:sys1]
 [widget:Fraction pregnant] trackSeries trks34 [dataTracker:trkFractionPregnant]
 [dataTracker:trkPreCullLayer] trackTable trks20 [table:preCullLayer]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[dataTracker:trkPreCullLayer] trackComponent trks19 [system:sys1]
+[dataTracker:trkPreCullLayer] sampleArena trks19 [system:sys1]
 [widget:Occupancy] trackSeries trks7 [dataTracker:trkOccAndSegRatio]
 [widget:popWriter] trackSeries trks9 [dataTracker:trkPopulation]
 [dataTracker:trkPopulationLayer] trackTable trks18 [table:populationLayer]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[dataTracker:trkPopulationLayer] trackComponent trks17 [system:sys1]
+[dataTracker:trkPopulationLayer] sampleArena trks17 [system:sys1]
 [table:populationAgeClasses] sizedBy x4 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
 [dataTracker:trkSexRatio] trackField trks23 [field:nMales]
 [dataTracker:trkSexRatio] trackField trks22 [field:nFemales]
-[dataTracker:trkSexRatio] trackComponent trks21 [system:sys1]
+[dataTracker:trkSexRatio] sampleArena trks21 [system:sys1]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [relationType:*returnsTo*] toCategory to2 [category:*component*]
 [system:sys1] belongsTo bt1 [category:*arena*]
@@ -495,7 +495,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [dataTracker:trkOccAndSegRatio] trackField trks38 [field:segregationRatio]
 [dataTracker:trkOccAndSegRatio] trackField trks37 [field:occupancy]
-[dataTracker:trkOccAndSegRatio] trackComponent trks36 [system:sys1]
+[dataTracker:trkOccAndSegRatio] sampleArena trks36 [system:sys1]
 [table:populationLayer] sizedBy y3 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:populationLayer] sizedBy x3 [dimensioner:xdim]
@@ -509,11 +509,11 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 [widget:Habitat layer] trackSeries trks3 [dataTracker:trkHabitatLayer]
 [category:*ephemeral*] autoVar auto1 [record:AVEphemeral]
 [widget:Population] trackSeries trks46 [dataTracker:trkPopulation]
-[dataTracker:trkSegregationRatio] trackComponent trks41 [system:sys1]
+[dataTracker:trkSegregationRatio] sampleArena trks41 [system:sys1]
 [dataTracker:trkSegregationRatio] trackField trks42 [field:segregationRatio]
-[dataTracker:trkOccupancy] trackComponent trks39 [system:sys1]
+[dataTracker:trkOccupancy] sampleArena trks39 [system:sys1]
 [dataTracker:trkOccupancy] trackField trks40 [field:occupancy]
-[dataTracker:trkHabitatLayer] trackComponent trks1 [system:sys1]
+[dataTracker:trkHabitatLayer] sampleArena trks1 [system:sys1]
 [dataTracker:trkHabitatLayer] trackTable trks2 [table:habitatLayer]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
@@ -524,12 +524,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 [componentType:animalType] belongsTo bt7 [category:animalCat]
 [dataTracker:trkCulledLayer] trackTable trks14 [table:culledLayer]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[dataTracker:trkCulledLayer] trackComponent trks13 [system:sys1]
+[dataTracker:trkCulledLayer] sampleArena trks13 [system:sys1]
 [category:*arena*] decorators decs1 [record:glbDec]
 [category:*arena*] constants cnsts1 [record:glbCnt]
 [category:*arena*] drivers drvs2 [record:glbDrv]
 [widget:progress] trackTime trks8 [dynamics:sim1]
-[dataTracker:trkAgeClass] trackComponent trks11 [system:sys1]
+[dataTracker:trkAgeClass] sampleArena trks11 [system:sys1]
 [dataTracker:trkAgeClass] trackTable trks10 [table:populationAgeClasses]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [widget:Culled layer] trackSeries trks28 [dataTracker:trkCulledLayer]
@@ -539,10 +539,10 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 	rank = java.lang.Integer(0)
 [widget:space] trackSpace trks4 [space:landscape]
 [widget:ratioWriter] trackSeries trks44 [dataTracker:trkSegregationRatio]
-[dataTracker:trkPredispersalLayer] trackComponent trks29 [system:sys1]
+[dataTracker:trkPredispersalLayer] sampleArena trks29 [system:sys1]
 [dataTracker:trkPredispersalLayer] trackTable trks30 [table:preDispersalLayer]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:99|0:99]"))
-[dataTracker:trkPopulation] trackComponent trks5 [system:sys1]
+[dataTracker:trkPopulation] sampleArena trks5 [system:sys1]
 [dataTracker:trkPopulation] trackField trks6 [field:population]
 [category:animalCat] decorators decs2 [record:animalDecs]
 [category:animalCat] constants cnsts2 [record:animalCnts]
@@ -608,7 +608,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 [process:p3A] dependsOn depsOn1 [process:p3]
 [widget:PreDispersal layer] trackSeries trks31 [dataTracker:trkPredispersalLayer]
 [dataTracker:trkFractionPregnant] trackField trks33 [field:fractionPregnant]
-[dataTracker:trkFractionPregnant] trackComponent trks32 [system:sys1]
+[dataTracker:trkFractionPregnant] sampleArena trks32 [system:sys1]
 [widget:Fraction culled] trackSeries trks26 [dataTracker:trkFractionCulled]
 [widget:Preculling layer] trackSeries trks27 [dataTracker:trkPreCullLayer]
 [table:culledLayer] sizedBy y1 [dimensioner:ydim]

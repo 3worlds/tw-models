@@ -3,7 +3,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
-3worlds TestDataLoading2
+3worlds TestDataLoading
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(gignoux (22 déc. 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
@@ -280,20 +280,26 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 					componentType compTyp4
 				groupType grpTyp2
 					initialValues eoffspring
+						nInstances = Integer(1)
 						idLifeCycle = java.lang.String(elephant)
 					initialValues roffspring
+						nInstances = Integer(1)
 						idLifeCycle = java.lang.String(rat)
 					componentType compTyp5
 				groupType grpTyp3
 					componentType compTyp6
 						initialValues initVals3
+							nInstances = Integer(0)
 							idGroup = java.lang.String(ryoung)
 					componentType compTyp7
 						initialValues initVals2
+							nInstances = Integer(0)
 							idGroup = java.lang.String(eyoung)
 					initialValues eyoung
+						nInstances = Integer(1)
 						idLifeCycle = java.lang.String(elephant)
 					initialValues ryoung
+						nInstances = Integer(1)
 						idLifeCycle = java.lang.String(rat)
 				recruit recruit2
 				recruit recruit1

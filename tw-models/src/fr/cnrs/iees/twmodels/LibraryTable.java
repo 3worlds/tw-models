@@ -86,6 +86,7 @@ public enum LibraryTable {
 	Test9("9 Landscape B", "LMB", "Ockham2.utg", LibraryType.Test,"Ockham1.zip"), //
 	Test10("10 Landscape C", "LMC", "Ockham3.utg", LibraryType.Test,"Ockham1.zip"), //
 	Test11("11 Landscape D", "LMD", "Ockham4.utg", LibraryType.Test,"Ockham2.zip"), //
+	Test12("12 Data loading from files", "TestDataLoading", "TestDataLoading.utg", LibraryType.Test,"TestDataLoading.zip"), //
 ;
 
 	private final String displayName;

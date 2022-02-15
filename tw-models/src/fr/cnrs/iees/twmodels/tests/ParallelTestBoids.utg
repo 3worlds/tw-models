@@ -201,7 +201,7 @@ treegraph // saved by OmugiGraphExporter on Tue Mar 30 07:02:28 AEDT 2021
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.Init1)
 					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalCnt.speed = 3;","		focalCnt.range = 80;","		focalCnt.safetyRange = 20;","		focalDrv.heading = random.nextDouble()*360;","		focalDrv.xx = random.nextDouble()*1000;","		focalDrv.yy = random.nextDouble()*1000;"))
-				component cmp1
+				initialValues cmp1
 					nInstances = java.lang.Integer(40)
 			space space1
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
