@@ -246,18 +246,14 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 		headless hl
 			widget pregWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget popWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget progress
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
 			widget ratioWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget occWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 		tab dashboard
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)

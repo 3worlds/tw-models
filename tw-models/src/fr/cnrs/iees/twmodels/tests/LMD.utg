@@ -485,21 +485,16 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 	userInterface gui
 		headless hl
 			widget HtHsWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget occWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget fstWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget progress
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
 			widget ratioWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 			widget popWriter
-				nLines = java.lang.Integer(50)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
 		top top
 			widget ctrl
