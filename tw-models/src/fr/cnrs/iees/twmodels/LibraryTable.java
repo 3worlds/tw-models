@@ -73,7 +73,6 @@ public enum LibraryTable {
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
 	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
-	Model3("3 GDDM", "GDDM1", "CDU_GDDMdev.utg", LibraryType.Model, "CDU_GDDM.zip"), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
@@ -82,10 +81,10 @@ public enum LibraryTable {
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
 	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test8("8 Landscape A", "LMA", "Ockham1.utg", LibraryType.Test,"Ockham1.zip"), //
-	Test9("9 Landscape B", "LMB", "Ockham2.utg", LibraryType.Test,"Ockham1.zip"), //
-	Test10("10 Landscape C", "LMC", "Ockham3.utg", LibraryType.Test,"Ockham1.zip"), //
-	Test11("11 Landscape D", "LMD", "Ockham4.utg", LibraryType.Test,"Ockham2.zip"), //
+	Test8("8 Landscape A", "LMA", "LMA.utg", LibraryType.Test,"LM1.zip"), //
+	Test9("9 Landscape B", "LMB", "LMB.utg", LibraryType.Test,"LM1.zip"), //
+	Test10("10 Landscape C", "LMC", "LMC.utg", LibraryType.Test,"LM1.zip"), //
+	Test11("11 Landscape D", "LMD", "LMD.utg", LibraryType.Test,"LM2.zip"), //
 	Test12("12 Data loading from files", "TestDataLoading", "TestDataLoading.utg", LibraryType.Test,"TestDataLoading.zip"), //
 ;
 
