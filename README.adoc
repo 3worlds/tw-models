@@ -1,0 +1,7 @@
+= The TW-MODELS library
+
+*tw-models* is a library of models designed with 3Worlds, including test and tutorial models.
+
+See the link:https://3worlds.github.io/tw-models/tw-models/javadoc/index.html[javadoc]
+
+Depends on: https://github.com/3worlds/omugi[omugi]
