@@ -5,12 +5,12 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 // TREE
 3worlds Flock
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
-	built-by = java.lang.String(gignoux (8 avr. 2021))
+	built-by = java.lang.String(gignoux (22 mars 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String(Tutorial: Testing flocking behaviour of mobile components)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Boids"))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -169,24 +169,24 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(SECOND)
 					process p2b
 						function PrepareMove
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		focalDec.sumX += other_x;","		focalDec.sumY += other_y;","		focalDec.sumdX += other_dX;","		focalDec.sumdY += other_dY;","		focalDec.nLocal++;","		// rule 2: avoid collisions","		if (squaredEuclidianDistance(x,y,other_x,other_y)<safetyRange*safetyRange) {","			focalDec.avoidX -= (other_x-x);","			focalDec.avoidY -= (other_y-y);","		}","		focalDrv.x = x;","		focalDrv.y = y;","		otherDrv.x = other_x;","		otherDrv.y = other_y;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.PrepareMove)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([14]"		focalDec.sumX += other_x;","		focalDec.sumY += other_y;","		focalDec.sumdX += other_dX;","		focalDec.sumdY += other_dY;","		focalDec.nLocal++;","		// rule 2: avoid collisions","		if (squaredEuclidianDistance(x,y,other_x,other_y)<safetyRange*safetyRange) {","			focalDec.avoidX -= (other_x-x);","			focalDec.avoidY -= (other_y-y);","		}","		focalDrv.x = x;","		focalDrv.y = y;","		otherDrv.x = other_x;","		otherDrv.y = other_y;"))
 					process p3
 						function Move
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([29]"		double incR = 0.0;","		double incT = 0.0;","		// default movement based on inertia, ie in the same direction as before + some random tilt","		incR = speed;","		incT = (random.nextDouble()*PI/4 - PI/8)/(speed);","		double radHeading = heading*PI/180+incT;","		double moveX = incR*cos(radHeading);","		double moveY = incR*sin(radHeading);","		// if there are visible birds, add corrections:","		if (nLocal>0) {","			// rule 1: cohesion - flying towards the barycentre of the local group","			// move 1% towards the centre","			moveX += (sumX/nLocal-x)/10.0;","			moveY += (sumY/nLocal-y)/10.0;","			// rule 2: separation - avoid collision with other boids","			moveX += focalDec.avoidX/nLocal;","			moveY += focalDec.avoidY/nLocal;","			// rule 3: match movement to others","			moveX += (sumdX/nLocal-dX);","			moveY += (sumdY/nLocal-dY);","		}","		// new location","		focalDrv.x = x+moveX;","		focalDrv.y = y+moveY;","		focalDrv.dX = moveX;","		focalDrv.dY = moveY;","		focalDrv.heading = acos(moveX/euclidianDistance(0.0,0.0,moveX,moveY))*180/PI;","		if (moveY<0.0)","			focalDrv.heading = -focalDrv.heading;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Move)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([29]"		double incR = 0.0;","		double incT = 0.0;","		// default movement based on inertia, ie in the same direction as before + some random tilt","		incR = speed;","		incT = (random.nextDouble()*PI/4 - PI/8)/(speed);","		double radHeading = heading*PI/180+incT;","		double moveX = incR*cos(radHeading);","		double moveY = incR*sin(radHeading);","		// if there are visible birds, add corrections:","		if (nLocal>0) {","			// rule 1: cohesion - flying towards the barycentre of the local group","			// move 1% towards the centre","			moveX += (sumX/nLocal-x)/10;","			moveY += (sumY/nLocal-y)/10;","			// rule 2: separation - avoid collision with other boids","			moveX += focalDec.avoidX/nLocal;","			moveY += focalDec.avoidY/nLocal;","			// rule 3: match movement to others","			moveX += (sumdX/nLocal-dX);","			moveY += (sumdY/nLocal-dY);","		}","		// new location","		focalDrv.x = x+moveX;","		focalDrv.y = y+moveY;","		focalDrv.dX = moveX;","		focalDrv.dY = moveY;","		focalDrv.heading = acos(moveX/euclidianDistance(0.0,0.0,moveX,moveY))*180/PI;","		if (moveY<0.0)","			focalDrv.heading = -focalDrv.heading;"))
 					process p2
 						function Follow
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([17]"		double sqd = squaredEuclidianDistance(x,y,other_x,other_y);","		if (sqd==0.0)","			return true;","		if (sqd<range*range) { // points within range","			double rOther = sqrt(sqd);","			double tetaOther = acos((other_x-x)/rOther)*180/PI;","			if (other_y-y<0)","				tetaOther = -tetaOther;","			// points within hemisphere determined by heading","			double maxFieldTeta = heading + visualFieldAngle/2;","			double minFieldTeta = heading - visualFieldAngle/2;","// uncomment these lines for the model to work properly			","//			maxFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(maxFieldTeta);","//			minFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(minFieldTeta);","			return (tetaOther<maxFieldTeta)||(tetaOther>minFieldTeta);","			}","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(MaintainRelationDecision)
 							userClassName = java.lang.String(code.sys1.generated.Follow)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([17]"		double sqd = squaredEuclidianDistance(x,y,other_x,other_y);","		if (sqd==0.0)","			return true;","		if (sqd<range*range) { // points within range","			double rOther = sqrt(sqd);","			double tetaOther = acos((other_x-x)/rOther)*180/PI;","			if (other_y-y<0)","				tetaOther = -tetaOther;","			// points within hemisphere determined by heading","			double maxFieldTeta = heading + visualFieldAngle/2;","			double minFieldTeta = heading - visualFieldAngle/2;","// uncomment these lines for the model to work properly			","//			maxFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(maxFieldTeta);","//			minFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(minFieldTeta);","			return (tetaOther<maxFieldTeta)||(tetaOther>minFieldTeta);","			}","		return false;"))
 					process p1
 						function Detect
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([18]"		System.out.println(sumX);","		double sqd = squaredEuclidianDistance(x,y,other_x,other_y);","		if (sqd==0.0)","			return true;","		if (sqd<range*range) { // points within range","			double rOther = sqrt(sqd);","			double tetaOther = acos((other_x-x)/rOther)*180/PI;","			if (other_y-y<0)","				tetaOther = -tetaOther;","			// points within hemisphere determined by heading","			double maxFieldTeta = heading + visualFieldAngle/2;","			double minFieldTeta = heading - visualFieldAngle/2;","// uncomment these lines for the model to work properly			","//			maxFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(maxFieldTeta);","//			minFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(minFieldTeta);","			return (tetaOther<maxFieldTeta)||(tetaOther>minFieldTeta);","			}","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.Detect)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([17]"		double sqd = squaredEuclidianDistance(x,y,other_x,other_y);","		if (sqd==0.0)","			return true;","		if (sqd<range*range) { // points within range","			double rOther = sqrt(sqd);","			double tetaOther = acos((other_x-x)/rOther)*180/PI;","			if (other_y-y<0)","				tetaOther = -tetaOther;","			// points within hemisphere determined by heading","			double maxFieldTeta = heading + visualFieldAngle/2;","			double minFieldTeta = heading - visualFieldAngle/2;","// uncomment these lines for the model to work properly			","//			maxFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(maxFieldTeta);","//			minFieldTeta = BoidUtils.normalizeAngleBetweenMinus180and180Degrees(minFieldTeta);","			return (tetaOther<maxFieldTeta)||(tetaOther>minFieldTeta);","			}","		return false;"))
 		structure struc1
 			fixedPoints = au.edu.anu.rscs.aot.collections.tables.DoubleTable(([1]0.0))
 			componentType bird
@@ -197,9 +197,9 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				mobile = java.lang.Boolean(false)
 				relocateFunctionName = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 				initFunction Init1
+					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalCnt.speed = 6.0;","		focalCnt.range = 80;","		focalCnt.safetyRange = 20;","		focalCnt.visualFieldAngle = 270;","		focalDrv.heading = random.nextDouble()*360-180;","		focalDrv.x = random.nextDouble()*1000;","		focalDrv.y = random.nextDouble()*1000;"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.Init1)
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		focalCnt.speed = 6;","		focalCnt.range = 80;","		focalCnt.safetyRange = 20;","		focalCnt.visualFieldAngle = 270;","		focalDrv.heading = random.nextDouble()*360-180;","		focalDrv.x = random.nextDouble()*1000;","		focalDrv.y = random.nextDouble()*1000;"))
 				initialValues cmp1
 					nInstances = java.lang.Integer(40)
 			space space1
