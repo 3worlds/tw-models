@@ -5,12 +5,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 // TREE
 3worlds Ockham1
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	built-by = java.lang.String(ian (5 Mar 2022))
+	built-by = java.lang.String(ian (23 Mar 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"java.util.List","static code.utilities.Utilities1.*","fr.ens.biologie.generic.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Single sex, non-overlapping generations.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	version = java.lang.String(0.0.6)
+	version = java.lang.String(0.0.7)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -194,7 +194,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 							userClassName = java.lang.String(code.sys1.generated.AniSetPreCullingLayer)
 					process p4
 						function AniDispersal
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([40]"		// non-overlapping generations so must be immature","		int nTrials = 1;","		if (isDispersalInformed)","			nTrials = 3;","		double meanDispersalDistance = 1000.0;","		if (isDispersalShort)","			meanDispersalDistance = 100.0;","		List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","		int w = habitatLayer.size(0);","		int h = habitatLayer.size(1);","		for (int i = 0; i < nTrials; i++) {","			double distance = -(meanDispersalDistance) * Math.log(1 - random.nextDouble());","			double direction = random.nextDouble() * (2 * Math.PI);","			double tx = xLocation + distance * Math.cos(direction);","			double ty = yLocation + distance * Math.sin(direction);","			int ix = gridLocation(tx, w, habitatCellSize);","			int iy = gridLocation(ty, h, habitatCellSize);","			// use scaled random number to shuffle results and avoid bias.","			double attraction = random.nextDouble() * (k1 - k2);","			if (habitatLayer.getByInt(ix, iy))","				attraction += k1;","			else","				attraction += k2;","","			// Non-overlapping generations, therefore no pre-existing population to consider","			// in seeking a location","			sites.add(new Tuple<Double, Double, Double>(tx, ty, attraction));","		}","","		sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","","			@Override","			public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","				return o1.getThird().compareTo(o2.getThird());","			}","		});","		Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","		focalDrv.xLocation = location.getFirst();","		focalDrv.yLocation = location.getSecond();",""))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([32]"		// non-overlapping generations so must be immature","		int nTrials = 1;","		if (isDispersalInformed)","			nTrials = 3;","		double meanDispersalDistance = 1000.0;","		if (isDispersalShort)","			meanDispersalDistance = 100.0;","		List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","		int w = habitatLayer.size(0);","		int h = habitatLayer.size(1);","		for (int i = 0; i < nTrials; i++) {","			double distance = -(meanDispersalDistance) * Math.log(1 - random.nextDouble());","			double direction = random.nextDouble() * (2 * Math.PI);","			double tx = xLocation + distance * Math.cos(direction);","			double ty = yLocation + distance * Math.sin(direction);","			int ix = gridLocation(tx, w, habitatCellSize);","			int iy = gridLocation(ty, h, habitatCellSize);","			double attraction = random.nextDouble();","			// bias habitat [true]","			if (habitatLayer.getByInt(ix, iy))","				attraction += 1;","			sites.add(new Tuple<Double, Double, Double>(tx, ty, attraction));","		}","		sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","			@Override","			public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","				return o1.getThird().compareTo(o2.getThird());","			}","		});","		Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","		focalDrv.xLocation = location.getFirst();","		focalDrv.yLocation = location.getSecond();"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniDispersal)
 					process p3
@@ -402,9 +402,9 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 	rank = java.lang.Integer(0)
 [widget:space] trackSpace trks4 [space:landscape]
 [widget:ratioWriter] trackSeries trks31 [dataTracker:trkSegregationRatio]
-[category:animalCat] drivers drvs1 [record:animalDrv]
 [dataTracker:trkPopulation] trackField trks6 [field:population]
 [dataTracker:trkPopulation] sampleArena trks5 [system:sys1]
+[category:animalCat] drivers drvs1 [record:animalDrv]
 [treatment:trt] treats dm [field:isDispersalInformed]
 	rank = java.lang.Integer(2)
 	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Uninformed","Informed"))
@@ -451,8 +451,8 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 [process:p7] dependsOn depsOn5 [process:p6]
 [process:p8] appliesTo aplyTo8 [category:*arena*]
 [process:p8] dependsOn depsOn6 [process:p7]
-[widget:occWriter] trackSeries trks30 [dataTracker:trkOccupancy]
 [category:*assemblage*] autoVar auto [record:AVPopulation]
+[widget:occWriter] trackSeries trks30 [dataTracker:trkOccupancy]
 [widget:Fraction culled] trackSeries trks21 [dataTracker:trkFractionCulled]
 [table:culledLayer] sizedBy x4 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
