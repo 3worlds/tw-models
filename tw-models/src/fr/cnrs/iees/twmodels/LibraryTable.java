@@ -35,6 +35,7 @@ import fr.cnrs.iees.twmodels.tests.*;
 import fr.cnrs.iees.twmodels.tutorials.*;
 
 import java.io.InputStream;
+import java.util.function.BooleanSupplier;
 
 import fr.cnrs.iees.graph.impl.ALEdge;
 import fr.cnrs.iees.graph.impl.TreeGraph;
@@ -66,7 +67,7 @@ public enum LibraryTable {
 	Tut5("5 Event timer 2","PulseS1","EventDrivenIBMSpatial.utg",LibraryType.Tutorial,null), //
 	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
 	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
-	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
+	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,"Boids.zip"), //
 	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
 	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
 	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
@@ -76,7 +77,7 @@ public enum LibraryTable {
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
-	Test3("3 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
+//	Test3("3 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
 	Test4("4 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
@@ -115,29 +116,27 @@ public enum LibraryTable {
 		return libraryType;
 	}
 
+	private Class<?> getAssociatedClass(){
+		switch (libraryType) {
+		case Template: {
+			return TemplatesDummy.class;
+		}
+		case Tutorial: {
+			return TutorialsDummy.class;
+		}
+		case Model: {
+			return ModelsDummy.class;
+		}
+		default: {
+			return TestsDummy.class;
+		}
+		}
+	
+	}
 	public InputStream dependencyArchive() {
 		if (dependencyArchive == null)
 			return null;
-		Class<?> associatedClass;
-		switch (libraryType) {
-		case Template: {
-			associatedClass = TemplatesDummy.class;
-			break;
-		}
-		case Tutorial: {
-			associatedClass = TutorialsDummy.class;
-			break;
-		}
-		case Model: {
-			associatedClass = ModelsDummy.class;
-			break;
-		}
-		default: {
-			associatedClass = TestsDummy.class;
-			break;
-		}
-
-		}
+		Class<?> associatedClass = getAssociatedClass();
 		return  associatedClass.getResourceAsStream(dependencyArchive);
 	}
 
@@ -157,6 +156,20 @@ public enum LibraryTable {
 			return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, TestsDummy.class);
 		}
 		}
+	}
+
+	boolean configExists() {
+		Class<?> associatedClass = getAssociatedClass();
+		return associatedClass.getResourceAsStream(fileName)!=null;
+	}
+
+	boolean dependencyExists() {
+		if (dependencyArchive == null)
+			return true;
+		else if (!dependencyArchive.endsWith(".zip"))
+			return false;
+		else
+			return dependencyArchive()!=null;
 	}
 
 }
