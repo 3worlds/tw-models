@@ -66,7 +66,7 @@ public enum LibraryTable {
 	Tut5("5 Event timer 2","PulseS1","EventDrivenIBMSpatial.utg",LibraryType.Tutorial,null), //
 	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
 	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
-	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,null), //
+	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,"boids.zip"), //
 	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
 	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
 	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
