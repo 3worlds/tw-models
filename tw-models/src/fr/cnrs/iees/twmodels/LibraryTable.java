@@ -35,8 +35,6 @@ import fr.cnrs.iees.twmodels.tests.*;
 import fr.cnrs.iees.twmodels.tutorials.*;
 
 import java.io.InputStream;
-import java.util.function.BooleanSupplier;
-
 import fr.cnrs.iees.graph.impl.ALEdge;
 import fr.cnrs.iees.graph.impl.TreeGraph;
 import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
@@ -73,7 +71,8 @@ public enum LibraryTable {
 	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
 	//
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
-	Model2("2 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
+	Model2("2 Rabbit Rules", "RabbitRules", "RabbitRules.utg", LibraryType.Model,null), //
+	Model3("3 Resproutch", "Resproutch1", "Resproutch.utg", LibraryType.Model,"Resproutch.zip"), //
 	//
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
