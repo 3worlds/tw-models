@@ -30,17 +30,17 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				units = java.lang.String()
 		record AVPopulation
 			field count
-				description = java.lang.String(the number of ephemeral entities)				
+				description = java.lang.String(the number of ephemeral entities)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
-				description = java.lang.String(the number of an ephemeral entities removed)				
+				description = java.lang.String(the number of an ephemeral entities removed)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
-				description = java.lang.String(the number of an ephemeral entities added)				
+				description = java.lang.String(the number of an ephemeral entities added)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -67,7 +67,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 		record adDrv
 			generatedClassName = java.lang.String(adDrv)
 			field dead
-				description = java.lang.String()				
+				description = java.lang.String()
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
@@ -87,7 +87,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field nleaves
-				description = java.lang.String()				
+				description = java.lang.String()
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
@@ -95,25 +95,25 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(palmDec)
 			field neighbourhoodIndexAdults
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field neighbourhoodIndexJuveniles
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field neighbourhoodIndexMounds
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field neighbourhoodIndexTrees
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -221,7 +221,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jb1
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -239,19 +239,19 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field ja1
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jpdh0
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jpdhMound
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -263,19 +263,19 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jpdh1
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jpdhAdult
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field jpdhSNLeaves
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -308,7 +308,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(adjuvdeco)
 			field canopyRadius
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -352,7 +352,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field decay
-				description = java.lang.String()				
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -504,7 +504,6 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 			space plot
 				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
 				guardAreaWidth = java.lang.Double(0.0)
-				observationWindow = fr.cnrs.iees.uit.space.Box([[0.0,0.0],[0.0,0.0]])
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
@@ -553,7 +552,8 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 				constantClass = java.lang.String()
 				decoratorClass = java.lang.String()
 				driverClass = java.lang.String()
-				lifeCycle Borassus aethiopum
+				initialValues Borassus aethiopum
+					nInstances = java.lang.Integer(1)
 				recruit recruitmentSJ
 				recruit recruitmentJA
 				produce reproduction
@@ -568,17 +568,20 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						decoratorClass = java.lang.String(code.sys1.generated.PalmDec)
 						driverClass = java.lang.String(code.sys1.generated.Sdldrv)
 						mobile = java.lang.Boolean(false)
-					group sdBOR
+					initialValues sdBOR
+						idLifeCycle = java.lang.String(Borassus aethiopum)
+						nInstances = java.lang.Integer(1)
 				groupType palmAd
 					constantClass = java.lang.String(code.sys1.generated.AdultGrpPar)
 					initFunction InitAdultParameters
 						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([13]"		focalCnt.aPdead = 1.21;","		focalCnt.deadNbLeaves = -0.74;","		focalCnt.remanence = 10.0;","		if (focalCnt.remanence>0.0)","			focalCnt.decay = exp(log(0.01)/focalCnt.remanence);","		else","			focalCnt.decay = 0.0;","		focalCnt.fec = 4;","		focalCnt.dis = 0.011;","		focalCnt.jPdNNeg = 0.15;","		focalCnt.aGinc = 0.2;","		focalCnt.slrec0 = 0.01;","		focalCnt.slrec1 = 0.01;"))
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitAdultParameters)
-					group adBOR
-						initialValues initCnts2
-							dist = java.lang.Double(5.2)
-							fec = java.lang.Double(0.8)
+					initialValues adBOR
+						dist = java.lang.Double(5.2)
+						fec = java.lang.Double(0.8)
+						idLifeCycle = java.lang.String(Borassus aethiopum)
+						nInstances = java.lang.Integer(1)
 					componentType palmTree
 						constantClass = java.lang.String(code.sys1.generated.LocationRec_palmcst_constants)
 						decoratorClass = java.lang.String(code.sys1.generated.PalmDec)
@@ -588,7 +591,8 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		focalCnt.sex = random.nextBoolean();","		// TODO: missing space limits !!!","		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;","		focalDrv.nleaves = 15;","		focalDrv.budHt = 10.0;","		focalDrv.dead = 0;","		focalDrv.nELSeedlings = random.nextDouble()*20;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 							userClassName = java.lang.String(code.sys1.generated.InitAdult)
-						component adBORinit
+						initialValues adBORinit
+							idGroup = java.lang.String(adBOR)
 							nInstances = java.lang.Integer(20)
 				groupType palmJuv
 					constantClass = java.lang.String(code.sys1.generated.JuvGrpPar)
@@ -597,38 +601,40 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 						decoratorClass = java.lang.String(code.sys1.generated.Adjuvdeco_palmDec_decorators)
 						driverClass = java.lang.String(code.sys1.generated.Adjuvdrv)
 						mobile = java.lang.Boolean(false)
-					group juvBOR
-						initialValues initCnts1
-							aj0PdN0 = java.lang.Double(-4.0)
-							aj0PdN1 = java.lang.Double(-1.0)
-							aj0PdNneg = java.lang.Double(-8.0)
-							aj1PdN0 = java.lang.Double(3.0)
-							aj1PdN1 = java.lang.Double(4.0)
-							aj1PdNneg = java.lang.Double(1.4)
-							ajPR = java.lang.Double(6.0)
-							j0BudHt = java.lang.Double(-0.06)
-							j0Mound = java.lang.Double(-1349.0)
-							j0NLeaves = java.lang.Double(2.7)
-							j1Adult = java.lang.Double(-98.0)
-							j1BudHt = java.lang.Double(0.0)
-							j1Juvenile = java.lang.Double(30.0)
-							j1Tree = java.lang.Double(-500.0)
-							jDeathRate = java.lang.Double(0.002)
-							jTol = java.lang.Double(3.5)
-							ja1 = java.lang.Double(-5.516)
-							jb1 = java.lang.Double(2.68)
-							jpdh0 = java.lang.Double(3.5)
-							jpdh1 = java.lang.Double(5.4)
-							jpdhAdult = java.lang.Double(122.0)
-							jpdhMound = java.lang.Double(-1764.0)
-							jpdhSNLeaves = java.lang.Double(-0.049)
+					initialValues juvBOR
+						aj0PdN0 = java.lang.Double(-4.0)
+						aj0PdN1 = java.lang.Double(-1.0)
+						aj0PdNneg = java.lang.Double(-8.0)
+						aj1PdN0 = java.lang.Double(3.0)
+						aj1PdN1 = java.lang.Double(4.0)
+						aj1PdNneg = java.lang.Double(1.4)
+						ajPR = java.lang.Double(6.0)
+						idLifeCycle = java.lang.String(Borassus aethiopum)
+						j0BudHt = java.lang.Double(-0.06)
+						j0Mound = java.lang.Double(-1349.0)
+						j0NLeaves = java.lang.Double(2.7)
+						j1Adult = java.lang.Double(-98.0)
+						j1BudHt = java.lang.Double(0.0)
+						j1Juvenile = java.lang.Double(30.0)
+						j1Tree = java.lang.Double(-500.0)
+						jDeathRate = java.lang.Double(0.002)
+						jTol = java.lang.Double(3.5)
+						ja1 = java.lang.Double(-5.516)
+						jb1 = java.lang.Double(2.68)
+						jpdh0 = java.lang.Double(3.5)
+						jpdh1 = java.lang.Double(5.4)
+						jpdhAdult = java.lang.Double(122.0)
+						jpdhMound = java.lang.Double(-1764.0)
+						jpdhSNLeaves = java.lang.Double(-0.049)
+						nInstances = java.lang.Integer(1)
 			relationType neighbourhoodA
 				directional = java.lang.Boolean(false)
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 			groupType moundGrp
 				componentType mound
 					constantClass = java.lang.String(code.sys1.generated.LocationRec)
-					component moundInit
+					initialValues moundInit
+						idGroup = java.lang.String(Odontotermes)
 						nInstances = java.lang.Integer(8)
 					initFunction InitMound
 						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*300;","		focalCnt.y = random.nextDouble()*300;"))
@@ -673,21 +679,19 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 [category:palm] constants cnsts1 [record:palmcst]
 [category:palm] decorators decs2 [record:palmDec]
 [category:seedlingPar] constants cnsts4 [record:seedlingGrpPar]
-[dataTracker:trk1] trackComponent trks4 [group:adBOR]
+[dataTracker:trk1] sampleGroup trks4 [groupType:palmJuv]
+	idGroup = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"juvBOR"))
 [dataTracker:trk1] trackField trks5 [field:count]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [widget:plot map] trackSpace trks1 [space:plot]
 [process:pAdComp] appliesTo aplyTo21 [relationType:neighbourhoodA]
 [process:pAdComp] inSpace in7 [space:plot]
 	searchRadius = java.lang.Double(15.0)
-[group:adBOR] cycle cycl1 [lifeCycle:Borassus aethiopum]
 [relationType:*returnsTo*] toCategory to9 [category:*component*]
 [relationType:*returnsTo*] fromCategory frm2 [category:*component*]
 [system:sys1] belongsTo bt7 [category:*permanent*]
 [system:sys1] belongsTo bt6 [category:*arena*]
 [system:sys1] belongsTo bt8 [category:*assemblage*]
-[group:sdBOR] groupOf grpOf1 [componentType:palmSeedling]
-[group:sdBOR] cycle cycl2 [lifeCycle:Borassus aethiopum]
 [category:juvenile] decorators decs1 [record:adjuvdeco]
 [category:adult] drivers drvs2 [record:adDrv]
 [componentType:mound] belongsTo bt39 [category:termiteMound]
@@ -709,7 +713,6 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 [category:singleStemmed] drivers drvs1 [record:adjuvdrv]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to8 [category:*component*]
-[component:adBORinit] instanceOf instOf1 [group:adBOR]
 [category:located] constants cnsts5 [record:locationRec]
 [lifeCycleType:palmLC] belongsTo bt14 [category:*assemblage*]
 [lifeCycleType:palmLC] belongsTo bt10 [category:*permanent*]
@@ -755,8 +758,6 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 [process:getJuveniles] appliesTo aplyTo12 [relationType:neighbourhoodJ]
 [process:getJuveniles] inSpace in5 [space:plot]
 	searchRadius = java.lang.Double(15.0)
-[group:juvBOR] groupOf grpOf2 [componentType:palmJuvenile]
-[group:juvBOR] cycle cycl3 [lifeCycle:Borassus aethiopum]
 [process:getAdults] appliesTo aplyTo11 [relationType:neighbourhoodA]
 [process:getAdults] inSpace in4 [space:plot]
 	searchRadius = java.lang.Double(15.0)
