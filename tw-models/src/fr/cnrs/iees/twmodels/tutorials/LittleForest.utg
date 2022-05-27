@@ -17,25 +17,30 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			category *atomic*
 		record AVEphemeral
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
+				description = java.lang.String(the number of an ephemeral entities added)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)

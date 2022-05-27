@@ -17,25 +17,30 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 			category *atomic*
 		record AVEphemeral
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
+				description = java.lang.String(the number of an ephemeral entities added)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -57,10 +62,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbDec)
 			field population1
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field population2
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
@@ -70,11 +77,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table populationLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				description = java.lang.String(Total population in cells)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
 			field occupancy
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -85,6 +94,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
 			field segregationRatio
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -104,11 +114,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(animalDrv)
 			field yLocation
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field xLocation
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -122,6 +134,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbCnt)
 			field isDispersalShort
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field k2
 				description = java.lang.String(carrying capacity if habitat is false)
@@ -148,6 +161,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 				description = java.lang.String(true if habitat is fragmented)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field isHabitatDynamic
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field r1
 				description = java.lang.String(reproductive rate if habitat is true)

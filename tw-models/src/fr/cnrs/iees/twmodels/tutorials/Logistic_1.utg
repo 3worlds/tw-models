@@ -29,11 +29,13 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:04:06 AEST 2020
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(creation time of an ephemeral entity)
 			field age
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 		relationType *returnsTo*
 			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 		record AVPopulation
@@ -41,14 +43,17 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:04:06 AEST 2020
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of ephemeral entities)				
 			field nRemoved
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities removed)				
 			field nAdded
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities added)				
 		categorySet *systemElements*
 			category *life cycle*
 			category *group*

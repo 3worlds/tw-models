@@ -17,25 +17,30 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 			category *atomic*
 		record AVEphemeral
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
+				description = java.lang.String(the number of an ephemeral entities added)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -101,6 +106,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(g)
 			field stage
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Char)
 			field bmS
 				description = java.lang.String(stem biomass)
@@ -124,8 +130,10 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(fireDrv)
 			field fuelPresent
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			table temperatureProfile
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
@@ -134,6 +142,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(climate)
 			field growingSeason
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 		record treePar
 			dynamic = java.lang.Boolean(false)
@@ -232,6 +241,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			table ignitionProba
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,1.0])
 				precision = java.lang.Double(0.01)

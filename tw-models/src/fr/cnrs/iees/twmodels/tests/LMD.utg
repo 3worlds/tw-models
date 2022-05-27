@@ -14,14 +14,17 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 	predefined *categories*
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
+				description = java.lang.String(the number of an ephemeral entities added)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -41,11 +44,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			category *arena*
 		record AVEphemeral
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -376,6 +381,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			field nMates
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
@@ -385,16 +391,19 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbCnt)
 			field r2
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field k1
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field k2
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -402,41 +411,51 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			field isHabitatFragmented
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field r1
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field isDispersalShort
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field rateMutation
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field ageMature
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field isDispersalInformed
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field maxMates
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field d1
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field isHabitatDynamic
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field ageSenescent
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field d2
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -445,6 +464,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(glbDrv)
 			table habitatLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 		dimensioner polyandrousLimit
@@ -455,14 +475,17 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(animalCnts)
 			field mDNA
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..99)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table alleles
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..9)
 				units = java.lang.String()
 			field isFemale
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 		dimensioner ploidy
 			size = java.lang.Integer(2)
@@ -470,90 +493,110 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(glbDec)
 			field occupancy
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field Fst
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			table metaPopAlleleSums
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			table alleleSumTable
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
 			table mfa
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			table populationLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			table demeLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			field HsBar
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field Ht
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field nFemales
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field fractionCulled
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field nFemalesPregnant
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field segregationRatio
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			table preCullLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			field nFemalesEligible
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field fractionPregnant
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			table mDNAMostFrequent
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			table heterozygosity
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table populationAgeClasses
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			table culledLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
@@ -562,22 +605,27 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				units = java.lang.String()
 			field population1
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table preDispersalLayer
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				units = java.lang.String()
 			field population2
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field nMales
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field population
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
@@ -591,20 +639,25 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(animalDrv)
 			field ageInYears
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field xLocation
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field isMature
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field isNewBorn
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field yLocation
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)

@@ -21,24 +21,29 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(creation time of an ephemeral entity)
 			field age
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 		record AVPopulation
 			field count
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
+				description = java.lang.String(the number of ephemeral entities)				
 				units = java.lang.String(#)
 			field nRemoved
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities removed)				
 			field nAdded
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities added)				
 		categorySet *systemElements*
 			category *life cycle*
 			category *group*
@@ -65,6 +70,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field sepY
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -75,6 +81,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field sepX
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -113,6 +120,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field maxForce
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -124,6 +132,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m/s)
 			field visualFieldAngle
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,360.0])
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -150,11 +159,13 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m/s)
 			field ay
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field ax
+				description = java.lang.String()
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)

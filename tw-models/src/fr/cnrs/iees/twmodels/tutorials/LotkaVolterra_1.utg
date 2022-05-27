@@ -3,32 +3,6 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 
-// CODE snippet for method LotkaVolterra.init(...)
-//		// initialise with random parameters
-//		for (int i=0; i<r.size(0); i++) {
-//			focalCnt.r.setByInt(random.nextDouble()*2.0,i);
-//			focalCnt.K.setByInt(0.2+random.nextDouble(),i);
-//			for (int j=0; j<alpha.size(1); j++) {
-//				if (i==j)
-//					focalCnt.alpha.setByInt(1.0,i,j);
-//				else
-//					focalCnt.alpha.setByInt(random.nextDouble(),i,j);
-//			}
-// missing x init values
-//		}
-
-// CODE snippet for method LotkaVolterra.growth(...)
-//		double integrationStep = 0.01;
-//		double[] dxdt = new double[x.size(0)];
-//		for (int i=0; i<x.size(0); i++) {
-//			double sum = 0;
-//			for (int j=0; j<alpha.size(1); j++)
-//				sum += alpha.getByInt(i,j) * x.getByInt(j);
-//			dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1-sum/K.getByInt(i));
-//		}
-//		for (int i=0; i<dxdt.length; i++)
-//			focalDrv.x.setByInt(x.getByInt(i)+dxdt[i]*dt*integrationStep, i);
-
 // TREE
 3worlds LotkaVolterra
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
@@ -44,21 +18,25 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 			category *atomic*
 		record AVEphemeral
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -66,6 +44,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities added)				
 		relationType *returnsTo*
 			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 		categorySet *systemElements*

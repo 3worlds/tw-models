@@ -5,10 +5,10 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 // TREE
 3worlds RabbitRules
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"Gignoux, J."))
-	built-by = java.lang.String(gignoux (17 mai 2022))
+	built-by = java.lang.String(ian (26 May 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"java.util.HashSet","static java.lang.Math.*","static fr.cnrs.iees.uit.space.Distance.*","java.util.Set"))
-	precis = java.lang.String("“Rabbit Rules” is a fire spread model derived from very simple empirical rules that capture the behavioural complexity of the interactions between fire, fuels, terrain, and weather.")
+	precis = java.lang.String(“Rabbit Rules” is a fire spread model derived from very simple empirical rules that capture the behavioural complexity of the interactions between fire, fuels, terrain, and weather.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Achtemeier, G. L. (2003). “Rabbit Rules”–An Application of Stephen Wolfram’s “New Kind of Science” to Fire Spread Modeling. Fifth Symposium on Fire and Forest Meteorology, 16–20. https://ams.confex.com/ams/pdfpapers/65944.pdf","Achtemeier, G. L. (2013). Field validation of a free-agent cellular automata model of fire spread with fire—Atmosphere coupling. International Journal of Wildland Fire, 22(2), 148. https://doi.org/10.1071/WF11055"))
 	version = java.lang.String()
 	predefined *categories*
@@ -21,24 +21,30 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(creation time of an ephemeral entity)
 			field age
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 		record AVPopulation
 			field count
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of ephemeral entities)				
 			field nRemoved
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities removed)				
 			field nAdded
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
+				description = java.lang.String(the number of an ephemeral entities added)				
+
 		relationType *returnsTo*
 			lifespan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 		categorySet *systemElements*
@@ -177,7 +183,7 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 				record fuel
 					generatedClassName = java.lang.String(fuel)
 					field residentRabbitDieOutTime
-						description = java.lang.String(flame die off date)
+						description = java.lang.String(flame die-off date)
 						interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
 						precision = java.lang.Double(1.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)

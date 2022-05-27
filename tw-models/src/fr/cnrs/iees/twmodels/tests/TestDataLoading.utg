@@ -17,25 +17,30 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			category *atomic*
 		record AVEphemeral
 			field birthDate
+				description = java.lang.String(creation time of an ephemeral entity)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
+				description = java.lang.String(time since creation of an ephemeral entitiy)
 				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 		record AVPopulation
 			field count
+				description = java.lang.String(the number of ephemeral entities)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
+				description = java.lang.String(the number of an ephemeral entities removed)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
+				description = java.lang.String(the number of an ephemeral entities added)				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
@@ -59,13 +64,16 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(drvs)
 			field y
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Float)
 				units = java.lang.String()
 			field x
+				description = java.lang.String()				
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field z
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Short)
 				units = java.lang.String()
@@ -79,17 +87,21 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 				record rec1
 					generatedClassName = java.lang.String(rec1)
 					field rainfall
+						description = java.lang.String()				
 						range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 						units = java.lang.String()
 					field windspeed
+						description = java.lang.String()				
 						interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 						precision = java.lang.Double(0.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String()
 					field windDir
+						description = java.lang.String()				
 						type = fr.cnrs.iees.twcore.constants.DataElementType(String)
 			table temperature
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				interval = fr.ens.biologie.generic.utils.Interval([-273.0,+∞[)
 				precision = java.lang.Double(0.1)
@@ -98,10 +110,12 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(cnsts)
 			field k2
+				description = java.lang.String()				
 				range = au.edu.anu.rscs.aot.util.IntegerRange(MIN_INTEGER..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			field k1
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -110,11 +124,13 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			dynamic = java.lang.Boolean(false)
 			generatedClassName = java.lang.String(rec2)
 			field xx
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field yy
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
@@ -125,16 +141,19 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			dynamic = java.lang.Boolean(true)
 			generatedClassName = java.lang.String(rec3)
 			table turbidity
+				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			field level
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field depth
+				description = java.lang.String()				
 				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
