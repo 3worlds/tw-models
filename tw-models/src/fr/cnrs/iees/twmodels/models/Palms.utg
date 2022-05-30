@@ -593,6 +593,7 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 							userClassName = java.lang.String(code.sys1.generated.InitAdult)
 						initialValues adBORinit
 							idGroup = java.lang.String(adBOR)
+							idLifeCycle = java.lang.String(Borassus aethiopum)
 							nInstances = java.lang.Integer(20)
 				groupType palmJuv
 					constantClass = java.lang.String(code.sys1.generated.JuvGrpPar)
