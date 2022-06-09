@@ -409,6 +409,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field isHabitatFragmented
+				description = java.lang.String()
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field r1
 				description = java.lang.String()				
