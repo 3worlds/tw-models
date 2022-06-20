@@ -8,7 +8,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 	built-by = java.lang.String(ian (2 Apr. 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"jacques.gignoux@upmc.fr"))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
-	precis = java.lang.String(A simplistic individual based forest model to test the use of groups)
+	precis = java.lang.String(A simplistic individual based forest model to test the use of groups.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
 	predefined *categories*

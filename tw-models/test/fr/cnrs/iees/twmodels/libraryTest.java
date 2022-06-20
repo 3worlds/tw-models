@@ -4,9 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fr.cnrs.iees.graph.impl.ALEdge;
-import fr.cnrs.iees.graph.impl.TreeGraph;
-import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
 import fr.ens.biologie.generic.utils.NameUtils;
 
 class libraryTest {

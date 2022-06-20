@@ -8,9 +8,9 @@ treegraph // saved by OmugiGraphExporter on Wed Mar 17 13:50:40 CET 2021
 	built-by = java.lang.String(ian (12 July 2021))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
-	precis = java.lang.String()
+	precis = java.lang.String("Population dynamics of the palm tree Borassus aethiopum.")
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	version = java.lang.String()
+	version = java.lang.String(0.0.1)
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*

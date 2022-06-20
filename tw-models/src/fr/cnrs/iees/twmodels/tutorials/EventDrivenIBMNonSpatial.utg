@@ -8,7 +8,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 	built-by = java.lang.String(gignoux (11 févr. 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
-	precis = java.lang.String()
+	precis = java.lang.String(Tutorial on event-driven non-spatial system.)
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	dataDefinition dDef

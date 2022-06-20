@@ -8,7 +8,7 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 	built-by = java.lang.String(ian (25 Jan 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
-	precis = java.lang.String()
+	precis = java.lang.String("Tutorial on the 3Worlds random number system.")
 	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	predefined *categories*
