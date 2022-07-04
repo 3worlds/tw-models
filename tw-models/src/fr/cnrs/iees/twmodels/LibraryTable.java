@@ -45,12 +45,7 @@ import fr.cnrs.iees.graph.io.GraphImporter;
  * declaration order in this enum. Entries are grouped as either a Template,
  * Tutorial or Model with utg files placed in the appropriate package.
  * 
- * This whole system can be moved to TW-APPS.
- */
-/**
- * @author Ian Davies
- *
- * @date 11 Nov. 2020
+ * @author Ian Davies - 11 Nov. 2020
  * 
  */
 public enum LibraryTable {

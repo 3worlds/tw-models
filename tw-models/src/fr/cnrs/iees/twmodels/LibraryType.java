@@ -31,9 +31,7 @@
 package fr.cnrs.iees.twmodels;
 
 /**
- * @author Ian Davies
- *
- * @date 11 Nov. 2020
+ * @author Ian Davies - 11 Nov. 2020
  */
 public enum LibraryType {
 	Template,
