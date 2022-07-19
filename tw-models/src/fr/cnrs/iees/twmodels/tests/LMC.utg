@@ -213,13 +213,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:38:55 AEDT 2021
 			widget progress
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
 			widget ratioWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 			widget occWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 			widget pregWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 			widget popWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLExperimentWidget1)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 		tab debug
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont1
