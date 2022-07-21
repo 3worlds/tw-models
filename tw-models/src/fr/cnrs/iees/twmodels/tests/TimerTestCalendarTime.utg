@@ -135,10 +135,10 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 	userInterface gui
 		top top
 			widget time
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 
 // CROSS-LINKS

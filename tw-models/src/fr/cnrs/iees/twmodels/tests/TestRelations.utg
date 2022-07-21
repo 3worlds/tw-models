@@ -245,13 +245,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 16 15:48:43 CET 2020
 	userInterface gui
 		top top
 			widget wgt1
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				sender = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget map
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				sender = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 

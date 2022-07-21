@@ -36,12 +36,12 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget Number of items1
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 	experiment expt
 		design dsgn

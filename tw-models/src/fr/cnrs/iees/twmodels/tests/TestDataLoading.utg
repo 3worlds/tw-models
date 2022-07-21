@@ -322,7 +322,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 
 // CROSS-LINKS

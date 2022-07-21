@@ -64,20 +64,20 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 			container cont1
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget IDH
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.ScatterPlotWidget1)
 				widget diversity
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget population
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 	system sys1
 		dynamics sim1

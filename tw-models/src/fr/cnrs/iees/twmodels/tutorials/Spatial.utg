@@ -30,17 +30,17 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 	userInterface gui
 		top top
 			widget time
-				order = java.lang.Integer(1)
-				sender = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(1)
+				simId = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget playground
-				order = java.lang.Integer(0)
-				sender = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
+				simId = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 	experiment expt
 		design dsgn

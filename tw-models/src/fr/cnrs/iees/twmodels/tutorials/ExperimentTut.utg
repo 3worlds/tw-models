@@ -551,7 +551,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 			widget heterozygosityWriter
 				asAverage = java.lang.Boolean(false)
-				defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.39,0.89[)
+				zRange = fr.ens.biologie.generic.utils.Interval(]0.39,0.89[)
 				imageMagnify = java.lang.Integer(5)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(OrangeMauveBlue)
 				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
@@ -560,7 +560,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLControlWidget1)
 			widget popLayersWriter
 				asAverage = java.lang.Boolean(false)
-				defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
+				zRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
 				imageMagnify = java.lang.Integer(2)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(BrownYellowGreen)
 				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))

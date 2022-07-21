@@ -72,16 +72,16 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 	userInterface gui
 		top top
 			widget timer
-				order = java.lang.Integer(1)
-				sender = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(1)
+				simId = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget numbers
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.ArCnt)

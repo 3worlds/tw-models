@@ -407,21 +407,21 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont1
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget wgt2
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				widget wgt3
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TableWidget1)
 			widget wgt1
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 
 // CROSS-LINKS

@@ -261,18 +261,18 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 		tab output
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget wgt1
 				maxAxes = java.lang.Integer(2)
-				order = java.lang.Integer(4)
+				layoutOrder = java.lang.Integer(4)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget wgt2
-				defaultZRange = fr.ens.biologie.generic.utils.Interval([0.0,2.0])
+				zRange = fr.ens.biologie.generic.utils.Interval([0.0,2.0])
 				nViews = java.lang.Integer(2)
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 
 // CROSS-LINKS

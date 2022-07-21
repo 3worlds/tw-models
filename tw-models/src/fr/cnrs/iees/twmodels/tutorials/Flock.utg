@@ -233,7 +233,7 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				initialValues cmp1
 					nInstances = java.lang.Integer(250)
 			space space1
-				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				blayoutOrderType = fr.cnrs.iees.twcore.constants.BlayoutOrderListType(([4]"wrap","wrap","wrap","wrap"))
 				guardAreaWidth = java.lang.Double(0.0)
 				precision = java.lang.Double(1.0)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
@@ -251,17 +251,17 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 	userInterface gui
 		top top
 			widget timer
-				order = java.lang.Integer(1)
-				sender = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(1)
+				simId = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ProgressWidget1)
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab space
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget wgt1
-				order = java.lang.Integer(0)
-				sender = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
+				simId = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS

@@ -312,51 +312,51 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:33:18 AEDT 2021
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget2)
 		tab debug
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 			container cont4
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Fraction culled
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				widget Population
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			container cont1
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget Pre culling layer
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-					order = java.lang.Integer(1)
+					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				widget Culled layer
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-					order = java.lang.Integer(2)
+					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+					layoutOrder = java.lang.Integer(2)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		tab dashboard
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont6
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Habitat layer
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-					order = java.lang.Integer(2)
+					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+					layoutOrder = java.lang.Integer(2)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				widget Population layer
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
-					order = java.lang.Integer(0)
+					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 			container cont3
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Occupancy
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				widget space
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS

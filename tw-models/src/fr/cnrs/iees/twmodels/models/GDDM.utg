@@ -541,117 +541,117 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab Genetics
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont11
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget Deme layer
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,20.0[)
-					order = java.lang.Integer(1)
+					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,20.0[)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 			container cont12
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 				widget Most frequent maternal allele
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]-1.0,99.0[)
-					order = java.lang.Integer(1)
+					zRange = fr.ens.biologie.generic.utils.Interval(]-1.0,99.0[)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				widget Most frequent allele
-					defaultZRange = fr.ens.biologie.generic.utils.Interval(]-1.0,9.0[)
-					order = java.lang.Integer(0)
+					zRange = fr.ens.biologie.generic.utils.Interval(]-1.0,9.0[)
+					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		tab debug
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont1
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				container cont7
-					order = java.lang.Integer(2)
+					layoutOrder = java.lang.Integer(2)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 					widget Sex ratio
-						order = java.lang.Integer(2)
+						layoutOrder = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 					widget Total population
-						order = java.lang.Integer(1)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TableWidget1)
 				container cont8
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 					widget Fraction culled
-						order = java.lang.Integer(1)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 					widget Fraction pregnant
-						order = java.lang.Integer(2)
+						layoutOrder = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			container cont3
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				container cont6
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget age classes
-						order = java.lang.Integer(2)
+						layoutOrder = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				container cont2
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Preculling density
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-						order = java.lang.Integer(0)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						layoutOrder = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Culling density
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-						order = java.lang.Integer(1)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		tab dashboard
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			container cont10
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Pop
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 				container cont13
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 					widget Fst2
-						order = java.lang.Integer(2)
+						layoutOrder = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 					widget Ht Hs
-						order = java.lang.Integer(1)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			container cont9
-				order = java.lang.Integer(2)
+				layoutOrder = java.lang.Integer(2)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				container cont15
-					order = java.lang.Integer(0)
+					layoutOrder = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Heterozygosity layer
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-						order = java.lang.Integer(1)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Population density
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
-						order = java.lang.Integer(0)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
+						layoutOrder = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				container cont16
-					order = java.lang.Integer(1)
+					layoutOrder = java.lang.Integer(1)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Habitat pattern
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
-						order = java.lang.Integer(2)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+						layoutOrder = java.lang.Integer(2)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Allocation density
-						defaultZRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
-						order = java.lang.Integer(1)
+						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		tab map
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget space
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 
 // CROSS-LINKS

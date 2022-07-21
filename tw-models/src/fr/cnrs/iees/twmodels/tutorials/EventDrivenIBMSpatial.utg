@@ -149,7 +149,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 16:43:21 CET 2022
 					decoratorClass = java.lang.Object(null)
 					driverClass = java.lang.String(ItemCat_Drv)
 			space space1
-				borderType = fr.cnrs.iees.twcore.constants.BorderListType(([4]"wrap","wrap","wrap","wrap"))
+				blayoutOrderType = fr.cnrs.iees.twcore.constants.BlayoutOrderListType(([4]"wrap","wrap","wrap","wrap"))
 				precision = java.lang.Double(0.001)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
@@ -166,15 +166,15 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 16:43:21 CET 2022
 	userInterface gui
 		top top
 			widget ctrl
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.ControlWidget1)
 		tab tab1
 			orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 			widget Item landscape
-				order = java.lang.Integer(1)
+				layoutOrder = java.lang.Integer(1)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.SpaceWidget1)
 			widget Number of items1
-				order = java.lang.Integer(0)
+				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 
 // CROSS-LINKS
