@@ -5,7 +5,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 // TREE
 3worlds Tut8
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"I.D. Davies","S. Banks","G.J. Cary"))
-	built-by = java.lang.String(ian (14 July 2022))
+	built-by = java.lang.String(ian (23 July 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"ian.davies@anu.edu.au"))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"static code.utilities.Utilities3A.*","java.util.List","fr.ens.biologie.generic.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Males and females, overlapping generations and genetics in a disturbance prone landscape)
@@ -190,6 +190,12 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
+			field Hs
+				description = java.lang.String()
+				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				precision = java.lang.Double(0.0)
+				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
+				units = java.lang.String()
 			table alleleSumTable
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				description = java.lang.String()
@@ -268,12 +274,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				description = java.lang.String()
 				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
-				units = java.lang.String()
-			field HsBar
-				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
-				precision = java.lang.Double(0.0)
-				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			table populationAgeClasses
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
@@ -362,7 +362,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	experiment expt
 		directory = java.lang.String(OG)
 		nReplicates = java.lang.Integer(5)
-		precis = java.lang.String(Testing scripts)
+		precis = java.lang.String(4 factor exp of GDDM 26_07_2022 with overlapping generations)
 		treatment trt
 		design dsgn
 			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(crossFactorial)
@@ -449,7 +449,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 						function CalculateGenetics
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([95]"		int maxLoci = focalDec.metaPopAlleleSums.size(0);","		int maxAlleleId = focalDec.metaPopAlleleSums.size(1);","		{","			double sumH = 0;","			for (int l = 0; l < maxLoci; l++) {","				int total = 0;","				for (int a = 0; a < maxAlleleId; a++) {","					int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","					total += sum;","				}","				double sumSqrs = 0;","				if (total > 0)","					for (int a = 0; a < maxAlleleId; a++) {","						int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","						double f = (double) sum / (double) total;","						sumSqrs += (f * f);","					}","				sumH += (1.0 - sumSqrs);","			}","			focalDec.Ht = sumH / maxLoci;","		}","","		// sub-population H and the most frequent allele for the first locus","		boolean error = false;","		int w = demeLayer.size(0);","		int h = demeLayer.size(1);","		double sumHs = 0;","		double sumN = 0;","		int counter = 0;","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","","				int demePopulation = focalDec.demeLayer.getByInt(x, y);","				// set missing values","				focalDec.mfa.setByInt(-1, x, y);","				focalDec.mDNAMostFrequent.setByInt(-1, x, y);","				if (demePopulation > 0) {","					// mitochondrial DNA - only one locus","					{","						int total = 0;","						int largestFirstLocus = 0;","						int mfaLocus0 = -1;","","						for (int a = 0; a < focalDec.mDNASums.size(2); a++) {","							int sum = focalDec.mDNASums.getByInt(x, y, a);","							total += sum;","							if (sum > largestFirstLocus) {","								largestFirstLocus = sum;","								mfaLocus0 = a;","							}","						}","						focalDec.mDNAMostFrequent.setByInt(mfaLocus0, x, y);","					}","","					int largestFirstLocus = 0;","					int mfaLocus0 = -1;","					double sumH = 0;","					for (int l = 0; l < maxLoci; l++) {","						int total = 0;","						for (int a = 0; a < maxAlleleId; a++) {","","							int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","							total += sum;","							if (l == 0) {","								if (sum > largestFirstLocus) {","									largestFirstLocus = sum;","									mfaLocus0 = a;","								}","							}","						}","","						if (total > 0) {","							double sumSqrs = 0;","							for (int a = 0; a < maxAlleleId; a++) {","								int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","								double f = (double) sum / (double) total;","								sumSqrs += (f * f);","							}","							sumH += (1.0 - sumSqrs);","						}","					}","					double meanH = sumH / maxLoci;","					focalDec.heterozygosity.setByInt(meanH, x, y);","					focalDec.mfa.setByInt(mfaLocus0, x, y);","","					sumHs += meanH * demePopulation;","					sumN += demePopulation;","				}","			}","","		if (sumN > 0) {","			focalDec.HsBar = sumHs / sumN;","			focalDec.Fst = (focalDec.Ht - focalDec.HsBar) / focalDec.Ht;","		}",""))
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([95]"		int maxLoci = focalDec.metaPopAlleleSums.size(0);","		int maxAlleleId = focalDec.metaPopAlleleSums.size(1);","		{","			double sumH = 0;","			for (int l = 0; l < maxLoci; l++) {","				int total = 0;","				for (int a = 0; a < maxAlleleId; a++) {","					int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","					total += sum;","				}","				double sumSqrs = 0;","				if (total > 0)","					for (int a = 0; a < maxAlleleId; a++) {","						int sum = focalDec.metaPopAlleleSums.getByInt(l, a);","						double f = (double) sum / (double) total;","						sumSqrs += (f * f);","					}","				sumH += (1.0 - sumSqrs);","			}","			focalDec.Ht = sumH / maxLoci;","		}","","		// sub-population H and the most frequent allele for the first locus","		boolean error = false;","		int w = demeLayer.size(0);","		int h = demeLayer.size(1);","		double sumHs = 0;","		double sumN = 0;","		int counter = 0;","		for (int x = 0; x < w; x++)","			for (int y = 0; y < h; y++) {","","				int demePopulation = focalDec.demeLayer.getByInt(x, y);","				// set missing values","				focalDec.mfa.setByInt(-1, x, y);","				focalDec.mDNAMostFrequent.setByInt(-1, x, y);","				if (demePopulation > 0) {","					// mitochondrial DNA - only one locus","					{","						int total = 0;","						int largestFirstLocus = 0;","						int mfaLocus0 = -1;","","						for (int a = 0; a < focalDec.mDNASums.size(2); a++) {","							int sum = focalDec.mDNASums.getByInt(x, y, a);","							total += sum;","							if (sum > largestFirstLocus) {","								largestFirstLocus = sum;","								mfaLocus0 = a;","							}","						}","						focalDec.mDNAMostFrequent.setByInt(mfaLocus0, x, y);","					}","","					int largestFirstLocus = 0;","					int mfaLocus0 = -1;","					double sumH = 0;","					for (int l = 0; l < maxLoci; l++) {","						int total = 0;","						for (int a = 0; a < maxAlleleId; a++) {","","							int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","							total += sum;","							if (l == 0) {","								if (sum > largestFirstLocus) {","									largestFirstLocus = sum;","									mfaLocus0 = a;","								}","							}","						}","","						if (total > 0) {","							double sumSqrs = 0;","							for (int a = 0; a < maxAlleleId; a++) {","								int sum = focalDec.alleleSumTable.getByInt(x, y, l, a);","								double f = (double) sum / (double) total;","								sumSqrs += (f * f);","							}","							sumH += (1.0 - sumSqrs);","						}","					}","					double meanH = sumH / maxLoci;","					focalDec.heterozygosity.setByInt(meanH, x, y);","					focalDec.mfa.setByInt(mfaLocus0, x, y);","","					sumHs += meanH * demePopulation;","					sumN += demePopulation;","				}","			}","","		if (sumN > 0) {","			focalDec.Hs = sumHs / sumN;","			focalDec.Fst = (focalDec.Ht - focalDec.Hs) / focalDec.Ht;","		}",""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.CalculateGenetics)
 						dataTracker trkOccupancy
@@ -515,7 +515,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SysSetHabitatLayer)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"		focalCnt.isDispersalShort = false;// short = 100; long = 1000","		focalCnt.isDispersalInformed = false;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = false;// dynamic:every year; static: never","		focalCnt.isHabitatFragmented = false;// clumped or fragmented","		// Habitat optionally effects carrying capacity. No effect if equal","		focalCnt.k1 = 3.0; // [3.0;1.5]","		focalCnt.k2 = 1.5;","		// Habitat optionally effects reproduction rate. No effect if equal","		focalCnt.r1 = 3; // NOG: [3.0,1.5]; OG [0.8, 0.4]","		focalCnt.r2 = 3;","		// Habitat optionally effects death rate. No effect if equal","		focalCnt.d1 = 0.1; // OG [0.22]; NOG [1.0]","		focalCnt.d2 = 0.1;","		// generation overlap","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 1;// NOG [1]; OG [12]","		// genetics","		focalCnt.rateMutation = 0.0001;","		focalCnt.maxMates = 1;"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"		focalCnt.isDispersalShort = false;// short = 100; long = 1000","		focalCnt.isDispersalInformed = false;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = false;// dynamic:every year; static: never","		focalCnt.isHabitatFragmented = false;// clumped or fragmented","		// Habitat optionally effects carrying capacity. No effect if equal","		focalCnt.k1 = 3.0; // [3.0;1.5]","		focalCnt.k2 = 1.5;","		// Habitat optionally effects reproduction rate. No effect if equal","		focalCnt.r1 = 0.8; // NOG: [3.0,1.5]; OG [0.8, 0.4]","		focalCnt.r2 = 0.8;","		// Habitat optionally effects death rate. No effect if equal","		focalCnt.d1 = 0.22; // OG [0.22]; NOG [1.0]","		focalCnt.d2 = 0.22;","		// generation overlap","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 12;// NOG [1]; OG [12]","		// genetics","		focalCnt.rateMutation = 0.0001;","		focalCnt.maxMates = 1;"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1
@@ -545,29 +545,33 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 					driverClass = java.lang.String(AnimalCat_Drv)
 	userInterface gui
 		headless hl
-			widget hthsWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
-			widget fstWriter
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
-			widget heterozygosityWriter
+			widget PopMapWriter
 				asAverage = java.lang.Boolean(false)
-				zRange = fr.ens.biologie.generic.utils.Interval(]0.39,0.89[)
-				imageMagnify = java.lang.Integer(5)
-				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(OrangeMauveBlue)
-				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
-			widget ctrl
-				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLControlWidget1)
-			widget popLayersWriter
-				asAverage = java.lang.Boolean(false)
-				zRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
 				imageMagnify = java.lang.Integer(2)
+				missingValueColour = au.edu.anu.twuifx.widgets.MissingValueColour(BLACK)
+				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LTEQ_MIN)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(BrownYellowGreen)
 				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
+				zRange = fr.ens.biologie.generic.utils.Interval(]0.0,4.0[)
+			widget HsMapWriter1
+				asAverage = java.lang.Boolean(false)
+				imageMagnify = java.lang.Integer(6)
+				missingValueColour = au.edu.anu.twuifx.widgets.MissingValueColour(BLACK)
+				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LT_MIN)
+				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(OrangeMauveBlue)
+				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
+				zRange = fr.ens.biologie.generic.utils.Interval(]0.4,0.89[)
+			widget genWriter
+				isZeroMinMeansPlot = java.lang.Boolean(false)
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
+			widget ctrl
+				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLControlWidget1)
 			widget progress
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLProgressWidget1)
 			widget popWriter
+				isZeroMinMeansPlot = java.lang.Boolean(true)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLTimeSeriesAnalysisWidget1)
 
 // CROSS-LINKS
@@ -599,7 +603,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	rank = java.lang.Integer(2)
 [table:populationAgeClasses] sizedBy x4 [dimensioner:nAgeClasses]
 	rank = java.lang.Integer(0)
-[dataTracker:trkFstHtHs] trackField trks64 [field:HsBar]
+[dataTracker:trkFstHtHs] trackField trks64 [field:Hs]
 [dataTracker:trkFstHtHs] trackField trks7 [field:Fst]
 [dataTracker:trkFstHtHs] sampleArena trks57 [system:sys1]
 [dataTracker:trkFstHtHs] trackField trks59 [field:Ht]
@@ -614,7 +618,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	rank = java.lang.Integer(0)
 [table:heterozygosity] sizedBy y9 [dimensioner:demey]
 	rank = java.lang.Integer(1)
-[widget:fstWriter] trackSeries trks8 [dataTracker:trkFst]
 [system:sys1] belongsTo bt3 [category:*permanent*]
 [system:sys1] belongsTo bt2 [category:*assemblage*]
 [system:sys1] belongsTo bt1 [category:*arena*]
@@ -643,7 +646,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 [dataTracker:trkMDNAmfa] sampleArena trks47 [system:sys1]
 [dataTracker:trkMDNAmfa] trackTable trks48 [table:mDNAMostFrequent]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]"[0:32|0:32]"))
-[widget:heterozygosityWriter] trackSeries trks4 [dataTracker:trkHeterozygosity]
 [table:mDNAMostFrequent] sizedBy x11 [dimensioner:demex]
 	rank = java.lang.Integer(0)
 [table:mDNAMostFrequent] sizedBy y10 [dimensioner:demey]
@@ -660,7 +662,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 [dataTracker:trkHabitatLayer] sampleArena trks1 [system:sys1]
 [dataTracker:trkHtHs] sampleArena trks40 [system:sys1]
 [dataTracker:trkHtHs] trackField trks41 [field:Ht]
-[dataTracker:trkHtHs] trackField trks42 [field:HsBar]
+[dataTracker:trkHtHs] trackField trks42 [field:Hs]
 [relationType:*parentTo*] fromCategory frm1 [category:*component*]
 [relationType:*parentTo*] toCategory to1 [category:*component*]
 [componentType:animalType] belongsTo bt7 [category:animalCat]
@@ -681,7 +683,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	rank = java.lang.Integer(1)
 [table:spaceDemand] sizedBy y15 [dimensioner:ydim]
 	rank = java.lang.Integer(2)
-[widget:popLayersWriter] trackSeries trks25 [dataTracker:trkPopulationLayer]
 [widget:progress] trackTime trks3 [dynamics:sim1]
 [dataTracker:trkAgeClass] trackTable trks10 [table:populationAgeClasses]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
@@ -706,21 +707,22 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 [process:p1A] inSpace in3 [space:landscape]
 	searchRadius = java.lang.Double(200.0)
 [process:p1A] dependsOn depsOn3 [process:p1]
+[widget:HsMapWriter1] trackSeries trks24 [dataTracker:trkHeterozygosity]
 [table:demeLayer] sizedBy x15 [dimensioner:demex]
 	rank = java.lang.Integer(0)
 [table:demeLayer] sizedBy y14 [dimensioner:demey]
 	rank = java.lang.Integer(1)
-[treatment:trt] treats hm [field:isHabitatFragmented]
-	rank = java.lang.Integer(4)
-	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"frag","clump"))
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats dm [field:isDispersalInformed]
 	rank = java.lang.Integer(2)
-	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Uninf","Inf"))
+	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"uninf","inf"))
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"false","true"))
 [treatment:trt] treats hd [field:isHabitatDynamic]
 	rank = java.lang.Integer(3)
-	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"dynm","stat"))
+	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"dyna","stat"))
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
+[treatment:trt] treats hs [field:isHabitatFragmented]
+	rank = java.lang.Integer(4)
+	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"small","large"))
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats dd [field:isDispersalShort]
 	rank = java.lang.Integer(1)
@@ -751,7 +753,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	searchRadius = java.lang.Double(0.0)
 [process:p6] dependsOn depsOn11 [process:p5]
 [process:p6] appliesTo aplyTo4 [category:animalCat]
-[widget:hthsWriter] trackSeries trks24 [dataTracker:trkHtHs]
 [process:p7] appliesTo aplyTo9 [category:animalCat]
 [process:p7] dependsOn depsOn5 [process:p6]
 [process:p8] appliesTo aplyTo8 [category:*arena*]
@@ -763,12 +764,14 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 [table:mDNASums] sizedBy y11 [dimensioner:demey]
 	rank = java.lang.Integer(1)
 [category:*assemblage*] autoVar auto [record:AVPopulation]
+[widget:genWriter] trackSeries trks8 [dataTracker:trkFstHtHs]
 [table:allocationLayer] sizedBy y5 [dimensioner:ydim]
 	rank = java.lang.Integer(1)
 [table:allocationLayer] sizedBy x6 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
 [process:p3A] appliesTo aplyTo6 [category:animalCat]
 [process:p3A] dependsOn depsOn1 [process:p3]
+[widget:PopMapWriter] trackSeries trks25 [dataTracker:trkPopulationLayer]
 [table:mfa] sizedBy x14 [dimensioner:demex]
 	rank = java.lang.Integer(0)
 [table:mfa] sizedBy y13 [dimensioner:demey]
