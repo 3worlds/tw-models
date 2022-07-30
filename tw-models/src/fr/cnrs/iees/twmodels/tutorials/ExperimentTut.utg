@@ -360,9 +360,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 		dimensioner nAgeClasses
 			size = java.lang.Integer(13)
 	experiment expt
-		directory = java.lang.String(OG)
 		nReplicates = java.lang.Integer(5)
-		precis = java.lang.String(4 factor exp of GDDM 26_07_2022 with overlapping generations)
 		treatment trt
 		design dsgn
 			type = fr.cnrs.iees.twcore.constants.ExperimentDesignType(crossFactorial)
@@ -515,7 +513,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SysSetHabitatLayer)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"		focalCnt.isDispersalShort = false;// short = 100; long = 1000","		focalCnt.isDispersalInformed = false;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = false;// dynamic:every year; static: never","		focalCnt.isHabitatFragmented = false;// clumped or fragmented","		// Habitat optionally effects carrying capacity. No effect if equal","		focalCnt.k1 = 3.0; // [3.0;1.5]","		focalCnt.k2 = 1.5;","		// Habitat optionally effects reproduction rate. No effect if equal","		focalCnt.r1 = 0.8; // NOG: [3.0,1.5]; OG [0.8, 0.4]","		focalCnt.r2 = 0.8;","		// Habitat optionally effects death rate. No effect if equal","		focalCnt.d1 = 0.22; // OG [0.22]; NOG [1.0]","		focalCnt.d2 = 0.22;","		// generation overlap","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 12;// NOG [1]; OG [12]","		// genetics","		focalCnt.rateMutation = 0.0001;","		focalCnt.maxMates = 1;"))
+			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([19]"		focalCnt.isDispersalShort = false;// short = 100; long = 1000","		focalCnt.isDispersalInformed = false;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = true;// dynamic:every year; static: never","		focalCnt.isHabitatFragmented = false;// clumped or fragmented","		// Habitat optionally effects carrying capacity. No effect if equal","		focalCnt.k1 = 3.0; // [3.0;1.5]","		focalCnt.k2 = 1.5;","		// Habitat optionally effects reproduction rate. No effect if equal","		focalCnt.r1 = 3; // NOG: [3.0,1.5]; OG [0.8, 0.4]","		focalCnt.r2 = 3;","		// Habitat optionally effects death rate. No effect if equal","		focalCnt.d1 = 1; // OG [0.22]; NOG [1.0]","		focalCnt.d2 = 1;","		// generation overlap","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 1;// NOG [1]; OG [12]","		// genetics","		focalCnt.rateMutation = 0.0001;","		focalCnt.maxMates = 1;"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1
@@ -549,11 +547,11 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 				asAverage = java.lang.Boolean(false)
 				imageMagnify = java.lang.Integer(2)
 				missingValueColour = au.edu.anu.twuifx.widgets.MissingValueColour(BLACK)
-				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LTEQ_MIN)
+				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LT_MIN)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(BrownYellowGreen)
 				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
-				zRange = fr.ens.biologie.generic.utils.Interval(]0.0,4.0[)
+				zRange = fr.ens.biologie.generic.utils.Interval(]1.0,4.0[)
 			widget HsMapWriter1
 				asAverage = java.lang.Boolean(false)
 				imageMagnify = java.lang.Integer(6)
@@ -716,14 +714,6 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	rank = java.lang.Integer(2)
 	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"uninf","inf"))
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"false","true"))
-[treatment:trt] treats hd [field:isHabitatDynamic]
-	rank = java.lang.Integer(3)
-	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"dyna","stat"))
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
-[treatment:trt] treats hs [field:isHabitatFragmented]
-	rank = java.lang.Integer(4)
-	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"small","large"))
-	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats dd [field:isDispersalShort]
 	rank = java.lang.Integer(1)
 	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"short","long"))
