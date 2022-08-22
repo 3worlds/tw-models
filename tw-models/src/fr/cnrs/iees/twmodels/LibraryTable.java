@@ -50,39 +50,40 @@ import fr.cnrs.iees.graph.io.GraphImporter;
  */
 public enum LibraryTable {
 	/*-	Menu name,	|	ProposedName|	File name,	|	category, | dependency archive (*.zip)*/
-	Template1("1 Blank", "Prj1", "Blank.utg", LibraryType.Template,null), //
-	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template,null), //
+	Template1("1 Blank", "Prj1", "Blank.utg", LibraryType.Template, null), //
+	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template, null), //
 	//
-	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial,null), //
-	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial,null), //
-	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial,null), //
-	Tut4("4 Event timer 1","PulseNS1","EventDrivenIBMNonSpatial.utg",LibraryType.Tutorial,null), //
-	Tut5("5 Event timer 2","PulseS1","EventDrivenIBMSpatial.utg",LibraryType.Tutorial,null), //
-	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial,null), //
-	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial,null), //
-	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial,"Boids.zip"), //
-	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial,null), //
-	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial,null), //
-	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial,null), //
-	Tut12("12 Running experiments", "Prj1","ExperimentTut.utg",LibraryType.Tutorial,"GDDM.zip"),
+	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial, null), //
+	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial, null), //
+	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial, null), //
+	Tut4("4 Event timer 1", "PulseNS1", "EventDrivenIBMNonSpatial.utg", LibraryType.Tutorial, null), //
+	Tut5("5 Event timer 2", "PulseS1", "EventDrivenIBMSpatial.utg", LibraryType.Tutorial, null), //
+	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial, null), //
+	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial, null), //
+	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial, "Boids.zip"), //
+	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial, null), //
+	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial, null), //
+	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial, null), //
+	Tut12("12 Running experiments", "Prj1", "ExperimentTut.utg", LibraryType.Tutorial, "GDDM.zip"),
 	//
-	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model,null), //
-	Model2("2 Rabbit Rules", "RabbitRules", "RabbitRules.utg", LibraryType.Model,null), //
-	Model3("3 GDDM", "GDDM1", "GDDM.utg", LibraryType.Model,"GDDM.zip"), //
+	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model, null), //
+	Model2("2 Rabbit Rules", "RabbitRules", "RabbitRules.utg", LibraryType.Model, null), //
+	Model3("3 GDDM", "GDDM1", "GDDM.utg", LibraryType.Model, "GDDM.zip"), //
 	//
-	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test,null), //
-	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test,null), //
+	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test, null), //
+	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test, null), //
 //	Test3("3 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
-	Test4("4 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test,null), //
-	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test,null), //
-	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test,null), //
-	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test,null), //
-	Test8("8 Landscape A", "LMA", "LMA.utg", LibraryType.Test,"LM1.zip"), //
-	Test9("9 Landscape B", "LMB", "LMB.utg", LibraryType.Test,"LM1.zip"), //
-	Test10("10 Landscape C", "LMC", "LMC.utg", LibraryType.Test,"LM1.zip"), //
-	Test11("11 Landscape D", "LMD", "LMD.utg", LibraryType.Test,"LM2.zip"), //
-	Test12("12 Data loading from files", "TestDataLoading", "TestDataLoading.utg", LibraryType.Test,"TestDataLoading.zip"), //
-;
+	Test4("4 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test, null), //
+	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test, null), //
+	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test, null), //
+	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test, null), //
+	Test8("8 Landscape A", "LMA", "LMA.utg", LibraryType.Test, "LM1.zip"), //
+	Test9("9 Landscape B", "LMB", "LMB.utg", LibraryType.Test, "LM1.zip"), //
+	Test10("10 Landscape C", "LMC", "LMC.utg", LibraryType.Test, "LM1.zip"), //
+	Test11("11 Landscape D", "LMD", "LMD.utg", LibraryType.Test, "LM2.zip"), //
+	Test12("12 Data loading from files", "TestDataLoading", "TestDataLoading.utg", LibraryType.Test,
+			"TestDataLoading.zip"), //
+	;
 
 	private final String displayName;
 	private final String proposedName;
@@ -99,10 +100,22 @@ public enum LibraryTable {
 		this.dependencyArchive = dependencyArchive;
 	}
 
+	/**
+	 * The text used to show in the menu item.
+	 * 
+	 * @return The text to display
+	 */
 	public String displayName() {
 		return displayName;
 	}
 
+	/**
+	 * The default prompt name to display when this project is instantiated. The
+	 * actual name will be modified to remove all underscores and an integer added
+	 * to ensure the name is unqiue within the project scope.
+	 * 
+	 * @return Text of the proposed name
+	 */
 	public String proposedName() {
 		return proposedName.replaceAll("_", "");
 	}
@@ -111,7 +124,7 @@ public enum LibraryTable {
 		return libraryType;
 	}
 
-	private Class<?> getAssociatedClass(){
+	private Class<?> getAssociatedClass() {
 		switch (libraryType) {
 		case Template: {
 			return TemplatesDummy.class;
@@ -126,13 +139,14 @@ public enum LibraryTable {
 			return TestsDummy.class;
 		}
 		}
-	
+
 	}
+
 	public InputStream dependencyArchive() {
 		if (dependencyArchive == null)
 			return null;
 		Class<?> associatedClass = getAssociatedClass();
-		return  associatedClass.getResourceAsStream(dependencyArchive);
+		return associatedClass.getResourceAsStream(dependencyArchive);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -155,7 +169,7 @@ public enum LibraryTable {
 
 	boolean configExists() {
 		Class<?> associatedClass = getAssociatedClass();
-		return associatedClass.getResourceAsStream(fileName)!=null;
+		return associatedClass.getResourceAsStream(fileName) != null;
 	}
 
 	boolean dependencyExists() {
@@ -164,7 +178,7 @@ public enum LibraryTable {
 		else if (!dependencyArchive.endsWith(".zip"))
 			return false;
 		else
-			return dependencyArchive()!=null;
+			return dependencyArchive() != null;
 	}
 
 }
