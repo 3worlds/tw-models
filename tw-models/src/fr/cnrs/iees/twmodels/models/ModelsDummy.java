@@ -29,6 +29,11 @@
 package fr.cnrs.iees.twmodels.models;
 //This is here only for package association when loading files from this package. Maybe we should use package string constants.
 
+/**
+ * This file is here only for package association when loading files from this
+ * package.
+ *
+ */
 public class ModelsDummy {
 
 }

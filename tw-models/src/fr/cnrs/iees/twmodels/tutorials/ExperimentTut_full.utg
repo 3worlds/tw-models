@@ -1,11 +1,11 @@
-treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
+treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 
 	edge_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
-3worlds Prj1
+3worlds Tut8
 	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"I.D. Davies","S. Banks","G.J. Cary"))
-	built-by = java.lang.String(ian (24 Aug 2022))
+	built-by = java.lang.String(ian (23 July 2022))
 	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"ian.davies@anu.edu.au"))
 	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"static code.utilities.Utilities3A.*","java.util.List","fr.ens.biologie.generic.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Males and females, overlapping generations and genetics in a disturbance prone landscape)
@@ -402,6 +402,11 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([5]"		if (!isNewBorn) { // don't included undispersed new born in counts.","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			arenaDec.allocationLayer.setByInt(arenaDec.allocationLayer.getByInt(ix, iy) + 1, ix, iy); // (isFemale)","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniSetPreDispersalDensity)
+					process p9a
+						function SaveCensus
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		saveCensusToFile((int)t,Thread.currentThread().getId());"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.SaveCensus)
 					process p5
 						function AniSetPreCullingDensity
 							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([4]"		// set values of population density for all individuals including new born","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.preCullLayer.setByInt(arenaDec.preCullLayer.getByInt(ix, iy) + 1, ix, iy);"))
@@ -427,6 +432,11 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([25]"		otherDrv.isMature = false;","		otherDrv.isNewBorn = true;","		otherDrv.ageInYears = 0.0;","		otherDrv.xLocation = xLocation;","		otherDrv.yLocation = yLocation;","		// even sex ratio","		otherCnt.isFemale = random.nextBoolean();","		// Genetics","		otherCnt.mDNA = mDNA;","		// a clumsy way to get this number","		int maxAllele = alleleSumTable.size(3);","		int father = random.nextInt(nMates);","		for (int ploid = 0; ploid < alleles.size(1); ploid++)","			for (int locus = 0; locus < alleles.size(0); locus++) {","				int allele;","				if (random.nextBoolean())","					allele = alleles.getByInt(locus, ploid);","				else","					allele = maleAlleles.getByInt(locus, ploid, father);","				if (random.nextDouble() < rateMutation)","					allele = random.nextInt(maxAllele);","","				otherCnt.alleles.setByInt(allele, locus, ploid);","			}",""))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.AniNewBornInit)
+					process p9
+						function TakeCensus
+							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"	recordCensus((int) t, Thread.currentThread().getId(), habitatLayer, ageInYears, xLocation, yLocation, alleles,","			isFemale, isDispersalInformed, isDispersalShort, isHabitatDynamic, isHabitatFragmented);"))
+							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
+							userClassName = java.lang.String(code.sys1.generated.TakeCensus)
 					process p8
 						dataTracker trkDemeLayer
 							sampleSize = java.lang.String()
@@ -724,6 +734,14 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 	rank = java.lang.Integer(2)
 	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"uninf","inf"))
 	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"false","true"))
+[treatment:trt] treats hd [field:isHabitatDynamic]
+	rank = java.lang.Integer(3)
+	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"dyna","stat"))
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
+[treatment:trt] treats hs [field:isHabitatFragmented]
+	rank = java.lang.Integer(4)
+	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"small","large"))
+	values = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats dd [field:isDispersalShort]
 	rank = java.lang.Integer(1)
 	valueNames = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"short","long"))
@@ -732,6 +750,8 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 	rank = java.lang.Integer(1)
 [table:preCullLayer] sizedBy x7 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
+[process:p9a] dependsOn depsOn13 [process:p9]
+[process:p9a] appliesTo aplyTo14 [category:*arena*]
 [process:p2A] appliesTo aplyTo5 [category:animalCat]
 [process:p2A] dependsOn depsOn6 [process:p2]
 [process:p1] appliesTo aplyTo1 [category:*arena*]
@@ -757,6 +777,8 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 [process:p7] dependsOn depsOn5 [process:p6]
 [process:p8] appliesTo aplyTo8 [category:*arena*]
 [process:p8] dependsOn depsOn7 [process:p7]
+[process:p9] dependsOn depsOn12 [process:p8]
+[process:p9] appliesTo aplyTo7 [category:animalCat]
 [table:mDNASums] sizedBy z1 [dimensioner:nMDNAAlleles]
 	rank = java.lang.Integer(2)
 [table:mDNASums] sizedBy x12 [dimensioner:demex]

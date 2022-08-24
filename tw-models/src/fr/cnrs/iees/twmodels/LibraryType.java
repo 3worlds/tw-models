@@ -27,16 +27,32 @@
  *                                                                        *
  **************************************************************************/
 
-
 package fr.cnrs.iees.twmodels;
 
 /**
+ * Four types of included configuration files. These are either model templates,
+ * tutorials, tests or models of interest to 3Worlds developers.
+ * 
  * @author Ian Davies - 11 Nov. 2020
  */
 public enum LibraryType {
+	/**
+	 * Templates are configuration files that may provide a convenient starting
+	 * point for model development.
+	 */
 	Template,
+	/**
+	 * Tutorial configurations to support the text in the reference documentation.
+	 */
 	Tutorial,
+	/**
+	 * Models of interest to developers of 3Worlds.
+	 */
 	Model,
+
+	/**
+	 * Test cases for 3Worlds development
+	 */
 	Test
 
 }

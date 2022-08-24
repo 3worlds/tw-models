@@ -41,18 +41,30 @@ import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
 import fr.cnrs.iees.graph.io.GraphImporter;
 
 /**
- * A lookup enum for entries in ModelMaker "New" menu. Display order is the
- * declaration order in this enum. Entries are grouped as either a Template,
- * Tutorial or Model with utg files placed in the appropriate package.
+ * A lookup table for entries in ModelMaker "New" menu.
+ * <p>
+ * The menu display order is the declaration order in this enum. Entries are
+ * grouped as either a Template, Tutorial, Model or Test with utg and other
+ * dependencies in the form of a single zip file placed in the appropriate
+ * package.
  * 
  * @author Ian Davies - 11 Nov. 2020
  * 
  */
 public enum LibraryTable {
 	/*-	Menu name,	|	ProposedName|	File name,	|	category, | dependency archive (*.zip)*/
+	/**
+	 * A starting point for any model development.
+	 */
 	Template1("1 Blank", "Prj1", "Blank.utg", LibraryType.Template, null), //
+	/**
+	 * A starting point for any model the requires a {@code Clock} timer model.
+	 */
 	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template, null), //
 	//
+	/**
+	 * The simplest possible model in 3Worlds.
+	 */
 	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial, null), //
 	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial, null), //
 	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial, null), //
@@ -120,10 +132,18 @@ public enum LibraryTable {
 		return proposedName.replaceAll("_", "");
 	}
 
+	/**
+	 * @return The type of library
+	 * @see LibraryType
+	 */
 	public LibraryType libraryType() {
 		return libraryType;
 	}
 
+	/**
+	 * @return A dummy class to provide the package name wherein the required model
+	 *         file and dependencies are located.r
+	 */
 	private Class<?> getAssociatedClass() {
 		switch (libraryType) {
 		case Template: {
@@ -142,6 +162,16 @@ public enum LibraryTable {
 
 	}
 
+	/**
+	 * Returns a zip file containing any dependencies associated with this model or
+	 * null if the model has no dependencies.
+	 * <p>
+	 * The contents of the archive are extracted and place in the appropriate
+	 * location for the model.
+	 * 
+	 * @return The archive file (*.zip) containing any dependent files for a model
+	 *         configuration.
+	 */
 	public InputStream dependencyArchive() {
 		if (dependencyArchive == null)
 			return null;
@@ -149,6 +179,11 @@ public enum LibraryTable {
 		return associatedClass.getResourceAsStream(dependencyArchive);
 	}
 
+	/**
+	 * Instantiates a configuration graph of the model.
+	 * 
+	 * @return Configuration graph.
+	 */
 	@SuppressWarnings("unchecked")
 	public TreeGraph<TreeGraphDataNode, ALEdge> getGraph() {
 		switch (libraryType) {
@@ -167,18 +202,18 @@ public enum LibraryTable {
 		}
 	}
 
-	boolean configExists() {
-		Class<?> associatedClass = getAssociatedClass();
-		return associatedClass.getResourceAsStream(fileName) != null;
-	}
+//	boolean configExists() {
+//		Class<?> associatedClass = getAssociatedClass();
+//		return associatedClass.getResourceAsStream(fileName) != null;
+//	}
 
-	boolean dependencyExists() {
-		if (dependencyArchive == null)
-			return true;
-		else if (!dependencyArchive.endsWith(".zip"))
-			return false;
-		else
-			return dependencyArchive() != null;
-	}
+//	boolean dependencyExists() {
+//		if (dependencyArchive == null)
+//			return true;
+//		else if (!dependencyArchive.endsWith(".zip"))
+//			return false;
+//		else
+//			return dependencyArchive() != null;
+//	}
 
 }
