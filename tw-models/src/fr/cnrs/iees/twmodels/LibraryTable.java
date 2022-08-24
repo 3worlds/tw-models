@@ -41,9 +41,11 @@ import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
 import fr.cnrs.iees.graph.io.GraphImporter;
 
 /**
- * A lookup enum for entries in ModelMaker "New" menu. Display order is the
- * declaration order in this enum. Entries are grouped as either a Template,
- * Tutorial or Model with utg files placed in the appropriate package.
+ * A lookup table for entries in ModelMaker "New" menu.
+ * <p>
+ * Display order is the declaration order in this enum. Entries are grouped as
+ * either a Template, Tutorial, Model or Test with utg files placed in the appropriate
+ * package.
  * 
  * @author Ian Davies - 11 Nov. 2020
  * 
