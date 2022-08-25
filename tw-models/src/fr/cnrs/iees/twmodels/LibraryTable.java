@@ -202,18 +202,18 @@ public enum LibraryTable {
 		}
 	}
 
-//	boolean configExists() {
-//		Class<?> associatedClass = getAssociatedClass();
-//		return associatedClass.getResourceAsStream(fileName) != null;
-//	}
+	boolean configExists() {
+		Class<?> associatedClass = getAssociatedClass();
+		return associatedClass.getResourceAsStream(fileName) != null;
+	}
 
-//	boolean dependencyExists() {
-//		if (dependencyArchive == null)
-//			return true;
-//		else if (!dependencyArchive.endsWith(".zip"))
-//			return false;
-//		else
-//			return dependencyArchive() != null;
-//	}
+	boolean dependencyExists() {
+		if (dependencyArchive == null)
+			return true;
+		else if (!dependencyArchive.endsWith(".zip"))
+			return false;
+		else
+			return dependencyArchive() != null;
+	}
 
 }
