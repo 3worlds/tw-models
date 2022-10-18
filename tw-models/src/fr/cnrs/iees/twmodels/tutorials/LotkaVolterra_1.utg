@@ -5,13 +5,13 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 
 // TREE
 3worlds LotkaVolterra
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(ian (19 Mar. 2021))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
 	precis = java.lang.String(Tutorial: The Lotka-Volterra multi-species competition model. Illustrates the use of Tables.)
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Competitive_Lotka%E2%80%93Volterra_equations"))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Competitive_Lotka%E2%80%93Volterra_equations"))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -113,7 +113,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.community.generated.Init1)
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([12]"		double initfreq = 1.0 / x.size();","		focalDrv.x.fillWith(initfreq);","		for (int i = 0; i < r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(), i);","			focalCnt.K.setByInt(5.0 + initfreq + random.nextDouble(), i);","			for (int j = 0; j < alpha.size(1); j++) {","				if (i == j)","					focalCnt.alpha.setByInt(1.0, i, j);","				else","					focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","			}","}"))
+			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([12]"		double initfreq = 1.0 / x.size();","		focalDrv.x.fillWith(initfreq);","		for (int i = 0; i < r.size(0); i++) {","			focalCnt.r.setByInt(random.nextDouble(), i);","			focalCnt.K.setByInt(5.0 + initfreq + random.nextDouble(), i);","			for (int j = 0; j < alpha.size(1); j++) {","				if (i == j)","					focalCnt.alpha.setByInt(1.0, i, j);","				else","					focalCnt.alpha.setByInt(max(0.0001, random.nextDouble()), i, j);","			}","}"))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
@@ -132,7 +132,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 						function Growth
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.community.generated.Growth)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([9]"		double[] dxdt = new double[x.size(0)];","		for (int i = 0; i < x.size(0); i++) {","			double sum = 0;","			for (int j = 0; j < alpha.size(1); j++)","				sum += alpha.getByInt(i, j) * x.getByInt(j);","			dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1 - sum / K.getByInt(i));","		}","		for (int i = 0; i < dxdt.length; i++)","			focalDrv.x.setByInt(max(x.getByInt(i) + dxdt[i] * dt, 0.0), i);"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([9]"		double[] dxdt = new double[x.size(0)];","		for (int i = 0; i < x.size(0); i++) {","			double sum = 0;","			for (int j = 0; j < alpha.size(1); j++)","				sum += alpha.getByInt(i, j) * x.getByInt(j);","			dxdt[i] = r.getByInt(i) * x.getByInt(i) * (1 - sum / K.getByInt(i));","		}","		for (int i = 0; i < dxdt.length; i++)","			focalDrv.x.setByInt(max(x.getByInt(i) + dxdt[i] * dt, 0.0), i);"))
 						dataTracker trk1
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)

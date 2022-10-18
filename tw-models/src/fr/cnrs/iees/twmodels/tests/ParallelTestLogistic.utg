@@ -4,13 +4,13 @@ treegraph // saved by OmugiGraphExporter on Thu Mar 25 12:55:34 AEDT 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds ParallelTestLogistic
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(ian (24 Mar. 2021))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
 	precis = java.lang.String(Tutorial: Discrete logistic model. A minimal configuration file for 3Worlds introducing Process, Function, Widgets and DataTrackers.)
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"https://en.wikipedia.org/wiki/Logistic_map","https://en.wikipedia.org/wiki/Chaos_theory"))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([2]"https://en.wikipedia.org/wiki/Logistic_map","https://en.wikipedia.org/wiki/Chaos_theory"))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -82,7 +82,7 @@ treegraph // saved by OmugiGraphExporter on Thu Mar 25 12:55:34 AEDT 2021
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.population.generated.Init1)
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"		focalCnt.r = 3.0+random.nextDouble() ;","		focalDrv.x = random.nextDouble();"))
+			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		focalCnt.r = 3.0+random.nextDouble() ;","		focalDrv.x = random.nextDouble();"))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
@@ -101,7 +101,7 @@ treegraph // saved by OmugiGraphExporter on Thu Mar 25 12:55:34 AEDT 2021
 						function Chaos
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.population.generated.Chaos)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		focalDrv.x = r * x * (1 - x);"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		focalDrv.x = r * x * (1 - x);"))
 						dataTracker trk1
 							sampleSize = java.lang.String(1)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)

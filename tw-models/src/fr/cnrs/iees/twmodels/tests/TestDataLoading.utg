@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds TestDataLoading
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(gignoux (20 juin 2022))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String()
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	predefined *categories*
 		categorySet *organisation*
@@ -160,7 +160,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 				units = java.lang.String()
 	experiment expt
 		dataSource climateData
-			dim = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"lat","long"))
+			dim = au.edu.anu.omugi.collections.tables.StringTable(([2]"lat","long"))
 			file = fr.cnrs.iees.twcore.constants.FileType(/climat.ods)
 			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.OdfFileLoader)
 		dataSource animalData
@@ -195,7 +195,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			separator = java.lang.String(\t)
 			subclass = java.lang.String(au.edu.anu.twcore.experiment.runtime.io.CsvFileLoader)
 		dataSource pondsData2
-			dim = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"d"))
+			dim = au.edu.anu.omugi.collections.tables.StringTable(([1]"d"))
 			file = fr.cnrs.iees.twcore.constants.FileType(/termites.ods)
 			idComponent = java.lang.String(pid)
 			idGroup = java.lang.String(type)
@@ -220,42 +220,42 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process p5
 						function Reproduction
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return 0.0d;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"	return 0.0d;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduction)
 					process p4
 						function FuncPond
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FuncPond)
 					process p3
 						function FuncLocated
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FuncLocated)
 					process p2
 						function FuncClimate
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FuncClimate)
 					process p7
 						function RecruitFromYoung
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return null;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"	return null;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitFromYoung)
 					process p6
 						function RecruitFromOffspring
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"	return null;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"	return null;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitFromOffspring)
 					process p1
 						function FuncArena
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FuncArena)
 		initFunction InitArena
-			functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.InitArena)
 		structure struc1

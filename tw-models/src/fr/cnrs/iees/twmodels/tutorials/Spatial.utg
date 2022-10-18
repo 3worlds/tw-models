@@ -4,13 +4,13 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Spatial
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (20 Mar. 2021))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	precis = java.lang.String(Tutorial: Simple illustration of the use of space.)
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
-	importSnippet =  au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record rec1
 			dynamic = java.lang.Boolean(true)
@@ -98,7 +98,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 				driverClass = java.lang.String(code.sys1.generated.Rec1)
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
 				mobile = java.lang.Boolean(false)
-				relocateFunctionName = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+				relocateFunctionName = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 				initialValues cmp1
 					nInstances = java.lang.Integer(1)
 			space space
@@ -124,11 +124,11 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduce)
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"return 1.0;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"return 1.0;"))
 							function Dispersal
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Dispersal)
-								functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"otherDrv.x = random.nextDouble()*limits.sideLength(0) + limits.lowerBound(0);","otherDrv.y = random.nextDouble()*limits.sideLength(1) + limits.lowerBound(1);"))
+								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"otherDrv.x = random.nextDouble()*limits.sideLength(0) + limits.lowerBound(0);","otherDrv.y = random.nextDouble()*limits.sideLength(1) + limits.lowerBound(1);"))
 			stoppingCondition stCd1
 				range = fr.ens.biologie.generic.utils.Interval([0.0,1000.0])
 				stopVariable = java.lang.String(count)

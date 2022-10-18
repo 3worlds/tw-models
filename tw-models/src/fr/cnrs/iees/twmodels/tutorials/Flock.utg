@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Flock
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(gignoux (23 mars 2022))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static code.utilities.BoidUtils.*"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static code.utilities.BoidUtils.*"))
 	precis = java.lang.String(Tutorial: Testing flocking behaviour of mobile components)
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Boids"))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]"https://en.wikipedia.org/wiki/Boids"))
 	version = java.lang.String(demo)
 	predefined *categories*
 		categorySet *organisation*
@@ -200,22 +200,22 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(SECOND)
 					process p2b
 						function PrepareMove
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([11]"		focalDec.nLocal++;","		// alignment","		focalDec.sumdX += other_vx;","		focalDec.sumdY += other_vy;","		// cohesion","		focalDec.sumX += other_x;","		focalDec.sumY += other_y;","		// separation","		double dist = euclidianDistance(x,y,other_x,other_y);","		focalDec.sepX += (x-other_x)/dist;","		focalDec.sepY += (y-other_y)/dist;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([11]"		focalDec.nLocal++;","		// alignment","		focalDec.sumdX += other_vx;","		focalDec.sumdY += other_vy;","		// cohesion","		focalDec.sumX += other_x;","		focalDec.sumY += other_y;","		// separation","		double dist = euclidianDistance(x,y,other_x,other_y);","		focalDec.sepX += (x-other_x)/dist;","		focalDec.sepY += (y-other_y)/dist;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeRelationState)
 							userClassName = java.lang.String(code.sys1.generated.PrepareMove)
 					process p3
 						function Move
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([71]"	// code reproduced from: https://betterprogramming.pub/boids-simulating-birds-flock-behavior-in-python-9fff99375118","		double spdX = vx;","		double spdY = vy;","		double accX = ax;","		double accY = ay;","		// alignment","		double alignmentX = (random.nextDouble()-0.5)*maxForce/10;","		double alignmentY = (random.nextDouble()-0.5)*maxForce/10;","		if (nLocal>0) {","			double norm = Math.sqrt(sumOfSquares(sumdX,sumdY));","			double avgvx = sumdX/nLocal /norm *maxSpeed;","			double avgvy = sumdY/nLocal /norm *maxSpeed;","			alignmentX = avgvx-vx;","			alignmentY = avgvy-vy;","		}","		double cohesionX = 0;","		double cohesionY = 0;","		// cohesion","		if (nLocal>0) {","			// distance to flock barycentre","			double barX = sumX/nLocal-x;","			double barY = sumY/nLocal-y;","			double norm = Math.sqrt(sumOfSquares(barX,barY));","			if (norm>0) { // if non zero net move","				barX = barX/norm*maxSpeed;","				barY = barY/norm*maxSpeed;","			}","			cohesionX = barX-vx;","			cohesionY = barY-vy;","			norm = Math.sqrt(sumOfSquares(cohesionX,cohesionY));","			if (norm>maxForce) {","				cohesionX = cohesionX/norm*maxForce;","				cohesionY = cohesionY/norm*maxForce;","			}","		}","		// separation","		double separationX = 0;","		double separationY = 0;","		if (nLocal>0) {","			double fleeX = sepX/nLocal;","			double fleeY = sepY/nLocal;","			double norm = Math.sqrt(sumOfSquares(fleeX,fleeY));","			if (norm>0 ) {","				fleeX = fleeX/norm*maxSpeed;","				fleeY = fleeY/norm*maxSpeed;","			}","			separationX = fleeX-vx;","			separationY = fleeY-vy;","			norm = Math.sqrt(sumOfSquares(separationX,separationY));","			if (norm>maxForce) {","				separationX = separationX/norm*maxForce;","				separationY = separationY/norm*maxForce;","			}","		}","		// update to next step","		accX += alignmentX + cohesionX + separationX;","		accY += alignmentY + cohesionY + separationY;","		focalDrv.x = x+spdX;","		focalDrv.y = y+spdY;","		// apply speed limit - not needed if initial speed is < max speed. ","		double v = Math.sqrt(sumOfSquares(vx+accX,vy+accY));","		if (v>maxSpeed) { ","			focalDrv.vx = (spdX+accX)/v*maxSpeed;","			focalDrv.vy = (spdY+accY)/v*maxSpeed;","		}","		else {","			focalDrv.vx = spdX+accX;","			focalDrv.vy = spdY+accY;","		}","		focalDrv.ax = 0;","		focalDrv.ay = 0;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([71]"	// code reproduced from: https://betterprogramming.pub/boids-simulating-birds-flock-behavior-in-python-9fff99375118","		double spdX = vx;","		double spdY = vy;","		double accX = ax;","		double accY = ay;","		// alignment","		double alignmentX = (random.nextDouble()-0.5)*maxForce/10;","		double alignmentY = (random.nextDouble()-0.5)*maxForce/10;","		if (nLocal>0) {","			double norm = Math.sqrt(sumOfSquares(sumdX,sumdY));","			double avgvx = sumdX/nLocal /norm *maxSpeed;","			double avgvy = sumdY/nLocal /norm *maxSpeed;","			alignmentX = avgvx-vx;","			alignmentY = avgvy-vy;","		}","		double cohesionX = 0;","		double cohesionY = 0;","		// cohesion","		if (nLocal>0) {","			// distance to flock barycentre","			double barX = sumX/nLocal-x;","			double barY = sumY/nLocal-y;","			double norm = Math.sqrt(sumOfSquares(barX,barY));","			if (norm>0) { // if non zero net move","				barX = barX/norm*maxSpeed;","				barY = barY/norm*maxSpeed;","			}","			cohesionX = barX-vx;","			cohesionY = barY-vy;","			norm = Math.sqrt(sumOfSquares(cohesionX,cohesionY));","			if (norm>maxForce) {","				cohesionX = cohesionX/norm*maxForce;","				cohesionY = cohesionY/norm*maxForce;","			}","		}","		// separation","		double separationX = 0;","		double separationY = 0;","		if (nLocal>0) {","			double fleeX = sepX/nLocal;","			double fleeY = sepY/nLocal;","			double norm = Math.sqrt(sumOfSquares(fleeX,fleeY));","			if (norm>0 ) {","				fleeX = fleeX/norm*maxSpeed;","				fleeY = fleeY/norm*maxSpeed;","			}","			separationX = fleeX-vx;","			separationY = fleeY-vy;","			norm = Math.sqrt(sumOfSquares(separationX,separationY));","			if (norm>maxForce) {","				separationX = separationX/norm*maxForce;","				separationY = separationY/norm*maxForce;","			}","		}","		// update to next step","		accX += alignmentX + cohesionX + separationX;","		accY += alignmentY + cohesionY + separationY;","		focalDrv.x = x+spdX;","		focalDrv.y = y+spdY;","		// apply speed limit - not needed if initial speed is < max speed. ","		double v = Math.sqrt(sumOfSquares(vx+accX,vy+accY));","		if (v>maxSpeed) { ","			focalDrv.vx = (spdX+accX)/v*maxSpeed;","			focalDrv.vy = (spdY+accY)/v*maxSpeed;","		}","		else {","			focalDrv.vx = spdX+accX;","			focalDrv.vy = spdY+accY;","		}","		focalDrv.ax = 0;","		focalDrv.ay = 0;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Move)
 					process p2
 						function Follow
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (squaredEuclidianDistance(x,y,other_x,other_y)<sqr(range))","			return true;","		return false;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"		if (squaredEuclidianDistance(x,y,other_x,other_y)<sqr(range))","			return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(MaintainRelationDecision)
 							userClassName = java.lang.String(code.sys1.generated.Follow)
 					process p1
 						function Detect
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (squaredEuclidianDistance(x,y,other_x,other_y)<sqr(range))","			return true;","		return false;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"		if (squaredEuclidianDistance(x,y,other_x,other_y)<sqr(range))","			return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.Detect)
 		structure struc1
@@ -225,9 +225,9 @@ treegraph // saved by OmugiGraphExporter on Tue Jun 08 11:07:27 CEST 2021
 				driverClass = java.lang.String(code.sys1.generated.Drv)
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(permanent)
 				mobile = java.lang.Boolean(false)
-				relocateFunctionName = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+				relocateFunctionName = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 				initFunction Init1
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalDrv.x = random.nextDouble()*1000.0;","		focalDrv.y = random.nextDouble()*1000.0;","		focalDrv.vx = (random.nextDouble()-0.5)*10; // max speed","		focalDrv.vy = (random.nextDouble()-0.5)*10; // max speed","		focalDrv.ax = (random.nextDouble()-0.5)*1.0; // maxForce","		focalDrv.ay = (random.nextDouble()-0.5)*1.0; // maxForce"))
+					functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalDrv.x = random.nextDouble()*1000.0;","		focalDrv.y = random.nextDouble()*1000.0;","		focalDrv.vx = (random.nextDouble()-0.5)*10; // max speed","		focalDrv.vy = (random.nextDouble()-0.5)*10; // max speed","		focalDrv.ax = (random.nextDouble()-0.5)*1.0; // maxForce","		focalDrv.ay = (random.nextDouble()-0.5)*1.0; // maxForce"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.Init1)
 				initialValues cmp1

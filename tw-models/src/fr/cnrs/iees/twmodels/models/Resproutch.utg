@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Resproutch
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (13 July 2021))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String()
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	predefined *categories*
 		categorySet *organisation*
@@ -269,22 +269,22 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(MONTH_30)
 					process p5
 						function SeasonalCycle
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([7]"		long tt = round(t);","		long month = tt % 12;","		// assuming numbering of months: 8 = nov., 11 = feb.","		if (month<=9)","			focalDec.growingSeason = true;","		else","			focalDec.growingSeason = false;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([7]"		long tt = round(t);","		long month = tt % 12;","		// assuming numbering of months: 8 = nov., 11 = feb.","		if (month<=9)","			focalDec.growingSeason = true;","		else","			focalDec.growingSeason = false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SeasonalCycle)
 					process p4
 						function FireSpread
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([3]"		if (flameHt>0.0)","			return true;","		return false;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"		if (flameHt>0.0)","			return true;","		return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FireSpread)
 					process p3
 						function FireEffect
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([30]"		int nz = temperatureProfile.size(0);","		double regrowthHt = 0.0;","		double datz = 0.0;","		for (int i=0; i<nz; i++) {","			// position along stem","			double z = i*maxFlameHeight/nz;","			// diameter at z (parabola) in cm","			datz = sqrt(other_d*other_d-other_d*z/otherGroup_f);","			// lethal temperature at datz (in mm)","			double tletatdatz = (datz*10.0-otherGroup_lethalTempInt)/otherGroup_lethalTempSlp;","			// comparison to fire temperature","			if (tletatdatz<temperatureProfile.getByInt(i)) {","				regrowthHt = z;","				break;","			}","		}","		if (regrowthHt>0.0) {","			// stem volume left under regrowthHt","			double volleft = other_bmS/otherGroup_m-PI*datz*datz*regrowthHt/8;","			otherDrv.bmS = volleft*other_bmS;","//			// caution here: the volume left - a truncated paraboloid - is transformed into a paraboloid again.","//			otherDrv.ht = regrowthHt;","//			otherDrv.d = 0.0;","","		}","		else {","			otherDrv.bmS = 0.0;","//			otherDrv.ht = 0.0;","//			otherDrv.d = 0.0;","		}"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([30]"		int nz = temperatureProfile.size(0);","		double regrowthHt = 0.0;","		double datz = 0.0;","		for (int i=0; i<nz; i++) {","			// position along stem","			double z = i*maxFlameHeight/nz;","			// diameter at z (parabola) in cm","			datz = sqrt(other_d*other_d-other_d*z/otherGroup_f);","			// lethal temperature at datz (in mm)","			double tletatdatz = (datz*10.0-otherGroup_lethalTempInt)/otherGroup_lethalTempSlp;","			// comparison to fire temperature","			if (tletatdatz<temperatureProfile.getByInt(i)) {","				regrowthHt = z;","				break;","			}","		}","		if (regrowthHt>0.0) {","			// stem volume left under regrowthHt","			double volleft = other_bmS/otherGroup_m-PI*datz*datz*regrowthHt/8;","			otherDrv.bmS = volleft*other_bmS;","//			// caution here: the volume left - a truncated paraboloid - is transformed into a paraboloid again.","//			otherDrv.ht = regrowthHt;","//			otherDrv.d = 0.0;","","		}","		else {","			otherDrv.bmS = 0.0;","//			otherDrv.ht = 0.0;","//			otherDrv.d = 0.0;","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.FireEffect)
 					process p2
 						function Ignition
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([25]"		double ambientTemp = 28;","		long tt = round(t);","		int month = (int) (tt % 12);","		focalDrv.temperatureProfile.fillWith(ambientTemp);","		if (fuelPresent)","			if (random.nextDouble()<ignitionProba.getByInt(month)) {","				double maxTempFactor = 3000+2000*random.nextDouble();				","				for (int i=0; i<temperatureProfile.size(0); i++) {","					// gamma distribution for temperature profile (completely empirical - max. ~750°C at <50cm)","					double temp = 200.0;","					double beta = 0.5;","					double k = 2;","					double flht = i*maxFlameHeight/temperatureProfile.size(0);","					double z = i*2.0;","//					double gamma = pow(z,k-1) * pow(beta,k) *exp(-beta*z) / exp(logGamma(k));","//					temp = ambientTemp + gamma * maxTempFactor;","					focalDrv.temperatureProfile.setByInt(temp,i);","					// flame height","					if (temp>60)","						focalDec.flameHt = flht;","				}","				focalDrv.fuelPresent = false;","		}","		if ((!fuelPresent)&&(month>=8))","			focalDrv.fuelPresent = true;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([25]"		double ambientTemp = 28;","		long tt = round(t);","		int month = (int) (tt % 12);","		focalDrv.temperatureProfile.fillWith(ambientTemp);","		if (fuelPresent)","			if (random.nextDouble()<ignitionProba.getByInt(month)) {","				double maxTempFactor = 3000+2000*random.nextDouble();				","				for (int i=0; i<temperatureProfile.size(0); i++) {","					// gamma distribution for temperature profile (completely empirical - max. ~750°C at <50cm)","					double temp = 200.0;","					double beta = 0.5;","					double k = 2;","					double flht = i*maxFlameHeight/temperatureProfile.size(0);","					double z = i*2.0;","//					double gamma = pow(z,k-1) * pow(beta,k) *exp(-beta*z) / exp(logGamma(k));","//					temp = ambientTemp + gamma * maxTempFactor;","					focalDrv.temperatureProfile.setByInt(temp,i);","					// flame height","					if (temp>60)","						focalDec.flameHt = flht;","				}","				focalDrv.fuelPresent = false;","		}","		if ((!fuelPresent)&&(month>=8))","			focalDrv.fuelPresent = true;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Ignition)
 						dataTracker trk3
@@ -295,16 +295,16 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 					process p1
 						function Growth
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([28]"		/*","		if (growingSeason) {","			FirstOrderIntegrator mpi = new MidpointIntegrator(0.001);","			FirstOrderDifferentialEquations ode = new ResproutEquations(group_a,group_b,group_reservesMax,","				group_p,group_r,group_q,group_s,group_n,group_f,group_e,group_m,group_mL);","			double[] yy = new double[ode.getDimension()];","			yy[0] = bmL;","			yy[1] = bmS;","			yy[2] = bmR;","			yy[3] = reserves;","			mpi.integrate(ode,t,yy,t+dt,yy);","			focalDrv.bmL = yy[0];","			focalDrv.bmS = yy[1];","			focalDrv.bmR = yy[2];","			focalDrv.reserves = yy[3];","		}","		else {","			focalDrv.bmL = 0.0;","			focalDrv.bmS = (1-group_q/10.0)*bmS;","			focalDrv.bmR = (1-group_q/10.0)*bmR;","			focalDrv.reserves = reserves; // NB: flaw here in case pLim*(bmS+bmR) becomes < than reserves ","		}","		// FLAW here: diameter and height decrease during dry season","		// compute ht and d","		double stemVolume = focalDrv.bmS/group_m;","		focalDrv.d = pow(8*stemVolume/(PI*group_f),1.0/3.0);","		focalDrv.ht = focalDrv.d*group_f;","		*/"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([28]"		/*","		if (growingSeason) {","			FirstOrderIntegrator mpi = new MidpointIntegrator(0.001);","			FirstOrderDifferentialEquations ode = new ResproutEquations(group_a,group_b,group_reservesMax,","				group_p,group_r,group_q,group_s,group_n,group_f,group_e,group_m,group_mL);","			double[] yy = new double[ode.getDimension()];","			yy[0] = bmL;","			yy[1] = bmS;","			yy[2] = bmR;","			yy[3] = reserves;","			mpi.integrate(ode,t,yy,t+dt,yy);","			focalDrv.bmL = yy[0];","			focalDrv.bmS = yy[1];","			focalDrv.bmR = yy[2];","			focalDrv.reserves = yy[3];","		}","		else {","			focalDrv.bmL = 0.0;","			focalDrv.bmS = (1-group_q/10.0)*bmS;","			focalDrv.bmR = (1-group_q/10.0)*bmR;","			focalDrv.reserves = reserves; // NB: flaw here in case pLim*(bmS+bmR) becomes < than reserves ","		}","		// FLAW here: diameter and height decrease during dry season","		// compute ht and d","		double stemVolume = focalDrv.bmS/group_m;","		focalDrv.d = pow(8*stemVolume/(PI*group_f),1.0/3.0);","		focalDrv.ht = focalDrv.d*group_f;","		*/"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Growth)
 						function Reproduction
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return 0.0d;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		return 0.0d;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduction)
 						function Mortality
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"		return true;"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		return true;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mortality)
 						dataTracker trk2
@@ -339,7 +339,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 				driverClass = java.lang.String(code.sys1.generated.FireDrv)
 				component fire1
 				initFunction InitFire
-					functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([8]"		// ignition probabilities per month","		for (int i=0; i<12; i++)","			focalCnt.ignitionProba.setWithFlatIndex(0.0,i);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,8);","		focalCnt.ignitionProba.setWithFlatIndex(1.0,9);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,10);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,11);","		focalCnt.maxFlameHeight = 3.0;"))
+					functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([8]"		// ignition probabilities per month","		for (int i=0; i<12; i++)","			focalCnt.ignitionProba.setWithFlatIndex(0.0,i);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,8);","		focalCnt.ignitionProba.setWithFlatIndex(1.0,9);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,10);","		focalCnt.ignitionProba.setWithFlatIndex(0.0,11);","		focalCnt.maxFlameHeight = 3.0;"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitFire)
 			groupType treeG
@@ -383,7 +383,7 @@ treegraph // saved by OmugiGraphExporter on Wed Apr 14 09:42:50 CEST 2021
 						nInstances = java.lang.Integer(1)
 					component pil
 					initFunction InitTree
-						functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([6]"		focalCnt.x = random.nextDouble();","		focalCnt.y = random.nextDouble();","		focalDrv.bmL = 0.0;","		focalDrv.bmS = 0.0;","		focalDrv.bmR = 1.0;","		focalDrv.reserves = 0.5;"))
+						functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalCnt.x = random.nextDouble();","		focalCnt.y = random.nextDouble();","		focalDrv.bmL = 0.0;","		focalDrv.bmS = 0.0;","		focalDrv.bmR = 1.0;","		focalDrv.reserves = 0.5;"))
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitTree)
 					component bri

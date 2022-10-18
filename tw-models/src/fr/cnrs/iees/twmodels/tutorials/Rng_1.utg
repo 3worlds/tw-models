@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Rng_x
-	authors = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (25 Jan 2022))
-	contacts = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String("Tutorial on the 3Worlds random number system.")
-	publication = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]""))
+	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	predefined *categories*
 		categorySet *organisation*
@@ -104,11 +104,11 @@ treegraph // saved by OmugiGraphExporter on Tue Dec 08 10:22:09 AEDT 2020
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process p1
 						function F2
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"focalDrv.fld2 = random.nextDouble();"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"focalDrv.fld2 = random.nextDouble();"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.F2)
 						function F1
-							functionSnippet = au.edu.anu.rscs.aot.collections.tables.StringTable(([1]"focalDrv.fld1 = random.nextDouble();"))
+							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"focalDrv.fld1 = random.nextDouble();"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.F1)
 						dataTracker trk1
