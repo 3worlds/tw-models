@@ -555,7 +555,7 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 				missingValueColour = au.edu.anu.twuifx.widgets.MissingValueColour(BLACK)
 				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LT_MIN)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(BrownYellowGreen)
-				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
+				sampleTimes = IntTable(([1]100))
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
 				zRange = fr.ens.biologie.generic.utils.Interval(]1.0,4.0[)
 			widget FstWriter
@@ -568,7 +568,7 @@ treegraph // saved by OmugiGraphExporter on Wed Aug 24 11:00:15 AEST 2022
 				missingValueColour = au.edu.anu.twuifx.widgets.MissingValueColour(BLACK)
 				missingValueMethod = au.edu.anu.twuifx.widgets.IsMissingValue(LT_MIN)
 				palette = au.edu.anu.ymuit.ui.colour.PaletteTypes(OrangeMauveBlue)
-				sampleTimes = au.edu.anu.rscs.aot.collections.tables.IntTable(([1]100))
+				sampleTimes = IntTable(([1]100))
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.headless.HLMatrixWidget1)
 				zRange = fr.ens.biologie.generic.utils.Interval(]0.35,0.86[)
 			widget HtWriter

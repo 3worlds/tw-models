@@ -93,7 +93,7 @@ treegraph // saved by OmugiGraphExporter on Mon Jul 20 16:21:01 CEST 2020
 			category *ephemeral*
 	system sys1
 		structure struc1
-			fixedPoints = au.edu.anu.rscs.aot.collections.tables.DoubleTable(([1]0.0))
+			fixedPoints = DoubleTable(([1]0.0))
 			componentType compTyp1
 				driverClass = java.lang.String(code.sys1.generated.Rec1)
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)

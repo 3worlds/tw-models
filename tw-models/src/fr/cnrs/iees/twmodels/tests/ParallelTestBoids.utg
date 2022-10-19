@@ -194,7 +194,7 @@ treegraph // saved by OmugiGraphExporter on Tue Mar 30 07:02:28 AEDT 2021
 							userClassName = java.lang.String(code.sys1.generated.Detect)
 							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([22]"		// neighbourhood is 3/4 of a circle in the direction of heading","//		double sqd = squaredEuclidianDistance(focalLoc,otherLoc);","		double sqd = squaredEuclidianDistance(xx,yy,other_xx,other_yy);","		if (sqd==0.0)","			return true;","		if (sqd<range*range) { // points within range","			double rOther = sqrt(sqd);","//			double tetaOther = acos((otherLoc.x()-focalLoc.x())/rOther)*180/PI;","			double tetaOther = acos((other_xx-xx)/rOther)*180/PI;","//			if (otherLoc.y()-focalLoc.y()<0)","			if (other_yy-yy<0)","				tetaOther = 360 - tetaOther;","			// points within hemisphere determined by heading","			double test = heading-tetaOther;","			while (test<0)","				test = 360+test;","			while (test>360)","				test -=360;","			return !((test>=225)&&(test<=315));","			}","		return false;","		//		return (squaredEuclidianDistance(focalLoc,otherLoc)<range*range);"))
 		structure struc1
-			fixedPoints = au.edu.anu.rscs.aot.collections.tables.DoubleTable(([1]0.0))
+			fixedPoints = DoubleTable(([1]0.0))
 			componentType bird
 				constantClass = java.lang.String(code.sys1.generated.Cnt)
 				decoratorClass = java.lang.String(code.sys1.generated.Dec)
