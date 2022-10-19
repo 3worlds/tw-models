@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fr.ens.biologie.generic.utils.NameUtils;
+import fr.cnrs.iees.omhtk.utils.NameUtils;
 
 class libraryTest {
 	private void show(String s) {
