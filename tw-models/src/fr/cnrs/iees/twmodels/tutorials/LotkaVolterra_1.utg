@@ -19,13 +19,13 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 		record AVEphemeral
 			field birthDate
 				description = java.lang.String(creation time of an ephemeral entity)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
 				description = java.lang.String(time since creation of an ephemeral entitiy)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -65,7 +65,7 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 			table x
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(population size)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 		record cnsts
@@ -74,19 +74,19 @@ treegraph // saved by OmugiGraphExporter on Wed May 13 06:57:12 AEST 2020
 			table r
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(growth rate)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table alpha
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(interspecific competition coefficient)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table K
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(carrying capacity)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 		dimensioner nspp

@@ -17,13 +17,13 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 			category *atomic*
 		record AVEphemeral
 			field birthDate
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 				description = java.lang.String(creation time of an ephemeral entity)
 			field age
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -66,13 +66,13 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 			generatedClassName = java.lang.String(landCst)
 			field Ch
 				description = java.lang.String(fuel height effect on spotting distance)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field Cf
 				description = java.lang.String(slope effect on spotting distance)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m-1 s-1)
@@ -84,43 +84,43 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 			table fuelHeight
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(average fuel height per fuel type)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				units = java.lang.String(m)
 			field yMax
 				description = java.lang.String(length of the landscape in the y direction)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field xMax
 				description = java.lang.String(length of the landscape in the y direction)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field g
 				description = java.lang.String(acceleration of gravity)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m s-2)
 			field cellSize
 				description = java.lang.String(side length of a fuel grid cell)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
 			field Cw0
 				description = java.lang.String(wind effect on spotting distance)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m-1)
 			table m
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(flame lifespan thresholds)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				units = java.lang.String(min)
 			table topoMap
@@ -129,13 +129,13 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 					generatedClassName = java.lang.String(slope)
 					field sX
 						description = java.lang.String(slope factor in x direction)
-						interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 						precision = java.lang.Double(0.01)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(?)
 					field sY
 						description = java.lang.String(slope factor in y direction)
-						interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 						precision = java.lang.Double(0.01)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(?)
@@ -162,19 +162,19 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 					generatedClassName = java.lang.String(wind)
 					field u
 						description = java.lang.String(wind velocity in x direction)
-						interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 						precision = java.lang.Double(0.01)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(m s-1)
 					field v
 						description = java.lang.String(wind velocity in y direction)
-						interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 						precision = java.lang.Double(0.01)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(m s-1)
 			field burntArea
 				description = java.lang.String(total area burnt)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(ha)
@@ -184,19 +184,19 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 					generatedClassName = java.lang.String(fuel)
 					field residentRabbitDieOutTime
 						description = java.lang.String(flame die-off date)
-						interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 						precision = java.lang.Double(1.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(s)
 					field hoppingRabbitLandingTime
 						description = java.lang.String(ember landing date)
-						interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 						precision = java.lang.Double(1.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(s)
 					field residentRabbitReproductionTime
 						description = java.lang.String(flame time to spread)
-						interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 						precision = java.lang.Double(1.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String(s)
@@ -270,7 +270,7 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 				layoutOrder = java.lang.Integer(4)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.TimeSeriesWidget1)
 			widget wgt2
-				zRange = fr.ens.biologie.generic.utils.Interval([0.0,2.0])
+				zRange = fr.cnrs.iees.omhtk.utils.Interval([0.0,2.0])
 				nViews = java.lang.Integer(2)
 				layoutOrder = java.lang.Integer(0)
 				subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)

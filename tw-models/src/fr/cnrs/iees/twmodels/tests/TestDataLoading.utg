@@ -18,13 +18,13 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 		record AVEphemeral
 			field birthDate
 				description = java.lang.String(creation time of an ephemeral entity)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
 				description = java.lang.String(time since creation of an ephemeral entitiy)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -65,7 +65,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			generatedClassName = java.lang.String(drvs)
 			field y
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Float)
 				units = java.lang.String()
@@ -93,7 +93,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 						units = java.lang.String()
 					field windspeed
 						description = java.lang.String()
-						interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+						interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 						precision = java.lang.Double(0.0)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 						units = java.lang.String()
@@ -103,7 +103,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			table temperature
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval([-273.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([-273.0,+∞[)
 				precision = java.lang.Double(0.1)
 				units = java.lang.String(°C)
 		record cnsts
@@ -116,7 +116,7 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 				units = java.lang.String()
 			field k1
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -125,13 +125,13 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			generatedClassName = java.lang.String(rec2)
 			field xx
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field yy
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -143,18 +143,18 @@ treegraph // saved by OmugiGraphExporter on Thu Feb 10 10:17:01 CET 2022
 			table turbidity
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			field level
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field depth
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()

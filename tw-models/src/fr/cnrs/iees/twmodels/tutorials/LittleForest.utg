@@ -18,13 +18,13 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 		record AVEphemeral
 			field birthDate
 				description = java.lang.String(creation time of an ephemeral entity)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field age
 				description = java.lang.String(time since creation of an ephemeral entitiy)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -59,19 +59,19 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			generatedClassName = java.lang.String(par)
 			field gmax
 				description = java.lang.String(relative growth rate)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(kg yr-1)
 			field pmor
 				description = java.lang.String(death probability)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,1.0[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,1.0[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field fec
 				description = java.lang.String(per capita fecundity)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(# yr-1)
@@ -80,13 +80,13 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			generatedClassName = java.lang.String(treeCst)
 			field y
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field x
 				description = java.lang.String()
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -95,7 +95,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			generatedClassName = java.lang.String(drv)
 			field biomass
 				description = java.lang.String(tree biomass)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(kg)
@@ -104,7 +104,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			generatedClassName = java.lang.String(global)
 			field neighRadius
 				description = java.lang.String(neighbourhood radius)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,10.0])
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,10.0])
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(m)
@@ -113,7 +113,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 			generatedClassName = java.lang.String(treedec)
 			field neighBm
 				description = java.lang.String(total biomass in neighbourhood)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(kg)
@@ -183,8 +183,8 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 				precision = java.lang.Double(0.01)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
-				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,100.0])
-				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,150.0])
+				x-limits = fr.cnrs.iees.omhtk.utils.Interval([0.0,100.0])
+				y-limits = fr.cnrs.iees.omhtk.utils.Interval([0.0,150.0])
 			categorySet plants
 				category tree
 					constantClass = java.lang.String(Tree_Cnt)

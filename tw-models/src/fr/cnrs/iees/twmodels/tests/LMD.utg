@@ -7,7 +7,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (23 Mar 2022))
 	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([8]"static code.utilities.Utilities3A.*","java.util.List","fr.ens.biologie.generic.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
+	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([8]"static code.utilities.Utilities3A.*","java.util.List","fr.cnrs.iees.omhtk.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Males and females, overlapping generations and landscape genetics)
 	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String(0.0.8)
@@ -45,13 +45,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 		record AVEphemeral
 			field age
 				description = java.lang.String(time since creation of an ephemeral entitiy)
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field birthDate
 				description = java.lang.String(creation time of an ephemeral entity)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -83,8 +83,8 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				precision = java.lang.Double(0.1)
 				type = fr.cnrs.iees.twcore.constants.SpaceType(continuousFlatSurface)
 				units = java.lang.String(m)
-				x-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
-				y-limits = fr.ens.biologie.generic.utils.Interval([0.0,10000.0[)
+				x-limits = fr.cnrs.iees.omhtk.utils.Interval([0.0,10000.0[)
+				y-limits = fr.cnrs.iees.omhtk.utils.Interval([0.0,10000.0[)
 			categorySet animalSet
 				category animalCat
 					constantClass = java.lang.String(AnimalCat_Cnt)
@@ -253,22 +253,22 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 					layoutOrder = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Heterozygosity layer
-						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,1.0[)
 						layoutOrder = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Deme layer
-						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,20.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,20.0[)
 						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				container cont12
 					layoutOrder = java.lang.Integer(1)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Most frequent allele
-						zRange = fr.ens.biologie.generic.utils.Interval(]-1.0,9.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]-1.0,9.0[)
 						layoutOrder = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Most frequent maternal allele
-						zRange = fr.ens.biologie.generic.utils.Interval(]-1.0,99.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]-1.0,99.0[)
 						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		headless hl
@@ -311,7 +311,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 					layoutOrder = java.lang.Integer(1)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget PreDispersal density
-						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,10.0[)
 						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget age classes
@@ -321,11 +321,11 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 					layoutOrder = java.lang.Integer(0)
 					orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(horizontal)
 					widget Preculling density
-						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,10.0[)
 						layoutOrder = java.lang.Integer(0)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 					widget Culling density
-						zRange = fr.ens.biologie.generic.utils.Interval(]0.0,10.0[)
+						zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,10.0[)
 						layoutOrder = java.lang.Integer(1)
 						subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 		top top
@@ -359,11 +359,11 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				layoutOrder = java.lang.Integer(1)
 				orientation = fr.cnrs.iees.twcore.constants.UIContainerOrientation(vertical)
 				widget Habitat pattern
-					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+					zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,1.0[)
 					layoutOrder = java.lang.Integer(2)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 				widget Population density
-					zRange = fr.ens.biologie.generic.utils.Interval(]0.0,5.0[)
+					zRange = fr.cnrs.iees.omhtk.utils.Interval(]0.0,5.0[)
 					layoutOrder = java.lang.Integer(0)
 					subclass = java.lang.String(au.edu.anu.twuifx.widgets.MatrixWidget1)
 	dataDefinition dDef
@@ -392,19 +392,19 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			generatedClassName = java.lang.String(glbCnt)
 			field r2
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field k1
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field k2
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -413,7 +413,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field r1
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -422,13 +422,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field rateMutation
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field ageMature
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -442,7 +442,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				units = java.lang.String()
 			field d1
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -451,13 +451,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field ageSenescent
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field d2
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -495,13 +495,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			generatedClassName = java.lang.String(glbDec)
 			field occupancy
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field Fst
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -532,13 +532,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				units = java.lang.String()
 			field HsBar
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field Ht
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -549,7 +549,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				units = java.lang.String()
 			field fractionCulled
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -560,7 +560,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				units = java.lang.String()
 			field segregationRatio
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -576,7 +576,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				units = java.lang.String()
 			field fractionPregnant
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -588,7 +588,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			table heterozygosity
 				description = java.lang.String()				
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table populationAgeClasses
@@ -641,13 +641,13 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 			generatedClassName = java.lang.String(animalDrv)
 			field ageInYears
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field xLocation
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -659,7 +659,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 13:18:47 AEDT 2021
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 			field yLocation
 				description = java.lang.String()				
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()

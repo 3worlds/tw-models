@@ -20,13 +20,13 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 			category *atomic*
 		record AVEphemeral
 			field birthDate
-				interval = fr.ens.biologie.generic.utils.Interval(]-∞,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]-∞,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 				description = java.lang.String(creation time of an ephemeral entity)
 			field age
-				interval = fr.ens.biologie.generic.utils.Interval([0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval([0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -157,13 +157,13 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 			generatedClassName = java.lang.String(distCnsts)
 			field freq
 				description = java.lang.String(disturbance return interval)
-				interval = fr.ens.biologie.generic.utils.Interval(]5.0,49.0[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]5.0,49.0[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
 			field inten
 				description = java.lang.String(disturbance intensity)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,100.0[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,100.0[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
@@ -173,19 +173,19 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 			table r
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(growth rate)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,1.0[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,1.0[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table alpha
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(interspecific competition coefficient)
-				interval = fr.ens.biologie.generic.utils.Interval(]1.0E-4,1.0[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]1.0E-4,1.0[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			table K
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(carrying capacity)
-				interval = fr.ens.biologie.generic.utils.Interval(]5.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]5.0,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 		record commDrvs
@@ -194,12 +194,12 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 			table x
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				description = java.lang.String(population size)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				units = java.lang.String()
 			field tsd
 				description = java.lang.String(time since disturbance)
-				interval = fr.ens.biologie.generic.utils.Interval(]1.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]1.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String(y)
@@ -210,7 +210,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 11:59:29 CET 2022
 			generatedClassName = java.lang.String(commDecs)
 			field di
 				description = java.lang.String(Shannon's diveristy index)
-				interval = fr.ens.biologie.generic.utils.Interval(]0.0,+∞[)
+				interval = fr.cnrs.iees.omhtk.utils.Interval(]0.0,+∞[)
 				precision = java.lang.Double(0.0)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Double)
 				units = java.lang.String()
