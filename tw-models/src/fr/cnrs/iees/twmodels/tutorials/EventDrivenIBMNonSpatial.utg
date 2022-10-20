@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds EventDrivenIBMNonSpatial
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(gignoux (11 févr. 2022))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String(Tutorial on event-driven non-spatial system.)
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	dataDefinition dDef
 		record glbCnsts
@@ -104,14 +104,14 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process p1
 						function Pulse
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"        // post a 'item' creation event for this time","        t2Event.postTimeEvent(t);","        // schedule a call to this method at some future time","        t1Event.postTimeEvent(t + random.nextInt((int)(1.0/pulseRate)) + 1);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"        // post a 'item' creation event for this time","        t2Event.postTimeEvent(t);","        // schedule a call to this method at some future time","        t1Event.postTimeEvent(t + random.nextInt((int)(1.0/pulseRate)) + 1);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Pulse)
 				timer t2Event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process p2
 						function NItems
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"        // limit the recuitment rate of items to the ceiling","        double rate = (ceiling-count)/(double)count;","        return rate;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([3]"        // limit the recuitment rate of items to the ceiling","        double rate = (ceiling-count)/(double)count;","        return rate;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.NItems)
@@ -122,7 +122,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process p3
 						function DeleteItem
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"        // return the deleteRate probabilistically converted to true or false","        return decider.decide(deleteRate);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"        // return the deleteRate probabilistically converted to true or false","        return decider.decide(deleteRate);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.DeleteItem)
 					process p4
@@ -130,7 +130,7 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 							sampleSize = java.lang.String(1)
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"	// Set values of global constants","        focalCnt.deleteRate = 0.01;","        focalCnt.pulseRate = 0.002;","        focalCnt.ceiling = 5000.0;","        // post event to the pulse time to kick start it. After this it posts events to itself.","        t1Event.postTimeEvent(1);"))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([6]"	// Set values of global constants","        focalCnt.deleteRate = 0.01;","        focalCnt.pulseRate = 0.002;","        focalCnt.ceiling = 5000.0;","        // post event to the pulse time to kick start it. After this it posts events to itself.","        t1Event.postTimeEvent(1);"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 		structure struc1

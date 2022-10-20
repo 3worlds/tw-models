@@ -45,12 +45,12 @@ treegraph // saved by OmugiGraphExporter on Thu Jan 28 16:02:18 CET 2021
 	
 // TREE
 3worlds TestLifeCycle
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(gignoux (9 juin 2022))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String()
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
 	dataDefinition dDef
 		record loc
@@ -95,25 +95,25 @@ treegraph // saved by OmugiGraphExporter on Thu Jan 28 16:02:18 CET 2021
 					timeUnit = fr.cnrs.iees.twcore.constants.TimeUnits(UNSPECIFIED)
 					process p2
 						function Mortality
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		return (age>7.5);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"		return (age>7.5);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mortality)
 						function ProduceA
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"		if (age>2.5)","			return 1.0;","		else","			return 0.0d;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"		if (age>2.5)","			return 1.0;","		else","			return 0.0d;"))
 							relateToProduct = java.lang.Boolean(true)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.ProduceA)
 							function InitProduct
-								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		otherCnt.x = x+random.nextDouble();","		otherCnt.y = y+random.nextDouble();"))
+								functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"		otherCnt.x = x+random.nextDouble();","		otherCnt.y = y+random.nextDouble();"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.InitProduct)
 					process p1
 						function RecruitAB
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"		if ((age>1.5)&(age<2.5))","			return recruit.transition(true);","		else","			return recruit.transition(false);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"		if ((age>1.5)&(age<2.5))","			return recruit.transition(true);","		else","			return recruit.transition(false);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeCategoryDecision)
 							userClassName = java.lang.String(code.sys1.generated.RecruitAB)
 							function InitRecruit
-								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		otherCnt.x = x;","		otherCnt.y = y;"))
+								functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"		otherCnt.x = x;","		otherCnt.y = y;"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.InitRecruit)
 			stoppingCondition stCd1

@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:36:29 AEDT 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Ockham2
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (23 Mar 2022))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
-	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([8]"java.util.List","static code.utilities.Utilities1.*","fr.cnrs.iees.omhtk.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
+	importSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([8]"java.util.List","static code.utilities.Utilities1.*","fr.cnrs.iees.omhtk.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
 	precis = java.lang.String(Single sex, overlapping generations)
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String(0.0.7)
 	dataDefinition dDef
 		dimensioner ydim
@@ -292,7 +292,7 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:36:29 AEDT 2021
 							sampleSize = java.lang.String()
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 						function SysSetOutputValues
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([16]"		// For debugging, record difference between pre and post culling maps","		int totalKilled = 0;","		int totalPreCull = 0;","		for (int x = 0; x < populationLayer.size(0); x++)","			for (int y = 0; y < populationLayer.size(1); y++) {","				int p1 = preCullLayer.getByInt(x, y);","				totalPreCull += p1;","				int p2 = populationLayer.getByInt(x, y);","				int killed = p1 - p2;","				totalKilled += killed;","				focalDec.culledLayer.setByInt(killed, x, y);","			}","		focalDec.fractionCulled = (double) totalKilled / (double) totalPreCull;","		double mx = habitatLayer.size(0) * habitatLayer.size(1) * (k1 + k2) / 2.0;","		focalDec.occupancy = population / mx;","		focalDec.segregationRatio = (double) population2 / (double) population1;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([16]"		// For debugging, record difference between pre and post culling maps","		int totalKilled = 0;","		int totalPreCull = 0;","		for (int x = 0; x < populationLayer.size(0); x++)","			for (int y = 0; y < populationLayer.size(1); y++) {","				int p1 = preCullLayer.getByInt(x, y);","				totalPreCull += p1;","				int p2 = populationLayer.getByInt(x, y);","				int killed = p1 - p2;","				totalKilled += killed;","				focalDec.culledLayer.setByInt(killed, x, y);","			}","		focalDec.fractionCulled = (double) totalKilled / (double) totalPreCull;","		double mx = habitatLayer.size(0) * habitatLayer.size(1) * (k1 + k2) / 2.0;","		focalDec.occupancy = population / mx;","		focalDec.segregationRatio = (double) population2 / (double) population1;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SysSetOutputValues)
 						dataTracker trkPreCullLayer
@@ -300,47 +300,47 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:36:29 AEDT 2021
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker2D)
 					process p7
 						function AniAge
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([18]"		// record final population","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		// record final population density layer","		arenaDec.populationLayer.setByInt(arenaDec.populationLayer.getByInt(ix, iy) + 1, ix, iy);","		int age = (int) ageInYears;","		age = Math.min(age, populationAgeClasses.size() - 1);","		arenaDec.populationAgeClasses.setByInt(arenaDec.populationAgeClasses.getByInt(age) + 1, age);","		arenaDec.population++;","		if (habitatLayer.getByInt(ix, iy))","			arenaDec.population1++;","		else","			arenaDec.population2++;	","		// age individuals - could be done at start of loop","		focalDrv.ageInYears += 1;","		focalDrv.isNewBorn=false;","		if (focalDrv.ageInYears >= ageMature)","			focalDrv.isMature = true;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([18]"		// record final population","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		// record final population density layer","		arenaDec.populationLayer.setByInt(arenaDec.populationLayer.getByInt(ix, iy) + 1, ix, iy);","		int age = (int) ageInYears;","		age = Math.min(age, populationAgeClasses.size() - 1);","		arenaDec.populationAgeClasses.setByInt(arenaDec.populationAgeClasses.getByInt(age) + 1, age);","		arenaDec.population++;","		if (habitatLayer.getByInt(ix, iy))","			arenaDec.population1++;","		else","			arenaDec.population2++;	","		// age individuals - could be done at start of loop","		focalDrv.ageInYears += 1;","		focalDrv.isNewBorn=false;","		if (focalDrv.ageInYears >= ageMature)","			focalDrv.isMature = true;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniAge)
 					process p6
 						function AniCull
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([13]"		// remove (probabilistically) individuals from populations above carrying","		// capacity.","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		double k = k2;","		if (habitatLayer.getByInt(ix, iy))","			k = k1;","		double n = preCullLayer.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([13]"		// remove (probabilistically) individuals from populations above carrying","		// capacity.","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		double k = k2;","		if (habitatLayer.getByInt(ix, iy))","			k = k1;","		double n = preCullLayer.getByInt(ix, iy);","		if (n > k) {","			double p = (n - k) / n;","			return decider.decide(p);","		} else","			return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.AniCull)
 					process p5
 						function AniSetPreCullingLayer
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"		// set values of population density for all individuals including new born","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.preCullLayer.setByInt(arenaDec.preCullLayer.getByInt(ix, iy) + 1, ix, iy);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"		// set values of population density for all individuals including new born","		int ix = (int) (xLocation / habitatCellSize);","		int iy = (int) (yLocation / habitatCellSize);","		arenaDec.preCullLayer.setByInt(arenaDec.preCullLayer.getByInt(ix, iy) + 1, ix, iy);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniSetPreCullingLayer)
 					process p4
 						function AniDispersal
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([35]"		if (isNewBorn) { // only disperse new born","			int nTrials = 1;","			if (isDispersalInformed)","				nTrials = 3;","			double meanDistance = 1000.0;","			if (isDispersalShort)","				meanDistance = 100.0;","			List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","			int w = habitatLayer.size(0);","			int h = habitatLayer.size(1);","			for (int i = 0; i < nTrials; i++) {","				double distance = -(meanDistance) * Math.log(1 - random.nextDouble());","				double direction = random.nextDouble() * (2 * Math.PI);","				double tx = xLocation + distance * Math.cos(direction);","				double ty = yLocation + distance * Math.sin(direction);","				int ix = gridLocation(tx, w, habitatCellSize);","				int iy = gridLocation(ty, h, habitatCellSize);","				// n maybe non-zero in overlappig generations","				int n = preDispersalLayer.getByInt(ix, iy);","				double attraction = random.nextDouble();","				// bias habitat [true]","				if (habitatLayer.getByInt(ix, iy))","					attraction += 1;","				sites.add(new Tuple<Double, Double, Double>(tx, ty, attraction));","			}","			sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","				@Override","				public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","					return o1.getThird().compareTo(o2.getThird());","				}","			});","			Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","			focalDrv.xLocation = location.getFirst();","			focalDrv.yLocation = location.getSecond();","		}"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([35]"		if (isNewBorn) { // only disperse new born","			int nTrials = 1;","			if (isDispersalInformed)","				nTrials = 3;","			double meanDistance = 1000.0;","			if (isDispersalShort)","				meanDistance = 100.0;","			List<Tuple<Double, Double, Double>> sites = new ArrayList<>();","			int w = habitatLayer.size(0);","			int h = habitatLayer.size(1);","			for (int i = 0; i < nTrials; i++) {","				double distance = -(meanDistance) * Math.log(1 - random.nextDouble());","				double direction = random.nextDouble() * (2 * Math.PI);","				double tx = xLocation + distance * Math.cos(direction);","				double ty = yLocation + distance * Math.sin(direction);","				int ix = gridLocation(tx, w, habitatCellSize);","				int iy = gridLocation(ty, h, habitatCellSize);","				// n maybe non-zero in overlappig generations","				int n = preDispersalLayer.getByInt(ix, iy);","				double attraction = random.nextDouble();","				// bias habitat [true]","				if (habitatLayer.getByInt(ix, iy))","					attraction += 1;","				sites.add(new Tuple<Double, Double, Double>(tx, ty, attraction));","			}","			sites.sort(new Comparator<Tuple<Double, Double, Double>>() {","				@Override","				public int compare(Tuple<Double, Double, Double> o1, Tuple<Double, Double, Double> o2) {","					return o1.getThird().compareTo(o2.getThird());","				}","			});","			Tuple<Double, Double, Double> location = sites.get(sites.size() - 1);","			focalDrv.xLocation = location.getFirst();","			focalDrv.yLocation = location.getSecond();","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniDispersal)
 					process p3
 						function AniDeath
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([11]"		if (!isNewBorn) { // assume death rate is included in birth rates","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			double d = d2;","			if (habitatLayer.getByInt(ix, iy))","				d = d1;","			if (ageInYears >= ageSenescent)","				d = 1.0;","			return decider.decide(d);","		} else","			return false;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([11]"		if (!isNewBorn) { // assume death rate is included in birth rates","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			double d = d2;","			if (habitatLayer.getByInt(ix, iy))","				d = d1;","			if (ageInYears >= ageSenescent)","				d = 1.0;","			return decider.decide(d);","		} else","			return false;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.AniDeath)
 					process p2
 						function AniNBirths
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([9]"		if (isMature) {","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			double r = r2;","			if (habitatLayer.getByInt(ix, iy))","				r = r1;","			return r;","		} else","			return 0;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([9]"		if (isMature) {","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			double r = r2;","			if (habitatLayer.getByInt(ix, iy))","				r = r1;","			return r;","		} else","			return 0;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.AniNBirths)
 							function AniInitNewBorn
-								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([5]"		otherDrv.isMature = false;","		otherDrv.isNewBorn = true;","		otherDrv.ageInYears = 0;","		otherDrv.xLocation = xLocation;","		otherDrv.yLocation = yLocation;"))
+								functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([5]"		otherDrv.isMature = false;","		otherDrv.isNewBorn = true;","		otherDrv.ageInYears = 0;","		otherDrv.xLocation = xLocation;","		otherDrv.yLocation = yLocation;"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.AniInitNewBorn)
 					process p1
 						function SysSetHabitatLayer
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([83]"		int time = (int) (t - 1);","		if ((time == 0) || isHabitatDynamic) {","			// make new pattern","			// assumptions:","			// 1) a square landscape","			// 2) good:bad habitat ratio of 1:1","			// 3) Torus topology","			// clumped = 0.95; fragmented 0.01","			double fracBad = 0.5;","			double pContagion = 0.95;","			if (isHabitatFragmented)","				pContagion = 0.01;","			focalDrv.habitatLayer.fillWith(true);// set all to 'good'","			int w = habitatLayer.size(0);","			int h = habitatLayer.size(1);","			Map<String, List<Integer>> goodList = new HashMap<>();","			List<String> keys = new ArrayList<>();","			for (int x = 0; x < w; x++)","				for (int y = 0; y < h; y++) {","					List<Integer> l = new ArrayList<>();","					l.add(x);","					l.add(y);","					String key = new StringBuilder().append(x).append('-').append(y).toString();","					keys.add(key);","					goodList.put(key, l);","				}","","			boolean[][] visited = new boolean[w][h];","			int area = w * h;","			int quota = (int) (fracBad * area);","			int nBad = 0;","			while (nBad < quota) {","				double pSpread = 1.0;","				// ignition","				List<Integer> frontLineX = new ArrayList<>();","				List<Integer> frontLineY = new ArrayList<>();","				// select random starting point","				int idx = random.nextInt(keys.size());","				String key = keys.get(idx);","				keys.remove(idx);","				List<Integer> l = goodList.get(key);","				int x = l.get(0);","				int y = l.get(1);","				nBad++;","				focalDrv.habitatLayer.setByInt(false, x, y);","				frontLineX.add(x);","				frontLineY.add(y);","				visited[x][y] = true;","				while (!frontLineX.isEmpty() && nBad < quota) {","					pSpread = pSpread * pContagion;","					// spreadFrom","					List<Integer> newFrontLineX = new ArrayList<>();","					List<Integer> newFrontLineY = new ArrayList<>();","					for (int i = 0; i < frontLineX.size(); i++) {","						int sx = frontLineX.get(i);","						int sy = frontLineY.get(i);","						for (int dx = -1; dx <= 1; dx++)","							for (int dy = -1; dy <= 1; dy++)","								if (!(dy == 0 && dx == 0)) {","									int nx = sx + dx;","									if (nx < 0)","										nx += w;","									nx = nx % w;","									int ny = sy + dy;","									if (ny < 0)","										ny += h;","									ny = ny % h;","									if (!visited[nx][ny]) {","										if (random.nextDouble() < pSpread) {","											visited[nx][ny] = true;","											newFrontLineX.add(nx);","											newFrontLineY.add(ny);","											focalDrv.habitatLayer.setByInt(false, nx, ny);","										}","									}","								}","					}","					frontLineX = newFrontLineX;","					frontLineY = newFrontLineY;","					nBad += frontLineX.size();","				}","			}","		}"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([83]"		int time = (int) (t - 1);","		if ((time == 0) || isHabitatDynamic) {","			// make new pattern","			// assumptions:","			// 1) a square landscape","			// 2) good:bad habitat ratio of 1:1","			// 3) Torus topology","			// clumped = 0.95; fragmented 0.01","			double fracBad = 0.5;","			double pContagion = 0.95;","			if (isHabitatFragmented)","				pContagion = 0.01;","			focalDrv.habitatLayer.fillWith(true);// set all to 'good'","			int w = habitatLayer.size(0);","			int h = habitatLayer.size(1);","			Map<String, List<Integer>> goodList = new HashMap<>();","			List<String> keys = new ArrayList<>();","			for (int x = 0; x < w; x++)","				for (int y = 0; y < h; y++) {","					List<Integer> l = new ArrayList<>();","					l.add(x);","					l.add(y);","					String key = new StringBuilder().append(x).append('-').append(y).toString();","					keys.add(key);","					goodList.put(key, l);","				}","","			boolean[][] visited = new boolean[w][h];","			int area = w * h;","			int quota = (int) (fracBad * area);","			int nBad = 0;","			while (nBad < quota) {","				double pSpread = 1.0;","				// ignition","				List<Integer> frontLineX = new ArrayList<>();","				List<Integer> frontLineY = new ArrayList<>();","				// select random starting point","				int idx = random.nextInt(keys.size());","				String key = keys.get(idx);","				keys.remove(idx);","				List<Integer> l = goodList.get(key);","				int x = l.get(0);","				int y = l.get(1);","				nBad++;","				focalDrv.habitatLayer.setByInt(false, x, y);","				frontLineX.add(x);","				frontLineY.add(y);","				visited[x][y] = true;","				while (!frontLineX.isEmpty() && nBad < quota) {","					pSpread = pSpread * pContagion;","					// spreadFrom","					List<Integer> newFrontLineX = new ArrayList<>();","					List<Integer> newFrontLineY = new ArrayList<>();","					for (int i = 0; i < frontLineX.size(); i++) {","						int sx = frontLineX.get(i);","						int sy = frontLineY.get(i);","						for (int dx = -1; dx <= 1; dx++)","							for (int dy = -1; dy <= 1; dy++)","								if (!(dy == 0 && dx == 0)) {","									int nx = sx + dx;","									if (nx < 0)","										nx += w;","									nx = nx % w;","									int ny = sy + dy;","									if (ny < 0)","										ny += h;","									ny = ny % h;","									if (!visited[nx][ny]) {","										if (random.nextDouble() < pSpread) {","											visited[nx][ny] = true;","											newFrontLineX.add(nx);","											newFrontLineY.add(ny);","											focalDrv.habitatLayer.setByInt(false, nx, ny);","										}","									}","								}","					}","					frontLineX = newFrontLineX;","					frontLineY = newFrontLineY;","					nBad += frontLineX.size();","				}","			}","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.SysSetHabitatLayer)
 					process p3A
 						function AniSetPreDispersalLayer
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([5]"		if (!isNewBorn) { // don't included undispersed new born in counts.","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			arenaDec.preDispersalLayer.setByInt(arenaDec.preDispersalLayer.getByInt(ix, iy) + 1, ix, iy);","		}"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([5]"		if (!isNewBorn) { // don't included undispersed new born in counts.","			int ix = (int) (xLocation / habitatCellSize);","			int iy = (int) (yLocation / habitatCellSize);","			arenaDec.preDispersalLayer.setByInt(arenaDec.preDispersalLayer.getByInt(ix, iy) + 1, ix, iy);","		}"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.AniSetPreDispersalLayer)
 			stoppingCondition stCd1
@@ -364,11 +364,11 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:36:29 AEDT 2021
 				initialValues animal
 					nInstances = java.lang.Integer(8000)
 				initFunction AniInit
-					functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([7]"		// random locations","		focalDrv.xLocation = random.nextDouble() * landscapeWidth;","		focalDrv.yLocation = random.nextDouble() * landscapeHeight;","		// Initial population is all new born","		focalDrv.isMature = false;","		focalDrv.isNewBorn = true;","		focalDrv.ageInYears =0;"))
+					functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([7]"		// random locations","		focalDrv.xLocation = random.nextDouble() * landscapeWidth;","		focalDrv.yLocation = random.nextDouble() * landscapeHeight;","		// Initial population is all new born","		focalDrv.isMature = false;","		focalDrv.isNewBorn = true;","		focalDrv.ageInYears =0;"))
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.AniInit)
 		initFunction SysInit
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([15]"		focalCnt.isDispersalShort = true;// short = 100; long = 1000","		focalCnt.isDispersalInformed = true;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = true;// dynamic:every year;  static: never","		focalCnt.isHabitatFragmented = true;// clumped or fragmented","","		// Habitat effects carrying capacity. No effect if equal","		// NB Calibrated for females only population","		focalCnt.k1 = 3.0 / 2.0;","		focalCnt.k2 = 1.5 / 2.0;// 1.5 i.e half of k1/2","		// Habitat effects reproduction rate. No effect if equal","		focalCnt.r1 = 2.0;","		focalCnt.r2 = 2.0;// 0.5 just sustainable?","		// set to non-overlapping generations","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 1;"))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([15]"		focalCnt.isDispersalShort = true;// short = 100; long = 1000","		focalCnt.isDispersalInformed = true;// informed - best of 3 trials","		focalCnt.isHabitatDynamic = true;// dynamic:every year;  static: never","		focalCnt.isHabitatFragmented = true;// clumped or fragmented","","		// Habitat effects carrying capacity. No effect if equal","		// NB Calibrated for females only population","		focalCnt.k1 = 3.0 / 2.0;","		focalCnt.k2 = 1.5 / 2.0;// 1.5 i.e half of k1/2","		// Habitat effects reproduction rate. No effect if equal","		focalCnt.r1 = 2.0;","		focalCnt.r2 = 2.0;// 0.5 just sustainable?","		// set to non-overlapping generations","		focalCnt.ageMature = 1;","		focalCnt.ageSenescent = 1;"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.SysInit)
 	predefined *categories*
@@ -493,20 +493,20 @@ treegraph // saved by OmugiGraphExporter on Mon Nov 29 10:36:29 AEDT 2021
 [function:SysSetOutputValues] useRNG uses9 [rng:rngHabitat]
 [treatment:trt] treats dm [field:isDispersalInformed]
 	rank = java.lang.Integer(2)
-	valueNames = au.edu.anu.omugi.collections.tables.StringTable(([2]"Uninformed","Informed"))
-	values = au.edu.anu.omugi.collections.tables.StringTable(([2]"false","true"))
+	valueNames = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"Uninformed","Informed"))
+	values = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"false","true"))
 [treatment:trt] treats hp [field:isHabitatFragmented]
 	rank = java.lang.Integer(4)
-	valueNames = au.edu.anu.omugi.collections.tables.StringTable(([2]"clumped","fragmented"))
-	values = au.edu.anu.omugi.collections.tables.StringTable(([2]"false","true"))
+	valueNames = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"clumped","fragmented"))
+	values = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"false","true"))
 [treatment:trt] treats dd [field:isDispersalShort]
 	rank = java.lang.Integer(1)
-	valueNames = au.edu.anu.omugi.collections.tables.StringTable(([2]"short","long"))
-	values = au.edu.anu.omugi.collections.tables.StringTable(([2]"true","false"))
+	valueNames = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"short","long"))
+	values = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"true","false"))
 [treatment:trt] treats hd [field:isHabitatDynamic]
 	rank = java.lang.Integer(3)
-	valueNames = au.edu.anu.omugi.collections.tables.StringTable(([2]"dynamic","static"))
-	values = au.edu.anu.omugi.collections.tables.StringTable(([2]"true","false"))
+	valueNames = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"dynamic","static"))
+	values = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"true","false"))
 [table:preCullLayer] sizedBy x3 [dimensioner:xdim]
 	rank = java.lang.Integer(0)
 [table:preCullLayer] sizedBy y3 [dimensioner:ydim]

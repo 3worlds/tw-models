@@ -4,13 +4,13 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds SimpleClock_1
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(ian (14 May 2021))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	precis = java.lang.String()
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
-	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -73,7 +73,7 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.Init1)
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
@@ -92,7 +92,7 @@ treegraph // saved by OmugiGraphExporter on Fri Jun 19 19:49:42 AEST 2020
 						function F1
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.Growth)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 							
 	userInterface gui
 		top top

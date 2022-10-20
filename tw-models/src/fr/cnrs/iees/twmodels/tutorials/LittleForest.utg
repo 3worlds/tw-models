@@ -4,12 +4,12 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds LittleForest
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(ian (2 Apr. 2021))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]"jacques.gignoux@upmc.fr"))
-	importSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"jacques.gignoux@upmc.fr"))
+	importSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	precis = java.lang.String(A simplistic individual based forest model to test the use of groups.)
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
 	predefined *categories*
 		categorySet *organisation*
@@ -123,7 +123,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 	system sys1
 		constantClass = java.lang.String(code.sys1.generated.Global)
 		initFunction Init1
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		focalCnt.neighRadius = 10.0;"))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"		focalCnt.neighRadius = 10.0;"))
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.Init1)
 		dynamics sim1
@@ -143,30 +143,30 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 							subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.tracking.DataTracker0D)
 					process p3
 						function FindNeighbours
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		return squaredEuclidianDistance(x,y,other_x,other_y)<(neighRadius*neighRadius);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"		return squaredEuclidianDistance(x,y,other_x,other_y)<(neighRadius*neighRadius);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.FindNeighbours)
 					process p2
 						function ResourceDemand
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		otherDec.neighBm += biomass;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"		otherDec.neighBm += biomass;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.ResourceDemand)
 					process p1
 						function Growth
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		double g = group_gmax*biomass*biomass/(biomass+neighBm);","		focalDrv.biomass = biomass+g;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"		double g = group_gmax*biomass*biomass/(biomass+neighBm);","		focalDrv.biomass = biomass+g;"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Growth)
 						function Reproduction
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		// number of seedlings proportional to biomass/100","		return group_fec*biomass/100;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"		// number of seedlings proportional to biomass/100","		return group_fec*biomass/100;"))
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Reproduction)
 							function Dispersal
-								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([7]"		// drivers","		otherDrv.biomass = 1;","		// location","		double dist = neighRadius*random.nextGaussian()+neighRadius;","		double angle = random.nextDouble()*2*PI;","		otherCnt.x = x+dist*cos(angle);","		otherCnt.y = y+dist*sin(angle);"))
+								functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([7]"		// drivers","		otherDrv.biomass = 1;","		// location","		double dist = neighRadius*random.nextGaussian()+neighRadius;","		double angle = random.nextDouble()*2*PI;","		otherCnt.x = x+dist*cos(angle);","		otherCnt.y = y+dist*sin(angle);"))
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.Dispersal)
 						function Mortality
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"		// mortality is increased proportionally to low growth due to competition","		double coef = biomass/(biomass+neighBm);","		double proba = group_pmor*coef;","		return decider.decide(proba);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"		// mortality is increased proportionally to low growth due to competition","		double coef = biomass/(biomass+neighBm);","		double proba = group_pmor*coef;","		return decider.decide(proba);"))
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mortality)
 						dataTracker trk2
@@ -208,9 +208,9 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 					driverClass = java.lang.String(code.sys1.generated.Drv)
 					lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
 					mobile = java.lang.Boolean(false)
-					relocateFunctionName = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+					relocateFunctionName = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 					initFunction InitTree
-						functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
+						functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"		focalCnt.x = random.nextDouble()*1000;","		focalCnt.y = random.nextDouble()*1000;"))
 						type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 						userClassName = java.lang.String(code.sys1.generated.InitTree)
 					initialValues cmp2
@@ -266,7 +266,7 @@ treegraph // saved by OmugiGraphExporter on Mon Feb 14 16:56:36 CET 2022
 [dataTracker:trk1] trackField trks4 [field:count]
 	index = fr.cnrs.iees.twcore.constants.TrackerType(([1]""))
 [dataTracker:trk1] sampleGroup trks3 [groupType:species]
-	idGroup = au.edu.anu.omugi.collections.tables.StringTable(([2]"Carpinus","Quercus"))
+	idGroup = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"Carpinus","Quercus"))
 [dataTracker:trk2] sampleComponent trks8 [componentType:treeIndividual]
 	idGroup = java.lang.String(Carpinus)
 [dataTracker:trk2] trackField trks7 [field:neighBm]

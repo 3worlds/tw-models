@@ -4,13 +4,13 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds TimerTestCalendarTime
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	built-by = java.lang.String(gignoux (22 avr. 2021))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	precis = java.lang.String()
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String()
-	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	predefined *categories*
 		categorySet *organisation*
 			category *assemblage*
@@ -74,7 +74,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 		initFunction Init1
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.Init1)
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"		event.postTimeEvent(24.3);"))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"		event.postTimeEvent(24.3);"))
 		dynamics sim1
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(10000)
@@ -93,14 +93,14 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 						function Fyearly
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Fyearly)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer event
 					subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.timer.EventTimer)
 					process p3
 						function Event
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Event)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([7]"		focalDrv.updateCounter = updateCounter+1;","		event.postTimeEvent(t+random.nextInt(50)+1);","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([7]"		focalDrv.updateCounter = updateCounter+1;","		event.postTimeEvent(t+random.nextInt(50)+1);","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer monthClock
 					dt = java.lang.Long(2)
 					nTimeUnits = java.lang.Integer(2)
@@ -110,7 +110,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 						function Fmonthly
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Fmonthly)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('2').append(' ').append('m').append('o').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer yearLagClock
 					dt = java.lang.Long(1)
 					nTimeUnits = java.lang.Integer(1)
@@ -121,7 +121,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 						function FyearlyLagged
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.FyearlyLagged)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('y').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('y').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 				timer calendarClock
 					dt = java.lang.Long(1)
 					nTimeUnits = java.lang.Integer(11)
@@ -131,7 +131,7 @@ treegraph // saved by OmugiGraphExporter on Mon Apr 26 16:20:12 CEST 2021
 						function F11daily
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.F11daily)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([6]"		focalDrv.updateCounter = updateCounter+1;","		StringBuilder sb = new StringBuilder();","		sb.append('t').append('=').append(' ').append(t).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']').append(' ');","		sb.append('d').append('t').append('=').append(' ').append(dt).append(' ').append('[').append('1').append('1').append(' ').append('d').append(']');","		sb.append(' ').append('v').append('=').append(' ').append(updateCounter);","		System.out.println(new Object() {}.getClass().getEnclosingMethod().getName()+' '+sb.toString());	"))
 	userInterface gui
 		top top
 			widget time

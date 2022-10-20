@@ -4,13 +4,13 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 	node_factory = java.lang.String(au.edu.anu.twcore.root.TwConfigFactory)
 // TREE
 3worlds Panmixia
-	authors = au.edu.anu.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
+	authors = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"Jacques Gignoux","Ian D. Davies"))
 	built-by = java.lang.String(ian (20 Mar. 2021))
-	contacts = au.edu.anu.omugi.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
+	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([2]"jacques.gignoux@upmc.fr","Ian.Davies@anu.edu.au"))
 	precis = java.lang.String(Tutorial: An individual based model with Panmixia. Illustrates the creation and deletion of individuals.)
-	publication = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 	version = java.lang.String(demo)
-	importSnippet =  au.edu.anu.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
+	importSnippet =  fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"static java.lang.Math.*"))
 	dataDefinition dDef
 		record drv
 			dynamic = java.lang.Boolean(true)
@@ -104,43 +104,43 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 						function Fertilize
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeOtherState)
 							userClassName = java.lang.String(code.sys1.generated.Fertilize)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"otherDrv.maturation = dt;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"otherDrv.maturation = dt;"))
 					process p2
 						function Mate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(RelateToDecision)
 							userClassName = java.lang.String(code.sys1.generated.Mate)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([8]"// if focal is male, other is female and not pregnant, and both are over age at 1st repro, then mate.","if (!female)","if (age>=age1stRep)","if (other_female)","if (other_age>=age1stRep)","if (other_maturation==0.0)","return true;","return false;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([8]"// if focal is male, other is female and not pregnant, and both are over age at 1st repro, then mate.","if (!female)","if (age>=age1stRep)","if (other_female)","if (other_age>=age1stRep)","if (other_maturation==0.0)","return true;","return false;"))
 					process p1
 						function Survive
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(DeleteDecision)
 							userClassName = java.lang.String(code.sys1.generated.Survive)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([1]"return decider.decide(1-pSur);"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"return decider.decide(1-pSur);"))
 						function Spawn
 							relateToProduct = java.lang.Boolean(false)
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(CreateOtherDecision)
 							userClassName = java.lang.String(code.sys1.generated.Spawn)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([4]"if (female)","if (maturation>=maturationTime)","return pcFec+random.nextGaussian();","return 0.0;"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([4]"if (female)","if (maturation>=maturationTime)","return pcFec+random.nextGaussian();","return 0.0;"))
 							function SetupOffspring
 								type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetOtherInitialState)
 								userClassName = java.lang.String(code.sys1.generated.SetupOffspring)
-								functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"otherDrv.maturation = 0.0;","otherDrv.pSur = 1.0;","otherCnt.female = random.nextBoolean();"))
+								functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([3]"otherDrv.maturation = 0.0;","otherDrv.pSur = 1.0;","otherCnt.female = random.nextBoolean();"))
 						function Maturate
 							type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(ChangeState)
 							userClassName = java.lang.String(code.sys1.generated.Maturate)
-							functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([12]"// mortality","if (age<=maxLifeSpan)","focalDrv.pSur = 1-exp(-k*(age+0.1));","else","focalDrv.pSur = exp (-(age-maxLifeSpan));","// reproduction","if (female) {","if (maturation>=dt)","focalDrv.maturation += dt;","else if (maturation>=maturationTime)","focalDrv.maturation = 0.0;","}"))
+							functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([12]"// mortality","if (age<=maxLifeSpan)","focalDrv.pSur = 1-exp(-k*(age+0.1));","else","focalDrv.pSur = exp (-(age-maxLifeSpan));","// reproduction","if (female) {","if (maturation>=dt)","focalDrv.maturation += dt;","else if (maturation>=maturationTime)","focalDrv.maturation = 0.0;","}"))
 			stoppingCondition stCd1
 				endTime = fr.cnrs.iees.twcore.constants.DateTimeType(100)
 				subclass = java.lang.String(au.edu.anu.twcore.ecosystem.runtime.stop.SimpleStoppingCondition)
 		initFunction InitCommunity
 			type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 			userClassName = java.lang.String(code.sys1.generated.InitCommunity)
-			functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([5]"focalCnt.age1stRep = 3.0;","focalCnt.maxLifeSpan = 20.0;","focalCnt.pcFec = 21.5;","focalCnt.k = log(100)/focalCnt.maxLifeSpan;","focalCnt.maturationTime = 3.0;"))
+			functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([5]"focalCnt.age1stRep = 3.0;","focalCnt.maxLifeSpan = 20.0;","focalCnt.pcFec = 21.5;","focalCnt.k = log(100)/focalCnt.maxLifeSpan;","focalCnt.maturationTime = 3.0;"))
 		structure structure
 			componentType fish
 				constantClass = java.lang.String(code.sys1.generated.Cnt)
 				driverClass = java.lang.String(code.sys1.generated.Drv)
 				mobile = java.lang.Boolean(false)
-				relocateFunctionName = au.edu.anu.omugi.collections.tables.StringTable(([1]""))
+				relocateFunctionName = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]""))
 				initialValues fishes
 					nInstances = java.lang.Integer(50)
 					age = java.lang.Long(4)
@@ -148,7 +148,7 @@ treegraph // saved by OmugiGraphExporter on Thu Jul 09 18:09:57 CEST 2020
 				initFunction InitFish
 					type = fr.cnrs.iees.twcore.constants.TwFunctionTypes(SetInitialState)
 					userClassName = java.lang.String(code.sys1.generated.InitFish)
-					functionSnippet = au.edu.anu.omugi.collections.tables.StringTable(([3]"focalDrv.maturation = random.nextDouble()*4.0;","focalDrv.pSur = 1.0;","focalCnt.female = random.nextBoolean();"))
+					functionSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([3]"focalDrv.maturation = random.nextDouble()*4.0;","focalDrv.pSur = 1.0;","focalCnt.female = random.nextBoolean();"))
 			relationType mating
 				lifeSpan = fr.cnrs.iees.twcore.constants.LifespanType(ephemeral)
 			categorySet alive
