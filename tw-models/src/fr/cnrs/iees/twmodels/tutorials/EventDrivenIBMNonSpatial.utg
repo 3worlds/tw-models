@@ -65,17 +65,17 @@ treegraph // saved by OmugiGraphExporter on Fri Feb 11 13:29:58 CET 2022
 			category *ephemeral*
 		record AVPopulation
 			field nRemoved
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 				description = java.lang.String(the number of an ephemeral entities removed)				
 			field nAdded
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				description = java.lang.String(the number of an ephemeral entities added)				
 				units = java.lang.String(#)
 			field count
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 				description = java.lang.String(the number of ephemeral entities)				

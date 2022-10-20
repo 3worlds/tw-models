@@ -31,17 +31,17 @@ treegraph // saved by OmugiGraphExporter on Tue Mar 30 07:02:28 AEDT 2021
 		record AVPopulation
 			field count
 				description = java.lang.String(the number of ephemeral entities)				
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nRemoved
 				description = java.lang.String(the number of an ephemeral entities removed)				
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field nAdded
 				description = java.lang.String(the number of an ephemeral entities added)				
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 		categorySet *systemElements*
@@ -89,7 +89,7 @@ treegraph // saved by OmugiGraphExporter on Tue Mar 30 07:02:28 AEDT 2021
 				units = java.lang.String(°)
 			field nLocal
 				description = java.lang.String(number of boids within detection range)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 			field avoidY

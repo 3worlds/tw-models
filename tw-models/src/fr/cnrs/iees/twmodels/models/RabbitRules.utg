@@ -30,17 +30,17 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 				description = java.lang.String(time since creation of an ephemeral entitiy)
 		record AVPopulation
 			field count
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 				description = java.lang.String(the number of ephemeral entities)				
 			field nRemoved
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 				description = java.lang.String(the number of an ephemeral entities removed)				
 			field nAdded
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String(#)
 				description = java.lang.String(the number of an ephemeral entities added)				
@@ -78,7 +78,7 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 				units = java.lang.String(m-1 s-1)
 			field nNewRabbits
 				description = java.lang.String(number of new rabbits spread per time step)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table fuelHeight
@@ -148,13 +148,13 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 			generatedClassName = java.lang.String(landDrv)
 			field nRabbits
 				description = java.lang.String(number of burning cells)
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 				type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 				units = java.lang.String()
 			table fuelLoad2
 				dataElementType = fr.cnrs.iees.twcore.constants.DataElementType(Byte)
 				description = java.lang.String(fuel state (for output only))
-				range = au.edu.anu.rscs.aot.util.IntegerRange(0..2)
+				range = au.edu.anu.omhtk.util.IntegerRange(0..2)
 				units = java.lang.String(0 unburnt 1 burning 2 burnt)
 			table windMap
 				generatedClassName = java.lang.String(WindMap)
@@ -205,12 +205,12 @@ treegraph // saved by OmugiGraphExporter on Tue May 24 10:40:28 CEST 2022
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Boolean)
 					field fuelLoad
 						description = java.lang.String(fuel state)
-						range = au.edu.anu.rscs.aot.util.IntegerRange(0..2)
+						range = au.edu.anu.omhtk.util.IntegerRange(0..2)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Byte)
 						units = java.lang.String(0 unburnt 1 burning 2 burnt)
 					field fuelType
 						description = java.lang.String(type of fuel)
-						range = au.edu.anu.rscs.aot.util.IntegerRange(0..*)
+						range = au.edu.anu.omhtk.util.IntegerRange(0..*)
 						type = fr.cnrs.iees.twcore.constants.DataElementType(Integer)
 						units = java.lang.String(1 grass, ...)
 					field hoppingRabbitExpected
