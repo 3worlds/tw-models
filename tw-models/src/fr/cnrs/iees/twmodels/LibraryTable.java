@@ -35,10 +35,8 @@ import fr.cnrs.iees.twmodels.tests.*;
 import fr.cnrs.iees.twmodels.tutorials.*;
 
 import java.io.InputStream;
-import fr.cnrs.iees.graph.impl.ALEdge;
-import fr.cnrs.iees.graph.impl.TreeGraph;
-import fr.cnrs.iees.graph.impl.TreeGraphDataNode;
-import fr.cnrs.iees.graph.io.GraphImporter;
+import fr.cnrs.iees.omugi.graph.impl.*;
+import fr.cnrs.iees.omugi.graph.io.GraphImporter;
 
 /**
  * A lookup table for entries in ModelMaker "New" menu.
