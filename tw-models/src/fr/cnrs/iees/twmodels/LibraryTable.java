@@ -61,36 +61,113 @@ public enum LibraryTable {
 	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template, null), //
 	//
 	/**
-	 * The simplest possible model in 3Worlds.
+	 * The simplest possible model in 3Worlds that contains one driver, one constant and one process.
 	 */
 	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Lotka-Volterra tutorial introducing tables.
+	 */
 	Tut2("2 LotkaVolterra", "LotkaVolterra1", "LotkaVolterra_1.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Intermediate disturbance hypothesis - using a disturbance category.
+	 */
 	Tut3("3 I.D.H.", "IdhClock1", "IdhClock.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Non-spatial event driven example
+	 */
 	Tut4("4 Event timer 1", "PulseNS1", "EventDrivenIBMNonSpatial.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Spatial event driven example
+	 */
 	Tut5("5 Event timer 2", "PulseS1", "EventDrivenIBMSpatial.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Non-spatial IBM with mating.
+	 */
 	Tut6("6 Panmixia", "Panmixia1", "Panmixia.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Test of spatial concepts.
+	 */
 	Tut7("7 Spatial", "Spatial1", "Spatial.utg", LibraryType.Tutorial, null), //
+	/**
+	 * An agent-based flocking model of boids.
+	 */
 	Tut8("8 Boids", "Boids1", "Flock.utg", LibraryType.Tutorial, "Boids.zip"), //
+	/**
+	 * A simplistic individual based forest model to test the use of groups.
+	 */
 	Tut9("9 LittleForest", "LittleForest1", "LittleForest.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Discrete logistic model. 100,000 parallel unattended simulations without GUI.
+	 */
 	Tut10("10 Headless(Logistic)", "Headless1", "LogisticHeadless.utg", LibraryType.Tutorial, null), //
+	/**
+	 * 3Worlds random number system.
+	 */
 	Tut11("11 Random number generators", "Rng1", "Rng_1.utg", LibraryType.Tutorial, null), //
+	/**
+	 * Introduction to experiment design system.
+	 */
 	Tut12("12 Running experiments", "Prj1", "ExperimentTut.utg", LibraryType.Tutorial, "GDDM.zip"),
 	//
+	/**
+	 * Population dynamics of the palm tree Borassus aethiopum.
+	 */
 	Model1("1 Palms", "Palms1", "Palms.utg", LibraryType.Model, null), //
+	/**
+	 * Fire spread model derived from very simple empirical rules that capture the
+	 * behavioural complexity of the interactions between fire, fuels, terrain, and
+	 * weather.
+	 */
 	Model2("2 Rabbit Rules", "RabbitRules", "RabbitRules.utg", LibraryType.Model, null), //
+	/**
+	 * IBM with males and females, overlapping generations and genetics in a disturbance prone landscape
+	 */
 	Model3("3 GDDM", "GDDM1", "GDDM.utg", LibraryType.Model, "GDDM.zip"), //
 	//
+	/**
+	 * A test model for relations
+	 */
 	Test1("1 TestRelations", "TestRelations1", "TestRelations.utg", LibraryType.Test, null), //
+	/**
+	 * A test of the life-cycle concept in 3Worlds.
+	 */
 	Test2("2 TestLifeCycle", "TestLifeCycle1", "TestLifeCycle.utg", LibraryType.Test, null), //
 //	Test3("3 TestXYPlot", "TestXYPlot1", "TestXYPlot.utg", LibraryType.Test,null), //
+	/**
+	 * Test UI widgets when running multiple simulations.
+	 */
 	Test4("4 ParallelTest (Logistic)", "Logistic1", "ParallelTestLogistic.utg", LibraryType.Test, null), //
+	/**
+	 * Test UI widgets when running multiple simulations.
+	 */
 	Test5("5 ParallelTest (Boids)", "Boids1", "ParallelTestBoids.utg", LibraryType.Test, null), //
+	/**
+	 * Testing multiple times of different steps and types.
+	 */
 	Test6("6 Timer test (clock/event)", "TimerTest1", "TimerTest.utg", LibraryType.Test, null), //
+	/**
+	 * Test Clock timer with Gregorian time scale.r
+	 */
 	Test7("7 Timer test (calendar time)", "TimerTest1", "TimerTestCalendarTime.utg", LibraryType.Test, null), //
+	/**
+	 * Spatial IBM with single sex, non-overlapping generations and disturbance.
+	 */
 	Test8("8 Landscape A", "LMA", "LMA.utg", LibraryType.Test, "LM1.zip"), //
+	/**
+	 * Spatial IBM with single sex, overlapping generations and disturbance.
+	 */
 	Test9("9 Landscape B", "LMB", "LMB.utg", LibraryType.Test, "LM1.zip"), //
+	/**
+	 * Spatial IBM with males, females,, overlapping generations and disturbance.
+	 */
 	Test10("10 Landscape C", "LMC", "LMC.utg", LibraryType.Test, "LM1.zip"), //
+	/**
+	 * Spatial IBM with males, females, overlapping generations, landscape genetics and disturbance.
+	 */
 	Test11("11 Landscape D", "LMD", "LMD.utg", LibraryType.Test, "LM2.zip"), //
+	/**
+	 * Test data loading system.
+	 */
 	Test12("12 Data loading from files", "TestDataLoading", "TestDataLoading.utg", LibraryType.Test,
 			"TestDataLoading.zip"), //
 	;

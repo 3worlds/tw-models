@@ -8,7 +8,7 @@ treegraph // saved by OmugiGraphExporter on Wed Jun 22 12:10:30 AEST 2022
 	built-by = java.lang.String(ian (23 July 2022))
 	contacts = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"ian.davies@anu.edu.au"))
 	importSnippet = fr.cnrs.iees.omugi.collections.tables.StringTable(([8]"static code.utilities.Utilities3A.*","java.util.List","fr.cnrs.iees.omhtk.utils.Tuple","java.util.Map","java.util.HashMap","fr.cnrs.iees.uit.space.Distance","java.util.Comparator","java.util.ArrayList"))
-	precis = java.lang.String(Males and females, overlapping generations and genetics in a disturbance prone landscape)
+	precis = java.lang.String(Tutorial 8: Introduction to experiment design system.)
 	publication = fr.cnrs.iees.omugi.collections.tables.StringTable(([1]"Davies, I.D., Cary, G.J., Landguth, E.L., Lindenmayer, D.B. and Banks, S.C., 2016. Implications of recurrent disturbance for genetic diversity. Ecology and evolution, 6(4), pp.1181-1196."))
 	version = java.lang.String(0.0.8)
 	predefined *categories*
