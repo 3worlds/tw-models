@@ -61,7 +61,8 @@ public enum LibraryTable {
 	Template2("2 SimpleClock", "Prj1", "SimpleClock_1.utg", LibraryType.Template, null), //
 	//
 	/**
-	 * The simplest possible model in 3Worlds that contains one driver, one constant and one process.
+	 * The simplest possible model in 3Worlds that contains one driver, one constant
+	 * and one process.
 	 */
 	Tut1("1 Logistic", "Logistic1", "Logistic_1.utg", LibraryType.Tutorial, null), //
 	/**
@@ -120,7 +121,8 @@ public enum LibraryTable {
 	 */
 	Model2("2 Rabbit Rules", "RabbitRules", "RabbitRules.utg", LibraryType.Model, null), //
 	/**
-	 * IBM with males and females, overlapping generations and genetics in a disturbance prone landscape
+	 * IBM with males and females, overlapping generations and genetics in a
+	 * disturbance prone landscape
 	 */
 	Model3("3 GDDM", "GDDM1", "GDDM.utg", LibraryType.Model, "GDDM.zip"), //
 	//
@@ -162,7 +164,8 @@ public enum LibraryTable {
 	 */
 	Test10("10 Landscape C", "LMC", "LMC.utg", LibraryType.Test, "LM1.zip"), //
 	/**
-	 * Spatial IBM with males, females, overlapping generations, landscape genetics and disturbance.
+	 * Spatial IBM with males, females, overlapping generations, landscape genetics
+	 * and disturbance.
 	 */
 	Test11("11 Landscape D", "LMD", "LMD.utg", LibraryType.Test, "LM2.zip"), //
 	/**
@@ -216,8 +219,49 @@ public enum LibraryTable {
 	}
 
 	/**
+	 * Returns a zip file containing any dependencies associated with this model or
+	 * null if the model has no dependencies.
+	 * <p>
+	 * The contents of the archive are extracted and place in the appropriate
+	 * location for the model.
+	 * 
+	 * @return The archive file (*.zip) containing any dependent files for a model
+	 *         configuration. Can be null.
+	 */
+	public InputStream dependencyArchive() {
+		if (dependencyArchive == null)
+			return null;
+		Class<?> associatedClass = getAssociatedClass();
+		return associatedClass.getResourceAsStream(dependencyArchive);
+	}
+
+	/**
+	 * Instantiates a configuration graph of the model.
+	 * 
+	 * @return Configuration graph.
+	 */
+	@SuppressWarnings("unchecked")
+	public TreeGraph<TreeGraphDataNode, ALEdge> getGraph() {
+		return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, getAssociatedClass());
+	}
+
+	boolean configExists() {
+		Class<?> associatedClass = getAssociatedClass();
+		return associatedClass.getResourceAsStream(fileName) != null;
+	}
+
+	boolean dependencyExists() {
+		if (dependencyArchive == null)
+			return true;
+		else if (!dependencyArchive.endsWith(".zip"))
+			return false;
+		else
+			return dependencyArchive() != null;
+	}
+
+	/**
 	 * @return A dummy class to provide the package name wherein the required model
-	 *         file and dependencies are located.r
+	 *         file and dependencies are located.
 	 */
 	private Class<?> getAssociatedClass() {
 		switch (libraryType) {
@@ -235,60 +279,6 @@ public enum LibraryTable {
 		}
 		}
 
-	}
-
-	/**
-	 * Returns a zip file containing any dependencies associated with this model or
-	 * null if the model has no dependencies.
-	 * <p>
-	 * The contents of the archive are extracted and place in the appropriate
-	 * location for the model.
-	 * 
-	 * @return The archive file (*.zip) containing any dependent files for a model
-	 *         configuration.
-	 */
-	public InputStream dependencyArchive() {
-		if (dependencyArchive == null)
-			return null;
-		Class<?> associatedClass = getAssociatedClass();
-		return associatedClass.getResourceAsStream(dependencyArchive);
-	}
-
-	/**
-	 * Instantiates a configuration graph of the model.
-	 * 
-	 * @return Configuration graph.
-	 */
-	@SuppressWarnings("unchecked")
-	public TreeGraph<TreeGraphDataNode, ALEdge> getGraph() {
-		switch (libraryType) {
-		case Template: {
-			return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, TemplatesDummy.class);
-		}
-		case Tutorial: {
-			return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, TutorialsDummy.class);
-		}
-		case Model: {
-			return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, ModelsDummy.class);
-		}
-		default: {
-			return (TreeGraph<TreeGraphDataNode, ALEdge>) GraphImporter.importGraph(fileName, TestsDummy.class);
-		}
-		}
-	}
-
-	boolean configExists() {
-		Class<?> associatedClass = getAssociatedClass();
-		return associatedClass.getResourceAsStream(fileName) != null;
-	}
-
-	boolean dependencyExists() {
-		if (dependencyArchive == null)
-			return true;
-		else if (!dependencyArchive.endsWith(".zip"))
-			return false;
-		else
-			return dependencyArchive() != null;
 	}
 
 }
