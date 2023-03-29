@@ -125,6 +125,11 @@ public enum LibraryTable {
 	 * disturbance prone landscape
 	 */
 	Model3("3 GDDM", "GDDM1", "GDDM.utg", LibraryType.Model, "GDDM.zip"), //
+	/**
+	 * IBM with males and females, overlapping generations and genetics in a
+	 * disturbance prone landscape
+	 */
+	Model4("3 GDDR", "GDDR1", "GDDR.utg", LibraryType.Model, "GDDR.zip"), //
 	//
 	/**
 	 * A test model for relations
