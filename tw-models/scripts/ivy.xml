@@ -30,7 +30,7 @@
 	</publications>
 
 	<dependencies>
-		<dependency org="fr.cnrs.iees.omugi" name="omugi" rev="[0.6.0,)"/>
+		<dependency org="fr.cnrs.iees.omugi" name="omugi" rev="[0.6.1,)"/>
 	</dependencies>
 
 </ivy-module>
